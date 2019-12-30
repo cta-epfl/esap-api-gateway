@@ -32,3 +32,8 @@ test environment.
 
 * http://dop457.astron.nl/adex/
 
+## Admin
+Django comes with an Admin application, which can be accessed here. (user: `admin`, password: `admin`)
+* http://dop457.astron.nl/adex/admin/
+
+You can log in to the REST API with the same credentials.
