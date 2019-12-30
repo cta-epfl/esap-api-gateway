@@ -17,7 +17,7 @@ CMD exec gunicorn adex.wsgi_docker_dop457:application --bind 0.0.0.0:8000 --work
 # docker build -t adex_api:latest .
 
 # run the container from 'shared', like this:
-# docker run -d --name adex_api --mount type=bind,source=/home/pi/shared,target=/shared -p 8004:8000 --restart always adex_api:latest
+# docker run -d --name adex_api --mount type=bind,source=/data/shared,target=/shared -p 8004:8000 --restart always adex_api:latest
 
 # log into the container
 # docker exec -it adex_api sh
