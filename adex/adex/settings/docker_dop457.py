@@ -94,7 +94,7 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'adex.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, '/shared/adex.sqlite3'),
     },
 }
 
@@ -191,7 +191,7 @@ LOGGING = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static_astrobase/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 

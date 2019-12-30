@@ -10,7 +10,7 @@ RUN mkdir /src
 WORKDIR /src
 COPY . /src/
 RUN pip install -r requirements/prod.txt
-RUN exec python manage.py collectstatic --settings=adex.settings.docker_dop457
+RUN exec python manage.py collectstatic --settings=adex.settings.docker_dop457 --no-input
 CMD exec gunicorn adex.wsgi_docker_dop457:application --bind 0.0.0.0:8000 --workers 3
 
 # build the image like this:
