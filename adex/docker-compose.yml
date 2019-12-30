@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  web:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    container_name: astrobase_web_rpi
+    ports:
+      - "8008:8000"
+    expose:
+      - "8008"
+    restart: always
+    volumes:
+      - /home/pi/shared:/shared # this is where the sqlite database lives
+  nginx:
+    build:
+       context: ./docker/nginx
+       dockerfile: Dockerfile
+    container_name: astrobase_nginx_rpi
+    ports:
+      - "88:80"
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+    restart: always
+
+# build the stack like this:
+# > docker-compose build
+
+# run the stack like this:
+# > docker-compose up
