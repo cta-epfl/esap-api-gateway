@@ -2,6 +2,9 @@
 
 Prototype for a small information portal to the different ASTRON datasources (WSRT, Apertif, LOFAR, VO).
 
+This backend API can be used to serve information about several datasources in `json` format through a `REST API`, 
+which can be accessed by a (ReactJS) frontend application.
+
 ## Initial Setup
 A Django project was created by following the instructions on the Django website.
 * https://docs.djangoproject.com/en/2.2/intro/tutorial01/
