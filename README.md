@@ -31,7 +31,8 @@ Django and does not require a separate database engine or database server to be 
 
 ## Deployment
 A prototype is deployed in a `Docker` container on a dedicated Docker machine that was setup specifically as a 
-test environment.
+test environment. The `adex.sqlite3` database is stored in a shared directory and mounted into the docker container 
+as a volume.
 
 * http://dop457.astron.nl/adex/
 
