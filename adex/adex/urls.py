@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('adex/', include('api.urls')),
-    path('adex/admin/', admin.site.urls),
-    path('adex/api-auth/', include('rest_framework.urls')),
+    path('adex-api/', include('api.urls')),
+    path('adex-api/admin/', admin.site.urls),
+    path('adex-api/api-auth/', include('rest_framework.urls')),
 ]

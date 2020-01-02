@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
 
     # ex: /adex/
-    # path('', views.DataSourceListViewAPI.as_view()),
+    path('', views.DataSourceListViewAPI.as_view()),
 
     # ex: /adex/datasources/
     path('datasources/', views.DataSourceListViewAPI.as_view()),
