@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39bb9056-a8a2-4105-bdfc-77202926e9ed" name="Default" comment="">
+    <list default="true" id="39bb9056-a8a2-4105-bdfc-77202926e9ed" name="Default" comment="documentation">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adex/api/migrations/0004_datasource_url_to_archive.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adex/api/migrations/0005_auto_20200103_0917.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adex/api/migrations/0006_auto_20200103_0937.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adex/api/migrations/0007_auto_20200103_0948.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adex/api/migrations/0008_auto_20200103_1044.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adex/api/migrations/0009_auto_20200103_1143.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adex/api/migrations/0010_auto_20200103_1144.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adex/api/migrations/0011_auto_20200103_1247.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adex/adex/adex.sqlite3" afterPath="$PROJECT_DIR$/adex/adex/adex.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adex/adex/urls.py" afterPath="$PROJECT_DIR$/adex/adex/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adex/api/urls.py" afterPath="$PROJECT_DIR$/adex/api/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adex/api/models.py" afterPath="$PROJECT_DIR$/adex/api/models.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adex/api/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -94,7 +102,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="264">
-                <caret line="8" column="55" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+                <caret line="8" column="56" lean-forward="false" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -102,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/adex/api/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="65" />
+            <state relative-caret-position="726">
+              <caret line="22" column="49" lean-forward="false" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -157,10 +165,10 @@
         <option value="$PROJECT_DIR$/adex/adex/wsgi_docker_dop457.py" />
         <option value="$PROJECT_DIR$/adex/Dockerfile" />
         <option value="$PROJECT_DIR$/adex/adex/settings/docker_dop457.py" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/adex/api/models.py" />
         <option value="$PROJECT_DIR$/adex/adex/urls.py" />
         <option value="$PROJECT_DIR$/adex/api/urls.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/adex/api/models.py" />
       </list>
     </option>
   </component>
@@ -185,6 +193,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -310,6 +319,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="astron_data_explorer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="astron_data_explorer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="adex" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -338,7 +369,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -568,7 +598,28 @@
       <option name="project" value="LOCAL" />
       <updated>1577977302517</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="moved API base url from 'adex' to 'adex-api'">
+      <created>1577977497240</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1577977497240</updated>
+    </task>
+    <task id="LOCAL-00012" summary="documentation">
+      <created>1577979334329</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1577979334329</updated>
+    </task>
+    <task id="LOCAL-00013" summary="documentation">
+      <created>1577980119496</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1577980119496</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -576,14 +627,14 @@
     <editor active="false" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2315508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23449197" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="LDAP" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32218507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32329988" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -600,11 +651,14 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <MESSAGE value="adding readme" />
     <MESSAGE value="configuring Dockerfile" />
     <MESSAGE value="adding to readme" />
     <MESSAGE value="removed /adex/ url, because the frontend will use it." />
-    <option name="LAST_COMMIT_MESSAGE" value="removed /adex/ url, because the frontend will use it." />
+    <MESSAGE value="moved API base url from 'adex' to 'adex-api'" />
+    <MESSAGE value="documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="documentation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -842,30 +896,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adex/api/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/adex/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
           <caret line="19" column="62" lean-forward="false" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="264">
-            <caret line="8" column="55" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -881,6 +916,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="264">
+            <caret line="8" column="56" lean-forward="false" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adex/api/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="22" column="49" lean-forward="false" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
           <folding />
         </state>
       </provider>

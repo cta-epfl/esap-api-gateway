@@ -6,11 +6,24 @@ DataSource
 """
 class DataSource(models.Model):
 
-    name = models.CharField(max_length=40, default="unknown")
-    instrument = models.CharField(max_length=30, default="unknown") # WSRT, Apertif, LOFAR
-    description = models.CharField(max_length=1000, default="unknown")
-    thumbnail = models.CharField(max_length=200, default="https://alta.astron.nl/alta-static/unknown.jpg")
-    url_to_archive = models.CharField(max_length=200, default="")
+    uri = models.CharField(max_length=40, null=False)                # unique identifier for this datasource
+    instrument = models.CharField(max_length=30)         # WSRT, Apertif, LOFAR
+    datatype = models.CharField(max_length=30)           # visibility, image, cube
+    processing_level = models.CharField(max_length=30)   # raw, calibrated, processed
+
+    name = models.CharField(max_length=40)               # label in GUI
+    thumbnail_primary = models.URLField(default="https://alta.astron.nl/alta-static/unknown.jpg")
+    thumbnail_secondary = models.URLField()
+
+    archive_name = models.CharField(max_length=40)       # LOFAR LTA, ALTA, WSRT (MoM), VO
+    archive_url = models.URLField()
+
+    short_description = models.CharField(max_length=40)
+    description = models.TextField(null=True)
+    documentation_url = models.URLField(null=True)
+
+    retrieval_description = models.TextField(null=True)
+    scientific_description = models.TextField(null=True)
 
 
     # the representation of the value in the REST API
