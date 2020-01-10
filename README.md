@@ -7,4 +7,6 @@ which can be accessed by a (ReactJS) frontend application.
 
 ## Documentation 
 * frontend (GUI): https://git.astron.nl/vermaas/adex-gui/wikis/ADEX-GUI
+
+See also:
 * backend (API): https://git.astron.nl/vermaas/adex-api/wikis/ADEX-API
