@@ -14,7 +14,7 @@ RUN exec python manage.py collectstatic --settings=adex.settings.docker_dop457-0
 CMD exec gunicorn adex.wsgi_docker_dop457-010:application --bind 0.0.0.0:8000 --workers 3
 
 # build the image like this:
-# docker build -t adex_api-010:latest .
+# docker build -f ./Dockerfile-010 -t adex_api-010:latest .
 
 # run the container from 'shared', like this:
 # docker run -d --name adex_api-010 --mount type=bind,source=/data/shared,target=/shared -p 8001:8000 --restart always adex_api-010:latest
