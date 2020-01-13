@@ -8,31 +8,88 @@ from rest_framework import generics, pagination, status
 
 from rest_framework.views import APIView
 
-
-from .models import DataSource
-from .serializers import DataSourceSerializer
+from .models import Archive, DataSet
+from .serializers import ArchiveSerializer, ArchiveModelSerializer, DataSetSerializer, DataSetModelSerializer
 
 logger = logging.getLogger(__name__)
 
 
 # ---------- REST API views -----------
 
-# example: /adex/datasources/
-class DataSourceListViewAPI(generics.ListCreateAPIView):
+# example: /adex-api/archives/
+class ArchiveListViewAPI(generics.ListCreateAPIView):
     """
-    A list of datasources
+    A list of Archives
     """
-    model = DataSource
-    queryset = DataSource.objects.all()
-    serializer_class = DataSourceSerializer
+    model = Archive
+    queryset = Archive.objects.all()
+    serializer_class = ArchiveSerializer
 
 
-# example: /adex/datasources/1/
-class DataSourceDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
+# example: /adex-api/archives/1/
+class ArchiveDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     """
-    Detailed view of datasource
+    Detailed view of Archive
     """
-    model = DataSource
-    queryset = DataSource.objects.all()
-    serializer_class = DataSourceSerializer
+    model = Archive
+    queryset = Archive.objects.all()
+    serializer_class = ArchiveSerializer
+    
 
+class ArchiveListUriViewAPI(generics.ListCreateAPIView):
+    """
+    A list of Archives
+    """
+    model = Archive
+    queryset = Archive.objects.all()
+    serializer_class = ArchiveModelSerializer
+
+
+# example: /adex-api-uri/archives/1/
+class ArchiveDetailsUriViewAPI(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Detailed view of Archive
+    """
+    model = Archive
+    queryset = Archive.objects.all()
+    serializer_class = ArchiveModelSerializer
+
+
+# example: /adex-api/datasets/
+class DataSetListViewAPI(generics.ListCreateAPIView):
+    """
+    A list of DataSets
+    """
+    model = DataSet
+    queryset = DataSet.objects.all()
+    serializer_class = DataSetSerializer
+
+
+# example: /adex-api/datasets/1/
+class DataSetDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Detailed view of DataSet
+    """
+    model = DataSet
+    queryset = DataSet.objects.all()
+    serializer_class = DataSetSerializer
+
+
+# example: /adex-api/datasets/
+class DataSetListUriViewAPI(generics.ListCreateAPIView):
+    """
+    A list of DataSets
+    """
+    model = DataSet
+    queryset = DataSet.objects.all()
+    serializer_class = DataSetModelSerializer
+
+
+# example: /adex-api/datasets/1/
+class DataSetDetailsUriViewAPI(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Detailed view of DataSet
+    """
+    model = DataSet
+    queryset = DataSet.objects.all()
+    serializer_class = DataSetModelSerializer
