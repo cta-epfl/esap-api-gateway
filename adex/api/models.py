@@ -9,9 +9,10 @@ class AdexBaseObject(models.Model):
     name = models.CharField(max_length=40)             # label in GUI
     short_description = models.CharField(max_length=40)
     long_description = models.TextField(null=True)
+    retrieval_description = models.TextField(null=True)
 
     thumbnail = models.URLField(default="https://alta.astron.nl/alta-static/unknown.jpg")
-    documentation = models.URLField(null=True)
+    documentation_url = models.URLField(null=True)
 
     def __str__(self):
         return str(self.uri)
