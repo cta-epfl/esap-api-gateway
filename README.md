@@ -1,4 +1,4 @@
-# Astron Data Explorer (ADEX) - API (prototype)
+# ESAP-gateway
 
 Prototype for an information portal to the ASTRON datasources (WSRT, Apertif, LOFAR, VO, ...).
 
