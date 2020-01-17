@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import AdexBaseObject, Archive, DataSet
+from .models import EsapBaseObject, Archive, DataSet, Catalog, CatalogService
 
-admin.site.register(AdexBaseObject)
+admin.site.register(EsapBaseObject)
 admin.site.register(Archive)
 admin.site.register(DataSet)
+admin.site.register(Catalog)
+admin.site.register(CatalogService)

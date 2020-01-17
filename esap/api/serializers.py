@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from .models import AdexBaseObject, DataSet, Archive
+from .models import EsapBaseObject, DataSet, Archive, Catalog, CatalogService
 import logging
 
 logger = logging.getLogger(__name__)
 
 class AdexBaseObjectSerializer(serializers.ModelSerializer):
     class Meta():
-        model = AdexBaseObject
+        model = EsapBaseObject
         fields = "__all__"
 
 
@@ -29,8 +29,8 @@ class DataSetModelSerializer(serializers.ModelSerializer):
 
     class Meta():
         model = DataSet
-        fields = "__all__"
-
+        # fields = "__all__"
+        fields = ('id', 'uri', 'name', 'data_archive')
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
 class ArchiveSerializer(serializers.HyperlinkedModelSerializer):
@@ -48,10 +48,9 @@ class ArchiveSerializer(serializers.HyperlinkedModelSerializer):
     class Meta():
         model = Archive
 
-        # note: "__all__" cannot be ussed because the id is also used in the frontend, and not automatically returned
-        # note: 'datasets' is a special field, it is the 'datasets.data_archive' relationship also serialized in Archive
+       # note: 'datasets' is a special field, it is the 'datasets.data_archive' relationship also serialized in Archive
         fields = ('id', 'uri', 'name', 'short_description', 'long_description', 'retrieval_description', 'thumbnail',
-                   'documentation_url','instrument','catalog_name','catalog_url','datasets')
+                   'documentation_url','instrument','catalog_name','catalog_url','institute','datasets', 'archive_catalog')
 
 
 # this is a serializer that uses uri's in the datasets for easier identification for the frontend
@@ -68,4 +67,20 @@ class ArchiveModelSerializer(serializers.ModelSerializer):
         # note: "__all__" cannot be ussed because the id is also used in the frontend, and not automatically returned
         # note: 'datasets' is a special field, it is the 'datasets.data_archive' relationship also serialized in Archive
         fields = ('id', 'uri', 'name', 'short_description', 'long_description', 'retrieval_description', 'thumbnail',
-                   'documentation_url','instrument','catalog_name','catalog_url','datasets')
+                   'documentation_url','instrument','catalog_name','catalog_url','institute','datasets')
+
+
+# this is a serializer that uses hyperlinks to produce a navigable REST API
+class CatalogSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta():
+        model = Catalog
+        fields = "__all__"
+
+
+# this is a serializer that uses hyperlinks to produce a navigable REST API
+class CatalogServiceSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta():
+        model = CatalogService
+        fields = "__all__"

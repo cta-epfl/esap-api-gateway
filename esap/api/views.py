@@ -7,12 +7,64 @@ from django.views.generic import ListView
 from rest_framework import generics, pagination, status
 
 from rest_framework.views import APIView
+from django_filters import rest_framework as filters
 
-from .models import Archive, DataSet
-from .serializers import ArchiveSerializer, ArchiveModelSerializer, DataSetSerializer, DataSetModelSerializer
+from .models import Archive, DataSet, Catalog, CatalogService
+from .serializers import \
+    ArchiveSerializer, \
+    ArchiveModelSerializer, \
+    DataSetSerializer, \
+    DataSetModelSerializer, \
+    CatalogSerializer, \
+    CatalogServiceSerializer
 
 logger = logging.getLogger(__name__)
 
+# ---------- REST API filters -----------
+
+class ArchiveFilter(filters.FilterSet):
+
+    class Meta:
+        model = Archive
+
+        fields = {
+            'name': ['exact', 'in', 'icontains'],
+            'long_description': ['icontains'],
+            'institute': ['exact', 'in', 'icontains'],
+        }
+
+
+class DataSetFilter(filters.FilterSet):
+    class Meta:
+        model = DataSet
+
+        fields = {
+            'name': ['exact', 'in', 'icontains'],
+            'long_description': ['icontains'],
+            'institute': ['exact', 'in', 'icontains'],
+        }
+
+
+class CatalogFilter(filters.FilterSet):
+    class Meta:
+        model = Catalog
+
+        fields = {
+            'name': ['exact', 'in', 'icontains'],
+            'long_description': ['icontains'],
+            'institute': ['exact', 'in', 'icontains'],
+        }
+
+
+class CatalogServiceFilter(filters.FilterSet):
+    class Meta:
+        model = CatalogService
+
+        fields = {
+            'name': ['exact', 'in', 'icontains'],
+            'long_description': ['icontains'],
+            'institute': ['exact', 'in', 'icontains'],
+        }
 
 # ---------- REST API views -----------
 
@@ -24,6 +76,10 @@ class ArchiveListViewAPI(generics.ListCreateAPIView):
     model = Archive
     queryset = Archive.objects.all()
     serializer_class = ArchiveSerializer
+
+    # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = ArchiveFilter
 
 
 # example: /esap-api/archives/1/
@@ -64,6 +120,10 @@ class DataSetListViewAPI(generics.ListCreateAPIView):
     queryset = DataSet.objects.all()
     serializer_class = DataSetSerializer
 
+    # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = DataSetFilter
+
 
 # example: /esap-api/datasets/1/
 class DataSetDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
@@ -84,6 +144,10 @@ class DataSetListUriViewAPI(generics.ListCreateAPIView):
     queryset = DataSet.objects.all()
     serializer_class = DataSetModelSerializer
 
+    # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = DataSetFilter
+
 
 # example: /esap-api/datasets/1/
 class DataSetDetailsUriViewAPI(generics.RetrieveUpdateDestroyAPIView):
@@ -93,3 +157,51 @@ class DataSetDetailsUriViewAPI(generics.RetrieveUpdateDestroyAPIView):
     model = DataSet
     queryset = DataSet.objects.all()
     serializer_class = DataSetModelSerializer
+
+
+# example: /esap-api/catalogs/
+class CatalogListViewAPI(generics.ListCreateAPIView):
+    """
+    A list of Catalogs
+    """
+    model = Catalog
+    queryset = Catalog.objects.all()
+    serializer_class = CatalogSerializer
+
+    # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = CatalogFilter
+
+
+# example: /esap-api/catalogs/1/
+class CatalogDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Detailed view of Catalog
+    """
+    model = Catalog
+    queryset = Catalog.objects.all()
+    serializer_class = CatalogSerializer
+
+
+# example: /esap-api/catalog-servicess/
+class CatalogServicesListViewAPI(generics.ListCreateAPIView):
+    """
+    A list of CatalogServices
+    """
+    model = CatalogService
+    queryset = CatalogService.objects.all()
+    serializer_class = CatalogServiceSerializer
+
+    # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = CatalogServiceFilter
+
+
+# example: /esap-api/catalog-services/1/
+class CatalogServicesDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Detailed view of CatalogService
+    """
+    model = CatalogService
+    queryset = CatalogService.objects.all()
+    serializer_class = CatalogServiceSerializer
