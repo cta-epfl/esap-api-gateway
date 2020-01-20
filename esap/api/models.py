@@ -5,6 +5,7 @@ EsapBaseObject contains the shared fields
 """
 
 class EsapBaseObject(models.Model):
+    # type = models.CharField(max_length=15, null=False) # Archive, Catalog, CatalogService
     uri = models.CharField(max_length=40, null=False)  # unique identifier for this datasource
     name = models.CharField(max_length=40)             # label in GUI
     short_description = models.CharField(max_length=40)
@@ -19,7 +20,19 @@ class EsapBaseObject(models.Model):
     def __str__(self):
         return str(self.uri)
 
+    @property
+    def type_derived(self):
+        my_type = "EsapBaseObject"
 
+        if isinstance(self,Archive):
+            my_type = "Archive"
+        elif isinstance(self, Catalog):
+            my_type = "Catalog"
+        elif isinstance(self, CatalogService):
+            my_type = "CatalogService"
+        elif isinstance(self, DataSet):
+            my_type = "Dataset"
+        return my_type
 
 """
 Catalog

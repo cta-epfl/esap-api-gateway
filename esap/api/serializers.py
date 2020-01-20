@@ -32,6 +32,7 @@ class DataSetModelSerializer(serializers.ModelSerializer):
         # fields = "__all__"
         fields = ('id', 'uri', 'name', 'data_archive')
 
+
 # this is a serializer that uses hyperlinks to produce a navigable REST API
 class ArchiveSerializer(serializers.HyperlinkedModelSerializer):
 
@@ -50,7 +51,8 @@ class ArchiveSerializer(serializers.HyperlinkedModelSerializer):
 
        # note: 'datasets' is a special field, it is the 'datasets.data_archive' relationship also serialized in Archive
         fields = ('id', 'uri', 'name', 'short_description', 'long_description', 'retrieval_description', 'thumbnail',
-                   'documentation_url','instrument','catalog_name','catalog_url','institute','datasets', 'archive_catalog')
+                   'documentation_url','instrument','catalog_name','catalog_url','institute','datasets',
+                  'archive_catalog')
 
 
 # this is a serializer that uses uri's in the datasets for easier identification for the frontend
