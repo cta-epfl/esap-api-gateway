@@ -42,6 +42,9 @@ class DataSetFilter(filters.FilterSet):
             'name': ['exact', 'in', 'icontains'],
             'long_description': ['icontains'],
             'institute': ['exact', 'in', 'icontains'],
+            # example: select DataSets from archive with uri 'astron_vo':
+            # /esap-api/datasets-uri/?data_archive__uri=astron_vo
+            'data_archive__uri': ['exact', 'in', 'icontains'],
         }
 
 

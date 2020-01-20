@@ -30,7 +30,9 @@ class DataSetModelSerializer(serializers.ModelSerializer):
     class Meta():
         model = DataSet
         # fields = "__all__"
-        fields = ('id', 'uri', 'name', 'data_archive')
+        fields = ('id', 'uri', 'name', 'short_description','long_description', 'retrieval_description', 'thumbnail',
+                   'documentation_url', 'data_archive', 'archive_name_derived','archive_name_derived',
+                  'archive_uri_derived','catalog_name_derived')
 
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
@@ -51,7 +53,7 @@ class ArchiveSerializer(serializers.HyperlinkedModelSerializer):
 
        # note: 'datasets' is a special field, it is the 'datasets.data_archive' relationship also serialized in Archive
         fields = ('id', 'uri', 'name', 'short_description', 'long_description', 'retrieval_description', 'thumbnail',
-                   'documentation_url','instrument','catalog_name','catalog_url','institute','datasets',
+                   'documentation_url','instrument','catalog_name_derived','catalog_url_derived','institute','datasets',
                   'archive_catalog')
 
 
@@ -69,7 +71,7 @@ class ArchiveModelSerializer(serializers.ModelSerializer):
         # note: "__all__" cannot be ussed because the id is also used in the frontend, and not automatically returned
         # note: 'datasets' is a special field, it is the 'datasets.data_archive' relationship also serialized in Archive
         fields = ('id', 'uri', 'name', 'short_description', 'long_description', 'retrieval_description', 'thumbnail',
-                   'documentation_url','instrument','catalog_name','catalog_url','institute','datasets')
+                   'documentation_url','instrument','catalog_name_derived','catalog_url_derived','institute','datasets')
 
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
