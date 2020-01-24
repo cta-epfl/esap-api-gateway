@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="39bb9056-a8a2-4105-bdfc-77202926e9ed" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esap/requirements/base.txt" afterPath="$PROJECT_DIR$/esap/requirements/base.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esap/Dockerfile" afterPath="$PROJECT_DIR$/esap/Dockerfile" />
     </list>
     <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/esap/requirements/base.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="265">
@@ -74,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/esap/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+            <state relative-caret-position="106">
+              <caret line="2" column="138" lean-forward="false" selection-start-line="2" selection-start-column="124" selection-end-line="2" selection-end-column="138" />
               <folding />
             </state>
           </provider>
@@ -87,11 +87,9 @@
       <file leaf-file-name="inspect_vo_registry.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../python/VO/inspect_vo_registry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-              <folding>
-                <marker date="1579871656350" expanded="true" signature="2012:2165" ph="..." />
-              </folding>
+            <state relative-caret-position="-318">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -205,8 +203,8 @@
         <option value="$PROJECT_DIR$/esap/api/views.py" />
         <option value="$PROJECT_DIR$/esap/api/serializers.py" />
         <option value="$PROJECT_DIR$/esap/api/models.py" />
-        <option value="$PROJECT_DIR$/esap/Dockerfile" />
         <option value="$PROJECT_DIR$/esap/requirements/base.txt" />
+        <option value="$PROJECT_DIR$/esap/Dockerfile" />
       </list>
     </option>
   </component>
@@ -778,7 +776,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579874307915</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="adding astropy, numpy and pyvo">
+      <created>1579874501096</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1579874501096</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView">
@@ -996,11 +1001,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../python/VO/inspect_vo_registry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-          <folding>
-            <marker date="1579871656350" expanded="true" signature="2012:2165" ph="..." />
-          </folding>
+        <state relative-caret-position="-318">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1028,18 +1031,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esap/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/esap/requirements/base.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="2" column="138" lean-forward="false" selection-start-line="2" selection-start-column="124" selection-end-line="2" selection-end-column="138" />
           <folding />
         </state>
       </provider>
