@@ -7,3 +7,4 @@ numpy==1.18.1
 astropy==4.0
 pyvo==1.0
 requests==2.22.0
+cython==0.29.14
