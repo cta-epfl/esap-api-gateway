@@ -44,6 +44,7 @@ class Catalog(EsapBaseObject):
     def __str__(self):
         return str(self.uri)
 
+
 """
 CatalogService
 """
@@ -59,6 +60,29 @@ class CatalogService(EsapBaseObject):
     # the representation of the value in the REST API
     def __str__(self):
         return str(self.uri)
+
+
+"""
+Every catalog service uses different parameters to access similar information
+"""
+class RetrievalParameters(models.Model):
+    # fields
+    # relationships
+    service = models.ForeignKey(CatalogService, related_name='parameters', on_delete=models.CASCADE, null=True, blank=True)
+
+    # target
+    input_parameter = models.CharField(max_length=40, null=False)
+    # __icontains
+    input_operator = models.CharField(max_length=40, null=False)
+
+    # target
+    output_parameter =  models.CharField(max_length=40, null=False)
+    # __icontains
+    output_operator = models.CharField(max_length=40, null=False)
+
+    # the representation of the value in the REST API
+    def __str__(self):
+        return str(self.input_parameter) + str(self.input_operator) + ' => ' + str(self.output_parameter) + str(self.output_operator)
 
 
 """

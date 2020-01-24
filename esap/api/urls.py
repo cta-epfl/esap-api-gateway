@@ -21,7 +21,8 @@ urlpatterns = [
     path('catalog/<int:pk>/', views.CatalogDetailsViewAPI.as_view(), name='catalog-detail'),
 
     path('catalog-services/', views.CatalogServicesListViewAPI.as_view(), name='catalog-services-view'),
-    path('catalog-services/<int:pk>/', views.CatalogServicesDetailsViewAPI.as_view(), name='catalog-services-detail'),
-
+    path('catalog-services/<int:pk>/', views.CatalogServicesDetailsViewAPI.as_view(), name='catalogservice-detail'),
+    path('retrieval-parameters', views.RetrievalParametersListViewAPI.as_view(), name='retrievalparameters-view'),
+    path('retrieval-parameters/<int:pk>/', views.RetrievalParametersDetailsViewAPI.as_view(), name='retrievalparameters-detail'),
 ]
 

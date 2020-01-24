@@ -9,14 +9,15 @@ from rest_framework import generics, pagination, status
 from rest_framework.views import APIView
 from django_filters import rest_framework as filters
 
-from .models import Archive, DataSet, Catalog, CatalogService
+from .models import Archive, DataSet, Catalog, CatalogService, RetrievalParameters
 from .serializers import \
     ArchiveSerializer, \
     ArchiveModelSerializer, \
     DataSetSerializer, \
     DataSetModelSerializer, \
     CatalogSerializer, \
-    CatalogServiceSerializer
+    CatalogServiceSerializer, \
+    RetrievalParametersSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -68,6 +69,21 @@ class CatalogServiceFilter(filters.FilterSet):
             'long_description': ['icontains'],
             'institute': ['exact', 'in', 'icontains'],
         }
+
+
+class RetrievalParametersFilter(filters.FilterSet):
+    class Meta:
+        model = RetrievalParameters
+
+        fields = {
+            'service__uri': ['exact', 'in', 'icontains'],
+            'input_parameter': ['exact', 'in', 'icontains'],
+            'input_operator': ['exact', 'in', 'icontains'],
+            'output_parameter': ['exact', 'in', 'icontains'],
+            'output_operator': ['exact', 'in', 'icontains'],
+
+        }
+
 
 # ---------- REST API views -----------
 
@@ -186,7 +202,7 @@ class CatalogDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CatalogSerializer
 
 
-# example: /esap-api/catalog-servicess/
+# example: /esap-api/catalog-services/
 class CatalogServicesListViewAPI(generics.ListCreateAPIView):
     """
     A list of CatalogServices
@@ -208,3 +224,27 @@ class CatalogServicesDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     model = CatalogService
     queryset = CatalogService.objects.all()
     serializer_class = CatalogServiceSerializer
+
+
+# example: /esap-api/retrieval-parameters/
+class RetrievalParametersListViewAPI(generics.ListCreateAPIView):
+    """
+    A list of Retrieval Parameters per service
+    """
+    model = RetrievalParameters
+    queryset = RetrievalParameters.objects.all()
+    serializer_class = RetrievalParametersSerializer
+
+    # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = RetrievalParametersFilter
+
+
+# example: /esap-api/retrieval-parameters/1
+class RetrievalParametersDetailsViewAPI(generics.ListCreateAPIView):
+    """
+    A list of Retrieval Parameters per service
+    """
+    model = RetrievalParameters
+    queryset = RetrievalParameters.objects.all()
+    serializer_class = RetrievalParametersSerializer

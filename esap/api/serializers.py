@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import EsapBaseObject, DataSet, Archive, Catalog, CatalogService
+from .models import EsapBaseObject, DataSet, Archive, Catalog, CatalogService, RetrievalParameters
 import logging
 
 logger = logging.getLogger(__name__)
@@ -84,7 +84,19 @@ class CatalogSerializer(serializers.HyperlinkedModelSerializer):
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
 class CatalogServiceSerializer(serializers.HyperlinkedModelSerializer):
+    parameters = serializers.StringRelatedField(
+        many=True,
+        required=False,
+    )
 
     class Meta():
         model = CatalogService
+        fields = "__all__"
+
+
+# this is a serializer that uses hyperlinks to produce a navigable REST API
+class RetrievalParametersSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta():
+        model = RetrievalParameters
         fields = "__all__"
