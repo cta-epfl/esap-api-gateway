@@ -243,7 +243,7 @@ class RetrievalParametersListViewAPI(generics.ListCreateAPIView):
 # example: /esap-api/retrieval-parameters/1
 class RetrievalParametersDetailsViewAPI(generics.ListCreateAPIView):
     """
-    A list of Retrieval Parameters per service
+    Details for Retrieval Parameters for a service
     """
     model = RetrievalParameters
     queryset = RetrievalParameters.objects.all()
