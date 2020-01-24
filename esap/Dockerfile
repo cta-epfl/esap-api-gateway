@@ -1,6 +1,6 @@
 FROM python:3.6.7-alpine
 ENV PYTHONUNBUFFERED 1
-RUN apk update && apk add gcc && apk add bash && apk add nano && apk add mc && apk add linux-headers && apk add musl-dev && apk add cython
+RUN apk update && apk add gcc bash nano mc linux-headers musl-dev && apk add cython
 RUN mkdir /src
 WORKDIR /src
 COPY . /src/
