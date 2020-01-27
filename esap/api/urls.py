@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
 
     # ex: /esap/
-    path('', views.ArchiveListViewAPI.as_view(), name='archive-view'),
+    path('', views.IndexView.as_view(), name='index-view'),
 
     path('archives/', views.ArchiveListViewAPI.as_view(), name='archive-view'),
     path('archives/<int:pk>/', views.ArchiveDetailsViewAPI.as_view(), name='archive-detail'),

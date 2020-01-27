@@ -87,6 +87,17 @@ class RetrievalParametersFilter(filters.FilterSet):
 
 # ---------- REST API views -----------
 
+# example: /my_energy
+class IndexView(ListView):
+    queryset = Archive.objects.all()
+    serializer_class = ArchiveSerializer
+    template_name = 'api/index.html'
+
+    # by default this returns the list in an object called object_list, so use 'object_list' in the html page.
+    # but if 'context_object_name' is defined, then this returned list is named and can be accessed that way in html.
+    context_object_name = 'my_archives'
+
+
 # example: /esap-api/archives/
 class ArchiveListViewAPI(generics.ListCreateAPIView):
     """
