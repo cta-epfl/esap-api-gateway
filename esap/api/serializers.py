@@ -91,7 +91,7 @@ class CatalogServiceSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta():
         model = CatalogService
-        fields =  ('id', 'uri', 'name', 'parameters')
+        fields =  ('id', 'uri', 'name', 'thumbnail', 'parameters')
 
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
