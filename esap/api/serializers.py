@@ -91,6 +91,7 @@ class CatalogServiceSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta():
         model = CatalogService
+        #fields = "__all__"
         fields =  ('id', 'uri', 'name', 'thumbnail', 'parameters')
 
 
