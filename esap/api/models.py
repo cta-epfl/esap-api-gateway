@@ -28,8 +28,8 @@ class EsapBaseObject(models.Model):
             my_type = "Archive"
         elif isinstance(self, Catalog):
             my_type = "Catalog"
-        elif isinstance(self, CatalogService):
-            my_type = "CatalogService"
+        #elif isinstance(self, CatalogService):
+        #    my_type = "CatalogService"
         elif isinstance(self, DataSet):
             my_type = "Dataset"
         return my_type
@@ -39,23 +39,7 @@ Catalog
 """
 class Catalog(EsapBaseObject):
     url = models.URLField(null=True)
-
-    # the representation of the value in the REST API
-    def __str__(self):
-        return str(self.uri)
-
-
-"""
-CatalogService
-"""
-class CatalogService(EsapBaseObject):
-
-    # fields
-    url = models.URLField(null=True)
-    access_parameters = models.TextField(null=True)
-
-    # relationships
-    service_catalog = models.ForeignKey(Catalog, related_name='services', on_delete=models.CASCADE, null=True, blank=True)
+    parameters = models.TextField(null=True, blank=True)
 
     # the representation of the value in the REST API
     def __str__(self):
@@ -68,7 +52,7 @@ Every catalog service uses different parameters to access similar information
 class RetrievalParameters(models.Model):
     # fields
     # relationships
-    service = models.ForeignKey(CatalogService, related_name='parameters', on_delete=models.CASCADE, null=True, blank=True)
+    dataset_catalog = models.ForeignKey(Catalog, related_name='retrieval_parameters', on_delete=models.CASCADE, null=True, blank=True)
 
     # target
     input_parameter = models.CharField(max_length=40, null=False)
@@ -92,20 +76,6 @@ class Archive(EsapBaseObject):
 
     # fields
     instrument = models.CharField(max_length=30)
-    # catalog_name = models.CharField(max_length=30)
-    # catalog_url = models.URLField(null=True)
-
-    # relationships
-    # note: the field is called 'archive_catalog' because 'catalog' clashes in the database with the field esapbaseobject.catalog.
-    archive_catalog = models.ForeignKey(Catalog, on_delete=models.CASCADE, null=True, blank=True)
-
-    @property
-    def catalog_name_derived(self):
-        return self.archive_catalog.name
-
-    @property
-    def catalog_url_derived(self):
-        return self.archive_catalog.url
 
     def __str__(self):
         return str(self.uri)
@@ -119,20 +89,28 @@ class DataSet(EsapBaseObject):
     datatype = models.CharField(max_length=30)  # like: visibility, image, cube
     processing_level = models.CharField(max_length=30)  # like: raw, calibrated, processed
 
+    # relationships
+    dataset_catalog = models.OneToOneField(Catalog, related_name = 'dataset', on_delete=models.CASCADE, null=True, blank=True)
+
     # note: the field is called 'data_archive' because 'archive' clashes in the database with the field esapbaseobject.archive.
-    data_archive = models.ForeignKey(Archive, related_name='datasets', on_delete=models.CASCADE, null=True, blank=True)
+    dataset_archive = models.ForeignKey(Archive, related_name='datasets', on_delete=models.CASCADE, null=True, blank=True)
+
 
     @property
     def catalog_name_derived(self):
-        return self.data_archive.catalog_name_derived
+        return self.dataset_catalog.name
+
+    @property
+    def catalog_uri_derived(self):
+        return self.dataset_catalog.uri
 
     @property
     def archive_name_derived(self):
-        return self.data_archive.name
+        return self.dataset_archive.name
 
     @property
     def archive_uri_derived(self):
-        return self.data_archive.uri
+        return self.dataset_archive.uri
 
     # the representation of the value in the REST API
     def __str__(self):

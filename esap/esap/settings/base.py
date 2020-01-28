@@ -166,10 +166,11 @@ LOGGING = {
             'class': 'logging.FileHandler',
             'formatter': 'my_formatter',
             'filename': 'logs/esap.log'
+
         },
     },
     'loggers': {
-        'esap_api': {
+        'api': {
             'handlers': ['my_handler','my_file_handler','mail_admins'],
             'level': 'INFO',
         },

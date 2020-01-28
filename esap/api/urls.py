@@ -20,9 +20,11 @@ urlpatterns = [
     path('catalogs/', views.CatalogListViewAPI.as_view(), name='catalog-view'),
     path('catalog/<int:pk>/', views.CatalogDetailsViewAPI.as_view(), name='catalog-detail'),
 
-    path('catalog-services/', views.CatalogServicesListViewAPI.as_view(), name='catalog-services-view'),
-    path('catalog-services/<int:pk>/', views.CatalogServicesDetailsViewAPI.as_view(), name='catalogservice-detail'),
+#    path('catalog-services/', views.CatalogServicesListViewAPI.as_view(), name='catalog-services-view'),
+#    path('catalog-services/<int:pk>/', views.CatalogServicesDetailsViewAPI.as_view(), name='catalogservice-detail'),
     path('retrieval-parameters', views.RetrievalParametersListViewAPI.as_view(), name='retrievalparameters-view'),
     path('retrieval-parameters/<int:pk>/', views.RetrievalParametersDetailsViewAPI.as_view(), name='retrievalparameters-detail'),
+
+    path('query/', views.QueryView.as_view(), name='query-view'),
 ]
 

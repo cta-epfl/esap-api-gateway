@@ -5,19 +5,21 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView
 
 from rest_framework import generics, pagination, status
+from rest_framework.response import Response
 
 from rest_framework.views import APIView
 from django_filters import rest_framework as filters
 
-from .models import Archive, DataSet, Catalog, CatalogService, RetrievalParameters
+from .models import Archive, DataSet, Catalog, RetrievalParameters
 from .serializers import \
     ArchiveSerializer, \
     ArchiveModelSerializer, \
     DataSetSerializer, \
     DataSetModelSerializer, \
     CatalogSerializer, \
-    CatalogServiceSerializer, \
     RetrievalParametersSerializer
+
+from .business import algorithms
 
 logger = logging.getLogger(__name__)
 
@@ -44,8 +46,9 @@ class DataSetFilter(filters.FilterSet):
             'long_description': ['icontains'],
             'institute': ['exact', 'in', 'icontains'],
             # example: select DataSets from archive with uri 'astron_vo':
-            # /esap-api/datasets-uri/?data_archive__uri=astron_vo
-            'data_archive__uri': ['exact', 'in', 'icontains'],
+            # /esap-api/datasets-uri/?dataset_archive__uri=astron_vo
+            'dataset_archive__uri': ['exact', 'in', 'icontains'],
+            'dataset_catalog__uri': ['exact', 'in', 'icontains'],
         }
 
 
@@ -57,17 +60,7 @@ class CatalogFilter(filters.FilterSet):
             'name': ['exact', 'in', 'icontains'],
             'long_description': ['icontains'],
             'institute': ['exact', 'in', 'icontains'],
-        }
-
-
-class CatalogServiceFilter(filters.FilterSet):
-    class Meta:
-        model = CatalogService
-
-        fields = {
-            'name': ['exact', 'in', 'icontains'],
-            'long_description': ['icontains'],
-            'institute': ['exact', 'in', 'icontains'],
+            'url': ['exact', 'in', 'icontains'],
         }
 
 
@@ -76,7 +69,7 @@ class RetrievalParametersFilter(filters.FilterSet):
         model = RetrievalParameters
 
         fields = {
-            'service__uri': ['exact', 'in', 'icontains'],
+            'dataset_catalog__uri': ['exact', 'in', 'icontains'],
             'input_parameter': ['exact', 'in', 'icontains'],
             'input_operator': ['exact', 'in', 'icontains'],
             'output_parameter': ['exact', 'in', 'icontains'],
@@ -213,29 +206,6 @@ class CatalogDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CatalogSerializer
 
 
-# example: /esap-api/catalog-services/
-class CatalogServicesListViewAPI(generics.ListCreateAPIView):
-    """
-    A list of CatalogServices
-    """
-    model = CatalogService
-    queryset = CatalogService.objects.all()
-    serializer_class = CatalogServiceSerializer
-
-    # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
-    filter_backends = (filters.DjangoFilterBackend,)
-    filter_class = CatalogServiceFilter
-
-
-# example: /esap-api/catalog-services/1/
-class CatalogServicesDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
-    """
-    Detailed view of CatalogService
-    """
-    model = CatalogService
-    queryset = CatalogService.objects.all()
-    serializer_class = CatalogServiceSerializer
-
 
 # example: /esap-api/retrieval-parameters/
 class RetrievalParametersListViewAPI(generics.ListCreateAPIView):
@@ -259,3 +229,38 @@ class RetrievalParametersDetailsViewAPI(generics.ListCreateAPIView):
     model = RetrievalParameters
     queryset = RetrievalParameters.objects.all()
     serializer_class = RetrievalParametersSerializer
+
+
+class QueryView(generics.ListAPIView):
+    """
+    Receive a query and return the results
+    example: http://localhost:8000/esap-api/query/?esap_target=M51&archive_uri=astron_vo
+    """
+    model = DataSet
+    queryset = DataSet.objects.all()
+
+    # override list and generate a custom response
+    def list(self, request, *args, **kwargs):
+
+        # read fields from the query
+
+        datasets = DataSet.objects.all()
+
+        # is there a query on archives?
+        try:
+            archive_uri = self.request.query_params['archive_uri']
+            datasets = datasets.filter(data_archive__uri=archive_uri)
+        except:
+            pass
+
+        # read fields from the query
+        try:
+            esap_target = self.request.query_params['esap_target']
+        except:
+            esap_target = None
+
+        query_input = algorithms.prepare_query(datasets=datasets, esap_target=esap_target)
+
+        return Response({
+            'query_input': query_input
+        })
