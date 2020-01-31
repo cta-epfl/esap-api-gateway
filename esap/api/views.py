@@ -249,18 +249,20 @@ class QueryView(generics.ListAPIView):
         # is there a query on archives?
         try:
             archive_uri = self.request.query_params['archive_uri']
-            datasets = datasets.filter(data_archive__uri=archive_uri)
+            datasets = datasets.filter(dataset_archive__uri=archive_uri)
+
         except:
             pass
 
-        # read fields from the query
+        # (remove the archive_uri (if present) from the params to prevent it being searched again
+        query_params = dict(self.request.query_params)
         try:
-            esap_target = self.request.query_params['esap_target']
+            del query_params['archive_uri']
         except:
-            esap_target = None
+            pass
 
-        query_input = algorithms.prepare_query(datasets=datasets, esap_target=esap_target)
+        input_results = algorithms.prepare_query(datasets=datasets, query_params = query_params)
 
         return Response({
-            'query_input': query_input
+            'query_input': input_results
         })

@@ -18,44 +18,87 @@ DJANGO_TIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 logger = logging.getLogger(__name__)
 
 esap_parameters = {}
-esap_parameters['esap_target'] = 'target__icontains'
+esap_parameters["esap_target"] = "target__icontains"
+
+
+def construct_query(url, esap_query_params, translation_parameters, protocol):
+
+    query = ''
+    error = None
+
+    for esap_param in esap_query_params:
+        esap_key = esap_param
+        value = esap_query_params[esap_key][0]
+
+        try:
+            dataset_key = translation_parameters[esap_key]
+
+            # for the 'http' protocol glue the parameters together with &
+            if protocol=='http':
+                query = query + dataset_key + '=' + value + '&'
+
+            if protocol=='adql':
+                query = query + dataset_key + '=' + value + ' '
+
+        except Exception as error:
+            # if the parameter could not be translated, then just continue
+            error = "ERROR: translating key " + esap_key + ' ' + str(error)
+            return query,error
+
+    # cut off the last separation character
+    query = query[:-1]
+
+    # construct the call
+    if protocol == 'http':
+        query = url + '?' + query
+
+    elif protocol == 'adql':
+        query = url + '&request=doQuery&lang=adql&query=' + query
+
+    return query, error
 
 
 @timeit
-def prepare_query(datasets, esap_target):
+def prepare_query(datasets, query_params):
     """
     Execute a query to a range of catalogs, using their catalog services
     :param query:
     :return:
     """
-    logger.info('prepare_query : '+str(esap_target))
-    query_input = []
+    logger.info('prepare_query()')
+    input_results = []
 
     try:
 
         # iterate through the selected datasets
         for dataset in datasets:
 
-            # per dataset, transate the common ESAP query parameters to the service specific parameters
+            # per dataset, transate the common esap query parameters to the service specific parameters
 
             # build a result json structure for the input query
-            input = {}
-            input['dataset'] = dataset.uri
+            result = {}
+            result['dataset'] = dataset.uri
 
             try:
-                input['service_url'] = str(dataset.dataset_catalog.url)
-                parameters = dataset.dataset_catalog.parameters
+                # get the url to the service for this dataset
+                result['service_url'] = str(dataset.dataset_catalog.url)
+                result['protocol'] = str(dataset.dataset_catalog.protocol)
 
-                query = input['service_url'] + "?"
-                # todo: add translation functionality
-                if esap_target != None:
-                    query = query + esap_parameters['esap_target'] + str(esap_target) + "&"
+                # get the translation parameters for the service for this dataset
+                esap_translation_parameters = json.loads(dataset.dataset_catalog.parameters)
 
-                input['query'] = query
-                query_input.append(input)
+                if esap_parameters!=None:
+                    query,error = construct_query(dataset.dataset_catalog.url, query_params, esap_translation_parameters,dataset.dataset_catalog.protocol)
+                    result['query'] = query
+                    if error!=None:
+                        result['remark'] = error
+
+                    input_results.append(result)
 
             except Exception as error:
-                input['service_url'] = str(error)
+                result['remark'] = str(error)
+                if not 'url' in result['remark']: #skip the missing catalog errors for now, just missing content
+                    input_results.append(result)
 
 
     except Exception as error:
@@ -66,4 +109,4 @@ def prepare_query(datasets, esap_target):
         except:
             return str(error)
 
-    return query_input
+    return input_results

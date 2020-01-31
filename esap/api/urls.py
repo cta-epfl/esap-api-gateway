@@ -18,7 +18,7 @@ urlpatterns = [
     path('datasets-uri/<int:pk>/', views.DataSetDetailsUriViewAPI.as_view(), name='dataset-uri-detail'),
 
     path('catalogs/', views.CatalogListViewAPI.as_view(), name='catalog-view'),
-    path('catalog/<int:pk>/', views.CatalogDetailsViewAPI.as_view(), name='catalog-detail'),
+    path('catalogs/<int:pk>/', views.CatalogDetailsViewAPI.as_view(), name='catalog-detail'),
 
 #    path('catalog-services/', views.CatalogServicesListViewAPI.as_view(), name='catalog-services-view'),
 #    path('catalog-services/<int:pk>/', views.CatalogServicesDetailsViewAPI.as_view(), name='catalogservice-detail'),

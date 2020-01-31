@@ -13,7 +13,7 @@ class EsapBaseObject(models.Model):
     retrieval_description = models.TextField(null=True, blank=True)
 
     thumbnail = models.URLField(default="https://alta.astron.nl/alta-static/unknown.jpg")
-    documentation_url = models.URLField(null=True)
+    documentation_url = models.URLField(null=True, blank=True)
 
     institute = models.CharField(max_length=40)
 
@@ -38,6 +38,14 @@ class EsapBaseObject(models.Model):
 Catalog
 """
 class Catalog(EsapBaseObject):
+    ADQL = 'adql'
+    HTTP = 'http'
+    PROTOCOL = [
+        (ADQL, ADQL),
+        (HTTP, HTTP),
+    ]
+
+    protocol = models.CharField(max_length=15, choices=PROTOCOL) # VO_WHERE, HTTP_GET
     url = models.URLField(null=True)
     parameters = models.TextField(null=True, blank=True)
 
