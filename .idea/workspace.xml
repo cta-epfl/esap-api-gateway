@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39bb9056-a8a2-4105-bdfc-77202926e9ed" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esap/esap/esap.sqlite3" afterPath="$PROJECT_DIR$/esap/esap/esap.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esap/logs/esap.log" afterPath="$PROJECT_DIR$/esap/logs/esap.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esap/api/templates/api/index.html" afterPath="$PROJECT_DIR$/esap/api/templates/api/index.html" />
     </list>
     <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,6 +54,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/esap/api/templates/api/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="70" column="51" lean-forward="false" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/esap/api/business/common.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,7 +84,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="algorithms.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="algorithms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/esap/api/business/algorithms.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1295">
@@ -113,18 +122,6 @@
             <state relative-caret-position="2650">
               <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/esap/api/serializers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4240">
-              <caret line="82" column="49" lean-forward="false" selection-start-line="82" selection-start-column="49" selection-end-line="82" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -220,12 +217,12 @@
         <option value="$PROJECT_DIR$/esap/requirements/base.txt" />
         <option value="$PROJECT_DIR$/esap/esap/settings/base.py" />
         <option value="$PROJECT_DIR$/esap/api/admin.py" />
-        <option value="$PROJECT_DIR$/esap/api/templates/api/index.html" />
         <option value="$PROJECT_DIR$/esap/api/serializers.py" />
         <option value="$PROJECT_DIR$/esap/api/urls.py" />
         <option value="$PROJECT_DIR$/esap/api/models.py" />
         <option value="$PROJECT_DIR$/esap/api/views.py" />
         <option value="$PROJECT_DIR$/esap/api/business/algorithms.py" />
+        <option value="$PROJECT_DIR$/esap/api/templates/api/index.html" />
       </list>
     </option>
   </component>
@@ -653,13 +650,6 @@
       <option name="presentableId" value="Default" />
       <updated>1577692394153</updated>
     </task>
-    <task id="LOCAL-00001" summary="adding readme">
-      <created>1577712222485</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1577712222485</updated>
-    </task>
     <task id="LOCAL-00002" summary="configuring Dockerfile">
       <created>1577713332432</created>
       <option name="number" value="00002" />
@@ -996,7 +986,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580472693592</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="working on query">
+      <created>1580476174617</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1580476174618</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1234,14 +1231,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/templates/api/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3710">
-          <caret line="70" column="51" lean-forward="false" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://R:/env_esap/Lib/site-packages/django/core/handlers/exception.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1373,6 +1362,14 @@
           <folding>
             <element signature="e#206#217#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/api/templates/api/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="70" column="51" lean-forward="false" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
