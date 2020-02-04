@@ -34,6 +34,24 @@ class EsapBaseObject(models.Model):
             my_type = "Dataset"
         return my_type
 
+
+"""
+Every catalog service uses different parameters to access similar information
+"""
+
+class ParameterMapping(models.Model):
+
+    # fields
+    uri = models.CharField(max_length=15, null=False) # vo, alta, ...
+
+    # this is a json object containing all parameter mappings for this uri
+    parameters = models.TextField(null=True, blank=True)
+
+    # the representation of the value in the REST API
+    def __str__(self):
+        return str(self.uri) + ' = ' + str(self.parameters)
+
+
 """
 Catalog
 """
@@ -45,36 +63,13 @@ class Catalog(EsapBaseObject):
         (HTTP, HTTP),
     ]
 
-    protocol = models.CharField(max_length=15, choices=PROTOCOL) # VO_WHERE, HTTP_GET
+    protocol = models.CharField(max_length=15, choices=PROTOCOL) # adql, http
     url = models.URLField(null=True)
-    parameters = models.TextField(null=True, blank=True)
+    parameters = models.ForeignKey(ParameterMapping, related_name='catalogs', on_delete=models.CASCADE, null=True, blank=True)
 
-    # the representation of the value in the REST API
+     # the representation of the value in the REST API
     def __str__(self):
         return str(self.uri)
-
-
-"""
-Every catalog service uses different parameters to access similar information
-"""
-class RetrievalParameters(models.Model):
-    # fields
-    # relationships
-    dataset_catalog = models.ForeignKey(Catalog, related_name='retrieval_parameters', on_delete=models.CASCADE, null=True, blank=True)
-
-    # target
-    input_parameter = models.CharField(max_length=40, null=False)
-    # __icontains
-    input_operator = models.CharField(max_length=40, null=False)
-
-    # target
-    output_parameter =  models.CharField(max_length=40, null=False)
-    # __icontains
-    output_operator = models.CharField(max_length=40, null=False)
-
-    # the representation of the value in the REST API
-    def __str__(self):
-        return str(self.input_parameter) + str(self.input_operator) + ' => ' + str(self.output_parameter) + str(self.output_operator)
 
 
 """

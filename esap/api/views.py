@@ -10,14 +10,14 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django_filters import rest_framework as filters
 
-from .models import Archive, DataSet, Catalog, RetrievalParameters
+from .models import Archive, DataSet, Catalog, ParameterMapping
 from .serializers import \
     ArchiveSerializer, \
     ArchiveModelSerializer, \
     DataSetSerializer, \
     DataSetModelSerializer, \
     CatalogSerializer, \
-    RetrievalParametersSerializer
+    ParameterMappingSerializer
 
 from .business import algorithms
 
@@ -64,17 +64,13 @@ class CatalogFilter(filters.FilterSet):
         }
 
 
-class RetrievalParametersFilter(filters.FilterSet):
+class ParameterMappingFilter(filters.FilterSet):
     class Meta:
-        model = RetrievalParameters
+        model = ParameterMapping
 
         fields = {
-            'dataset_catalog__uri': ['exact', 'in', 'icontains'],
-            'input_parameter': ['exact', 'in', 'icontains'],
-            'input_operator': ['exact', 'in', 'icontains'],
-            'output_parameter': ['exact', 'in', 'icontains'],
-            'output_operator': ['exact', 'in', 'icontains'],
-
+            'uri': ['exact', 'in', 'icontains'],
+            'parameters': ['icontains'],
         }
 
 
@@ -208,30 +204,30 @@ class CatalogDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
 
 
 # example: /esap-api/retrieval-parameters/
-class RetrievalParametersListViewAPI(generics.ListCreateAPIView):
+class ParameterMappingListViewAPI(generics.ListCreateAPIView):
     """
     A list of Retrieval Parameters per service
     """
-    model = RetrievalParameters
-    queryset = RetrievalParameters.objects.all()
-    serializer_class = RetrievalParametersSerializer
+    model = ParameterMapping
+    queryset = ParameterMapping.objects.all()
+    serializer_class = ParameterMappingSerializer
 
     # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
     filter_backends = (filters.DjangoFilterBackend,)
-    filter_class = RetrievalParametersFilter
+    filter_class = ParameterMappingFilter
 
 
 # example: /esap-api/retrieval-parameters/1
-class RetrievalParametersDetailsViewAPI(generics.ListCreateAPIView):
+class ParameterMappingDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     """
     Details for Retrieval Parameters for a service
     """
-    model = RetrievalParameters
-    queryset = RetrievalParameters.objects.all()
-    serializer_class = RetrievalParametersSerializer
+    model = ParameterMapping
+    queryset = ParameterMapping.objects.all()
+    serializer_class = ParameterMappingSerializer
 
 
-class QueryView(generics.ListAPIView):
+class CreateQueryView(generics.ListAPIView):
     """
     Receive a query and return the results
     example: http://localhost:8000/esap-api/query/?esap_target=M51&archive_uri=astron_vo
@@ -261,8 +257,40 @@ class QueryView(generics.ListAPIView):
         except:
             pass
 
-        input_results = algorithms.prepare_query(datasets=datasets, query_params = query_params)
+        input_results = algorithms.create_query(datasets=datasets, query_params = query_params)
 
         return Response({
             'query_input': input_results
+        })
+
+
+class RunQueryView(generics.ListAPIView):
+    """
+    Run a single query on a dataset (catalog) and return the results
+    example: /esap-api/run-query?dataset=ivoa.obscore&
+        query=https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&
+        QUERY=SELECT TOP 10 * from ivoa.obscore where target_name='M51'
+    """
+    model = DataSet
+    queryset = DataSet.objects.all()
+
+    # override list and generate a custom response
+    def list(self, request, *args, **kwargs):
+
+        # read fields from the query
+        #datasets = DataSet.objects.all()
+
+        # is there a query on archives?
+        try:
+            dataset_uri = self.request.query_params['dataset_uri']
+            query = self.request.query_params['query']
+            dataset = DataSet.objects.get(uri=dataset_uri)
+
+        except:
+            pass
+
+        query_results = algorithms.run_query(dataset=dataset, query = query)
+
+        return Response({
+            'query_results': query_results
         })

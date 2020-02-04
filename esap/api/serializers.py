@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import EsapBaseObject, DataSet, Archive, Catalog, RetrievalParameters
+from .models import EsapBaseObject, DataSet, Archive, Catalog, ParameterMapping
 import logging
 
 logger = logging.getLogger(__name__)
@@ -76,15 +76,23 @@ class CatalogSerializer(serializers.HyperlinkedModelSerializer):
         lookup_field='pk',
     )
 
+    parameters = serializers.HyperlinkedRelatedField(
+        many=False,
+        required=False,
+        read_only=True,
+        view_name='parametermapping-detail',
+        lookup_field='pk',
+    )
+
     class Meta():
         model = Catalog
         # fields = "__all__"
         fields = ('id', 'uri', 'name', 'short_description', 'long_description', 'retrieval_description', 'thumbnail',
-                    'url', 'dataset', 'parameters')
+                    'url', 'dataset', 'parameters', 'parameters')
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
-class RetrievalParametersSerializer(serializers.HyperlinkedModelSerializer):
+class ParameterMappingSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta():
-        model = RetrievalParameters
+        model = ParameterMapping
         fields = "__all__"

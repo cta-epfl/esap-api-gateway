@@ -171,7 +171,8 @@ LOGGING = {
     },
     'loggers': {
         'api': {
-            'handlers': ['my_handler','my_file_handler','mail_admins'],
+            'handlers': ['my_handler','mail_admins'],
+            #'handlers': ['my_handler','my_file_handler','mail_admins'],
             'level': 'INFO',
         },
         'django': {
