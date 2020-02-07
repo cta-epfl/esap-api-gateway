@@ -286,8 +286,10 @@ class RunQueryView(generics.ListAPIView):
             query = self.request.query_params['query']
             dataset = DataSet.objects.get(uri=dataset_uri)
 
-        except:
-            pass
+        except Exception as error:
+            return Response({
+                'error': str(error)
+            })
 
         query_results = algorithms.run_query(dataset=dataset, query = query)
 

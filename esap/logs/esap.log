@@ -1,4 +1,4 @@
-[2020-01-28 08:45:48,208] do_query : M51
+[2020-01-28 08:45:48,208] run_query : M51
 [2020-01-28 08:45:52,239] query dataset : wsrt_mffe_visibilities
 [2020-01-28 08:45:53,149] query dataset : apertif_visibilities
 [2020-01-28 08:45:53,149] query dataset : apertif_images
@@ -20,7 +20,7 @@
 [2020-01-28 08:45:53,158] query dataset : wow-spitzer
 [2020-01-28 08:45:53,159] query dataset : wow-hubble-deep-field
 [2020-01-28 08:45:53,159] query dataset : wow-bootes
-[2020-01-28 08:55:11,417] do_query : M51
+[2020-01-28 08:55:11,417] run_query : M51
 [2020-01-28 08:55:11,425] query dataset : lotss-dr1-cross-matched
 [2020-01-28 08:55:11,425] query dataset : lotss-dr1-image
 [2020-01-28 08:55:11,427] query dataset : lotss-dr1-image-cutout
@@ -31,13 +31,13 @@
 [2020-01-28 08:55:11,429] query dataset : sauron-hi-survey-images
 [2020-01-28 08:55:11,430] query dataset : sauron-hi-survey-velocity-fields
 [2020-01-28 08:55:11,430] query dataset : wow-wenss
-[2020-01-28 10:55:26,456] do_query : M51
+[2020-01-28 10:55:26,456] run_query : M51
 [2020-01-28 10:55:31,462] query dataset : wsrt_mffe_visibilities
-[2020-01-28 10:58:18,890] do_query : M51
+[2020-01-28 10:58:18,890] run_query : M51
 [2020-01-28 10:58:18,899] query dataset : wsrt_mffe_visibilities
-[2020-01-28 11:06:52,563] do_query : None
+[2020-01-28 11:06:52,563] run_query : None
 [2020-01-28 11:07:04,220] query dataset : lotss-dr1-cross-matched
-[2020-01-28 11:09:03,889] do_query : None
+[2020-01-28 11:09:03,889] run_query : None
 [2020-01-28 11:09:07,479] query dataset : lotss-dr1-cross-matched
 [2020-01-28 11:09:10,458] query dataset : lotss-dr1-image
 [2020-01-28 11:09:16,001] query dataset : lotss-dr1-image-cutout
@@ -48,7 +48,7 @@
 [2020-01-28 11:09:16,005] query dataset : sauron-hi-survey-images
 [2020-01-28 11:09:16,005] query dataset : sauron-hi-survey-velocity-fields
 [2020-01-28 11:09:16,006] query dataset : wow-wenss
-[2020-01-28 11:09:51,650] do_query : M51
+[2020-01-28 11:09:51,650] run_query : M51
 [2020-01-28 11:09:52,729] query dataset : lotss-dr1-cross-matched
 [2020-01-28 11:09:52,729] query dataset : lotss-dr1-image
 [2020-01-28 11:09:52,729] query dataset : lotss-dr1-image-cutout
@@ -59,7 +59,7 @@
 [2020-01-28 11:09:52,731] query dataset : sauron-hi-survey-images
 [2020-01-28 11:09:52,732] query dataset : sauron-hi-survey-velocity-fields
 [2020-01-28 11:09:52,732] query dataset : wow-wenss
-[2020-01-28 11:11:44,559] do_query : M51
+[2020-01-28 11:11:44,559] run_query : M51
 [2020-01-28 11:11:45,372] query dataset : lotss-dr1-cross-matched
 [2020-01-28 11:11:45,373] query dataset : lotss-dr1-image
 [2020-01-28 11:11:45,374] query dataset : lotss-dr1-image-cutout
@@ -70,7 +70,7 @@
 [2020-01-28 11:11:45,376] query dataset : sauron-hi-survey-images
 [2020-01-28 11:11:45,376] query dataset : sauron-hi-survey-velocity-fields
 [2020-01-28 11:11:45,377] query dataset : wow-wenss
-[2020-01-28 11:12:02,101] do_query : M51
+[2020-01-28 11:12:02,101] run_query : M51
 [2020-01-28 11:12:06,199] query dataset : lotss-dr1-cross-matched
 [2020-01-28 11:12:42,621] query dataset : lotss-dr1-image
 [2020-01-28 11:12:44,569] query dataset : lotss-dr1-image-cutout
@@ -81,7 +81,7 @@
 [2020-01-28 11:12:48,950] query dataset : sauron-hi-survey-images
 [2020-01-28 11:12:49,876] query dataset : sauron-hi-survey-velocity-fields
 [2020-01-28 11:12:50,616] query dataset : wow-wenss
-[2020-01-28 11:13:07,179] do_query : M51
+[2020-01-28 11:13:07,179] run_query : M51
 [2020-01-28 11:13:07,184] query dataset : lotss-dr1-cross-matched
 [2020-01-28 11:13:16,005] query dataset : lotss-dr1-image
 [2020-01-28 11:13:21,146] query dataset : lotss-dr1-image-cutout
