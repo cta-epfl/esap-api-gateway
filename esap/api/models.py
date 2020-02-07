@@ -63,6 +63,13 @@ class Catalog(EsapBaseObject):
         (HTTP, HTTP),
     ]
 
+    J2000 = 'J2000'
+    ICRS = 'ICRS'
+    EQUINOX = [
+        (J2000, J2000),
+        (ICRS, ICRS),
+    ]
+
     VO = 'vo'
     ALTA = 'alta'
     ESAP_SERVICE = [
@@ -71,9 +78,11 @@ class Catalog(EsapBaseObject):
     ]
 
     # esap_service determines which algorithm is used to create and run queries.
-    esap_service = models.CharField(default='vo',max_length=15, choices=ESAP_SERVICE) # vo, alta, ...
+    esap_service = models.CharField(default=VO,max_length=15, choices=ESAP_SERVICE) # vo, alta, ...
 
-    protocol = models.CharField(max_length=15, choices=PROTOCOL) # adql, http
+    equinox = models.CharField(default=ICRS, max_length=10, choices=EQUINOX) # J2000, ICRS
+    protocol = models.CharField(max_length=15, choices=PROTOCOL)  # adql, http
+
     url = models.URLField(null=True)
     parameters = models.ForeignKey(ParameterMapping, related_name='catalogs', on_delete=models.CASCADE, null=True, blank=True)
 

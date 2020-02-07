@@ -15,7 +15,7 @@ class observation_service(esap_service):
         self.url = url
 
     # construct a query for this type of service
-    def construct_query(self, table_name, esap_query_params, translation_parameters):
+    def construct_query(self, table_name, esap_query_params, translation_parameters, equinox):
 
         query = ''
         where = ''
@@ -44,11 +44,7 @@ class observation_service(esap_service):
 
 
     def run_query(self, query):
-        """
-        # use pyvo to do a vo query
-        :param url: acces url of the vo service
-        :param query: adql query
-        :return:
-        """
-
-        return query
+        # todo: implement ALTA query
+        urls = []
+        urls.append(query)
+        return urls
