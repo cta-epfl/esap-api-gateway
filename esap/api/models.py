@@ -117,8 +117,11 @@ class DataSet(EsapBaseObject):
     # note: the field is called 'data_archive' because 'archive' clashes in the database with the field esapbaseobject.archive.
     dataset_archive = models.ForeignKey(Archive, related_name='datasets', on_delete=models.CASCADE, null=True, blank=True)
 
-    # datasets could use the same catalog, but accessing different tables.
+    # datasets could use the same catalog, but accessing different tables...
     table_name =  models.CharField(max_length=30, null=True, blank=True)  # like: raw, calibrated, processed
+
+    # ... and returning different results based on the SELECT statement
+    select =  models.CharField(default="*", max_length=100, null=True, blank=True)  # like: raw, calibrated, processed
 
     @property
     def catalog_name_derived(self):

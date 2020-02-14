@@ -12,9 +12,9 @@ class esap_service:
         self.url = url
 
     # implement this in the derived service classes
-    def construct_query(self, table_name, esap_query_params, translation_parameters, equinox):
+    def construct_query(self, dataset, esap_query_params, translation_parameters, equinox):
         pass
 
     # implement this in the derived service classes
-    def run_query(self, query):
+    def run_query(self, dataset, query):
         pass

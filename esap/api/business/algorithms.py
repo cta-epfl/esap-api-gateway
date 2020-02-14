@@ -49,12 +49,12 @@ def create_query(datasets, query_params):
                     url = str(dataset.dataset_catalog.url)
 
                     if esap_service.upper()=='VO':
-                        service = vo.tap_service(url)
+                        service = vo.tap_service_connector(url)
 
                     elif esap_service.upper()=='ALTA':
-                        service = alta.observation_service(url)
+                        service = alta.observations_connector(url)
 
-                    query, error = service.construct_query(dataset.table_name, query_params, esap_translation_parameters,dataset.dataset_catalog.equinox)
+                    query, error = service.construct_query(dataset, query_params, esap_translation_parameters,dataset.dataset_catalog.equinox)
 
                     # query,error = construct_query(dataset.dataset_catalog.url, dataset.table_name, query_params, esap_translation_parameters,dataset.dataset_catalog.protocol)
 
@@ -99,12 +99,12 @@ def run_query(dataset, query):
     url = str(dataset.dataset_catalog.url)
 
     if esap_service.upper() == 'VO':
-        service = vo.tap_service(url)
-        urls = service.run_query(query)
+        service = vo.tap_service_connector(url)
+        urls = service.run_query(dataset, query)
 
     elif esap_service.upper() == 'ALTA':
-        service = alta.observation_service(url)
-        urls = service.run_query(query)
+        service = alta.alta_observation_service_connector(url)
+        urls = service.run_query(dataset, query)
 
     query_result['urls'] = urls
     return query_result

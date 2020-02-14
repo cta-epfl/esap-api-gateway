@@ -18,6 +18,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('esap-api/', include('api.urls')),
-    path('esap-api/admin/', admin.site.urls),
+    path('esap-api/admin/', admin.site.urls, name='admin-view'),
     path('esap-api/api-auth/', include('rest_framework.urls')),
 ]

@@ -6,16 +6,15 @@
 """
 
 from .esap_service import esap_service
-import pyvo as vo
 
-class observation_service(esap_service):
+class observations_connector(esap_service):
 
     # Initializer
     def __init__(self, url):
         self.url = url
 
     # construct a query for this type of service
-    def construct_query(self, table_name, esap_query_params, translation_parameters, equinox):
+    def construct_query(self, dataset, esap_query_params, translation_parameters, equinox):
 
         query = ''
         where = ''
@@ -43,7 +42,7 @@ class observation_service(esap_service):
         return query, error
 
 
-    def run_query(self, query):
+    def run_query(self, dataset, query):
         # todo: implement ALTA query
         urls = []
         urls.append(query)

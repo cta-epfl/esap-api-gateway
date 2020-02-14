@@ -43,14 +43,14 @@ def create_cone_search(esap_query_params, translation_parameters, equinox):
         return cone_search
 
 
-class tap_service(esap_service):
+class tap_service_connector(esap_service):
 
     # Initializer
     def __init__(self, url):
         self.url = url
 
     # construct a query for this type of service
-    def construct_query(self, table_name, query_params, translation_parameters, equinox):
+    def construct_query(self, dataset, query_params, translation_parameters, equinox):
 
         esap_query_params = dict(query_params)
         query = ''
@@ -86,7 +86,8 @@ class tap_service(esap_service):
         query = query + "?lang=ADQL&REQUEST=doQuery"
 
         # add query ADQL parameters (limit to 10 results)
-        query = query + "&QUERY=SELECT TOP 10 * from " + table_name
+        query = query + "&QUERY=SELECT TOP 10 * from " + dataset.table_name
+        # query = query + "&QUERY=SELECT TOP 10 " + dataset.select +" from " + dataset.table_name
 
         # add ADQL where where
         query = query +" WHERE "
@@ -100,8 +101,9 @@ class tap_service(esap_service):
 
         return query, error
 
+
     # run a query
-    def run_query(self, query):
+    def run_query(self, dataset, query):
         """
         # use pyvo to do a vo query
         :param url: acces url of the vo service
@@ -109,20 +111,32 @@ class tap_service(esap_service):
         :return:
         """
 
-        access_url=None
-        urls = []
+        results = []
 
         # use pyvo the get to the results
         service = vo.dal.TAPService(self.url)
-        resultset = service.search(query)
+        try:
+            resultset = service.search(query)
+        except Exception as error:
+            print(str(error))
+            errors = []
+            errors.append(str(error))
+            return errors
 
         for row in resultset:
             # for the definition of standard fields to return see:
             # http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
 
-            # todo: read 'access_url' from catalog parameters also
-            access_url = row["access_url"].decode('utf-8')
-            urls.append(access_url)
-            print(access_url)
+            select_list = []
+            select_list = dataset.select.split(',')
+            for select in select_list:
+                result = row[select].decode('utf-8') + ','
 
-        return urls
+            # cut off the last ','
+            result = result[:-1]
+
+            #access_url = row["access_url"].decode('utf-8')
+            results.append(result)
+            print(results)
+
+        return results
