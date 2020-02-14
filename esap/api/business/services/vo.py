@@ -111,6 +111,7 @@ class tap_service_connector(esap_service):
         :return:
         """
 
+
         results = []
 
         # use pyvo the get to the results
@@ -127,16 +128,43 @@ class tap_service_connector(esap_service):
             # for the definition of standard fields to return see:
             # http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
 
-            select_list = []
-            select_list = dataset.select.split(',')
-            for select in select_list:
-                result = row[select].decode('utf-8') + ','
+            # if * then iterate on the full row, otherwise just on the selection
+            if dataset.select=='*':
+                record = {}
+                result = ''
+                values = row.values()
 
-            # cut off the last ','
-            result = result[:-1]
+                for value in values:
+                    try:
+                        result = result + value.decode('utf-8') + ','
+                    except:
+                        try:
+                            result = result + str(value) + ','
+                        except:
+                            pass
+
+                # cut off the last ','
+                result = result[:-1]
+                record['dataset'] = dataset.uri
+                record['result'] = result
+
+            else:
+                record = {}
+                result = ''
+                select_list = dataset.select.split(',')
+
+                for select in select_list:
+                    result = result + row[select].decode('utf-8') + ','
+
+                # cut off the last ','
+                result = result[:-1]
+
+                # the format must be a array of records
+                record['dataset'] = dataset.uri
+                record['result'] = result
 
             #access_url = row["access_url"].decode('utf-8')
-            results.append(result)
-            print(results)
+            results.append(record)
+            #print(record)
 
         return results

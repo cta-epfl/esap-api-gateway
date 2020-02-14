@@ -230,7 +230,7 @@ class ParameterMappingDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
 class CreateQueryView(generics.ListAPIView):
     """
     Receive a query and return the results
-    example: http://localhost:8000/esap-api/query/?esap_target=M51&archive_uri=astron_vo
+    example: http://localhost:8000/esap-api/create-query/?esap_target=M51&archive_uri=astron_vo
     """
     model = DataSet
     queryset = DataSet.objects.all()

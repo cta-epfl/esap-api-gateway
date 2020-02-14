@@ -37,6 +37,7 @@ def create_query(datasets, query_params):
                 # get the url to the service for this dataset
                 result['service_url'] = str(dataset.dataset_catalog.url)
                 result['protocol'] = str(dataset.dataset_catalog.protocol)
+                result['esap_service'] = str(dataset.dataset_catalog.esap_service)
                 result['table_name'] = str(dataset.table_name)
 
                 # get the translation parameters for the service for this dataset
@@ -90,9 +91,7 @@ def run_query(dataset, query):
     """
     logger.info('run_query()')
 
-    query_result = {}
-    query_result['dataset_uri'] = dataset.uri
-    urls = []
+    results = []
 
     # distinguish between types of services to use and run the query accordingly
     esap_service = dataset.dataset_catalog.esap_service
@@ -100,11 +99,10 @@ def run_query(dataset, query):
 
     if esap_service.upper() == 'VO':
         service = vo.tap_service_connector(url)
-        urls = service.run_query(dataset, query)
+        results = service.run_query(dataset, query)
 
     elif esap_service.upper() == 'ALTA':
         service = alta.alta_observation_service_connector(url)
-        urls = service.run_query(dataset, query)
+        results = service.run_query(dataset, query)
 
-    query_result['urls'] = urls
-    return query_result
+    return results
