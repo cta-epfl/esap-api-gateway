@@ -102,7 +102,7 @@ def run_query(dataset, query):
         results = service.run_query(dataset, query)
 
     elif esap_service.upper() == 'ALTA':
-        service = alta.alta_observation_service_connector(url)
+        service = alta.observations_connector(url)
         results = service.run_query(dataset, query)
 
     return results

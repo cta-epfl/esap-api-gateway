@@ -230,7 +230,9 @@ class ParameterMappingDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
 class CreateQueryView(generics.ListAPIView):
     """
     Receive a query and return the results
-    example: http://localhost:8000/esap-api/create-query/?esap_target=M51&archive_uri=astron_vo
+    examples:
+    /esap-api/create-query/?esap_target=M51&archive_uri=astron_vo
+    /esap-api/create-query/?ra=202&dec=46&fov=5
     """
     model = DataSet
     queryset = DataSet.objects.all()
@@ -267,9 +269,12 @@ class CreateQueryView(generics.ListAPIView):
 class RunQueryView(generics.ListAPIView):
     """
     Run a single query on a dataset (catalog) and return the results
-    example: /esap-api/run-query?dataset=ivoa.obscore&
+    examples:
+        /esap-api/run-query?dataset=ivoa.obscore&
         query=https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&
         QUERY=SELECT TOP 10 * from ivoa.obscore where target_name='M51'
+
+        /esap-api/run-query/?dataset_uri=apertif_observations&query=https://alta.astron.nl/altapi/observations-flat?view_ra=202&view_dec=46&view_fov=5
     """
     model = DataSet
     queryset = DataSet.objects.all()

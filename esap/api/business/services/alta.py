@@ -6,6 +6,13 @@
 """
 
 from .esap_service import esap_service
+import requests, json
+AMP_REPLACEMENT = '_and_'
+
+# The request header
+ALTA_HEADER = {
+    'content-type': "application/json",
+}
 
 class observations_connector(esap_service):
 
@@ -26,7 +33,10 @@ class observations_connector(esap_service):
 
             try:
                 dataset_key = translation_parameters[esap_key]
-                where = where + dataset_key + '=' + value + '&'
+
+                # because '&' has a special meaning in urls (specifying a parameter) replace it with
+                # something harmless during serialization.
+                where = where + dataset_key + '=' + value + AMP_REPLACEMENT
 
             except Exception as error:
                 # if the parameter could not be translated, then just continue
@@ -34,7 +44,7 @@ class observations_connector(esap_service):
                 return query, error
 
         # cut off the last separation character
-        where = where[:-1]
+        where = where[:-len(AMP_REPLACEMENT)]
 
         # construct the query url
         query = self.url + '?' + where
@@ -43,7 +53,57 @@ class observations_connector(esap_service):
 
 
     def run_query(self, dataset, query):
-        # todo: implement ALTA query
-        urls = []
-        urls.append(query)
-        return urls
+        """
+        # use the ALTA REST API to do a query
+        :param dataset: the dataset object that must be queried
+        :param query: the constructed ALTA query (that was probably generated with the above construct_query function)
+        :return: results: an array of dicts with the following structure;
+        {
+            "dataset": "astron.ivoa.obscore",
+            "result": "https://vo.astron.nl/getproduct/tgssadr/fits/TGSSADR_R40D60_5x5.MOSAIC.FITS"
+        },
+        {
+            "dataset": "astron.ivoa.obscore",
+            "result": "https://vo.astron.nl/getproduct/tgssadr/fits/TGSSADR_R40D62_5x5.MOSAIC.FITS"
+        },
+        """
+        results = []
+
+        # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
+        # something harmless during serialization. Replace it again with the &
+        query = query.replace(AMP_REPLACEMENT,'&')
+
+        # execute the http request to ALTA
+        response = requests.request("GET", query, headers=ALTA_HEADER)
+
+        try:
+            json_response = json.loads(response.text)
+            observations = json_response["results"]
+
+            # iterate over the list of results
+            for observation in observations:
+                # the dataset.select field specifies which fields must be extracted from the response
+                record = {}
+                result = ''
+
+                select_list = dataset.select.split(',')
+                for select in select_list:
+                    try:
+                        result = result + observation[select] + ','
+                    except:
+                        pass
+
+                # cut off the last ','
+                result = result[:-1]
+
+                result = "https://alta.astron.nl/science/details/"+observation["runId"]
+                record['dataset'] = dataset.uri
+                record['result'] = result
+                results.append(record)
+
+        except Exception as error:
+            record['dataset'] = dataset.uri
+            record['result'] =  str(error)
+            results.append(record)
+
+        return results

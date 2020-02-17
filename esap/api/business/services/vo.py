@@ -106,11 +106,18 @@ class tap_service_connector(esap_service):
     def run_query(self, dataset, query):
         """
         # use pyvo to do a vo query
-        :param url: acces url of the vo service
-        :param query: adql query
-        :return:
+        :param dataset: the dataset object that must be queried
+        :param query: the constructed (adql) query (that was probably generated with the above construct_query function)
+        :return: results: an array of dicts with the following structure;
+        {
+            "dataset": "astron.ivoa.obscore",
+            "result": "https://vo.astron.nl/getproduct/tgssadr/fits/TGSSADR_R40D60_5x5.MOSAIC.FITS"
+        },
+        {
+            "dataset": "astron.ivoa.obscore",
+            "result": "https://vo.astron.nl/getproduct/tgssadr/fits/TGSSADR_R40D62_5x5.MOSAIC.FITS"
+        },
         """
-
 
         results = []
 
@@ -163,8 +170,6 @@ class tap_service_connector(esap_service):
                 record['dataset'] = dataset.uri
                 record['result'] = result
 
-            #access_url = row["access_url"].decode('utf-8')
             results.append(record)
-            #print(record)
 
         return results
