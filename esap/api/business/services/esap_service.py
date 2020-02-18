@@ -1,8 +1,9 @@
 """
-    File name: vo_services.py
+    File name: esap_service.py
     Author: Nico Vermaas - Astron
     Date created: 2020-02-07
-    Description:  ESAP service base class
+    Description:  ESAP service abstract base class.
+                  This shows what the services should implement.
 """
 
 class esap_service:

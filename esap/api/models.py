@@ -118,10 +118,14 @@ class DataSet(EsapBaseObject):
     dataset_archive = models.ForeignKey(Archive, related_name='datasets', on_delete=models.CASCADE, null=True, blank=True)
 
     # datasets could use the same catalog, but accessing different tables...
-    table_name =  models.CharField(max_length=30, null=True, blank=True)  # like: raw, calibrated, processed
+    resource_name =  models.CharField(max_length=30, null=True, blank=True)  # like: ivoa.obscore, activities, observations
 
     # ... and returning different results based on the SELECT statement
-    select =  models.CharField(default="*", max_length=100, null=True, blank=True)  # like: raw, calibrated, processed
+    select_fields =  models.CharField(default="*", max_length=100, null=True, blank=True)  # like: raw, calibrated, processed
+
+    # The connector refers to the business logic in the services directory that handles the query to the specific catalog
+    service_connector = models.CharField(max_length=80) # vo.tap_service_connector, alta.observations_connector, ...
+
 
     @property
     def catalog_name_derived(self):

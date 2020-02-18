@@ -21,13 +21,11 @@ class DataSetSerializer(serializers.HyperlinkedModelSerializer):
 # this is a serializer that uses uri's in the datasets for easier identification for the frontend
 class DataSetModelSerializer(serializers.ModelSerializer):
 
-
     class Meta():
         model = DataSet
         # fields = "__all__"
-        fields = ('id', 'uri', 'name', 'table_name', 'short_description','long_description', 'retrieval_description', 'thumbnail',
-                   'documentation_url', 'archive_name_derived',
-                  'archive_uri_derived','catalog_name_derived','catalog_uri_derived')
+        fields = ('id', 'uri', 'name', 'resource_name', 'short_description','long_description', 'retrieval_description', 'thumbnail',
+                   'documentation_url', 'service_connector','archive_name_derived', 'archive_uri_derived','catalog_name_derived','catalog_uri_derived')
 
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API

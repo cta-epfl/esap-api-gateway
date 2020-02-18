@@ -1,5 +1,5 @@
 """
-    File name: vo_services.py
+    File name: vo.py
     Author: Nico Vermaas - Astron
     Date created: 2020-02-07
     Description:  ESAP services for VO.
@@ -86,8 +86,8 @@ class tap_service_connector(esap_service):
         query = query + "?lang=ADQL&REQUEST=doQuery"
 
         # add query ADQL parameters (limit to 10 results)
-        query = query + "&QUERY=SELECT TOP 10 * from " + dataset.table_name
-        # query = query + "&QUERY=SELECT TOP 10 " + dataset.select +" from " + dataset.table_name
+        query = query + "&QUERY=SELECT TOP 10 * from " + dataset.resource_name
+        # query = query + "&QUERY=SELECT TOP 10 " + dataset.select_fields +" from " + dataset.resource_name
 
         # add ADQL where where
         query = query +" WHERE "
@@ -136,7 +136,7 @@ class tap_service_connector(esap_service):
             # http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
 
             # if * then iterate on the full row, otherwise just on the selection
-            if dataset.select=='*':
+            if dataset.select_fields=='*':
                 record = {}
                 result = ''
                 values = row.values()
@@ -158,7 +158,7 @@ class tap_service_connector(esap_service):
             else:
                 record = {}
                 result = ''
-                select_list = dataset.select.split(',')
+                select_list = dataset.select_fields.split(',')
 
                 for select in select_list:
                     result = result + row[select].decode('utf-8') + ','
