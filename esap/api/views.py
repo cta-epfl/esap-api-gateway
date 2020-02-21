@@ -19,7 +19,7 @@ from .serializers import \
     CatalogSerializer, \
     ParameterMappingSerializer
 
-from .business import algorithms
+from .business import service_controller
 
 logger = logging.getLogger(__name__)
 
@@ -259,7 +259,7 @@ class CreateQueryView(generics.ListAPIView):
         except:
             pass
 
-        input_results = algorithms.create_query(datasets=datasets, query_params = query_params)
+        input_results = service_controller.create_query(datasets=datasets, query_params = query_params)
 
         return Response({
             'query_input': input_results
@@ -296,7 +296,7 @@ class RunQueryView(generics.ListAPIView):
                 'error': str(error)
             })
 
-        query_results = algorithms.run_query(dataset=dataset, query = query)
+        query_results = service_controller.run_query(dataset=dataset, query = query)
 
         return Response({
             'query_results': query_results

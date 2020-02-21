@@ -55,7 +55,7 @@ class tap_service_connector(esap_service):
         esap_query_params = dict(query_params)
         query = ''
         where = ''
-        error = None
+        errors = []
 
         # cone search is a specific type of query that uses ra, dec and a search radius.
         # it is also done with a specific ADQL syntax.
@@ -74,8 +74,8 @@ class tap_service_connector(esap_service):
 
             except Exception as error:
                 # if the parameter could not be translated, then just continue
-                error = "ERROR: translating key " + esap_key + ' ' + str(error)
-                return query, error
+                errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
+
 
 
         # add sync (or async) specifier
@@ -99,7 +99,7 @@ class tap_service_connector(esap_service):
         if len(cone_search)>0:
             query = query + cone_search
 
-        return query, error
+        return query, errors
 
 
     # run a query

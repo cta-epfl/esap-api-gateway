@@ -86,6 +86,9 @@ class Catalog(EsapBaseObject):
     url = models.URLField(null=True)
     parameters = models.ForeignKey(ParameterMapping, related_name='catalogs', on_delete=models.CASCADE, null=True, blank=True)
 
+    # relationships
+    # datasets = models.ForeignKey(DataSet, related_name = 'catalogs', on_delete=models.CASCADE, null=True, blank=True)
+
      # the representation of the value in the REST API
     def __str__(self):
         return str(self.uri)
@@ -112,7 +115,7 @@ class DataSet(EsapBaseObject):
     processing_level = models.CharField(max_length=30)  # like: raw, calibrated, processed
 
     # relationships
-    dataset_catalog = models.OneToOneField(Catalog, related_name = 'dataset', on_delete=models.CASCADE, null=True, blank=True)
+    dataset_catalog = models.ForeignKey(Catalog, related_name = 'datasets', on_delete=models.CASCADE, null=True, blank=True)
 
     # note: the field is called 'data_archive' because 'archive' clashes in the database with the field esapbaseobject.archive.
     dataset_archive = models.ForeignKey(Archive, related_name='datasets', on_delete=models.CASCADE, null=True, blank=True)
