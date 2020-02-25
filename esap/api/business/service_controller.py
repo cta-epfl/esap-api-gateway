@@ -41,6 +41,7 @@ def create_query(datasets, query_params):
                 result['protocol'] = str(dataset.dataset_catalog.protocol)
                 result['esap_service'] = str(dataset.dataset_catalog.esap_service)
                 result['resource_name'] = str(dataset.resource_name)
+                result['output_format'] = str(dataset.output_format)
                 result['service_connector'] = str(dataset.service_connector)
 
                 # get the translation parameters for the service for this dataset

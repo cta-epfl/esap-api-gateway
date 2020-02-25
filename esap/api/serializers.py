@@ -24,7 +24,7 @@ class DataSetModelSerializer(serializers.ModelSerializer):
     class Meta():
         model = DataSet
         # fields = "__all__"
-        fields = ('id', 'uri', 'name', 'resource_name', 'short_description','long_description', 'retrieval_description', 'thumbnail',
+        fields = ('id', 'uri', 'name', 'resource_name', 'short_description','long_description', 'retrieval_description', 'thumbnail', 'output_format',
                    'documentation_url', 'service_connector','archive_name_derived', 'archive_uri_derived','catalog_name_derived','catalog_uri_derived')
 
 

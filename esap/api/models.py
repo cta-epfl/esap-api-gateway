@@ -110,6 +110,12 @@ class Archive(EsapBaseObject):
 DataSet
 """
 class DataSet(EsapBaseObject):
+    LIST = 'list'
+    TILES = 'tiles'
+    OUTPUT_FORMAT = [
+        (LIST, LIST),
+        (TILES, TILES),
+    ]
 
     datatype = models.CharField(max_length=30)  # like: visibility, image, cube
     processing_level = models.CharField(max_length=30)  # like: raw, calibrated, processed
@@ -125,6 +131,14 @@ class DataSet(EsapBaseObject):
 
     # ... and returning different results based on the SELECT statement
     select_fields =  models.CharField(default="*", max_length=100, null=True, blank=True)  # like: raw, calibrated, processed
+
+    # Identify some (non mandatory) fields in the remote dataset that hold values to used by a frontend to render the output
+    title_field  = models.CharField(max_length=30, null=True, blank=True) # a field for a title of the dataproduct
+    thumbnail_field = models.CharField(max_length=30, null=True, blank=True)              # a url to a preview thumbnail
+    url_field = models.CharField(max_length=30, null=True, blank=True)                    # the url to the data itself
+
+    # Extra info for a frontend about how to render the output
+    output_format = models.CharField(default=LIST, max_length=10, choices=OUTPUT_FORMAT) # list,tiles
 
     # The connector refers to the business logic in the services directory that handles the query to the specific catalog
     service_connector = models.CharField(max_length=80) # vo.tap_service_connector, alta.observations_connector, ...

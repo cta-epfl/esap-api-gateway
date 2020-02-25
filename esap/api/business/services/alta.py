@@ -93,14 +93,7 @@ class observations_connector(esap_service):
         :param dataset: the dataset object that must be queried
         :param query: the constructed ALTA query (that was probably generated with the above construct_query function)
         :return: results: an array of dicts with the following structure;
-        {
-            "dataset": "astron.ivoa.obscore",
-            "result": "https://vo.astron.nl/getproduct/tgssadr/fits/TGSSADR_R40D60_5x5.MOSAIC.FITS"
-        },
-        {
-            "dataset": "astron.ivoa.obscore",
-            "result": "https://vo.astron.nl/getproduct/tgssadr/fits/TGSSADR_R40D62_5x5.MOSAIC.FITS"
-        },
+
         """
         results = []
 
@@ -197,21 +190,27 @@ class dataproducts_connector(esap_service):
         :param query: the constructed ALTA query (that was probably generated with the above construct_query function)
         :return: results: an array of dicts with the following structure;
 
-       {
+        {
             "dataset": "apertif-dataproducts",
-            "result": "https://alta.astron.nl/alta-static//media/190411001_AP_B001/image_mf_02.png"
+            "result": "/alta-static//media/190409015_AP_B000/image_mf_02.png"
         },
         {
             "dataset": "apertif-dataproducts",
-            "result": "https://alta.astron.nl/alta-static//media/190411001_AP_B002/image_mf_03.png"
+            "result": "/alta-static//media/190409015_AP_B001/image_mf_02.png"
         },
         {
             "dataset": "apertif-dataproducts",
-            "result": "https://alta.astron.nl/alta-static//media/190411001_AP_B003/image_mf_02.png"
+            "result": "/alta-static//media/190409015_AP_B002/image_mf_02.png"
+        },
+        {
+            "dataset": "apertif-dataproducts",
+            "result": "/alta-static//media/190409015_AP_B003/image_mf_01.png"
         },
 
         example:
-        http://localhost:8000/esap-api/run-query/?dataset_uri=apertif-dataproducts&query=https://alta.astron.nl/altapi/observations-flat?view_ra=342.16_and_view_dec=33.94_and_view_fov=10_and_dataProductSubType=continuumMF       """
+        /esap-api/run-query/?dataset_uri=apertif-dataproducts&query=https://alta.astron.nl/altapi/observations-flat?view_ra=342.16_and_view_dec=33.94_and_view_fov=10_and_dataProductType=image_and_dataProductSubType=continuumMF
+
+        """
         results = []
 
         # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
@@ -270,6 +269,23 @@ class dataproducts_connector(esap_service):
                 # result = "https://alta.astron.nl/science/details/"+observation["runId"]
                 record['dataset'] = dataset.uri
                 record['result'] = result
+
+                # some fields to return some rendering information for the frontend.
+                try:
+                    record['title'] = dataproduct[dataset.title_field]
+                except:
+                    pass
+
+                try:
+                    record['thumbnail'] = dataproduct[dataset.thumbnail_field]
+                except:
+                    pass
+
+                try:
+                    record['url'] = dataproduct[dataset.url_field]
+                except:
+                    pass
+
                 results.append(record)
 
         except Exception as error:
