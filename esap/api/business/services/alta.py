@@ -60,7 +60,7 @@ class observations_connector(esap_service):
     def construct_query(self, dataset, esap_query_params, translation_parameters, equinox):
         query = ''
         where = ''
-        error = None
+        errors = []
 
         for esap_param in esap_query_params:
             esap_key = esap_param
@@ -74,9 +74,8 @@ class observations_connector(esap_service):
                 where = where + dataset_key + '=' + value + AMP_REPLACEMENT
 
             except Exception as error:
-                # if the parameter could not be translated, then just continue
-                error = "ERROR: translating key " + esap_key + ' ' + str(error)
-                return query, error
+                # if the parameter could not be translated, then just continue without that key
+                errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
 
         # cut off the last separation character
         where = where[:-len(AMP_REPLACEMENT)]
@@ -84,7 +83,7 @@ class observations_connector(esap_service):
         # construct the query url
         query = self.url + '?' + where
 
-        return query, error
+        return query, errors
 
 
     def run_query(self, dataset, query):

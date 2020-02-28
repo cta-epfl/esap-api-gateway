@@ -27,59 +27,67 @@ def create_query(datasets, query_params):
     try:
 
         # iterate through the selected datasets
+        # per dataset, transate the common esap query parameters to the service specific parameters
+
         for dataset in datasets:
 
-            # per dataset, transate the common esap query parameters to the service specific parameters
-
-            # build a result json structure for the input query
-            result = {}
-            result['dataset'] = dataset.uri
-
-            try:
-                # get the url to the service for this dataset
-                result['service_url'] = str(dataset.dataset_catalog.url)
-                result['protocol'] = str(dataset.dataset_catalog.protocol)
-                result['esap_service'] = str(dataset.dataset_catalog.esap_service)
-                result['resource_name'] = str(dataset.resource_name)
-                result['output_format'] = str(dataset.output_format)
-                result['service_connector'] = str(dataset.service_connector)
-
-                # get the translation parameters for the service for this dataset
-                esap_translation_parameters = json.loads(dataset.dataset_catalog.parameters.parameters)
-
-                if esap_translation_parameters!=None:
-
-                    # read the connector method to use from the dataset
-                    service_module, service_connector = dataset.service_connector.split('.')
-
-                    # distinguish between types of services to use
-
-                    try:
-                        if service_module.upper() == 'VO':
-                            connector_class = getattr(vo, service_connector)
-
-                        elif service_module.upper() == 'ALTA':
-                            connector_class = getattr(alta, service_connector)
+            # check if there is a filter on institute, and if so, if the dataset is of the requested institute
+            valid_institute = True
+            if "institute" in query_params:
+                if not dataset.institute in query_params['institute']:
+                    valid_institute = False
 
 
-                        url = str(dataset.dataset_catalog.url)
-                        connector = connector_class(url)
-                        query, errors = connector.construct_query(dataset, query_params, esap_translation_parameters,dataset.dataset_catalog.equinox)
+            if valid_institute:
+                # institute is valid, continue
+                # build a result json structure for the input query
+                result = {}
+                result['dataset'] = dataset.uri
 
-                        result['query'] = query
-                        if errors!=None:
-                            result['remark'] = str(errors)
+                try:
+                    # get the url to the service for this dataset
+                    result['service_url'] = str(dataset.dataset_catalog.url)
+                    result['protocol'] = str(dataset.dataset_catalog.protocol)
+                    result['esap_service'] = str(dataset.dataset_catalog.esap_service)
+                    result['resource_name'] = str(dataset.resource_name)
+                    result['output_format'] = str(dataset.output_format)
+                    result['service_connector'] = str(dataset.service_connector)
 
-                    except Exception as error:
-                        # connector not found
-                        result["remark"] = str(error)
-                        result["query"] = str(error)
+                    # get the translation parameters for the service for this dataset
+                    esap_translation_parameters = json.loads(dataset.dataset_catalog.parameters.parameters)
 
-                    input_results.append(result)
+                    if esap_translation_parameters!=None:
 
-            except Exception as error:
-                result["remark"] = str(error)
-                result['query'] = str(error)
+                        # read the connector method to use from the dataset
+                        service_module, service_connector = dataset.service_connector.split('.')
+
+                        # distinguish between types of services to use
+                        try:
+                            if service_module.upper() == 'VO':
+                                connector_class = getattr(vo, service_connector)
+
+                            elif service_module.upper() == 'ALTA':
+                                connector_class = getattr(alta, service_connector)
+
+
+                            url = str(dataset.dataset_catalog.url)
+                            connector = connector_class(url)
+                            query, errors = connector.construct_query(dataset, query_params, esap_translation_parameters,dataset.dataset_catalog.equinox)
+
+                            result['query'] = query
+                            if errors!=None:
+                                result['remark'] = str(errors)
+
+                        except Exception as error:
+                            # connector not found
+                            result["remark"] = str(error)
+                            result["query"] = str(error)
+
+                        input_results.append(result)
+
+                except Exception as error:
+                    result["remark"] = str(error)
+                    result['query'] = str(error)
 
 
     except Exception as error:
