@@ -141,7 +141,7 @@ class DataSet(EsapBaseObject):
     output_format = models.CharField(default=LIST, max_length=10, choices=OUTPUT_FORMAT) # list,tiles
 
     # The connector refers to the business logic in the services directory that handles the query to the specific catalog
-    service_connector = models.CharField(max_length=80) # vo.tap_service_connector, alta.observations_connector, ...
+    service_connector = models.CharField(max_length=80, null=True, blank=True) # vo.tap_service_connector, alta.observations_connector, ...
 
 
     @property

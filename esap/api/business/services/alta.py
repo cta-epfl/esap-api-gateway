@@ -126,6 +126,23 @@ class observations_connector(esap_service):
                 result = "https://alta.astron.nl/science/details/"+observation["runId"]
                 record['dataset'] = dataset.uri
                 record['result'] = result
+
+                # some fields to return some rendering information for the frontend.
+                try:
+                    record['title'] = observation[dataset.title_field]
+                except:
+                    pass
+
+                try:
+                    record['thumbnail'] = observation[dataset.thumbnail_field]
+                except:
+                    pass
+
+                try:
+                    record['url'] = observation[dataset.url_field]
+                except:
+                    pass
+
                 results.append(record)
 
         except Exception as error:
