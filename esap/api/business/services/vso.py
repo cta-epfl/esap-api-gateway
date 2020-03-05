@@ -101,8 +101,80 @@ Service: VSOiService
 """
 
 # https://vso.nascom.nasa.gov/API/VSO_API.html
+import socket
+import warnings
 
+from urllib.error import URLError, HTTPError
+from urllib.request import urlopen
 import zeep
+
+
+# --------- >>> borrowed from the 20040102000000 package ----------
+DEFAULT_URL_PORT = [{'url': 'http://docs.virtualsolar.org/WSDL/VSOi_rpc_literal.wsdl',
+                     'port': 'nsoVSOi'},
+                    {'url': 'https://sdac.virtualsolar.org/API/VSOi_rpc_literal.wsdl',
+                     'port': 'sdacVSOi'}]
+
+
+def check_connection(url):
+    try:
+        return urlopen(url).getcode() == 200
+    except (socket.error, socket.timeout, HTTPError, URLError) as e:
+        print("Connection to " +url+ " failed with error {e}. Retrying with different url and port.")
+        return None
+
+
+def get_online_vso_url():
+    """
+    Return the first VSO url and port combination that is online.
+    """
+    for mirror in DEFAULT_URL_PORT:
+        if check_connection(mirror['url']):
+            return mirror
+
+
+def build_client(url=None, port_name=None, **kwargs):
+    """
+    Construct a `zeep.Client` object to connect to VSO.
+
+    Parameters
+    ----------
+    url : `str`
+        The URL to connect to.
+
+    port_name : `str`
+        The "port" to use.
+
+    kwargs : `dict`
+        All extra keyword arguments are passed to `zeep.Client`.
+
+    Returns
+    -------
+
+    `zeep.Client`
+    """
+    if url is None and port_name is None:
+        mirror = get_online_vso_url()
+        if mirror is None:
+            raise ConnectionError("No online VSO mirrors could be found.")
+        url = mirror['url']
+        port_name = mirror['port']
+    elif url and port_name:
+        if not check_connection(url):
+            print("Can't connect to url {url}")
+    else:
+       print("Both url and port_name must be specified if either is.")
+
+#    if "plugins" not in kwargs:
+#        kwargs["plugins"] = [SunPyLoggingZeepPlugin()]
+
+    client = zeep.Client(url, port_name=port_name, **kwargs)
+    client.set_ns_prefix('VSO', 'http://virtualsolar.org/VSO/VSOi')
+    return client
+
+
+
+# --------- borrowed from the sunpy.net.vso package <<< ----------
 
 # --------------------------------------------------
 
@@ -121,6 +193,8 @@ print(client.service.Method1('Zeep', 'is cool'))
 wsdl = "http://docs.virtualsolar.org/WSDL"
 settings = zeep.Settings(strict=False, xml_huge_tree=True)
 client = zeep.Client(wsdl=wsdl, settings=settings)
+
+
 
 # https://python-zeep.readthedocs.io/en/master/datastructures.html
 
@@ -187,6 +261,16 @@ block = factory.QueryRequestBlock(time=time, instrument='EIT')
 body = factory.QueryRequest(version=0.6, block=block)
 
 #body = body_type(version='0.6', request = request )
+
+api = build_client()
+QueryRequest = api.get_type('VSO:QueryRequest')
+VSOQueryResponse = api.get_type('VSO:QueryResponse')
+responses = []
+
+VSOQueryResponse(api.service.Query(
+    QueryRequest(block=block)
+))
+
 
 
 node = client.create_message(client.service, 'Query', body=body)
