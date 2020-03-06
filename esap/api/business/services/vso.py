@@ -1,289 +1,148 @@
-
 """
-https://github.com/mvantellingen/python-zeep
-Inspect WSDL:
-python -m zeep http://docs.virtualsolar.org/WSDL
+    File name: vso.py
+    Author: Nico Vermaas - Astron
+    Date created: 2020-03-06
+    Description:  ESAP services for Virtual Solar Observatory
 
-Prefixes:
-     xsd: http://www.w3.org/2001/XMLSchema
-     ns0: http://virtualsolar.org/VSO/VSOi
-
-Global elements:
-
-
-Global types:
-     xsd:anyType
-     ns0:DataContainer(datarequestitem: ns0:DataRequestItem[])
-     ns0:DataItem(provider: xsd:string, url: xsd:string, fileiditem: ns0:FileidItem)
-     ns0:DataRequestItem(provider: xsd:string, fileiditem: ns0:FileidItem)
-     ns0:Extent(x: xsd:string, y: xsd:string, width: xsd:string, length: xsd:string, type: xsd:string)
-     ns0:Extra(thumbnail: ns0:Thumbnail, flags: xsd:string)
-     ns0:Field(fielditem: xsd:string[])
-     ns0:FileidItem(fileid: xsd:string[])
-     ns0:GetDataItem(dataitem: ns0:DataItem[])
-     ns0:GetDataRequest(method: ns0:MethodItem, info: ns0:Info, datacontainer: ns0:DataContainer)
-     ns0:GetDataResponseItem(version: xsd:string, info: {infoitem: xsd:string[]}, provider: xsd:string, getdataitem: ns0:GetDataItem, status: xsd:string, debug: xsd:string, details: xsd:string, method: ns0:MethodItem)
-     ns0:Info(email: xsd:string, host: xsd:string, user: xsd:string, directory: xsd:string, password: xsd:string, address: xsd:string, required: xsd:string, site: xsd:string)
-     ns0:MethodItem(methodtype: xsd:string[])
-     ns0:ProviderQueryResponse(version: xsd:float, provider: xsd:string, no_of_records_found: xsd:int, no_of_records_returned: xsd:int, record: ns0:QueryResponseBlockArray, error: xsd:string, debug: xsd:string, status: xsd:string)
-     ns0:QueryRequest(version: xsd:float, block: ns0:QueryRequestBlock)
-     ns0:QueryRequestBlock(time: ns0:Time, provider: xsd:string, source: xsd:string, instrument: xsd:string, physobs: xsd:string, wave: ns0:Wave, extent: ns0:Extent, field: ns0:Field, pixels: xsd:string, level: xsd:string, resolution: xsd:string, detector: xsd:
-string, filter: xsd:string, sample: xsd:string, quicklook: xsd:string, pscale: xsd:string)
-     ns0:QueryResponse(provideritem: ns0:ProviderQueryResponse[])
-     ns0:QueryResponseBlock(provider: xsd:string, source: xsd:string, instrument: xsd:string, physobs: xsd:string, time: ns0:Time, wave: ns0:Wave, extent: ns0:Extent, size: xsd:float, extra: ns0:Extra, info: xsd:string, datatype: xsd:string, fileurl: xsd:string
-, fileid: xsd:string)
-     ns0:QueryResponseBlockArray(recorditem: ns0:QueryResponseBlock[])
-     ns0:Thumbnail(hires: xsd:string, lowres: xsd:string)
-     ns0:Time(start: xsd:string, end: xsd:string, near: xsd:string)
-     ns0:VSOGetDataRequest(version: xsd:string, request: ns0:GetDataRequest)
-     ns0:VSOGetDataResponse(getdataresponseitem: ns0:GetDataResponseItem[])
-     ns0:Wave(wavemin: xsd:string, wavemax: xsd:string, waveunit: xsd:string, wavetype: xsd:string)
-     xsd:ENTITIES
-     xsd:ENTITY
-     xsd:ID
-     xsd:IDREF
-     xsd:IDREFS
-     xsd:NCName
-     xsd:NMTOKEN
-     xsd:NMTOKENS
-     xsd:NOTATION
-     xsd:Name
-     xsd:QName
-     xsd:anySimpleType
-     xsd:anyURI
-     xsd:base64Binary
-     xsd:boolean
-     xsd:byte
-     xsd:date
-     xsd:dateTime
-     xsd:decimal
-     xsd:double
-     xsd:duration
-     xsd:float
-     xsd:gDay
-     xsd:gMonth
-     xsd:gMonthDay
-     xsd:gYear
-     xsd:gYearMonth
-     xsd:hexBinary
-     xsd:int
-     xsd:integer
-     xsd:language
-     xsd:long
-     xsd:negativeInteger
-     xsd:nonNegativeInteger
-     xsd:nonPositiveInteger
-     xsd:normalizedString
-     xsd:positiveInteger
-     xsd:short
-     xsd:string
-     xsd:time
-     xsd:token
-     xsd:unsignedByte
-     xsd:unsignedInt
-     xsd:unsignedLong
-     xsd:unsignedShort
-
-Bindings:
-     Soap11Binding: {http://virtualsolar.org/VSO/VSOi}VSOiBinding
-
-Service: VSOiService
-     Port: nsoTestVSOi (Soap11Binding: {http://virtualsolar.org/VSO/VSOi}VSOiBinding)
-         Operations:
-            GetData(body: ns0:VSOGetDataRequest) -> body: ns0:VSOGetDataResponse
-            Query(body: ns0:QueryRequest) -> body: ns0:QueryResponse
-
-     Port: nsoVSOi (Soap11Binding: {http://virtualsolar.org/VSO/VSOi}VSOiBinding)
-         Operations:
-            GetData(body: ns0:VSOGetDataRequest) -> body: ns0:VSOGetDataResponse
-            Query(body: ns0:QueryRequest) -> body: ns0:QueryResponse
-
+    Documentation:
+    - https://virtualsolar.org/cgi-bin/search?help=1
 """
 
-# https://vso.nascom.nasa.gov/API/VSO_API.html
-import socket
-import warnings
+from .esap_service import esap_service
+import requests, json
+from datetime import datetime
 
-from urllib.error import URLError, HTTPError
-from urllib.request import urlopen
-import zeep
+AMP_REPLACEMENT = '_and_'
 
-
-# --------- >>> borrowed from the 20040102000000 package ----------
-DEFAULT_URL_PORT = [{'url': 'http://docs.virtualsolar.org/WSDL/VSOi_rpc_literal.wsdl',
-                     'port': 'nsoVSOi'},
-                    {'url': 'https://sdac.virtualsolar.org/API/VSOi_rpc_literal.wsdl',
-                     'port': 'sdacVSOi'}]
-
-
-def check_connection(url):
-    try:
-        return urlopen(url).getcode() == 200
-    except (socket.error, socket.timeout, HTTPError, URLError) as e:
-        print("Connection to " +url+ " failed with error {e}. Retrying with different url and port.")
-        return None
-
-
-def get_online_vso_url():
+class vso_connector(esap_service):
     """
-    Return the first VSO url and port combination that is online.
+    The connector to access the VSO
     """
-    for mirror in DEFAULT_URL_PORT:
-        if check_connection(mirror['url']):
-            return mirror
 
+    # Initializer
+    def __init__(self, url):
+        self.url = url
 
-def build_client(url=None, port_name=None, **kwargs):
-    """
-    Construct a `zeep.Client` object to connect to VSO.
+    # construct a query for this type of service
+    def construct_query(self, dataset, esap_query_params, translation_parameters, equinox):
 
-    Parameters
-    ----------
-    url : `str`
-        The URL to connect to.
+        where = ''
+        errors = []
 
-    port_name : `str`
-        The "port" to use.
+        # loop through the list of input parameters and translate them.
+        for esap_param in esap_query_params:
+            esap_key = esap_param
+            value = esap_query_params[esap_key][0]
 
-    kwargs : `dict`
-        All extra keyword arguments are passed to `zeep.Client`.
+            try:
+                dataset_key = translation_parameters[esap_key]
 
-    Returns
-    -------
+                # some specific VSO business logic to construct the timerange.
+                # Convert the ESAP values to a VSO timerange
+                if dataset_key=="start":
+                    start_date = datetime.strptime(value, "%Y-%m-%d").strftime("%Y%m%d")
+                elif dataset_key=="end":
+                    end_date = datetime.strptime(value, "%Y-%m-%d").strftime("%Y%m%d")
+                else:
+                    # because '&' has a special meaning in urls (specifying a parameter) replace it with
+                    # something harmless during serialization.
+                    where = where + dataset_key + '=' + value + AMP_REPLACEMENT
 
-    `zeep.Client`
-    """
-    if url is None and port_name is None:
-        mirror = get_online_vso_url()
-        if mirror is None:
-            raise ConnectionError("No online VSO mirrors could be found.")
-        url = mirror['url']
-        port_name = mirror['port']
-    elif url and port_name:
-        if not check_connection(url):
-            print("Can't connect to url {url}")
-    else:
-       print("Both url and port_name must be specified if either is.")
+            except Exception as error:
+                # if the parameter could not be translated, then just continue without this parameter
+                errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
 
-#    if "plugins" not in kwargs:
-#        kwargs["plugins"] = [SunPyLoggingZeepPlugin()]
+        # cut off the last separation character
+        where = where[:-len(AMP_REPLACEMENT)]
 
-    client = zeep.Client(url, port_name=port_name, **kwargs)
-    client.set_ns_prefix('VSO', 'http://virtualsolar.org/VSO/VSOi')
-    return client
+        # construct the query url by first adding the constructed timerange, followed by the rest of the parameters
+        timerange="timerange="+start_date+"-"+end_date
+        where = timerange + "_and_" + where
 
+        query = self.url + '?' + where
 
-
-# --------- borrowed from the sunpy.net.vso package <<< ----------
-
-# --------------------------------------------------
-
-"""
-Service: SoapResponder
-     Port: SoapResponderPortType (Soap11Binding: {http://www.SoapClient.com/xml/SoapResponder.wsdl}SoapResponderBinding)
-         Operations:
-            Method1(bstrParam1: xsd:string, bstrParam2: xsd:string) -> bstrReturn: xsd:string
-"""
-wsdl = 'http://www.soapclient.com/xml/soapresponder.wsdl'
-client = zeep.Client(wsdl=wsdl)
-print(client.service.Method1('Zeep', 'is cool'))
-
-# --------------------------------------------------
-
-wsdl = "http://docs.virtualsolar.org/WSDL"
-settings = zeep.Settings(strict=False, xml_huge_tree=True)
-client = zeep.Client(wsdl=wsdl, settings=settings)
+        return query, errors
 
 
 
-# https://python-zeep.readthedocs.io/en/master/datastructures.html
+    def run_query(self, dataset, query):
+        """
+        :param dataset: the dataset object that must be queried
+        :param query: the constructed query (that was probably generated with the above construct_query function)
+        :return: results: an array of dicts with the following structure;
 
-type = client.get_type('ns0:VSOGetDataRequest')
-print(type)
-# VSOGetDataRequest({http://virtualsolar.org/VSO/VSOi} VSOGetDataRequest(
-# version: xsd:string,
-# request: {http://virtualsolar.org/VSO/VSOi}GetDataRequest))
+        example:
+        /esap-api/run-query/?dataset_uri=vso&query=https://sdac.virtualsolar.org/cgi/vsoui?timerange=20040107-20040108_and_instrument=eit&waverange=304
 
-type = client.get_type('ns0:QueryRequest')
-print(type)
-# QueryRequest({http://virtualsolar.org/VSO/VSOi}QueryRequest(
-# version: xsd:float,
-# block: {http://virtualsolar.org/VSO/VSOi}QueryRequestBlock))
-
-type = client.get_type('ns0:QueryRequestBlock')
-print(type)
-# QueryRequestBlock({http://virtualsolar.org/VSO/VSOi}QueryRequestBlock(
-# time: {http://virtualsolar.org/VSO/VSOi}Time,
-# provider: xsd:string, source: xsd:string,
-# instrument: xsd:string,
-# physobs: xsd:string,
-# wave: {http://virtualsolar.org/VSO/VSOi}Wave,
-# extent: {http://virtualsolar.org/VSO/VSOi}Extent,
-# field: {http://virtualsolar.org/VSO/VSOi}Field,
-# pixels: xsd:string,
-# level: xsd:string,
-# resolution: xsd:string,
-# detector: xsd:string,
-# filter: xsd:string,
-# sample: xsd:string,
-# quicklook: xsd:string,
-# pscale: xsd:string))
-
-type = client.get_type('ns0:Time')
-print(type)
-# Time({http://virtualsolar.org/VSO/VSOi}Time(
-# start: xsd:string, 
-# end: xsd:string, 
-# near: xsd:string)
+        {
+            "dataset": "vso",
+            "result": "SDAC,SOHO",
+            "title": "/archive/soho/private/data/processed/eit/lz/2004/01/efz20040106.235333",
+            "url": "/archive/soho/private/data/processed/eit/lz/2004/01/efz20040106.235333"
+        },
+        {
+            "dataset": "vso",
+            "result": "SDAC,SOHO",
+            "title": "/archive/soho/private/data/processed/eit/lz/2004/01/efz20040107.001148",
+            "url": "/archive/soho/private/data/processed/eit/lz/2004/01/efz20040107.001148"
+        },
 
 
-request_type = client.get_type('ns0:GetDataRequest')
-print(type)
-# GetDataRequest({http://virtualsolar.org/VSO/VSOi}GetDataRequest(
-# method: {http://virtualsolar.org/VSO/VSOi}MethodItem,
-# info: {http://virtualsolar.org/VSO/VSOi}Info,
-# datacontainer: {http://virtualsolar.org/VSO/VSOi}DataContainer))
+        """
+        results = []
 
-type = client.get_type('ns0:MethodItem')
-print(type)
+        # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
+        # something harmless during serialization. Replace it again with the &
+        query = query.replace(AMP_REPLACEMENT,'&')
 
-type = client.get_type('ns0:Info')
-print(type)
+        try:
 
-type = client.get_type('ns0:DataContainer')
-print(type)
+            # execute the first http request to ALTA to do the cone search on observation level.
+            response = requests.request("GET", query)
+            json_response = json.loads(response.text)
+            resultset = json_response["resultset"]
 
-#--------------------------------------------------
+            # iterate over the list of results..
+            for json_record in resultset:
+                record = {}
+                result = ''
 
-factory = client.type_factory('ns0')
-time = factory.Time(start=20040101000000,end=20040102000000)
-block = factory.QueryRequestBlock(time=time, instrument='EIT')
-body = factory.QueryRequest(version=0.6, block=block)
+                select_list = dataset.select_fields.split(',')
+                for select in select_list:
+                    try:
+                        result = result + json_record[select] + ','
+                    except:
+                        pass
 
-#body = body_type(version='0.6', request = request )
+                # cut off the last ','
+                result = result[:-1]
 
-api = build_client()
-QueryRequest = api.get_type('VSO:QueryRequest')
-VSOQueryResponse = api.get_type('VSO:QueryResponse')
-responses = []
+                record['dataset'] = dataset.uri
+                record['result'] = result
 
-VSOQueryResponse(api.service.Query(
-    QueryRequest(block=block)
-))
+                # some fields to return display information for the frontend.
+                try:
+                    record['title'] = json_record[dataset.title_field]
+                except:
+                    pass
 
+                try:
+                    # hardcoded thumbnail field, because it is in the deeper 'extra' structure of the json.
+                    extra = json_record['extra']
+                    record['thumbnail'] = extra['thumbnail']
+                except:
+                    pass
 
+                try:
+                    record['url'] = json_record[dataset.url_field]
+                except:
+                    pass
 
-node = client.create_message(client.service, 'Query', body=body)
-print(node)
+                results.append(record)
 
-with client.settings(raw_response=True):
-    response = client.service.Query(body=body)
-    print(response)
+        except Exception as error:
+            record['dataset'] = dataset.uri
+            record['result'] =  str(error)
+            results.append(record)
 
-#VSOGetDataRequest= "<VSO:request xsi:type="VSO:QueryRequest"><block><VSO:instrument xsi:type="xsd:string">EIT</VSO:instrument><time><VSO:start xsi:type="xsd:string">20040101000000</VSO:start><VSO:end xsi:type="xsd:string">20040102000000</VSO:end></time></block><VSO:version xsi:type="xsd:float">0.6</VSO:version></VSO:request>"
-
-
-
-
-#query_request = "instrument=EIT;time.start=20040101000000;time.end=20040102000000;version=0.6"
-#client.service.Query('body')
+        return results

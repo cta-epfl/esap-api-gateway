@@ -72,14 +72,16 @@ class CatalogSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True,
         view_name='dataset-detail',
         lookup_field='pk',
+        # queryset=DataSet.objects.all(),
     )
 
     parameters = serializers.HyperlinkedRelatedField(
         many=False,
         required=False,
-        read_only=True,
+        read_only=False,
         view_name='parametermapping-detail',
         lookup_field='pk',
+        queryset=ParameterMapping.objects.all(),
     )
 
     class Meta():

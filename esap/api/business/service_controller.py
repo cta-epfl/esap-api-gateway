@@ -10,7 +10,7 @@ import logging
 import json
 from .common import timeit
 
-from .services import vo, alta
+from .services import vo, alta, vso
 
 logger = logging.getLogger(__name__)
 
@@ -43,7 +43,7 @@ def create_query(datasets, query_params):
                 # build a result json structure for the input query
                 result = {}
                 result['dataset'] = dataset.uri
-
+                result['dataset_name'] = dataset.name
                 try:
                     # get the url to the service for this dataset
                     result['service_url'] = str(dataset.dataset_catalog.url)
@@ -69,6 +69,8 @@ def create_query(datasets, query_params):
                             elif service_module.upper() == 'ALTA':
                                 connector_class = getattr(alta, service_connector)
 
+                            elif service_module.upper() == 'VSO':
+                                connector_class = getattr(vso, service_connector)
 
                             url = str(dataset.dataset_catalog.url)
                             connector = connector_class(url)
@@ -128,6 +130,9 @@ def run_query(dataset, query):
 
         elif service_module.upper() == 'ALTA':
             connector_class = getattr(alta, service_connector)
+
+        elif service_module.upper() == 'VSO':
+            connector_class = getattr(vso, service_connector)
 
     except:
         # connector not found
