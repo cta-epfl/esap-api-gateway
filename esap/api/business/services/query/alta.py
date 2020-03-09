@@ -5,7 +5,7 @@
     Description:  ESAP services for ALTA.
 """
 
-from .esap_service import esap_service
+from .query_base import query_base
 import requests, json
 AMP_REPLACEMENT = '_and_'
 
@@ -15,7 +15,7 @@ ALTA_HEADER = {
 }
 
 
-class observations_connector(esap_service):
+class observations_connector(query_base):
     """
     The connector to access the ALTA observations dataset
     """
@@ -123,7 +123,7 @@ class observations_connector(esap_service):
 
 # --------------------------------------------------------------------------------------------------------------------
 
-class dataproducts_connector(esap_service):
+class dataproducts_connector(query_base):
     """
     The connector to access the ALTA dataproducts dataset
     """

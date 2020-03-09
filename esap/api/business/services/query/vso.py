@@ -8,13 +8,13 @@
     - https://virtualsolar.org/cgi-bin/search?help=1
 """
 
-from .esap_service import esap_service
+from .query_base import query_base
 import requests, json
 from datetime import datetime
 
 AMP_REPLACEMENT = '_and_'
 
-class vso_connector(esap_service):
+class vso_connector(query_base):
     """
     The connector to access the VSO
     """

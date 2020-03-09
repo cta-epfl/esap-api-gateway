@@ -2,14 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39bb9056-a8a2-4105-bdfc-77202926e9ed" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/esap/api/views/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/esap/api/views/common.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/esap/api/views/staging.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/esap/api/views_obsolete.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/esap/assets/sdacVSOi_strict.wsdl" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/esap/api/business/query_controller.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/esap/api/business/services/staging/staging_base.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/esap/api/views_obsolete.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esap/api/business/services/helio.py" afterPath="$PROJECT_DIR$/esap/api/business/services/helio.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/views.py" afterPath="$PROJECT_DIR$/esap/api/views/query.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esap/api/models.py" afterPath="$PROJECT_DIR$/esap/api/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esap/api/serializers.py" afterPath="$PROJECT_DIR$/esap/api/serializers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esap/api/templates/api/index.html" afterPath="$PROJECT_DIR$/esap/api/templates/api/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esap/api/views/__init__.py" afterPath="$PROJECT_DIR$/esap/api/views/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/business/service_controller.py" afterPath="$PROJECT_DIR$/esap/api/business/staging_controller.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/business/services/alta.py" afterPath="$PROJECT_DIR$/esap/api/business/services/query/alta.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/business/services/esap_service.py" afterPath="$PROJECT_DIR$/esap/api/business/services/query/query_base.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/business/services/helio.py" afterPath="$PROJECT_DIR$/esap/api/business/services/query/helio.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/business/services/vo.py" afterPath="$PROJECT_DIR$/esap/api/business/services/query/vo.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/business/services/vso.py" afterPath="$PROJECT_DIR$/esap/api/business/services/query/vso.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/business/services/vso_soap.py" afterPath="$PROJECT_DIR$/esap/api/business/services/query/vso_soap.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/views/common.py" afterPath="$PROJECT_DIR$/esap/api/views/common_views.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/views/query.py" afterPath="$PROJECT_DIR$/esap/api/views/query_views.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/esap/api/views/staging.py" afterPath="$PROJECT_DIR$/esap/api/views/staging_views.py" />
     </list>
     <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,32 +38,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views_obsolete.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/esap/api/views_obsolete.py">
+      <file leaf-file-name="vso.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/esap/api/business/services/query/vso.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="944">
-              <caret line="180" column="28" lean-forward="false" selection-start-line="180" selection-start-column="21" selection-end-line="180" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="381">
+              <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding>
+                <element signature="e#229#263#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/esap/api/views/common.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4967">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/esap/api/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2559">
+            <state relative-caret-position="1989">
               <caret line="117" column="73" lean-forward="false" selection-start-line="117" selection-start-column="65" selection-end-line="117" selection-end-column="73" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/esap/api/templates/api/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="72" column="50" lean-forward="false" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="query_views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/esap/api/views/query_views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="344">
+              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,25 +85,15 @@
       <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/esap/api/business/common.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="732">
+            <state relative-caret-position="340">
               <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="query.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/esap/api/views/query.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3430">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="staging.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/esap/api/views/staging.py">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/esap/api/business/services/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -88,41 +102,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/esap/api/views/__init__.py">
+      <file leaf-file-name="query_controller.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/esap/api/business/query_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+            <state relative-caret-position="177">
+              <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+              <folding>
+                <element signature="e#212#228#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="query_base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/esap/api/business/services/query/query_base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/esap/api/urls.py">
+      <file leaf-file-name="staging_controller.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/esap/api/business/staging_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1007">
-              <caret line="21" column="76" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="76" />
+            <state relative-caret-position="187">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/esap/api/templates/api/index.html">
+      <file leaf-file-name="staging_base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/esap/api/business/services/staging/staging_base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3816">
-              <caret line="72" column="50" lean-forward="false" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="helio.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/esap/api/business/services/helio.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+            <state relative-caret-position="68">
+              <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -198,12 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/adex/adex/settings/base.py" />
-        <option value="$PROJECT_DIR$/adex/requirements/base.txt" />
-        <option value="$PROJECT_DIR$/adex/adex/wsgi_docker_dop457.py" />
-        <option value="$PROJECT_DIR$/adex/Dockerfile" />
-        <option value="$PROJECT_DIR$/adex/adex/settings/docker_dop457.py" />
-        <option value="$PROJECT_DIR$/adex/adex/settings/docker_dop457-010.py" />
         <option value="$PROJECT_DIR$/adex/Dockerfile-010" />
         <option value="$PROJECT_DIR$/adex/adex/wsgi_docker_dop457-010.py" />
         <option value="$PROJECT_DIR$/adex/adex/urls.py" />
@@ -241,22 +251,28 @@
         <option value="$PROJECT_DIR$/esap/api/models.py" />
         <option value="$PROJECT_DIR$/esap/api/serializers.py" />
         <option value="$PROJECT_DIR$/esap/api/business/services/alta.py" />
-        <option value="$PROJECT_DIR$/esap/api/business/service_controller.py" />
         <option value="$PROJECT_DIR$/esap/api/business/services/vso.py" />
-        <option value="$PROJECT_DIR$/esap/api/templates/api/index.html" />
         <option value="$PROJECT_DIR$/esap/api/business/services/helio.py" />
         <option value="$PROJECT_DIR$/esap/api/views/staging.py" />
         <option value="$PROJECT_DIR$/esap/api/views/__init__.py" />
         <option value="$PROJECT_DIR$/esap/api/views/query.py" />
         <option value="$PROJECT_DIR$/esap/api/views/discovery.py" />
+        <option value="$PROJECT_DIR$/esap/api/business/services/staging_base.py" />
+        <option value="$PROJECT_DIR$/esap/api/business/services/service_base.py" />
+        <option value="$PROJECT_DIR$/esap/api/business/staging_controller.py" />
+        <option value="$PROJECT_DIR$/esap/api/business/service_controller.py" />
+        <option value="$PROJECT_DIR$/esap/api/business/services/query/query_base.py" />
+        <option value="$PROJECT_DIR$/esap/api/business/services/staging/staging_base.py" />
+        <option value="$PROJECT_DIR$/esap/api/business/query_controller.py" />
+        <option value="$PROJECT_DIR$/esap/api/templates/api/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-16" />
-    <option name="y" value="-16" />
-    <option name="width" value="3872" />
-    <option name="height" value="2092" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -274,7 +290,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -438,6 +453,10 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -487,26 +506,89 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esap-gateway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esap-gateway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="business" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="staging" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esap-gateway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esap-gateway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="business" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="query" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/esap/api/business/services" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/esap/api/business/services/staging" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="R:\source\django\esap-gateway\esap\api\views" />
-      <recent name="R:\source\django\esap-gateway\esap\api\business\services" />
-      <recent name="R:\source\django\esap-gateway\esap\assets" />
-      <recent name="R:\source\django\esap-gateway\esap\esap" />
-      <recent name="R:\source\django\esap-gateway\esap\api\business" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="R:\source\django\esap-gateway\esap\api\business\services\staging" />
+      <recent name="R:\source\django\esap-gateway\esap\api\business\services\query" />
       <recent name="R:\source\django\esap-gateway\esap\api\business\services" />
       <recent name="R:\source\django\esap-gateway\esap\api\business\services\connectors" />
       <recent name="R:\source\django\esap-gateway\esap\api" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="R:\source\django\esap-gateway\esap\api\business\services" />
+      <recent name="R:\source\django\esap-gateway\esap\api\business" />
+      <recent name="R:\source\django\esap-gateway\esap\api\views" />
+      <recent name="R:\source\django\esap-gateway\esap\assets" />
+      <recent name="R:\source\django\esap-gateway\esap\esap" />
     </key>
   </component>
   <component name="RunManager" selected="Python.manage.py runserver">
@@ -556,7 +638,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="ESAP-gateway" />
-      <option name="SCRIPT_NAME" value="R:\source\django\esap-gateway\esap\api\business\services\vso_soap.py" />
+      <option name="SCRIPT_NAME" value="R:\source\django\esap-gateway\esap\api\business\services\query\vso_soap.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -718,13 +800,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577692394153</updated>
-    </task>
-    <task id="LOCAL-00015" summary="deploy secondary version of the api">
-      <created>1578659884651</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1578659884651</updated>
     </task>
     <task id="LOCAL-00016" summary="deploy secondary version of the api">
       <created>1578660554294</created>
@@ -1062,7 +1137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583510711854</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="splitting up views for query and staging">
+      <created>1583512996983</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1583512996983</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1075,28 +1157,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26283422" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="LDAP" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38678223" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.271855" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38517278" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3943662" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39520624" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1128,7 +1210,8 @@
     <MESSAGE value="adding alta dataproducts query example" />
     <MESSAGE value="add VSO cgi solution" />
     <MESSAGE value="adding WSRT datasets" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding WSRT datasets" />
+    <MESSAGE value="splitting up views for query and staging" />
+    <option name="LAST_COMMIT_MESSAGE" value="splitting up views for query and staging" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1138,45 +1221,26 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/esap/api/business/services/vso_soap.py</url>
+          <url>file://$PROJECT_DIR$/esap/api/business/services/query/vso_soap.py</url>
           <line>203</line>
           <option name="timeStamp" value="196" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/esap/api/business/services/vso_soap.py</url>
+          <url>file://$PROJECT_DIR$/esap/api/business/services/query/vso_soap.py</url>
           <line>191</line>
           <option name="timeStamp" value="198" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/esap/api/business/services/vso_soap.py</url>
+          <url>file://$PROJECT_DIR$/esap/api/business/services/query/vso_soap.py</url>
           <line>137</line>
           <option name="timeStamp" value="202" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/esap/api/business/services/vso.py</url>
-          <line>59</line>
-          <option name="timeStamp" value="229" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="230" />
+      <option name="time" value="235" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/esap/logs/esap.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://R:/env_esap/Lib/site-packages/django/utils/deprecation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="96" column="14" lean-forward="true" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://R:/env_esap/Lib/site-packages/django/views/decorators/csrf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
@@ -1296,13 +1360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/business/services/esap_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="12" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://R:/env_esap/Lib/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
@@ -1325,13 +1382,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/esap/api/migrations/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/business/services/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1373,20 +1423,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esap/assets/VSOi_rpc_literal.wsdl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esap/assets/sdacVSOi_strict.wsdl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3267">
-          <caret line="99" column="49" lean-forward="false" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/assets/VSOi_rpc_literal.wsdl" />
+    <entry file="file://$PROJECT_DIR$/esap/assets/sdacVSOi_strict.wsdl" />
     <entry file="file://R:/env_esap/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10164">
@@ -1401,7 +1439,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/business/services/vso_soap.py">
+    <entry file="file://$PROJECT_DIR$/esap/api/business/services/query/vso_soap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
@@ -1409,18 +1447,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/business/services/vo.py">
+    <entry file="file://$PROJECT_DIR$/esap/api/business/services/query/vo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="183" column="0" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/business/services/alta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4876">
-          <caret line="93" column="17" lean-forward="false" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1428,7 +1458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4346">
           <caret line="84" column="5" lean-forward="false" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1436,49 +1465,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10282">
           <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/business/service_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3763">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="e#206#222#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/business/services/vso.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding>
-            <element signature="e#229#267#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/templates/api/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3816">
-          <caret line="72" column="50" lean-forward="false" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/business/services/helio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/esap/api/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1007">
+        <state relative-caret-position="323">
           <caret line="21" column="76" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="76" />
           <folding />
         </state>
@@ -1486,7 +1478,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/esap/api/views_obsolete.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="944">
+        <state relative-caret-position="2703">
           <caret line="180" column="28" lean-forward="false" selection-start-line="180" selection-start-column="21" selection-end-line="180" selection-end-column="28" />
           <folding />
         </state>
@@ -1500,7 +1492,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/views/staging.py">
+    <entry file="file://$PROJECT_DIR$/esap/api/views/staging_views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1508,34 +1500,112 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/views/query.py">
+    <entry file="file://$PROJECT_DIR$/esap/api/views/common_views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3430">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/api/business/services/query/helio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/api/business/services/query/alta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="93" column="17" lean-forward="false" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/api/business/staging_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/api/business/services/query/query_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/esap/api/business/common.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
+        <state relative-caret-position="340">
           <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esap/api/views/common.py">
+    <entry file="file://$PROJECT_DIR$/esap/api/business/services/staging/staging_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4967">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/api/business/services/query/vso.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="e#229#263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/api/business/services/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/api/business/query_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <folding>
+            <element signature="e#212#228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/api/views/query_views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/esap/api/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2559">
+        <state relative-caret-position="1989">
           <caret line="117" column="73" lean-forward="false" selection-start-line="117" selection-start-column="65" selection-end-line="117" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esap/api/templates/api/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="72" column="50" lean-forward="false" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
           <folding />
         </state>
       </provider>

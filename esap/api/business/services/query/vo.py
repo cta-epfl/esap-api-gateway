@@ -5,7 +5,7 @@
     Description:  ESAP services for VO.
 """
 
-from .esap_service import esap_service
+from .query_base import query_base
 import pyvo as vo
 
 
@@ -43,7 +43,7 @@ def create_cone_search(esap_query_params, translation_parameters, equinox):
         return cone_search
 
 
-class tap_service_connector(esap_service):
+class tap_service_connector(query_base):
 
     # Initializer
     def __init__(self, url):

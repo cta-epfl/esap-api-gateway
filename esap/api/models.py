@@ -71,7 +71,7 @@ class Catalog(EsapBaseObject):
     ]
 
 
-    # esap_service determines which algorithm is used to create and run queries.
+    # query_base determines which algorithm is used to create and run queries.
     esap_service = models.CharField(default='vo',max_length=15) # vo, alta, vso
 
     equinox = models.CharField(default=ICRS, max_length=10, choices=EQUINOX) # J2000, ICRS
