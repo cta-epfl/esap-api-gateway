@@ -65,6 +65,52 @@ class vso_connector(query_base):
 
 
 
+    def expand_path(self, provider, path):
+        """
+         The output seems to contain a link to a local location? Would that just be a matter of
+    > adding some http url to it?
+    > "fileid":"/archive/soho/private/data/processed/eit/lz/2004/01/efz20040107.002047"
+
+    Oh... right.  That would only get you the VSO 'Search' method, not the
+    'GetData' to actually get you a URL.
+
+    (The VSO is old enough that not all archives had their data online, so we
+    had to have an 'ordering' process, to tell them to retrieve it from tape
+    or whatever ... and we didn't want to trigger it happening just because
+    someone gave too broad of a search ... so it's a separate process.  It
+    also lets people request a tarball vs. a discrete list of URLs when the
+    archive provides a packaging service)
+
+    Ideally, you would call the 'GetData' method with the list of files that
+    you're interested in, and how you'd like them packaged, but there's
+    another way.
+
+    Years ago, for one of the ESA SolarNet projects, I wrote a little CGI that
+    will attempt to redirect you to the file:
+
+        https://sdac.virtualsolar.org/cgi-bin/get
+
+    You call it using PATH_INFO parameters, with the arguments being the
+    provider & fileid:
+
+        https://sdac.virtualsolar.org/cgi-bin/get/PROVIDER/FILEID
+
+    (fileid does *not* need to have slashes escaped, only characters that need
+    URI encoding like '%' or '&')
+
+    As a working example:
+
+ 	https://sdac.virtualsolar.org/cgi-bin/get/SDAC//archive/soho/private/data/processed/eit/lz/2004/01/efz20040107.014933
+
+
+        :return:
+
+        """
+
+        path = "https://sdac.virtualsolar.org/cgi-bin/get/"+provider+path
+        return path
+
+
     def run_query(self, dataset, query):
         """
         :param dataset: the dataset object that must be queried
@@ -134,7 +180,10 @@ class vso_connector(query_base):
                     pass
 
                 try:
-                    record['url'] = json_record[dataset.url_field]
+                    url = json_record[dataset.url_field]
+                    provider = json_record['provider']
+                    record['url'] = self.expand_path(provider,url)
+
                 except:
                     pass
 
