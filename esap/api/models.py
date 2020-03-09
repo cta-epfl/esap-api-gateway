@@ -70,15 +70,9 @@ class Catalog(EsapBaseObject):
         (ICRS, ICRS),
     ]
 
-    VO = 'vo'
-    ALTA = 'alta'
-    ESAP_SERVICE = [
-        (VO, VO),
-        (ALTA, ALTA),
-    ]
 
-    # esap_service determines which algorithm is used to create and run queries.
-    esap_service = models.CharField(default=VO,max_length=15, choices=ESAP_SERVICE) # vo, alta, ...
+    # query_base determines which algorithm is used to create and run queries.
+    esap_service = models.CharField(default='vo',max_length=15) # vo, alta, vso
 
     equinox = models.CharField(default=ICRS, max_length=10, choices=EQUINOX) # J2000, ICRS
     protocol = models.CharField(max_length=15, choices=PROTOCOL)  # adql, http
@@ -141,7 +135,7 @@ class DataSet(EsapBaseObject):
     output_format = models.CharField(default=LIST, max_length=10, choices=OUTPUT_FORMAT) # list,tiles
 
     # The connector refers to the business logic in the services directory that handles the query to the specific catalog
-    service_connector = models.CharField(max_length=80) # vo.tap_service_connector, alta.observations_connector, ...
+    service_connector = models.CharField(max_length=80, null=True, blank=True) # vo.tap_service_connector, alta.observations_connector, ...
 
 
     @property

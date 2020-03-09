@@ -72,21 +72,23 @@ class CatalogSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True,
         view_name='dataset-detail',
         lookup_field='pk',
+        # queryset=DataSet.objects.all(),
     )
 
     parameters = serializers.HyperlinkedRelatedField(
         many=False,
         required=False,
-        read_only=True,
+        read_only=False,
         view_name='parametermapping-detail',
         lookup_field='pk',
+        queryset=ParameterMapping.objects.all(),
     )
 
     class Meta():
         model = Catalog
         # fields = "__all__"
         fields = ('id', 'uri', 'name', 'short_description', 'long_description', 'retrieval_description', 'thumbnail',
-                    'url', 'dataset', 'parameters', 'esap_service')
+                    'url', 'dataset', 'parameters', 'query_base')
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
 class ParameterMappingSerializer(serializers.HyperlinkedModelSerializer):

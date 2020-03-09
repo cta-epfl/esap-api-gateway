@@ -5,7 +5,7 @@
     Description:  ESAP services for ALTA.
 """
 
-from .esap_service import esap_service
+from .query_base import query_base
 import requests, json
 AMP_REPLACEMENT = '_and_'
 
@@ -15,39 +15,7 @@ ALTA_HEADER = {
 }
 
 
-def alta_construct_query_obsolete(url, dataset, esap_query_params, translation_parameters, equinox):
-    """
-    generic construct_query functionality for ALTA
-    """
-    query = ''
-    where = ''
-    errors = []
-
-    for esap_param in esap_query_params:
-        esap_key = esap_param
-        value = esap_query_params[esap_key][0]
-
-        try:
-            dataset_key = translation_parameters[esap_key]
-
-            # because '&' has a special meaning in urls (specifying a parameter) replace it with
-            # something harmless during serialization.
-            where = where + dataset_key + '=' + value + AMP_REPLACEMENT
-
-        except Exception as error:
-            # if the parameter could not be translated, then just continue
-            errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
-
-    # cut off the last separation character
-    where = where[:-len(AMP_REPLACEMENT)]
-
-    # construct the query url
-    query = url + '?' + where
-
-    return query, errors
-
-
-class observations_connector(esap_service):
+class observations_connector(query_base):
     """
     The connector to access the ALTA observations dataset
     """
@@ -123,9 +91,26 @@ class observations_connector(esap_service):
                 # cut off the last ','
                 result = result[:-1]
 
-                result = "https://alta.astron.nl/science/details/"+observation["runId"]
+                #result = "https://alta.astron.nl/science/details/"+observation["runId"]
                 record['dataset'] = dataset.uri
                 record['result'] = result
+
+                # some fields to return some rendering information for the frontend.
+                try:
+                    record['title'] = observation[dataset.title_field]
+                except:
+                    pass
+
+                try:
+                    record['thumbnail'] = observation[dataset.thumbnail_field]
+                except:
+                    pass
+
+                try:
+                    record['url'] = "https://alta.astron.nl/science/details/"+observation["runId"]
+                except:
+                    pass
+
                 results.append(record)
 
         except Exception as error:
@@ -138,7 +123,7 @@ class observations_connector(esap_service):
 
 # --------------------------------------------------------------------------------------------------------------------
 
-class dataproducts_connector(esap_service):
+class dataproducts_connector(query_base):
     """
     The connector to access the ALTA dataproducts dataset
     """

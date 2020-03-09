@@ -1,12 +1,12 @@
 """
-    File name: esap_service.py
+    File name: service_base.py
     Author: Nico Vermaas - Astron
     Date created: 2020-02-07
     Description:  ESAP service abstract base class.
                   This shows what the services should implement.
 """
 
-class esap_service:
+class query_base:
 
     # Initializer
     def __init__(self, url):

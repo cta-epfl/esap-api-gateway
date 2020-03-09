@@ -5,7 +5,7 @@
     Description:  ESAP services for VO.
 """
 
-from .esap_service import esap_service
+from .query_base import query_base
 import pyvo as vo
 
 
@@ -43,7 +43,7 @@ def create_cone_search(esap_query_params, translation_parameters, equinox):
         return cone_search
 
 
-class tap_service_connector(esap_service):
+class tap_service_connector(query_base):
 
     # Initializer
     def __init__(self, url):
@@ -135,10 +135,11 @@ class tap_service_connector(esap_service):
             # for the definition of standard fields to return see:
             # http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
 
+            record = {}
+            result = ''
+
             # if * then iterate on the full row, otherwise just on the selection
             if dataset.select_fields=='*':
-                record = {}
-                result = ''
                 values = row.values()
 
                 for value in values:
@@ -149,26 +150,34 @@ class tap_service_connector(esap_service):
                             result = result + str(value) + ','
                         except:
                             pass
-
-                # cut off the last ','
-                result = result[:-1]
-                record['dataset'] = dataset.uri
-                record['result'] = result
-
             else:
-                record = {}
-                result = ''
                 select_list = dataset.select_fields.split(',')
 
                 for select in select_list:
                     result = result + row[select].decode('utf-8') + ','
 
-                # cut off the last ','
-                result = result[:-1]
+            # cut off the last ','
+            result = result[:-1]
+            record['dataset'] = dataset.uri
+            record['result'] = result
 
-                # the format must be a array of records
-                record['dataset'] = dataset.uri
-                record['result'] = result
+            # add some fields to return some rendering information for the frontend.
+            # for ivoa.obscore field names see: http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
+            try:
+                record['title'] = row[dataset.title_field]
+            except:
+                pass
+
+            try:
+                record['thumbnail'] = row[dataset.thumbnail_field]
+            except:
+                pass
+
+            try:
+                record['url'] = row[dataset.url_field]
+            except:
+                pass
+
 
             results.append(record)
 

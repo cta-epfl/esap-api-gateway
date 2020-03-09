@@ -1,5 +1,5 @@
 """
-    File name: algorithms.py
+    File name: query_controller.py
     Author: Nico Vermaas - Astron
     Date created: 2020-01-28
     Description:  Business logic for ESAP-gateway. These functions are called from the views (views.py).
@@ -10,7 +10,7 @@ import logging
 import json
 from .common import timeit
 
-from .services import vo, alta
+from .services.query import vo, alta, vso
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +21,7 @@ def create_query(datasets, query_params):
     :param query:
     :return:
     """
-    logger.info('create_query()')
+    logger.info('query_controller.create_query()')
     input_results = []
 
     try:
@@ -43,7 +43,7 @@ def create_query(datasets, query_params):
                 # build a result json structure for the input query
                 result = {}
                 result['dataset'] = dataset.uri
-
+                result['dataset_name'] = dataset.name
                 try:
                     # get the url to the service for this dataset
                     result['service_url'] = str(dataset.dataset_catalog.url)
@@ -54,9 +54,9 @@ def create_query(datasets, query_params):
                     result['service_connector'] = str(dataset.service_connector)
 
                     # get the translation parameters for the service for this dataset
-                    esap_translation_parameters = json.loads(dataset.dataset_catalog.parameters.parameters)
+                    parameter_mapping = json.loads(dataset.dataset_catalog.parameters.parameters)
 
-                    if esap_translation_parameters!=None:
+                    if parameter_mapping!=None:
 
                         # read the connector method to use from the dataset
                         service_module, service_connector = dataset.service_connector.split('.')
@@ -69,10 +69,12 @@ def create_query(datasets, query_params):
                             elif service_module.upper() == 'ALTA':
                                 connector_class = getattr(alta, service_connector)
 
+                            elif service_module.upper() == 'VSO':
+                                connector_class = getattr(vso, service_connector)
 
                             url = str(dataset.dataset_catalog.url)
                             connector = connector_class(url)
-                            query, errors = connector.construct_query(dataset, query_params, esap_translation_parameters,dataset.dataset_catalog.equinox)
+                            query, errors = connector.construct_query(dataset, query_params, parameter_mapping,dataset.dataset_catalog.equinox)
 
                             result['query'] = query
                             if errors!=None:
@@ -108,18 +110,18 @@ def run_query(dataset, query):
     :param query:
     :return:
     """
-    logger.info('run_query()')
+    logger.info('query_controller.run_query()')
 
     results = []
 
     # distinguish between types of services to use and run the query accordingly
-    # esap_service = dataset.dataset_catalog.esap_service
+    # query_base = dataset.dataset_catalog.query_base
 
     # read the connector method to use from the dataset
     service_module, service_connector = dataset.service_connector.split('.')
 
     # TODO: get import_module to work using both 'service_module' and 'service_connector' so that it can all be
-    # TODO: done dynamically by reading the dataset. (then the esap_service checks can be removed)
+    # TODO: done dynamically by reading the dataset. (then the query_base checks can be removed)
     # TODO: importlib.import_module('alta',package='services')
 
     try:
@@ -128,6 +130,9 @@ def run_query(dataset, query):
 
         elif service_module.upper() == 'ALTA':
             connector_class = getattr(alta, service_connector)
+
+        elif service_module.upper() == 'VSO':
+            connector_class = getattr(vso, service_connector)
 
     except:
         # connector not found
