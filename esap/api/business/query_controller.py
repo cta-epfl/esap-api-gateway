@@ -21,7 +21,7 @@ def create_query(datasets, query_params):
     :param query:
     :return:
     """
-    logger.info('create_query()')
+    logger.info('query_controller.create_query()')
     input_results = []
 
     try:
@@ -110,7 +110,7 @@ def run_query(dataset, query):
     :param query:
     :return:
     """
-    logger.info('run_query()')
+    logger.info('query_controller.run_query()')
 
     results = []
 
