@@ -24,8 +24,10 @@ class DataSetModelSerializer(serializers.ModelSerializer):
     class Meta():
         model = DataSet
         # fields = "__all__"
-        fields = ('id', 'uri', 'name', 'resource_name', 'short_description','long_description', 'retrieval_description', 'thumbnail', 'output_format',
-                   'documentation_url', 'service_connector','archive_name_derived', 'archive_uri_derived','catalog_name_derived','catalog_uri_derived')
+        fields = ('id', 'uri', 'name', 'resource_name', 'short_description','long_description', 'retrieval_description',
+                  'thumbnail', 'output_format', 'documentation_url', 'service_connector', 'institute',
+                  'archive_name_derived', 'archive_uri_derived','catalog_name_derived','catalog_uri_derived',
+                  'catalog_url_derived', 'catalog_user_url_derived')
 
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
@@ -88,7 +90,7 @@ class CatalogSerializer(serializers.HyperlinkedModelSerializer):
         model = Catalog
         # fields = "__all__"
         fields = ('id', 'uri', 'name', 'short_description', 'long_description', 'retrieval_description', 'thumbnail',
-                    'url', 'dataset', 'parameters', 'query_base')
+                    'url', 'user_url', 'dataset', 'parameters', 'esap_service')
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
 class ParameterMappingSerializer(serializers.HyperlinkedModelSerializer):
