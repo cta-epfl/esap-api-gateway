@@ -77,6 +77,10 @@ class Catalog(EsapBaseObject):
     equinox = models.CharField(default=ICRS, max_length=10, choices=EQUINOX) # J2000, ICRS
     protocol = models.CharField(max_length=15, choices=PROTOCOL)  # adql, http
 
+    # the url for the user (this brings the user to an external web page)
+    user_url = models.URLField(null=True)
+
+    # the url that the query has to access
     url = models.URLField(null=True)
     parameters = models.ForeignKey(ParameterMapping, related_name='catalogs', on_delete=models.CASCADE, null=True, blank=True)
 
@@ -147,12 +151,22 @@ class DataSet(EsapBaseObject):
         return self.dataset_catalog.uri
 
     @property
+    def catalog_url_derived(self):
+        return self.dataset_catalog.url
+
+    @property
+    def catalog_user_url_derived(self):
+        return self.dataset_catalog.user_url
+
+
+    @property
     def archive_name_derived(self):
         return self.dataset_archive.name
 
     @property
     def archive_uri_derived(self):
         return self.dataset_archive.uri
+
 
     # the representation of the value in the REST API
     def __str__(self):
