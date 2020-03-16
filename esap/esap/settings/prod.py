@@ -1,20 +1,22 @@
-from astrobase.settings.base import *
+"""
+Django settings for esap project (production version)
+"""
+
+from esap.settings.base import *
+import os
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Import production setting must remain False.
 DEBUG = False
 
-# True: Enables a header that disables the UA from 'clever' automatic mime type sniffing.
-# http://django-secure.readthedocs.io/en/latest/settings.html#secure-content-type-nosniff
-# https://stackoverflow.com/questions/18337630/what-is-x-content-type-options-nosniff
-SECURE_CONTENT_TYPE_NOSNIFF = True
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'esap.sqlite3'),
+    },
+}
 
-# True: Enables a header that tells the UA to switch on the XSS filter.
-# http://django-secure.readthedocs.io/en/latest/middleware.html#x-xss-protection-1-mode-block
-SECURE_BROWSER_XSS_FILTER = True
-
-# Prevents the site from being deployed within a iframe.
-# This prevent click-jacking attacks.
-# See; https://docs.djangoproject.com/en/1.11/ref/clickjacking/
-X_FRAME_OPTIONS = 'DENY'
-#####################################################
-
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'cie-((m#n$br$6l53yash45*2^mwuux*2u)bad5(0flx@krnj9'
