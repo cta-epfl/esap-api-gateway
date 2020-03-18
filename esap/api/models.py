@@ -172,3 +172,9 @@ class DataSet(EsapBaseObject):
     def __str__(self):
         return str(self.uri)
 
+"""
+Configuration
+"""
+class Configuration(models.Model):
+    logo = models.CharField(default="esap_logo.png", max_length=100, null=True, blank=True)
+    schema_datasets = models.CharField(max_length=80, default="schema_datasets.json", null=False)

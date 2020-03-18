@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import EsapBaseObject, DataSet, Archive, Catalog, ParameterMapping
+from .models import EsapBaseObject, DataSet, Archive, Catalog, ParameterMapping, Configuration
 import logging
 
 logger = logging.getLogger(__name__)
@@ -97,4 +97,12 @@ class ParameterMappingSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta():
         model = ParameterMapping
+        fields = "__all__"
+
+
+# this is a serializer that uses hyperlinks to produce a navigable REST API
+class ConfigurationSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta():
+        model = Configuration
         fields = "__all__"
