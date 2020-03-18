@@ -12,14 +12,19 @@ my_config = importlib.import_module(settings.CONFIGURATION_FILE)
 # return expanded configuration
 def get_configuration_from_settings():
     result = {}
-    result['logo'] = my_config.logo
-    result['title'] = my_config.title
+    try:
+        result['logo'] = my_config.logo
+    except:
+        pass
 
-    return result
+    try:
+        result['title'] = my_config.title
+    except:
+        pass
 
-# return expanded configuration
-def get_configuration_from_database(configuration):
-    result = {}
-    result['logo'] = configuration.logo
-    result['schema_datasets'] = configuration.schema_datasets
+    try:
+        result['navbar'] = my_config.navbar
+    except:
+        pass
+
     return result

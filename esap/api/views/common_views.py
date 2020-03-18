@@ -1,14 +1,17 @@
 import logging
 
+from django.http import HttpResponse, JsonResponse
 from django.views.generic import ListView
 
 from rest_framework import generics
+
+
 from django_filters import rest_framework as filters
 from rest_framework.response import Response
 
 from ..business import common, configuration
 
-from ..models import Archive, DataSet, Catalog, ParameterMapping, Configuration
+from ..models import Archive, DataSet, Catalog, ParameterMapping
 from ..serializers import \
     ArchiveSerializer, \
     ArchiveModelSerializer, \
@@ -224,36 +227,26 @@ class ParameterMappingDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ParameterMappingSerializer
 
 
-
-class ConfigurationView(generics.ListAPIView):
+def ConfigurationView(request):
     """
-    Receive a query and return the results
-    examples:
-    /esap-api/create-query/?esap_target=M51&archive_uri=astron_vo
-    /esap-api/create-query/?ra=202&dec=46&fov=5
+    returns the configuration
     """
-    model = Configuration
-    queryset = Configuration.objects.all()
+    #model = Configuration
+    #queryset = Configuration.objects.all()
 
     # override list and generate a custom response
-    def list(self, request, *args, **kwargs):
+    #def list(self, request, *args, **kwargs):
 
         # read fields from the query
 
-        configurations = Configuration.objects.all()
-        try:
-            config_from_database = configuration.get_configuration_from_database(configurations[0])
-        except:
-            config_from_database = "ERROR in configuration from database"
+        # configurations = Configuration.objects.all()
 
-        try:
-            config_from_settings = configuration.get_configuration_from_settings()
-        except:
-            config_from_settings = "ERROR in configuration from settings"
+    try:
+        config_from_settings = configuration.get_configuration_from_settings()
+    except:
+        config_from_settings = "ERROR in configuration from settings"
 
+    return JsonResponse({'configuration': config_from_settings})
 
-        return Response({
-            'config_from_database': config_from_database,
-            'config_from_settings': config_from_settings,
-        })
+    #return Response({'configuration': config_from_settings,})
 

@@ -28,7 +28,7 @@ urlpatterns = [
     path('parameter-mapping', views.ParameterMappingListViewAPI.as_view(), name='parameter-mapping-view'),
     path('parameter-mapping/<int:pk>/', views.ParameterMappingDetailsViewAPI.as_view(), name='parametermapping-detail'),
 
-    path('configuration', views.ConfigurationView.as_view(), name='configuration-view'),
+    path('configuration', views.ConfigurationView, name='configuration-view'),
 
     #--- REST API: controllers ---
 
