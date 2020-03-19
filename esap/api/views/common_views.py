@@ -229,24 +229,16 @@ class ParameterMappingDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
 
 def ConfigurationView(request):
     """
-    returns the configuration
+    returns the configuration as a json object.
+    The configuration is described in a file, which can be found by looking in the
+    CONFIGURATION_FILE variable in the settings.py
     """
-    #model = Configuration
-    #queryset = Configuration.objects.all()
-
-    # override list and generate a custom response
-    #def list(self, request, *args, **kwargs):
-
-        # read fields from the query
-
-        # configurations = Configuration.objects.all()
 
     try:
-        config_from_settings = configuration.get_configuration_from_settings()
+        config_from_settings = configuration.get_configuration()
     except:
-        config_from_settings = "ERROR in configuration from settings"
+        config_from_settings = "ERROR in configuration"
 
     return JsonResponse({'configuration': config_from_settings})
 
-    #return Response({'configuration': config_from_settings,})
 

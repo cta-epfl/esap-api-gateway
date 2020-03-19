@@ -9,5 +9,3 @@ nav3 = {'title': 'Telescopes', 'route': '/telescopes'}
 nav4 = {'title': 'About', 'route': '/about'}
 navbar = [nav1,nav2,nav3,nav4]
 
-# definition of the query
-

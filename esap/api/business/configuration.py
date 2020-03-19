@@ -10,7 +10,7 @@ my_config = importlib.import_module(settings.CONFIGURATION_FILE)
 #from esap.esap.configuration import esap_dev as my_config
 
 # return expanded configuration
-def get_configuration_from_settings():
+def get_configuration():
     result = {}
     try:
         result['logo'] = my_config.logo
@@ -24,6 +24,11 @@ def get_configuration_from_settings():
 
     try:
         result['navbar'] = my_config.navbar
+    except:
+        pass
+
+    try:
+        result['query_schema'] = my_config.query_schema
     except:
         pass
 
