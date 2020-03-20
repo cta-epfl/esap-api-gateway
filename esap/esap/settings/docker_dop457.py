@@ -38,4 +38,6 @@ DATABASES = {
 STATIC_URL = '/static_esap/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
+# configuration settings that can be requested through the REST API
+CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
+CONFIGURATION_FILE = 'esap_default'
