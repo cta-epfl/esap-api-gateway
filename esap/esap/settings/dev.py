@@ -34,4 +34,4 @@ AUTH_PASSWORD_VALIDATORS = []
 
 # configuration settings that can be requested through the REST API
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
-CONFIGURATION_FILE = os.path.join('esap_dev')
+CONFIGURATION_FILE = 'esap_dev'
