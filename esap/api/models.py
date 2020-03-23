@@ -171,4 +171,3 @@ class DataSet(EsapBaseObject):
     # the representation of the value in the REST API
     def __str__(self):
         return str(self.uri)
-

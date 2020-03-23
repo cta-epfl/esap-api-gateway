@@ -1,9 +1,15 @@
 import logging
 
+from django.http import HttpResponse, JsonResponse
 from django.views.generic import ListView
 
 from rest_framework import generics
+
+
 from django_filters import rest_framework as filters
+from rest_framework.response import Response
+
+from ..business import common, configuration
 
 from ..models import Archive, DataSet, Catalog, ParameterMapping
 from ..serializers import \
@@ -219,4 +225,20 @@ class ParameterMappingDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     model = ParameterMapping
     queryset = ParameterMapping.objects.all()
     serializer_class = ParameterMappingSerializer
+
+
+def ConfigurationView(request):
+    """
+    returns the configuration as a json object.
+    The configuration is described in a file, which can be found by looking in the
+    CONFIGURATION_FILE variable in the settings.py
+    """
+
+    try:
+        config_from_settings = configuration.get_configuration()
+    except:
+        config_from_settings = "ERROR in configuration"
+
+    return JsonResponse({'configuration': config_from_settings})
+
 

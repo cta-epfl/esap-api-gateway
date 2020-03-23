@@ -98,3 +98,4 @@ class ParameterMappingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta():
         model = ParameterMapping
         fields = "__all__"
+
