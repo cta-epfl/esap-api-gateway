@@ -6,10 +6,9 @@ logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 # definition of the navigation bar
 nav1 = {'title': 'Archives', 'route': '/archives'}
 nav2 = {'title': 'Datasets', 'route': '/datasets'}
-nav3 = {'title': 'Telescopes', 'route': '/telescopes'}
-nav4 = {'title': 'query', 'route': '/query'}
+nav4 = {'title': 'Query', 'route': '/query'}
 nav5 = {'title': 'About', 'route': '/about'}
-navbar = [nav1,nav2,nav3,nav4]
+navbar = [nav1,nav2,nav4,nav4]
 
 # definition of the query
 query_schema = {
