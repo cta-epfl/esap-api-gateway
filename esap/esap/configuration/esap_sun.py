@@ -4,16 +4,13 @@
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 
 # definition of the navigation bar
-nav1 = {'title': 'Archives', 'route': '/archives'}
-nav2 = {'title': 'Datasets', 'route': '/datasets'}
-nav3 = {'title': 'Telescopes', 'route': '/telescopes'}
 nav4 = {'title': 'Query', 'route': '/query'}
 nav5 = {'title': 'About', 'route': '/about'}
-navbar = [nav1,nav2,nav3,nav4,nav5]
+navbar = [nav4,nav5]
 
 # definition of the query
 query_schema = {
-  "title": "ESAP Query",
+  "title": "ESAP Solar Query",
   "type": "object",
   "properties": {
     "institute": {
@@ -22,31 +19,6 @@ query_schema = {
       "default": "all",
       "enum": ["all","Astron"],
       "enumNames": ["all","astron"]
-    },
-
-    "title": {
-      "type": "string",
-      "title": "Title",
-      "default" : ""
-    },
-    "target": {
-      "type": "string",
-      "title": "Target"
-    },
-    "ra": {
-      "type": "number",
-      "title": "RA (degrees)",
-      "default": 342.16
-    },
-    "dec": {
-      "type": "number",
-      "title": "dec (degrees)",
-      "default": 33.94
-    },
-    "fov": {
-      "type": "number",
-      "title": "search radius (degrees)",
-      "default": 10
     },
     "dataproduct_type": {
       "type": "string",
