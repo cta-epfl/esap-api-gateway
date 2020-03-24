@@ -1,6 +1,7 @@
 
 #title = "ESAP (dev)"
-#logo = "http://uilennest.net/static/media/tree9.da598501.png"
+frontend_basename="esap-gui-dev"
+
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 
 # definition of the navigation bar

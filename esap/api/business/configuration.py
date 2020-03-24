@@ -14,6 +14,12 @@ except:
 # return expanded configuration
 def get_configuration():
     result = {}
+
+    try:
+        result['frontend_basename'] = my_config.frontend_basename
+    except:
+        pass
+
     try:
         result['logo'] = my_config.logo
     except:

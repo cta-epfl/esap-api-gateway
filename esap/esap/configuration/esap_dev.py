@@ -1,6 +1,9 @@
 
 #title = "ESAP (dev)"
 #logo = "http://uilennest.net/static/media/tree9.da598501.png"
+
+frontend_basename="esap-gui-dev"
+
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 
 # definition of the navigation bar
@@ -13,7 +16,7 @@ navbar = [nav1,nav2,nav3,nav4,nav5]
 
 # definition of the query
 query_schema = {
-  "title": "ESAP Query",
+  "title": "ESAP Query (dev)",
   "type": "object",
   "properties": {
     "institute": {
