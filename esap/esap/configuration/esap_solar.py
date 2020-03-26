@@ -1,11 +1,13 @@
 
-#title = "ESAP (dev)"
-#logo = "http://uilennest.net/static/media/tree9.da598501.png"
-logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
+title = "ESAP Solar"
+
+frontend_basename="esap-solar"
+
+logo = "https://alta.astron.nl/alta-static/images/esap/esap_solar.png"
 
 # definition of the navigation bar
 nav4 = {'title': 'Query', 'route': '/query'}
-nav5 = {'title': 'About', 'route': '/about'}
+nav5 = {'title': 'Settings', 'route': '/about'}
 navbar = [nav4,nav5]
 
 # definition of the query

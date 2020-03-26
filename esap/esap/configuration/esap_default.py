@@ -1,6 +1,6 @@
 
-#title = "ESAP (dev)"
-frontend_basename="esap-gui-dev"
+#title = "ESAP"
+frontend_basename="esap-gui"
 
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 
@@ -9,7 +9,7 @@ nav1 = {'title': 'Archives', 'route': '/archives'}
 nav2 = {'title': 'Datasets', 'route': '/datasets'}
 nav3 = {'title': 'Telescopes', 'route': '/telescopes'}
 nav4 = {'title': 'Query', 'route': '/query'}
-nav5 = {'title': 'About', 'route': '/about'}
+nav5 = {'title': 'Settings', 'route': '/about'}
 navbar = [nav1,nav2,nav3,nav4,nav5]
 
 # definition of the query
