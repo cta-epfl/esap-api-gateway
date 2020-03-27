@@ -16,7 +16,7 @@ navbar = [nav1,nav2,nav3,nav4,nav5]
 
 # definition of the query
 query_schema = {
-  "title": "ESAP Query (dev)",
+  "title": "ESAP Query",
   "type": "object",
   "properties": {
     "institute": {
@@ -61,24 +61,27 @@ query_schema = {
     "dataproduct_subtype": {
       "type": "string",
       "title": "DataProduct Subtype",
-      "default": "all",
+      "default": "continuumMF",
       "enum": ["all","continuumMF","imageCube","beamCube"],
       "enumNames": ["all","continuumMF","imageCube","beamCube"]
     },
     "startdate": {
       "type": "string",
       "format" : "date",
-      "title": "Start Date"
+      "title": "Start Date",
+      "default": "2004-02-07"
     }
     ,
     "enddate": {
       "type": "string",
       "format" : "date",
-      "title": "End Date"
+      "title": "End Date",
+      "default": "2004-02-08"
     },
     "instrument": {
       "type": "string",
-      "title": "Instrument"
+      "title": "Instrument",
+      "default": "eit"
     }
   }
 }
