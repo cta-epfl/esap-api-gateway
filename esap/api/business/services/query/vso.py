@@ -34,6 +34,15 @@ class vso_connector(query_base):
             esap_key = esap_param
             value = esap_query_params[esap_key][0]
 
+            # temp dirty hack to cut off instrument from provider (SOHO__EIT => EIT)
+            if esap_key == 'instrument':
+                s = value.split('__')
+                try:
+                    value = s[1]
+                except:
+                    pass
+
+
             try:
                 dataset_key = translation_parameters[esap_key]
 
@@ -143,7 +152,7 @@ class vso_connector(query_base):
 
         try:
 
-            # execute the first http request to ALTA to do the cone search on observation level.
+            # do the http request
             response = requests.request("GET", query)
             json_response = json.loads(response.text)
             resultset = json_response["resultset"]
