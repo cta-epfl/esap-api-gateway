@@ -1,23 +1,19 @@
 """
-    File name: vo.py
+    File name: helio.py
     Author: Nico Vermaas - Astron
     Date created: 2020-03-30
     Description:  ESAP services for Helio.
 
+    # example
     # http://msslkz.mssl.ucl.ac.uk/helio-dpas/HelioQueryServlet?STARTTIME=2017-10-30T12:00:00&ENDTIME=2017-10-30T15:00:00&INSTRUMENT=SOHO__EIT
-    # event catalog: http://hec.helio-vo.eu/hec/hec_gui.php
 
     # Data Provider Access Service
     # http://helio-vo.eu/services/interfaces/helio-dpas_uix2.php
-
-    # http://helio-vo.eu/services/interfaces/helio-dpas_soap4.php?qtype=1&y_from=2017&mo_from=10&d_from=30&h_from=12&mi_from=00&s_from=00&interval=3.0&use_groups=select_bytype&obsinst_key%5B%5D=SOHO__EIT&obsinst_group=GONG__HALPH%2COACT__HALPH%2CKANZ__HALPH%2CCUCS__HASTA%2CMITK__HALPH%2CHIDA__SMART%2CHSOS__HALPH%2CKSAC__SHELIO%2CBBSO__HALPH%2CMEUD__SHELIO&operation=1&plot_type=&cxs_node=helio.mssl.ucl.ac.uk&cxs_process=dpas_findprocess&format=html&process=1
-
 """
 
 from .query_base import query_base
-import io,requests, json
-
-from datetime import datetime
+import requests
+from astropy.io.votable import parse_single_table
 
 AMP_REPLACEMENT = '_and_'
 
@@ -39,7 +35,8 @@ class helio_connector(query_base):
             esap_key = esap_param
             value = esap_query_params[esap_key][0]
 
-            # temp dirty hack to add time
+            # temp dirty hack to add time.
+            # Replace later with proper timestamp fields in the frontend
             if esap_key == 'startdate' or esap_key == 'enddate':
                 value = value + "T00:00:00"
 
@@ -56,7 +53,6 @@ class helio_connector(query_base):
 
         # cut off the last separation character
         where = where[:-len(AMP_REPLACEMENT)]
-
 
         query = self.url + '?' + where
 
@@ -86,8 +82,6 @@ class helio_connector(query_base):
             f.write(response.text)
             f.close()
 
-            from astropy.io.votable import parse_single_table
-
             # the VOTable from HELIO has the following fields.
             # instrument_name
             # provider_instrument
@@ -102,6 +96,7 @@ class helio_connector(query_base):
             for table_rec in table.array:
                 record = {}
                 result = ''
+
                 select_list = dataset.select_fields.split(',')
                 for select in select_list:
                     try:
@@ -117,7 +112,6 @@ class helio_connector(query_base):
 
                 try:
                     record['url'] = table_rec[dataset.url_field]
-
                 except:
                     pass
 
