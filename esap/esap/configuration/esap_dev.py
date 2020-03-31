@@ -1,7 +1,10 @@
 
-#title = "ESAP"
+title = "ESFRI Science Analysis Platform"
 #logo = "http://uilennest.net/static/media/tree9.da598501.png"
 
+# the url location of the frontend application,
+# this makes it possible to install multiple instances in different directories on the webserver
+# that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
 frontend_basename="esap-gui-dev"
 
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
@@ -13,6 +16,13 @@ nav3 = {'title': 'Telescopes', 'route': '/telescopes'}
 nav4 = {'title': 'Query', 'route': '/query'}
 nav5 = {'title': 'Settings', 'route': '/about'}
 navbar = [nav1,nav2,nav3,nav4,nav5]
+
+# if datasets_enabled is set, then only these datasets are visible to the GUI
+#datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
+
+# if datasets_disabled is set, then all datasets except these are returned to the GUI
+datasets_disabled = ['nancay.ivoa.obscore']
+
 
 # definition of the query
 query_schema = {

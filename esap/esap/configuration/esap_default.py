@@ -1,5 +1,9 @@
 
 #title = "ESAP"
+
+# the url location of the frontend application,
+# this makes it possible to install multiple instances in different directories on the webserver
+# that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
 frontend_basename="esap-gui"
 
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
@@ -76,7 +80,8 @@ query_schema = {
     },
     "instrument": {
       "type": "string",
-      "title": "Instrument"
+      "title": "Instrument",
+      "enum": ["all","continuumMF","imageCube","beamCube"],
     }
   }
 }

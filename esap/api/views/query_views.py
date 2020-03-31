@@ -4,7 +4,8 @@ from rest_framework import generics, pagination, status
 from rest_framework.response import Response
 
 from ..models import DataSet
-from ..business import query_controller
+from ..business import query_controller, configuration
+from . import common_views
 
 logger = logging.getLogger(__name__)
 
@@ -16,14 +17,14 @@ class CreateQueryView(generics.ListAPIView):
     /esap-api/create-query/?ra=202&dec=46&fov=5
     """
     model = DataSet
-    queryset = DataSet.objects.all()
+    queryset = common_views.get_datasets()
 
     # override list and generate a custom response
     def list(self, request, *args, **kwargs):
 
         # read fields from the query
 
-        datasets = DataSet.objects.all()
+        datasets = common_views.get_datasets()
 
         # is there a query on archives?
         try:

@@ -7,9 +7,8 @@ from rest_framework import generics
 
 
 from django_filters import rest_framework as filters
-from rest_framework.response import Response
 
-from ..business import common, configuration
+from ..business import configuration
 
 from ..models import Archive, DataSet, Catalog, ParameterMapping
 from ..serializers import \
@@ -130,13 +129,39 @@ class ArchiveDetailsUriViewAPI(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ArchiveModelSerializer
 
 
+def get_datasets():
+    """
+    The central function to get the datasets. It checks for configuration parameters.
+    :return:
+    """
+
+    # first look if there are specifically enabled datasets
+    try:
+        datasets_enabled = configuration.get_datasets_enabled()
+        datasets = DataSet.objects.filter(uri__in=datasets_enabled)
+    except:
+        # no specifically enabled datasets, so use all
+        datasets = DataSet.objects.all()
+
+    # then look if there are specifically disabled datasets to exclude.
+    try:
+        datasets_disabled = configuration.get_datasets_disabled()
+        datasets = datasets.exclude(uri__in=datasets_disabled)
+    except:
+        # specifically disabled datasets, do not make a change in the datasets list
+        pass
+
+    return datasets
+
+
 # example: /esap-api/datasets/
 class DataSetListViewAPI(generics.ListCreateAPIView):
     """
     A list of DataSets
     """
     model = DataSet
-    queryset = DataSet.objects.all()
+    queryset = get_datasets()
+
     serializer_class = DataSetSerializer
 
     # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
@@ -150,7 +175,7 @@ class DataSetDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     Detailed view of DataSet
     """
     model = DataSet
-    queryset = DataSet.objects.all()
+    queryset = get_datasets()
     serializer_class = DataSetSerializer
 
 
@@ -160,7 +185,8 @@ class DataSetListUriViewAPI(generics.ListCreateAPIView):
     A list of DataSets
     """
     model = DataSet
-    queryset = DataSet.objects.all()
+    queryset = get_datasets()
+
     serializer_class = DataSetModelSerializer
 
     # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
@@ -174,7 +200,7 @@ class DataSetDetailsUriViewAPI(generics.RetrieveUpdateDestroyAPIView):
     Detailed view of DataSet
     """
     model = DataSet
-    queryset = DataSet.objects.all()
+    queryset = get_datasets()
     serializer_class = DataSetModelSerializer
 
 
