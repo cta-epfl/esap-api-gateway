@@ -78,10 +78,12 @@ query_schema = {
       "format" : "date",
       "title": "End Date"
     },
+    # http://hfe.helio-vo.eu/Helio/
     "instrument": {
       "type": "string",
       "title": "Instrument",
-      "enum": ["all","continuumMF","imageCube","beamCube"],
+      "default": "SOHO__MDI",
+      "enum": ["all", "SOHO__EIT", "SOHO__MDI", "PDMO__COGHA", "HINODE__EIS", "STEREO_A__COR", "STEREO_B__COR"],
     }
   }
 }

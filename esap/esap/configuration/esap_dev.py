@@ -91,8 +91,8 @@ query_schema = {
     "instrument": {
       "type": "string",
       "title": "Instrument",
-      "default": "eit"
+      "default": "SOHO__MDI",
+      "enum": ["all", "SOHO__EIT", "SOHO__MDI", "PDMO__COGHA", "HINODE__EIS", "STEREO_A__COR", "STEREO_B__COR"],
     }
   }
 }
-
