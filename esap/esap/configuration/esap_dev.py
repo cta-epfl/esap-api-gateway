@@ -1,6 +1,12 @@
 
-#title = "ESAP (dev)"
+title = "ESFRI Science Analysis Platform"
 #logo = "http://uilennest.net/static/media/tree9.da598501.png"
+
+# the url location of the frontend application,
+# this makes it possible to install multiple instances in different directories on the webserver
+# that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
+frontend_basename="esap-gui-dev"
+
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 
 # definition of the navigation bar
@@ -8,8 +14,15 @@ nav1 = {'title': 'Archives', 'route': '/archives'}
 nav2 = {'title': 'Datasets', 'route': '/datasets'}
 nav3 = {'title': 'Telescopes', 'route': '/telescopes'}
 nav4 = {'title': 'Query', 'route': '/query'}
-nav5 = {'title': 'About', 'route': '/about'}
+nav5 = {'title': 'Settings', 'route': '/about'}
 navbar = [nav1,nav2,nav3,nav4,nav5]
+
+# if datasets_enabled is set, then only these datasets are visible to the GUI
+#datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
+
+# if datasets_disabled is set, then all datasets except these are returned to the GUI
+datasets_disabled = ['nancay.ivoa.obscore']
+
 
 # definition of the query
 query_schema = {
@@ -58,25 +71,28 @@ query_schema = {
     "dataproduct_subtype": {
       "type": "string",
       "title": "DataProduct Subtype",
-      "default": "all",
+      "default": "continuumMF",
       "enum": ["all","continuumMF","imageCube","beamCube"],
       "enumNames": ["all","continuumMF","imageCube","beamCube"]
     },
     "startdate": {
       "type": "string",
       "format" : "date",
-      "title": "Start Date"
+      "title": "Start Date",
+      "default": "2004-02-07"
     }
     ,
     "enddate": {
       "type": "string",
       "format" : "date",
-      "title": "End Date"
+      "title": "End Date",
+      "default": "2004-02-08"
     },
     "instrument": {
       "type": "string",
-      "title": "Instrumentje"
+      "title": "Instrument",
+      "default": "SOHO__MDI",
+      "enum": ["all", "SOHO__EIT", "SOHO__MDI", "PDMO__COGHA", "HINODE__EIS", "STEREO_A__COR", "STEREO_B__COR"],
     }
   }
 }
-

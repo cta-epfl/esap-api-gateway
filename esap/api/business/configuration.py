@@ -11,9 +11,22 @@ except:
     # (the frontend will have to use its defaults)
     pass
 
+
+def get_datasets_enabled():
+    return my_config.datasets_enabled
+
+def get_datasets_disabled():
+    return my_config.datasets_disabled
+
 # return expanded configuration
 def get_configuration():
     result = {}
+
+    try:
+        result['frontend_basename'] = my_config.frontend_basename
+    except:
+        pass
+
     try:
         result['logo'] = my_config.logo
     except:
@@ -31,6 +44,16 @@ def get_configuration():
 
     try:
         result['query_schema'] = my_config.query_schema
+    except:
+        pass
+
+    try:
+        result['datasets_enabled'] = my_config.datasets_enabled
+    except:
+        pass
+
+    try:
+        result['datasets_disabled'] = my_config.datasets_disabled
     except:
         pass
 

@@ -10,7 +10,7 @@ import logging
 import json
 from .common import timeit
 
-from .services.query import vo, alta, vso
+from .services.query import vo, alta, vso, helio
 
 logger = logging.getLogger(__name__)
 
@@ -71,6 +71,10 @@ def create_query(datasets, query_params):
 
                             elif service_module.upper() == 'VSO':
                                 connector_class = getattr(vso, service_connector)
+
+                            elif service_module.upper() == 'HELIO':
+                                connector_class = getattr(helio, service_connector)
+
 
                             url = str(dataset.dataset_catalog.url)
                             connector = connector_class(url)
@@ -133,6 +137,10 @@ def run_query(dataset, query):
 
         elif service_module.upper() == 'VSO':
             connector_class = getattr(vso, service_connector)
+
+        elif service_module.upper() == 'HELIO':
+            connector_class = getattr(helio, service_connector)
+
 
     except:
         # connector not found
