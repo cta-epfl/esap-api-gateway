@@ -16,6 +16,13 @@ nav4 = {'title': 'Query', 'route': '/query'}
 nav5 = {'title': 'Settings', 'route': '/about'}
 navbar = [nav1,nav2,nav3,nav4,nav5]
 
+# if datasets_enabled is set, then only these datasets are visible to the GUI
+#datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
+
+# if datasets_disabled is set, then all datasets except these are returned to the GUI
+datasets_disabled = ['nancay.ivoa.obscore']
+
+
 # definition of the query
 query_schema = {
   "title": "ESAP Query",
