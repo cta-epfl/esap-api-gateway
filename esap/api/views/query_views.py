@@ -78,7 +78,12 @@ class RunQueryView(generics.ListAPIView):
                 'error': str(error)
             })
 
-        query_results = query_controller.run_query(dataset=dataset, query = query)
+        try:
+            access_url = self.request.query_params['access_url']
+        except:
+            pass
+
+        query_results = query_controller.run_query(dataset=dataset, query = query, access_url=access_url)
 
         return Response({
             'query_results': query_results

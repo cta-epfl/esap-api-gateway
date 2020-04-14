@@ -1,13 +1,13 @@
 """
-    File name: vo.py
+    File name: vo_reg.py
     Author: Nico Vermaas - Astron
-    Date created: 2020-02-07
-    Description:  ESAP services for VO.
+    Date created: 2020-04-09
+    Description:  ESAP services for VO registry
 """
 
 from .query_base import query_base
 import pyvo as vo
-
+from pyvo.registry import search as regsearch
 
 def create_cone_search(esap_query_params, translation_parameters, equinox):
     """
@@ -43,7 +43,7 @@ def create_cone_search(esap_query_params, translation_parameters, equinox):
         return cone_search
 
 
-class tap_service_connector(query_base):
+class vo_registry_connector(query_base):
 
     # Initializer
     def __init__(self, url):
@@ -53,11 +53,11 @@ class tap_service_connector(query_base):
         if self.url.endswith('/sync'):
             self.url = self.url[:-4]
 
+
     # construct a query for this type of service
     def construct_query(self, dataset, query_params, translation_parameters, equinox):
 
         esap_query_params = dict(query_params)
-        query = ''
         where = ''
         errors = []
 
@@ -81,28 +81,62 @@ class tap_service_connector(query_base):
                 errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
 
 
+        results = []
 
-        # add sync (or async) specifier
-        query = self.url + '/sync' \
+        obscore_services = regsearch(datamodel='ObsCore')
+        for resource in obscore_services:
+            # see row attributes
+            # https://pyvo.readthedocs.io/en/latest/api/pyvo.registry.regtap.RegistryResource.html#pyvo.registry.regtap.RegistryResource
+            resource.describe()
 
-        # add fixed ADQL parameters
-        query = query + "?lang=ADQL&REQUEST=doQuery"
+            service = resource.service
+            print(resource)
+            print(resource.access_url)
+            print(resource.reference_url)
+            print(resource.res_description)
+            print(resource.waveband)
 
-        # add query ADQL parameters (limit to 10 results)
-        query = query + "&QUERY=SELECT TOP 10 * from " + dataset.resource_name
-        # query = query + "&QUERY=SELECT TOP 10 " + dataset.select_fields +" from " + dataset.resource_name
+            result = {}
+            result['dataset'] = dataset.uri
+            result['dataset_name'] = resource.short_name
 
-        # add ADQL where where
-        query = query +" WHERE "
-        if len(where)>0:
-            # cut off the last separation character
-            where = where[:-1]
-            query = query + where
+            # get the url to the service for this dataset
+            result['service_url'] = str(resource.access_url)
+            result['protocol'] = str(dataset.dataset_catalog.protocol)
+            result['esap_service'] = str(dataset.dataset_catalog.esap_service)
+            result['resource_name'] = str(dataset.resource_name)
+            result['output_format'] = str(resource.source_format)
+            result['service_connector'] = str(dataset.service_connector)
 
-        if len(cone_search)>0:
-            query = query + cone_search
+            # add sync (or async) specifier
+            query = resource.access_url + '/sync'
 
-        return query, errors
+            # add fixed ADQL parameters
+            query = query + "?lang=ADQL&REQUEST=doQuery"
+
+            # add query ADQL parameters (limit to 10 results)
+            query = query + "&QUERY=SELECT TOP 10 * from " + dataset.resource_name
+            # query = query + "&QUERY=SELECT TOP 10 " + dataset.select_fields +" from " + dataset.resource_name
+
+            # add ADQL where where
+            query = query +" WHERE "
+            if len(where)>0:
+                # cut off the last separation character
+                where = where[:-1]
+                query = query + where
+
+            if len(cone_search)>0:
+                query = query + cone_search
+
+            result['query'] = query
+            results.append(result)
+
+        # simuleer even 3 opgebouwde results
+        #results.append(result)
+        #results.append(result)
+        #results.append(result)
+
+        return results, errors
 
 
     # run a query
@@ -111,20 +145,12 @@ class tap_service_connector(query_base):
         # use pyvo to do a vo query
         :param dataset: the dataset object that must be queried
         :param query: the constructed (adql) query (that was probably generated with the above construct_query function)
-        :return: results: an array of dicts with the following structure;
-        {
-            "dataset": "astron.ivoa.obscore",
-            "result": "https://vo.astron.nl/getproduct/tgssadr/fits/TGSSADR_R40D60_5x5.MOSAIC.FITS"
-        },
-        {
-            "dataset": "astron.ivoa.obscore",
-            "result": "https://vo.astron.nl/getproduct/tgssadr/fits/TGSSADR_R40D62_5x5.MOSAIC.FITS"
-        },
         """
 
         results = []
 
         # use pyvo the get to the results
+
         service = vo.dal.TAPService(self.url)
         try:
             resultset = service.search(query)

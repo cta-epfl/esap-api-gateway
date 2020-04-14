@@ -1,5 +1,5 @@
 
-title = "ESFRI Science Analysis Platform"
+# title = "ESFRI Science Analysis Platform"
 #logo = "http://uilennest.net/static/media/tree9.da598501.png"
 
 # the url location of the frontend application,
@@ -33,8 +33,8 @@ query_schema = {
       "type": "string",
       "title": "Institute",
       "default": "all",
-      "enum": ["all","Astron"],
-      "enumNames": ["all","astron"]
+      "enum": ["all","Astron","IVOA"],
+      "enumNames": ["all","astron","IVOA"]
     },
 
     "title": {
