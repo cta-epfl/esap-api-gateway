@@ -106,7 +106,7 @@ class tap_service_connector(query_base):
 
 
     # run a query
-    def run_query(self, dataset, query):
+    def run_query(self, dataset, dataset_name, query):
         """
         # use pyvo to do a vo query
         :param dataset: the dataset object that must be queried
@@ -129,10 +129,13 @@ class tap_service_connector(query_base):
         try:
             resultset = service.search(query)
         except Exception as error:
-            print(str(error))
-            errors = []
-            errors.append(str(error))
-            return errors
+            record = {}
+            record['query'] = query
+            record['dataset'] = dataset.uri
+            record['dataset_name'] = dataset_name
+            record['result'] =  str(error)
+            results.append(record)
+            return results
 
         for row in resultset:
             # for the definition of standard fields to return see:
@@ -162,7 +165,9 @@ class tap_service_connector(query_base):
             # cut off the last ','
             result = result[:-1]
             record['dataset'] = dataset.uri
+            record['dataset_name'] = dataset_name
             record['result'] = result
+            record['query'] = query
 
             # add some fields to return some rendering information for the frontend.
             # for ivoa.obscore field names see: http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf

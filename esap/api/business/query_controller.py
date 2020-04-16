@@ -119,7 +119,7 @@ def create_query(datasets, query_params):
 
 
 #@timeit
-def run_query(dataset, query, access_url):
+def run_query(dataset, dataset_name, query, access_url):
     """
     run a query on a dataset (catalog)
     :param query:
@@ -171,6 +171,5 @@ def run_query(dataset, query, access_url):
     connector = connector_class(my_url)
 
     # run the specific instance of 'run_query' for this connector
-    results = connector.run_query(dataset, query)
-
+    results = connector.run_query(dataset, dataset_name, query)
     return results

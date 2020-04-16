@@ -54,7 +54,7 @@ class observations_connector(query_base):
         return query, errors
 
 
-    def run_query(self, dataset, query):
+    def run_query(self, dataset, dataset_name, query):
         """
         # use the ALTA REST API to do a query
         :param dataset: the dataset object that must be queried
@@ -92,7 +92,9 @@ class observations_connector(query_base):
                 result = result[:-1]
 
                 #result = "https://alta.astron.nl/science/details/"+observation["runId"]
+                record['query'] = query
                 record['dataset'] = dataset.uri
+                record['dataset_name'] = dataset_name
                 record['result'] = result
 
                 # some fields to return some rendering information for the frontend.
@@ -114,7 +116,9 @@ class observations_connector(query_base):
                 results.append(record)
 
         except Exception as error:
+            record['query'] = query
             record['dataset'] = dataset.uri
+            record['dataset_name'] = dataset_name
             record['result'] =  str(error)
             results.append(record)
 
@@ -167,7 +171,7 @@ class dataproducts_connector(query_base):
 
 
 
-    def run_query(self, dataset, query):
+    def run_query(self, dataset, dataset_name, query):
         """
         # use the ALTA REST API to do a query
         :param dataset: the dataset object that must be queried
@@ -251,7 +255,9 @@ class dataproducts_connector(query_base):
                 result = result[:-1]
 
                 # result = "https://alta.astron.nl/science/details/"+observation["runId"]
+                record['query'] = query
                 record['dataset'] = dataset.uri
+                record['dataset_name'] = dataset_name
                 record['result'] = result
 
                 # some fields to return some rendering information for the frontend.
@@ -273,7 +279,9 @@ class dataproducts_connector(query_base):
                 results.append(record)
 
         except Exception as error:
+            record['query'] = query
             record['dataset'] = dataset.uri
+            record['dataset_name'] = dataset_name
             record['result'] =  str(error)
             results.append(record)
 

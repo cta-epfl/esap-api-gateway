@@ -59,7 +59,7 @@ class helio_connector(query_base):
         return query, errors
 
 
-    def run_query(self, dataset, query):
+    def run_query(self, dataset, dataset_name, query):
         """
         :param dataset: the dataset object that must be queried
         :param query: the constructed query (that was probably generated with the above construct_query function)
@@ -108,7 +108,9 @@ class helio_connector(query_base):
                 result = result[:-1]
 
                 record['dataset'] = dataset.uri
+                record['dataset_name'] = dataset_name
                 record['result'] = result
+                record['query'] = query
 
                 try:
                     record['url'] = table_rec[dataset.url_field]
@@ -127,6 +129,8 @@ class helio_connector(query_base):
 
         except Exception as error:
             record['dataset'] = dataset.uri
+            record['dataset_name'] = dataset_name
+            record['query'] = query
             record['result'] =  str(error)
             results.append(record)
 
