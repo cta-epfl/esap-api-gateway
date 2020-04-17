@@ -1,5 +1,6 @@
 
-#title = "ESAP"
+# title = "ESFRI Science Analysis Platform"
+#logo = "http://uilennest.net/static/media/tree9.da598501.png"
 
 # the url location of the frontend application,
 # this makes it possible to install multiple instances in different directories on the webserver
@@ -32,8 +33,8 @@ query_schema = {
       "type": "string",
       "title": "Institute",
       "default": "all",
-      "enum": ["all","Astron"],
-      "enumNames": ["all","astron"]
+      "enum": ["all","Astron","IVOA"],
+      "enumNames": ["all","astron","IVOA"]
     },
 
     "title": {
@@ -70,22 +71,23 @@ query_schema = {
     "dataproduct_subtype": {
       "type": "string",
       "title": "DataProduct Subtype",
-      "default": "all",
+      "default": "continuumMF",
       "enum": ["all","continuumMF","imageCube","beamCube"],
       "enumNames": ["all","continuumMF","imageCube","beamCube"]
     },
     "startdate": {
       "type": "string",
       "format" : "date",
-      "title": "Start Date"
+      "title": "Start Date",
+      "default": "2004-02-07"
     }
     ,
     "enddate": {
       "type": "string",
       "format" : "date",
-      "title": "End Date"
+      "title": "End Date",
+      "default": "2004-02-08"
     },
-    # http://hfe.helio-vo.eu/Helio/
     "instrument": {
       "type": "string",
       "title": "Instrument",
@@ -94,4 +96,3 @@ query_schema = {
     }
   }
 }
-
