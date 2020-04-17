@@ -87,36 +87,48 @@ class vo_registry_connector(query_base):
         for resource in obscore_services:
             # see row attributes
             # https://pyvo.readthedocs.io/en/latest/api/pyvo.registry.regtap.RegistryResource.html#pyvo.registry.regtap.RegistryResource
-            resource.describe()
+            #resource.describe()
 
             service = resource.service
-            print(resource)
-            print(resource.access_url)
-            print(resource.reference_url)
-            print(resource.res_description)
-            print(resource.waveband)
 
             result = {}
+            # ESAP attributes
+            result['query_id'] = resource.ivoid
             result['dataset'] = dataset.uri
             result['dataset_name'] = resource.short_name
-
-            # get the url to the service for this dataset
             result['service_url'] = str(resource.access_url)
+            result['output_format'] = str(resource.source_format)
+            result['resource_name'] = str(dataset.resource_name)
             result['protocol'] = str(dataset.dataset_catalog.protocol)
             result['esap_service'] = str(dataset.dataset_catalog.esap_service)
-            result['resource_name'] = str(dataset.resource_name)
-            result['output_format'] = str(resource.source_format)
             result['service_connector'] = str(dataset.service_connector)
 
-            # add sync (or async) specifier
-            query = resource.access_url + '/sync'
+            # VO RegistryResource attributes
+            result['service_url'] = str(resource.access_url)
+            result['access_url'] = str(resource.access_url)
+            result['content_levels'] = str(resource.content_levels)
+            result['content_types'] = str(resource.content_types)
+            result['creators'] = str(resource.creators)
+            result['ivoid'] = str(resource.ivoid)
+            result['reference_url'] = str(resource.reference_url)
+            result['region_of_regard'] = str(resource.region_of_regard)
+            result['res_description'] = str(resource.res_description)
+            result['res_title'] = str(resource.res_title)
+            result['res_type'] = str(resource.res_type)
+            result['short_name'] = resource.short_name
+            result['source_format'] = str(resource.source_format)
+            result['standard_id'] = str(resource.standard_id)
+            result['waveband'] = ' '.join([str(elem) for elem in resource.waveband])
+            #result['waveband'] = str(resource.waveband)
 
+            # add sync (or async) specifier
+            # query = resource.access_url + '/sync'
+            query = resource.access_url
             # add fixed ADQL parameters
             query = query + "?lang=ADQL&REQUEST=doQuery"
 
             # add query ADQL parameters (limit to 10 results)
             query = query + "&QUERY=SELECT TOP 10 * from " + dataset.resource_name
-            # query = query + "&QUERY=SELECT TOP 10 " + dataset.select_fields +" from " + dataset.resource_name
 
             # add ADQL where where
             query = query +" WHERE "
@@ -130,11 +142,6 @@ class vo_registry_connector(query_base):
 
             result['query'] = query
             results.append(result)
-
-        # simuleer even 3 opgebouwde results
-        #results.append(result)
-        #results.append(result)
-        #results.append(result)
 
         return results, errors
 

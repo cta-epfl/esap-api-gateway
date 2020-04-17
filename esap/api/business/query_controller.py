@@ -42,6 +42,7 @@ def create_query(datasets, query_params):
                 # institute is valid, continue
                 # build a result json structure for the input query
                 result = {}
+                result['query_id'] = dataset.uri
                 result['dataset'] = dataset.uri
                 result['dataset_name'] = dataset.name
                 try:
@@ -52,6 +53,8 @@ def create_query(datasets, query_params):
                     result['resource_name'] = str(dataset.resource_name)
                     result['output_format'] = str(dataset.output_format)
                     result['service_connector'] = str(dataset.service_connector)
+                    result['res_description'] = dataset.short_description
+                    result['reference_url'] = dataset.documentation_url
 
                     # get the translation parameters for the service for this dataset
                     parameter_mapping = json.loads(dataset.dataset_catalog.parameters.parameters)
