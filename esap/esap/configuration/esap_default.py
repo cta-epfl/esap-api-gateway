@@ -65,15 +65,15 @@ query_schema = {
       "type": "string",
       "title": "DataProduct Type",
       "default": "all",
-      "enum": ["all","image","cube"],
-      "enumNames": ["all","image","cube"]
+      "enum": ["all","image","cube","timeSeries","visibility"],
+      "enumNames": ["all","image","cube","timeSeries","visibility"]
     },
     "dataproduct_subtype": {
       "type": "string",
       "title": "DataProduct Subtype",
       "default": "continuumMF",
-      "enum": ["all","continuumMF","imageCube","beamCube"],
-      "enumNames": ["all","continuumMF","imageCube","beamCube"]
+      "enum": ["all", "uncalibratedVisibility", "calibrationTable", "continuumMF", "continuumChunk", "imageCube","beamCube", "calibratedImage", "polarisationImage", "polarisationCube", "pulsarTimingTimeSeries"],
+      "enumNames": ["all", "uncalibratedVisibility", "calibrationTable", "continuumMF", "continuumChunk", "imageCube", "beamCube", "calibratedImage", "polarisationImage", "polarisationCube", "pulsarTimingTimeSeries"]
     },
     "startdate": {
       "type": "string",

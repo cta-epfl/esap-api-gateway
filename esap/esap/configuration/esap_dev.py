@@ -61,38 +61,14 @@ query_schema = {
       "title": "search radius (degrees)",
       "default": 10
     },
-    "dataproduct_type": {
-      "type": "string",
-      "title": "DataProduct Type",
-      "default": "all",
-      "enum": ["all","image","cube"],
-      "enumNames": ["all","image","cube"]
-    },
+
     "dataproduct_subtype": {
       "type": "string",
-      "title": "DataProduct Subtype",
+      "title": "DataProduct Type",
       "default": "continuumMF",
-      "enum": ["all","continuumMF","imageCube","beamCube"],
-      "enumNames": ["all","continuumMF","imageCube","beamCube"]
+      "enum": ["all","uncalibratedVisibility","continuumMF","continuumChunk","calibratedImage","polarisationImage","imageCube","beamCube","polarisationCube","pulsarTimingTimeSeries"],
+      "enumNames": ["all","uncalibratedVisibility","continuumMF","continuumChunk","calibratedImage","polarisationImage","imageCube","beamCube","polarisationCube","pulsarTimingTimeSeries"]
     },
-    "startdate": {
-      "type": "string",
-      "format" : "date",
-      "title": "Start Date",
-      "default": "2004-02-07"
-    }
-    ,
-    "enddate": {
-      "type": "string",
-      "format" : "date",
-      "title": "End Date",
-      "default": "2004-02-08"
-    },
-    "instrument": {
-      "type": "string",
-      "title": "Instrument",
-      "default": "SOHO__MDI",
-      "enum": ["all", "SOHO__EIT", "SOHO__MDI", "PDMO__COGHA", "HINODE__EIS", "STEREO_A__COR", "STEREO_B__COR"],
-    }
+
   }
 }
