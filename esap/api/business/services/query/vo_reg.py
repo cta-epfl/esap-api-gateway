@@ -8,6 +8,7 @@
 from .query_base import query_base
 import pyvo as vo
 from pyvo.registry import search as regsearch
+import urllib.parse
 
 def create_cone_search(esap_query_params, translation_parameters, equinox):
     """
@@ -82,9 +83,14 @@ class vo_registry_connector(query_base):
 
 
         results = []
+        services = []
 
-        obscore_services = regsearch(datamodel='ObsCore')
-        for resource in obscore_services:
+        if "keyword" in esap_query_params:
+            services = self.search([esap_query_params["keyword"]])
+        else :
+            services = self.search(datamodel='ObsCore')
+
+        for resource in services:
             # see row attributes
             # https://pyvo.readthedocs.io/en/latest/api/pyvo.registry.regtap.RegistryResource.html#pyvo.registry.regtap.RegistryResource
             #resource.describe()
@@ -123,24 +129,33 @@ class vo_registry_connector(query_base):
 
             # add sync (or async) specifier
             # query = resource.access_url + '/sync'
-            query = resource.access_url
-            # add fixed ADQL parameters
-            query = query + "?lang=ADQL&REQUEST=doQuery"
 
-            # add query ADQL parameters (limit to 10 results)
-            query = query + "&QUERY=SELECT TOP 10 * from " + dataset.resource_name
+
+            query = resource.access_url + '/sync' if  (self.get_service_type(resource).upper() == "TAP")  else     resource.access_url
+            # add fixed ADQL parameters
+            query_params = {}
+            query_params["LANG"] = "ADQL"
+            query_params["REQUEST"] = "doQuery"
+            query_params["QUERY"] = "SELECT TOP 10 * from " + dataset.resource_name
+
 
             # add ADQL where where
-            query = query +" WHERE "
-            if len(where)>0:
-                # cut off the last separation character
-                where = where[:-1]
-                query = query + where
+            if where:
+                if len(where)>0:
+                    # cut off the last separation character
 
-            if len(cone_search)>0:
-                query = query + cone_search
+                    query_params["QUERY"] += " WHERE " + where
 
-            result['query'] = query
+            if cone_search:
+                if len(cone_search)>0:
+                    if len(where)>0:
+                        query_params["QUERY"] += " AND " + cone_search
+                    else:
+                        query_params["QUERY"] += " WHERE " + cone_search
+
+            result['query'] = query  + "?" + urllib.parse.urlencode(query_params)
+
+
             results.append(result)
 
         return results, errors
@@ -223,3 +238,40 @@ class vo_registry_connector(query_base):
             results.append(record)
 
         return results
+
+
+    # Search for a keyword
+    def search(self, keywords=None, servicetype="tap", datamodel=None, waveband=None, **kwargs):
+        """
+        # Use pyvo to do a Registry search by keyword
+        :param keyword: The keyword to search for
+        :param servicetype: The service type that we are searching for (e.g. tap)
+        """
+
+        if datamodel:
+            services = regsearch(datamodel=datamodel)
+        else:
+            services = regsearch(keywords=keywords, servicetype=servicetype, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=servicetype)
+
+        return services
+
+
+
+    def get_service_type (self, service):
+        """
+        # Get the IVOA Service Type
+        :param service: The service ->  pyvo.registry.regtap.RegistryResource
+        """
+        servicetype = None
+
+        standards = {
+            "ivo://ivoa.net/std/tap" : "TAP",
+            "ivo://ivoa.net/std/sia" : "SIA",
+            "ivo://ivoa.net/std/obscore" : "OBSCORE",
+            }
+
+        if not service:
+            return servicetype
+
+        return standards[service["standard_id"].decode('utf-8').lower()] if service["standard_id"] else None
+
