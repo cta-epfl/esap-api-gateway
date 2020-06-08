@@ -41,11 +41,6 @@ query_schema = {
       "title": "Keyword",
       "default" : ""
     },
-    "title": {
-      "type": "string",
-      "title": "Title",
-      "default" : ""
-    },
     "target": {
       "type": "string",
       "title": "Target"
