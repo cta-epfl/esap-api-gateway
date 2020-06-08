@@ -21,4 +21,4 @@ But in many cases this might not be possible, and then specific 'service connect
 * backend (API): https://git.astron.nl/vermaas/esap-gateway/wikis/ESAP-gateway
 
 See also:
-* frontend (GUI): https://git.astron.nl/vermaas/adex-gui/wikis/ADEX-GUI
+* frontend (GUI): https://git.astron.nl/vermaas/adex-gui/-/wikis/ESAP-GUI

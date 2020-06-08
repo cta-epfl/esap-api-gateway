@@ -36,7 +36,11 @@ query_schema = {
       "enum": ["all","Astron","IVOA"],
       "enumNames": ["all","astron","IVOA"]
     },
-
+    "keyword": {
+      "type": "string",
+      "title": "Keyword",
+      "default" : ""
+    },
     "title": {
       "type": "string",
       "title": "Title",
