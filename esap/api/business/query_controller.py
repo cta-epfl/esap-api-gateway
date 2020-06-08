@@ -10,15 +10,15 @@ import logging
 import json
 from .common import timeit
 
-from .services.query import vo, alta, vso, helio
+from .services.query import vo, alta, vso, helio, vo_reg
 
 logger = logging.getLogger(__name__)
 
 @timeit
 def create_query(datasets, query_params):
     """
-    create a query for a range of datasets, using their catalog services
-    :param query:
+    create a list of queries for a range of datasets, using their catalog services
+    :param datasets:
     :return:
     """
     logger.info('query_controller.create_query()')
@@ -42,6 +42,7 @@ def create_query(datasets, query_params):
                 # institute is valid, continue
                 # build a result json structure for the input query
                 result = {}
+                result['query_id'] = dataset.uri
                 result['dataset'] = dataset.uri
                 result['dataset_name'] = dataset.name
                 try:
@@ -52,6 +53,8 @@ def create_query(datasets, query_params):
                     result['resource_name'] = str(dataset.resource_name)
                     result['output_format'] = str(dataset.output_format)
                     result['service_connector'] = str(dataset.service_connector)
+                    result['res_description'] = dataset.short_description
+                    result['reference_url'] = dataset.documentation_url
 
                     # get the translation parameters for the service for this dataset
                     parameter_mapping = json.loads(dataset.dataset_catalog.parameters.parameters)
@@ -75,6 +78,8 @@ def create_query(datasets, query_params):
                             elif service_module.upper() == 'HELIO':
                                 connector_class = getattr(helio, service_connector)
 
+                            elif service_module.upper() == 'VO_REG':
+                                connector_class = getattr(vo_reg, service_connector)
 
                             url = str(dataset.dataset_catalog.url)
                             connector = connector_class(url)
@@ -89,7 +94,15 @@ def create_query(datasets, query_params):
                             result["remark"] = str(error)
                             result["query"] = str(error)
 
-                        input_results.append(result)
+                        # usually, the returned result in 'query' is a single query.
+                        # occasionally, it is a structure of queries that was created by iterating over a registery
+                        # if it is the latter, then add that structure to the input_results list.
+
+                        if type(result["query"]) is list:
+                            input_results.extend(result["query"])
+                        else:
+                            input_results.append(result)
+
 
                 except Exception as error:
                     result["remark"] = str(error)
@@ -107,8 +120,9 @@ def create_query(datasets, query_params):
     return input_results
 
 
+
 #@timeit
-def run_query(dataset, query):
+def run_query(dataset, dataset_name, query, access_url):
     """
     run a query on a dataset (catalog)
     :param query:
@@ -141,6 +155,8 @@ def run_query(dataset, query):
         elif service_module.upper() == 'HELIO':
             connector_class = getattr(helio, service_connector)
 
+        elif service_module.upper() == 'VO_REG':
+            connector_class = getattr(vo_reg, service_connector)
 
     except:
         # connector not found
@@ -149,10 +165,14 @@ def run_query(dataset, query):
         results.append(result)
         return results
 
-    url = str(dataset.dataset_catalog.url)
-    connector = connector_class(url)
+    # the default url to the catalog is defined in the dataset, but can be overridden.
+    if access_url != None:
+        my_url = access_url
+    else:
+        my_url = str(dataset.dataset_catalog.url)
+
+    connector = connector_class(my_url)
 
     # run the specific instance of 'run_query' for this connector
-    results = connector.run_query(dataset, query)
-
+    results = connector.run_query(dataset, dataset_name, query)
     return results

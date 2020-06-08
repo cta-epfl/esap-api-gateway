@@ -120,7 +120,7 @@ class vso_connector(query_base):
         return path
 
 
-    def run_query(self, dataset, query):
+    def run_query(self, dataset, dataset_name, query):
         """
         :param dataset: the dataset object that must be queried
         :param query: the constructed query (that was probably generated with the above construct_query function)
@@ -173,7 +173,9 @@ class vso_connector(query_base):
                 result = result[:-1]
 
                 record['dataset'] = dataset.uri
+                record['dataset_name'] = dataset_name
                 record['result'] = result
+                record['query'] = query
 
                 # some fields to return display information for the frontend.
                 try:
@@ -200,6 +202,8 @@ class vso_connector(query_base):
 
         except Exception as error:
             record['dataset'] = dataset.uri
+            record['dataset_name'] = dataset_name
+            record['query'] = query
             record['result'] =  str(error)
             results.append(record)
 

@@ -1,5 +1,6 @@
 
-#title = "ESAP"
+# title = "ESFRI Science Analysis Platform"
+#logo = "http://uilennest.net/static/media/tree9.da598501.png"
 
 # the url location of the frontend application,
 # this makes it possible to install multiple instances in different directories on the webserver
@@ -32,8 +33,8 @@ query_schema = {
       "type": "string",
       "title": "Institute",
       "default": "all",
-      "enum": ["all","Astron"],
-      "enumNames": ["all","astron"]
+      "enum": ["all","Astron","IVOA"],
+      "enumNames": ["all","astron","IVOA"]
     },
 
     "title": {
@@ -64,28 +65,29 @@ query_schema = {
       "type": "string",
       "title": "DataProduct Type",
       "default": "all",
-      "enum": ["all","image","cube"],
-      "enumNames": ["all","image","cube"]
+      "enum": ["all","image","cube","timeSeries","visibility"],
+      "enumNames": ["all","image","cube","timeSeries","visibility"]
     },
     "dataproduct_subtype": {
       "type": "string",
       "title": "DataProduct Subtype",
-      "default": "all",
-      "enum": ["all","continuumMF","imageCube","beamCube"],
-      "enumNames": ["all","continuumMF","imageCube","beamCube"]
+      "default": "continuumMF",
+      "enum": ["all", "uncalibratedVisibility", "calibrationTable", "continuumMF", "continuumChunk", "imageCube","beamCube", "calibratedImage", "polarisationImage", "polarisationCube", "pulsarTimingTimeSeries"],
+      "enumNames": ["all", "uncalibratedVisibility", "calibrationTable", "continuumMF", "continuumChunk", "imageCube", "beamCube", "calibratedImage", "polarisationImage", "polarisationCube", "pulsarTimingTimeSeries"]
     },
     "startdate": {
       "type": "string",
       "format" : "date",
-      "title": "Start Date"
+      "title": "Start Date",
+      "default": "2004-02-07"
     }
     ,
     "enddate": {
       "type": "string",
       "format" : "date",
-      "title": "End Date"
+      "title": "End Date",
+      "default": "2004-02-08"
     },
-    # http://hfe.helio-vo.eu/Helio/
     "instrument": {
       "type": "string",
       "title": "Instrument",
@@ -94,4 +96,3 @@ query_schema = {
     }
   }
 }
-

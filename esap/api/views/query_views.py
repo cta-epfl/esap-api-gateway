@@ -70,6 +70,7 @@ class RunQueryView(generics.ListAPIView):
         # is there a query on archives?
         try:
             dataset_uri = self.request.query_params['dataset_uri']
+            dataset_name = self.request.query_params['dataset_name']
             query = self.request.query_params['query']
             dataset = DataSet.objects.get(uri=dataset_uri)
 
@@ -78,7 +79,15 @@ class RunQueryView(generics.ListAPIView):
                 'error': str(error)
             })
 
-        query_results = query_controller.run_query(dataset=dataset, query = query)
+        try:
+            access_url = self.request.query_params['access_url']
+        except:
+            pass
+
+        query_results = query_controller.run_query(dataset=dataset,
+                                                   dataset_name=dataset_name,
+                                                   query = query,
+                                                   access_url=access_url)
 
         return Response({
             'query_results': query_results

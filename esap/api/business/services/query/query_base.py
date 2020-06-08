@@ -17,5 +17,5 @@ class query_base:
         pass
 
     # implement this in the derived service classes
-    def run_query(self, dataset, query):
+    def run_query(self, dataset, dataset_name, query):
         pass
