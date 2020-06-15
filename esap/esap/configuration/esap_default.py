@@ -77,15 +77,13 @@ query_schema = {
     "startdate": {
       "type": "string",
       "format" : "date",
-      "title": "Start Date",
-      "default": "2004-02-07"
+      "title": "Start Date"
     }
     ,
     "enddate": {
       "type": "string",
       "format" : "date",
-      "title": "End Date",
-      "default": "2004-02-08"
+      "title": "End Date"
     },
     "instrument": {
       "type": "string",

@@ -7,6 +7,10 @@
 
 from .query_base import query_base
 import requests, json
+import logging
+
+logger = logging.getLogger(__name__)
+
 AMP_REPLACEMENT = '_and_'
 
 # The request header
@@ -77,12 +81,14 @@ class observations_connector(query_base):
 
             # iterate over the list of results
             for observation in observations:
+                logger.info(observation)
                 # the dataset.select_fields field specifies which fields must be extracted from the response
                 record = {}
                 result = ''
 
                 select_list = dataset.select_fields.split(',')
                 for select in select_list:
+                    logger.info(select)
                     try:
                         result = result + observation[select] + ','
                     except:
@@ -98,27 +104,29 @@ class observations_connector(query_base):
                 record['result'] = result
 
                 # some fields to return some rendering information for the frontend.
+
                 try:
                     record['title'] = observation[dataset.title_field]
-                except:
-                    pass
+                    record['thumbnail'] = observation[dataset.thumbnail]
 
-                try:
-                    record['thumbnail'] = observation[dataset.thumbnail_field]
-                except:
-                    pass
-
-                try:
+                    record['runId'] = observation["runId"]
+                    record['target'] = observation["target"]
+                    record['RA'] = observation["RA"]
+                    record['dec'] = observation["dec"]
+                    record['fov'] = observation["fov"]
+                    record['startTime'] = observation["startTime"]
+                    record['endTime'] = observation["endTime"]
                     record['url'] = "https://alta.astron.nl/science/details/"+observation["runId"]
                 except:
                     pass
 
+                logger.info(record)
                 results.append(record)
 
         except Exception as error:
             record['query'] = query
-            record['dataset'] = dataset.uri
             record['dataset_name'] = dataset_name
+            record['dataset'] = dataset.uri
             record['result'] =  str(error)
             results.append(record)
 
@@ -240,6 +248,7 @@ class dataproducts_connector(query_base):
 
 
             for dataproduct in dataproducts:
+                logger.info(dataproduct)
                 # the dataset.select_fields field specifies which fields must be extracted from the response
                 record = {}
                 result = ''
