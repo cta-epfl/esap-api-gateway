@@ -14,10 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 
 urlpatterns = [
     path('esap-api/', include('api.urls')),
     path('esap-api/admin/', admin.site.urls, name='admin-view'),
-    path('esap-api/api-auth/', include('rest_framework.urls')),
+    path('api/', include('rucio.api.urls')),
+    path('accounts/', include('accounts.urls')),
+    re_path('^oidc/', include('mozilla_django_oidc.urls')),
 ]

@@ -23,9 +23,13 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
+    'rucio',
     'api',
+    'knox',
     'django.contrib.admin',
     'django.contrib.auth',
+    'mozilla_django_oidc',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -43,6 +47,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'mozilla_django_oidc.middleware.SessionRefresh',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
@@ -63,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
             ],
         },
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
     },
 ]
 
@@ -71,6 +77,10 @@ WSGI_APPLICATION = 'esap.wsgi.application'
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        #'knox.auth.TokenAuthentication',
+        #'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
@@ -170,6 +180,10 @@ LOGGING = {
             'handlers': ['console'],
             'level': 'ERROR',
         },
+        'mozilla_django_oidc': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
     }
 }
 
@@ -182,3 +196,25 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # configuration settings that can be requested through the REST API
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'
+
+# Settings for mozilla_django_oidc
+# use 'mozilla_django_oidc' authentication backend
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
+)
+OIDC_DRF_AUTH_BACKEND = 'mozilla_django_oidc.auth.OIDCAuthenticationBackend'
+
+OIDC_RP_CLIENT_ID = os.environ['OIDC_RP_CLIENT_ID']
+OIDC_RP_CLIENT_SECRET = os.environ['OIDC_RP_CLIENT_SECRET']
+OIDC_RP_SIGN_ALGO = "RS256"
+OIDC_OP_JWKS_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/jwk"
+OIDC_OP_AUTHORIZATION_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/authorize"
+OIDC_OP_TOKEN_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/token"
+OIDC_OP_USER_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/userinfo"
+
+OIDC_STORE_ACCESS_TOKEN = True
+OIDC_STORE_ID_TOKEN = True
+
+LOGIN_REDIRECT_URL = "http://127.0.0.1:3000/login"
+LOGOUT_REDIRECT_URL = "http://127.0.0.1:3000/logout"

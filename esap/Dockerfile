@@ -1,6 +1,6 @@
 FROM python:3.6.7-slim
 RUN apt-get update && apt-get install --no-install-recommends -y bash nano mc
-ENV PYTHONUNBUFFERED 1
+# RUN apk update && apk add gcc bash nano mc linux-headers musl-dev alpine-sdk openssl-dev libffi-dev
 
 RUN mkdir /src
 WORKDIR /src

@@ -27,15 +27,15 @@ datasets_disabled = ['nancay.ivoa.obscore']
 
 # definition of the query
 query_schema = {
-  "title": "ESAP Query",
+  "title": "ASTRON Data Collection Query",
   "type": "object",
   "properties": {
     "institute": {
       "type": "string",
       "title": "Institute",
-      "default": "all",
-      "enum": ["all","Astron","IVOA"],
-      "enumNames": ["all","astron","IVOA"]
+      "default": "Astron",
+      "enum": ["all", "Astron"],
+      "enumNames": ["all","ASTRON"]
     },
 
     "title": {
@@ -71,29 +71,17 @@ query_schema = {
     },
     "dataproduct_subtype": {
       "type": "string",
-      "title": "DataProduct Subtype",
+      "title": "DataProduct Type",
       "default": "continuumMF",
-      "enum": ["all","continuumMF","imageCube","beamCube"],
-      "enumNames": ["all","continuumMF","imageCube","beamCube"]
+      "enum": ["all","uncalibratedVisibility","continuumMF","continuumChunk","calibratedImage","polarisationImage","imageCube","beamCube","polarisationCube","pulsarTimingTimeSeries"],
+      "enumNames": ["all","uncalibratedVisibility","continuumMF","continuumChunk","calibratedImage","polarisationImage","imageCube","beamCube","polarisationCube","pulsarTimingTimeSeries"]
     },
-    "startdate": {
+    "access_right": {
       "type": "string",
-      "format" : "date",
-      "title": "Start Date",
-      "default": "2004-02-07"
-    }
-    ,
-    "enddate": {
-      "type": "string",
-      "format" : "date",
-      "title": "End Date",
-      "default": "2004-02-08"
+      "title": "Access right",
+      "default": "public",
+      "enum": ["all", "public"],
+      "enumNames": ["all", "public"]
     },
-    "instrument": {
-      "type": "string",
-      "title": "Instrument",
-      "default": "SOHO__MDI",
-      "enum": ["all", "SOHO__EIT", "SOHO__MDI", "PDMO__COGHA", "HINODE__EIS", "STEREO_A__COR", "STEREO_B__COR"],
-    }
   }
 }
