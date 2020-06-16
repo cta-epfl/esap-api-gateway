@@ -19,7 +19,7 @@ from django.urls import include, path, re_path
 urlpatterns = [
     path('esap-api/', include('api.urls')),
     path('esap-api/admin/', admin.site.urls, name='admin-view'),
-    path('api/', include('rucio.api.urls')),
-    path('accounts/', include('accounts.urls')),
-    re_path('^oidc/', include('mozilla_django_oidc.urls')),
+    path('esap-api/rucio/', include('rucio.api.urls')),
+    path('esap-api/accounts/', include('accounts.urls')),
+    re_path('^esap-api/oidc/', include('mozilla_django_oidc.urls')),
 ]
