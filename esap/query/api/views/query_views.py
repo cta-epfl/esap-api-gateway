@@ -3,7 +3,7 @@ import logging
 from rest_framework import generics
 from rest_framework.response import Response
 
-from query.api.business import query_controller
+from ..services import query_controller
 from query.models import DataSet
 from . import common_views
 

@@ -8,10 +8,10 @@ from rest_framework import generics
 
 from django_filters import rest_framework as filters
 
-from query.api.business import configuration
+from ..services import configuration
 
 from query.models import Archive, DataSet, Catalog, ParameterMapping
-from query.api.serializers import \
+from ..serializers import \
     ArchiveSerializer, \
     ArchiveModelSerializer, \
     DataSetSerializer, \
@@ -79,7 +79,7 @@ class ParameterMappingFilter(filters.FilterSet):
 class IndexView(ListView):
     queryset = Archive.objects.all()
     serializer_class = ArchiveSerializer
-    template_name = 'api/index.html'
+    template_name = 'query/index.html'
 
     # by default this returns the list in an object called object_list, so use 'object_list' in the html page.
     # but if 'context_object_name' is defined, then this returned list is named and can be accessed that way in html.
