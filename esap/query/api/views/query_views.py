@@ -1,10 +1,10 @@
 import logging
 
-from rest_framework import generics, pagination, status
+from rest_framework import generics
 from rest_framework.response import Response
 
-from ..models import DataSet
-from ..business import query_controller, configuration
+from query.api.business import query_controller
+from query.models import DataSet
 from . import common_views
 
 logger = logging.getLogger(__name__)

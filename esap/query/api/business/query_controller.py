@@ -5,11 +5,10 @@
     Description:  Business logic for ESAP-gateway. These functions are called from the views (views.py).
 """
 
-import importlib
-import logging
 import json
-from .common import timeit
+import logging
 
+from query.api.utils import timeit
 from .services.query import vo, alta, vso, helio, vo_reg
 
 logger = logging.getLogger(__name__)

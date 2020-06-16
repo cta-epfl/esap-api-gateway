@@ -8,10 +8,10 @@ from rest_framework import generics
 
 from django_filters import rest_framework as filters
 
-from ..business import configuration
+from query.api.business import configuration
 
-from ..models import Archive, DataSet, Catalog, ParameterMapping
-from ..serializers import \
+from query.models import Archive, DataSet, Catalog, ParameterMapping
+from query.api.serializers import \
     ArchiveSerializer, \
     ArchiveModelSerializer, \
     DataSetSerializer, \
