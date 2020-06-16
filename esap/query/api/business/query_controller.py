@@ -9,7 +9,7 @@ import json
 import logging
 
 from query.api.utils import timeit
-from .services.query import vo, alta, vso, helio, vo_reg
+from query.api.business.services.query import vo, alta, vso, helio, vo_reg
 
 logger = logging.getLogger(__name__)
 
