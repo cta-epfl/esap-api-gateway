@@ -1,16 +1,12 @@
 import logging
 
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.views.generic import ListView
-
+from django_filters import rest_framework as filters
+from query.models import Archive, DataSet, Catalog, ParameterMapping
 from rest_framework import generics
 
-
-from django_filters import rest_framework as filters
-
-from ..services import configuration
-
-from query.models import Archive, DataSet, Catalog, ParameterMapping
+from query.api import configuration
 from ..serializers import \
     ArchiveSerializer, \
     ArchiveModelSerializer, \

@@ -1,6 +1,6 @@
 from django.test import TestCase
 import unittest
-from services.vo_reg import vo_registry_connector
+from .api.services.vo_reg import vo_registry_connector
 # Create your tests here.
 class RegSearchTest(unittest.TestCase):
     def setUp(self):
