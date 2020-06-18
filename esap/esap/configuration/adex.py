@@ -12,11 +12,8 @@ frontend_basename="esap-gui"
 
 # definition of the navigation bar
 nav1 = {'title': 'Archives', 'route': '/archives'}
-nav2 = {'title': 'Datasets', 'route': '/datasets'}
-nav3 = {'title': 'Telescopes', 'route': '/telescopes'}
-nav4 = {'title': 'Query', 'route': '/query'}
-nav5 = {'title': 'Settings', 'route': '/about'}
-navbar = [nav1,nav2,nav3,nav5]
+nav2 = {'title': 'Query', 'route': '/query'}
+navbar = [nav1,nav2]
 
 # if datasets_enabled is set, then only these datasets are visible to the GUI
 #datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
@@ -30,18 +27,12 @@ query_schema = {
   "title": "ASTRON Data Collection Query",
   "type": "object",
   "properties": {
-    "institute": {
+    "catalog": {
       "type": "string",
-      "title": "Institute",
-      "default": "Astron",
-      "enum": ["all", "Astron"],
-      "enumNames": ["all","ASTRON"]
-    },
-
-    "title": {
-      "type": "string",
-      "title": "Title",
-      "default" : ""
+      "title": "Catalog",
+      "default": "apertif",
+      "enum": ["all","apertif", "lofar", "astron_vo"],
+      "enumNames": ["All","Apertif", "LOFAR", "ASTRON_VO"]
     },
     "target": {
       "type": "string",
@@ -50,38 +41,28 @@ query_schema = {
     "ra": {
       "type": "number",
       "title": "RA (degrees)",
-      "default": 342.16
     },
     "dec": {
       "type": "number",
       "title": "dec (degrees)",
-      "default": 33.94
     },
     "fov": {
       "type": "number",
       "title": "search radius (degrees)",
-      "default": 10
     },
-    "dataproduct_type": {
+    "dataproduct_level": {
       "type": "string",
-      "title": "DataProduct Type",
-      "default": "all",
-      "enum": ["all","image","cube"],
-      "enumNames": ["all","image","cube"]
+      "title": "DataProduct Level",
+      "default": "raw",
+      "enum": ["all","raw","processed"],
+      "enumNames": ["All","Raw","Processed"]
     },
-    "dataproduct_subtype": {
+    "dataproduct_category": {
       "type": "string",
-      "title": "DataProduct Type",
-      "default": "continuumMF",
-      "enum": ["all","uncalibratedVisibility","continuumMF","continuumChunk","calibratedImage","polarisationImage","imageCube","beamCube","polarisationCube","pulsarTimingTimeSeries"],
-      "enumNames": ["all","uncalibratedVisibility","continuumMF","continuumChunk","calibratedImage","polarisationImage","imageCube","beamCube","polarisationCube","pulsarTimingTimeSeries"]
-    },
-    "access_right": {
-      "type": "string",
-      "title": "Access right",
-      "default": "public",
-      "enum": ["all", "public"],
-      "enumNames": ["all", "public"]
+      "title": "DataProduct Category",
+      "default": "imaging",
+      "enum": ["imaging","timedomain"],
+      "enumNames": ["Imaging","Time domain"]
     },
   }
 }
