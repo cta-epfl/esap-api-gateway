@@ -23,7 +23,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
-    'query',
+    'query.apps.MyAppConfig',
     'accounts',
     'rucio',
     'knox',

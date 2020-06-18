@@ -83,9 +83,10 @@ def create_query(datasets, query_params):
 
                             url = str(dataset.dataset_catalog.url)
                             connector = connector_class(url)
-                            query, errors = connector.construct_query(dataset, query_params, parameter_mapping,dataset.dataset_catalog.equinox)
 
+                            query, errors = connector.construct_query(dataset, query_params, parameter_mapping,dataset.dataset_catalog.equinox)
                             result['query'] = query
+
                             if errors!=None:
                                 result['remark'] = str(errors)
 
