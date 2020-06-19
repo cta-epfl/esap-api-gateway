@@ -93,10 +93,9 @@ class RunQueryView(generics.ListAPIView):
         # read fields from the query
         #datasets = DataSet.objects.all()
 
-        # is there a query on archives?
+        # required parameters
         try:
             dataset_uri = self.request.query_params['dataset_uri']
-            dataset_name = self.request.query_params['dataset_name']
             query = self.request.query_params['query']
             dataset = DataSet.objects.get(uri=dataset_uri)
 
@@ -105,10 +104,17 @@ class RunQueryView(generics.ListAPIView):
                 'error': str(error)
             })
 
+
+        # optional parameters
+        try:
+            dataset_name = self.request.query_params['dataset_name']
+        except:
+            dataset_name = "unknown"
+
         try:
             access_url = self.request.query_params['access_url']
         except:
-            pass
+            access_url = "unknown"
 
         query_results = query_controller.run_query(dataset=dataset,
                                                    dataset_name=dataset_name,
