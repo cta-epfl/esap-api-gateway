@@ -34,10 +34,36 @@ class CreateQueryView(generics.ListAPIView):
         except:
             pass
 
+        # is there a query on level?
+        try:
+            level = self.request.query_params['level']
+            datasets = datasets.filter(level=level)
+
+        except:
+            pass
+
+        # is there a query on category?
+        try:
+            category = self.request.query_params['category']
+            datasets = datasets.filter(category=category)
+
+        except:
+            pass
+
         # (remove the archive_uri (if present) from the params to prevent it being searched again
         query_params = dict(self.request.query_params)
         try:
             del query_params['archive_uri']
+        except:
+            pass
+
+        try:
+            del query_params['level']
+        except:
+            pass
+
+        try:
+            del query_params['category']
         except:
             pass
 
