@@ -174,7 +174,7 @@ class dataproducts_connector(query_base):
 
         # construct the query url
         query = self.url + '?' + where
-
+        query = "no direct query possible to ALTA, see alta.py for additional logic"
         return query, errors
 
 
