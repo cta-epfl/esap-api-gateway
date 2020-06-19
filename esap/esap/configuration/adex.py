@@ -24,6 +24,7 @@ datasets_disabled = ['nancay.ivoa.obscore']
 
 # definition of the query
 query_schema = {
+  "name": "adex",
   "title": "ASTRON Data Collection Query",
   "type": "object",
   "properties": {
@@ -31,8 +32,8 @@ query_schema = {
       "type": "string",
       "title": "Catalog",
       "default": "apertif",
-      "enum": ["all","apertif", "lofar", "astron_vo"],
-      "enumNames": ["All","Apertif", "LOFAR", "ASTRON_VO"]
+      "enum": ["all","apertif", "astron_vo"],
+      "enumNames": ["All","Apertif", "ASTRON_VO"]
     },
     "target": {
       "type": "string",
