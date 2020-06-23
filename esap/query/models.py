@@ -115,8 +115,8 @@ class DataSet(EsapBaseObject):
         (TILES, TILES),
     ]
 
-    datatype = models.CharField(max_length=30)  # like: visibility, image, cube
-    processing_level = models.CharField(max_length=30)  # like: raw, calibrated, processed
+    category = models.CharField(max_length=30)  # like: imaging, timedomain
+    level = models.CharField(max_length=30)  # like: raw, calibrated, processed
 
     # relationships
     dataset_catalog = models.ForeignKey(Catalog, related_name = 'datasets', on_delete=models.CASCADE, null=True, blank=True)

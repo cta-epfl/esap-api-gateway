@@ -105,10 +105,19 @@ class observations_connector(query_base):
 
                 # some fields to return some rendering information for the frontend.
 
+                # optional fields
                 try:
                     record['title'] = observation[dataset.title_field]
-                    record['thumbnail'] = observation[dataset.thumbnail]
+                except:
+                    pass
 
+                try:
+                    record['thumbnail'] = observation[dataset.thumbnail]
+                except:
+                    pass
+
+                # required fields
+                try:
                     record['runId'] = observation["runId"]
                     record['target'] = observation["target"]
                     record['RA'] = observation["RA"]
@@ -174,7 +183,7 @@ class dataproducts_connector(query_base):
 
         # construct the query url
         query = self.url + '?' + where
-
+        query = "no direct query possible to ALTA, see alta.py for additional logic"
         return query, errors
 
 

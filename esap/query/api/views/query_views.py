@@ -1,10 +1,10 @@
 import logging
 
-from rest_framework import generics, pagination, status
+from rest_framework import generics
 from rest_framework.response import Response
 
-from ..models import DataSet
-from ..business import query_controller, configuration
+from ..services import query_controller
+from query.models import DataSet
 from . import common_views
 
 logger = logging.getLogger(__name__)
@@ -13,8 +13,8 @@ class CreateQueryView(generics.ListAPIView):
     """
     Receive a query and return the results
     examples:
-    /esap-api/create-query/?esap_target=M51&archive_uri=astron_vo
-    /esap-api/create-query/?ra=202&dec=46&fov=5
+    /esap-api/query/create-query/?esap_target=M51&archive_uri=astron_vo
+    /esap-api/query/create-query/?ra=202&dec=46&fov=5
     """
     model = DataSet
     queryset = common_views.get_datasets()
@@ -34,10 +34,36 @@ class CreateQueryView(generics.ListAPIView):
         except:
             pass
 
+        # is there a query on level?
+        try:
+            level = self.request.query_params['level']
+            datasets = datasets.filter(level=level)
+
+        except:
+            pass
+
+        # is there a query on category?
+        try:
+            category = self.request.query_params['category']
+            datasets = datasets.filter(category=category)
+
+        except:
+            pass
+
         # (remove the archive_uri (if present) from the params to prevent it being searched again
         query_params = dict(self.request.query_params)
         try:
             del query_params['archive_uri']
+        except:
+            pass
+
+        try:
+            del query_params['level']
+        except:
+            pass
+
+        try:
+            del query_params['category']
         except:
             pass
 
@@ -52,11 +78,11 @@ class RunQueryView(generics.ListAPIView):
     """
     Run a single query on a dataset (catalog) and return the results
     examples:
-        /esap-api/run-query?dataset=ivoa.obscore&
+        /esap-api/query/run-query?dataset=ivoa.obscore&
         query=https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&
         QUERY=SELECT TOP 10 * from ivoa.obscore where target_name='M51'
 
-        /esap-api/run-query/?dataset_uri=apertif_observations&query=https://alta.astron.nl/altapi/observations-flat?view_ra=202&view_dec=46&view_fov=5
+        /esap-api/query/run-query/?dataset_uri=apertif_observations&query=https://alta.astron.nl/altapi/observations-flat?view_ra=202&view_dec=46&view_fov=5
     """
     model = DataSet
     queryset = DataSet.objects.all()
@@ -67,10 +93,9 @@ class RunQueryView(generics.ListAPIView):
         # read fields from the query
         #datasets = DataSet.objects.all()
 
-        # is there a query on archives?
+        # required parameters
         try:
             dataset_uri = self.request.query_params['dataset_uri']
-            dataset_name = self.request.query_params['dataset_name']
             query = self.request.query_params['query']
             dataset = DataSet.objects.get(uri=dataset_uri)
 
@@ -79,10 +104,17 @@ class RunQueryView(generics.ListAPIView):
                 'error': str(error)
             })
 
+
+        # optional parameters
+        try:
+            dataset_name = self.request.query_params['dataset_name']
+        except:
+            dataset_name = "unknown"
+
         try:
             access_url = self.request.query_params['access_url']
         except:
-            pass
+            access_url = "unknown"
 
         query_results = query_controller.run_query(dataset=dataset,
                                                    dataset_name=dataset_name,

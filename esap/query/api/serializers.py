@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import EsapBaseObject, DataSet, Archive, Catalog, ParameterMapping
+from ..models import EsapBaseObject, DataSet, Archive, Catalog, ParameterMapping
 import logging
 
 logger = logging.getLogger(__name__)

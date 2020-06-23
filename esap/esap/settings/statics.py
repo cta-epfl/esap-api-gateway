@@ -14,7 +14,7 @@ SECRET_KEY = 'cie-((m#n$br$6l53yash45*2^mwuux*2u)bad5(0flx@krnj9'
 DEBUG = False
 
 INSTALLED_APPS = [
-    'api',
+    'query',
     'django.contrib.staticfiles',
 ]
 

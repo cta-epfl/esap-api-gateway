@@ -17,9 +17,9 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 
 urlpatterns = [
-    path('esap-api/', include('api.urls')),
-    path('esap-api/admin/', admin.site.urls, name='admin-view'),
+    path('esap-api/query/', include('query.api.urls')),
     path('esap-api/rucio/', include('rucio.api.urls')),
-    path('esap-api/accounts/', include('accounts.urls')),
+    path('esap-api/accounts/', include('accounts.api.urls')),
+    path('esap-api/admin/', admin.site.urls, name='admin-view'),
     re_path('^esap-api/oidc/', include('mozilla_django_oidc.urls')),
 ]

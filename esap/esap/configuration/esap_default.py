@@ -15,7 +15,7 @@ nav2 = {'title': 'Datasets', 'route': '/datasets'}
 nav3 = {'title': 'Telescopes', 'route': '/telescopes'}
 nav4 = {'title': 'Query', 'route': '/query'}
 nav5 = {'title': 'Settings', 'route': '/about'}
-navbar = [nav1,nav2,nav3,nav4,nav5]
+navbar = [nav1,nav4]
 
 # if datasets_enabled is set, then only these datasets are visible to the GUI
 #datasets_enabled = ['apertif-observations','astron.ivoa.obscore']

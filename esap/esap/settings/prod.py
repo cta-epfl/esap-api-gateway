@@ -14,7 +14,7 @@ DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'esap.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
     },
 }
 
@@ -23,4 +23,4 @@ SECRET_KEY = 'cie-((m#n$br$6l53yash45*2^mwuux*2u)bad5(0flx@krnj9'
 
 # configuration settings that can be requested through the REST API
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
-CONFIGURATION_FILE = 'esap_default'
+CONFIGURATION_FILE = 'adex'

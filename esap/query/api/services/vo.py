@@ -41,6 +41,7 @@ def create_cone_search(esap_query_params, translation_parameters, equinox):
         del esap_query_params['dec']
         del esap_query_params['fov']
         return cone_search
+    return ''
 
 
 class tap_service_connector(query_base):
@@ -55,7 +56,7 @@ class tap_service_connector(query_base):
 
     # construct a query for this type of service
     def construct_query(self, dataset, query_params, translation_parameters, equinox):
-
+        print('*** construct_query')
         esap_query_params = dict(query_params)
         query = ''
         where = ''
@@ -80,8 +81,6 @@ class tap_service_connector(query_base):
                 # if the parameter could not be translated, then just continue
                 errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
 
-
-
         # add sync (or async) specifier
         query = self.url + '/sync' \
 
@@ -92,16 +91,22 @@ class tap_service_connector(query_base):
         query = query + "&QUERY=SELECT TOP 10 * from " + dataset.resource_name
         # query = query + "&QUERY=SELECT TOP 10 " + dataset.select_fields +" from " + dataset.resource_name
 
-        # add ADQL where where
-        query = query +" WHERE "
+        # add ADQL where clause
+
         if len(where)>0:
+            query = query + " WHERE "
             # cut off the last separation character
             where = where[:-1]
             query = query + where
 
         if len(cone_search)>0:
+            if len(where) == 0:
+                # if now previous where clause was added, then add the 'WHERE' keyword here
+                query = query + " WHERE "
+
             query = query + cone_search
 
+        where = where[:-1]
         return query, errors
 
 

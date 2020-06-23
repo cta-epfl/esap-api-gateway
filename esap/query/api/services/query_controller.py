@@ -5,12 +5,12 @@
     Description:  Business logic for ESAP-gateway. These functions are called from the views (views.py).
 """
 
-import importlib
-import logging
 import json
-from .common import timeit
+import logging
 
-from .services.query import vo, alta, vso, helio, vo_reg
+from . import alta
+from . import vo, vso, helio, vo_reg
+from ..utils import timeit
 
 logger = logging.getLogger(__name__)
 
@@ -83,9 +83,10 @@ def create_query(datasets, query_params):
 
                             url = str(dataset.dataset_catalog.url)
                             connector = connector_class(url)
-                            query, errors = connector.construct_query(dataset, query_params, parameter_mapping,dataset.dataset_catalog.equinox)
 
+                            query, errors = connector.construct_query(dataset, query_params, parameter_mapping,dataset.dataset_catalog.equinox)
                             result['query'] = query
+
                             if errors!=None:
                                 result['remark'] = str(errors)
 
