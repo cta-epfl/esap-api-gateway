@@ -1,0 +1,2 @@
+OIDC_RP_CLIENT_ID="<your_client_id>"
+OIDC_RP_CLIENT_SECRET="<your_client_secret>"

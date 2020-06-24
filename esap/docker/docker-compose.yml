@@ -1,0 +1,40 @@
+version: '3.4'
+
+networks:
+  esap_network: 
+  traefik_proxy:
+    external:
+      name: traefik_proxy
+  default:
+    driver: bridge
+
+services:
+  esap_api:
+    container_name: esap_api
+    image: esap_api:latest
+    networks:
+      - esap_network
+    expose: 
+      - 8000
+    env_file:
+      - $HOME/shared/oidc
+    restart: always
+    volumes:
+      - $HOME/shared:/shared
+
+  esap_nginx:
+    build:
+        context: $HOME/shared
+        dockerfile: Dockerfile
+    container_name: esap_nginx
+    image: esap_nginx:latest
+    networks:
+      - esap_network    
+    ports:
+      - 80:80
+    volumes:
+      - $HOME/shared:/shared
+      - $HOME/shared:/etc/nginx/conf.d 
+      - $HOME/shared/static:/static
+    restart: always
+
