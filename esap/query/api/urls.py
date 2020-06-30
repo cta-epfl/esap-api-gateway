@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
 
-    # ex: /esap/
+    # ex: /esap/query
     path('', views.IndexView.as_view(), name='index-view'),
 
     #--- REST API: collections and documents ---
