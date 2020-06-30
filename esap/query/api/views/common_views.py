@@ -71,7 +71,7 @@ class ParameterMappingFilter(filters.FilterSet):
 
 # ---------- REST API views -----------
 
-# example: /my_energy
+# example: /esap/query/
 class IndexView(ListView):
     queryset = Archive.objects.all()
     serializer_class = ArchiveSerializer
@@ -82,7 +82,7 @@ class IndexView(ListView):
     context_object_name = 'my_archives'
 
 
-# example: /esap-api/archives/
+# example: /esap-api/query/archives/
 class ArchiveListViewAPI(generics.ListCreateAPIView):
     """
     A list of Archives
@@ -96,7 +96,7 @@ class ArchiveListViewAPI(generics.ListCreateAPIView):
     filter_class = ArchiveFilter
 
 
-# example: /esap-api/archives/1/
+# example: /esap-api/query/archives/1/
 class ArchiveDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     """
     Detailed view of Archive
@@ -115,7 +115,7 @@ class ArchiveListUriViewAPI(generics.ListCreateAPIView):
     serializer_class = ArchiveModelSerializer
 
 
-# example: /esap-api-uri/archives/1/
+# example: /esap-api-uri/query/archives/1/
 class ArchiveDetailsUriViewAPI(generics.RetrieveUpdateDestroyAPIView):
     """
     Detailed view of Archive
@@ -150,7 +150,7 @@ def get_datasets():
     return datasets
 
 
-# example: /esap-api/datasets/
+# example: /esap-api/query/datasets/
 class DataSetListViewAPI(generics.ListCreateAPIView):
     """
     A list of DataSets
@@ -165,7 +165,7 @@ class DataSetListViewAPI(generics.ListCreateAPIView):
     filter_class = DataSetFilter
 
 
-# example: /esap-api/datasets/1/
+# example: /esap-api/query/datasets/1/
 class DataSetDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     """
     Detailed view of DataSet
@@ -175,7 +175,7 @@ class DataSetDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = DataSetSerializer
 
 
-# example: /esap-api/datasets/
+# example: /esap-api/query/datasets/
 class DataSetListUriViewAPI(generics.ListCreateAPIView):
     """
     A list of DataSets
@@ -190,7 +190,7 @@ class DataSetListUriViewAPI(generics.ListCreateAPIView):
     filter_class = DataSetFilter
 
 
-# example: /esap-api/datasets/1/
+# example: /esap-api/query/datasets/1/
 class DataSetDetailsUriViewAPI(generics.RetrieveUpdateDestroyAPIView):
     """
     Detailed view of DataSet
@@ -200,7 +200,7 @@ class DataSetDetailsUriViewAPI(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = DataSetModelSerializer
 
 
-# example: /esap-api/catalogs/
+# example: /esap-api/query/catalogs/
 class CatalogListViewAPI(generics.ListCreateAPIView):
     """
     A list of Catalogs
@@ -214,7 +214,7 @@ class CatalogListViewAPI(generics.ListCreateAPIView):
     filter_class = CatalogFilter
 
 
-# example: /esap-api/catalogs/1/
+# example: /esap-api/query/catalogs/1/
 class CatalogDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     """
     Detailed view of Catalog
@@ -225,7 +225,7 @@ class CatalogDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
 
 
 
-# example: /esap-api/retrieval-parameters/
+# example: /esap-api/query/retrieval-parameters/
 class ParameterMappingListViewAPI(generics.ListCreateAPIView):
     """
     A list of Retrieval Parameters per service
@@ -239,7 +239,7 @@ class ParameterMappingListViewAPI(generics.ListCreateAPIView):
     filter_class = ParameterMappingFilter
 
 
-# example: /esap-api/retrieval-parameters/1
+# example: /esap-api/query/retrieval-parameters/1
 class ParameterMappingDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     """
     Details for Retrieval Parameters for a service
