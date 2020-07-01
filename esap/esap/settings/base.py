@@ -163,7 +163,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        'api': {
+        'query': {
             'handlers': ['my_handler','mail_admins'],
             #'handlers': ['my_handler','my_file_handler','mail_admins'],
             'level': 'INFO',
