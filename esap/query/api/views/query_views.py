@@ -124,3 +124,64 @@ class RunQueryView(generics.ListAPIView):
         return Response({
             'query_results': query_results
         })
+
+
+class CreateAndRunQueryView(generics.ListAPIView):
+    """
+    Run a single query on a series of datasets and return the results
+    examples:
+       /esap-api/query?level=raw&category=imaging&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
+       /esap-api/query?&keywords=cutout&ra=342.16&dec=33.94&fov=10&archive_uri=astron_vo
+    """
+    model = DataSet
+    queryset = DataSet.objects.all()
+
+    # override list and generate a custom response
+    def list(self, request, *args, **kwargs):
+
+        datasets = common_views.get_datasets()
+
+        # is there a query on archives?
+        try:
+            archive_uri = self.request.query_params['archive_uri']
+            datasets = datasets.filter(dataset_archive__uri=archive_uri)
+        except:
+            pass
+
+        # is there a query on level?
+        try:
+            level = self.request.query_params['level']
+            datasets = datasets.filter(level=level)
+        except:
+            pass
+
+        # is there a query on category?
+        try:
+            category = self.request.query_params['category']
+            datasets = datasets.filter(category=category)
+        except:
+            pass
+
+
+        # remove the dataset selection params, and keep the query search parameters
+        query_params = dict(self.request.query_params)
+        try:
+            del query_params['archive_uri']
+        except:
+            pass
+
+        try:
+            del query_params['level']
+        except:
+            pass
+
+        try:
+            del query_params['category']
+        except:
+            pass
+
+        query_results = query_controller.create_and_run_query(datasets=datasets,query_params = query_params)
+
+        return Response({
+            'query_results': query_results
+        })

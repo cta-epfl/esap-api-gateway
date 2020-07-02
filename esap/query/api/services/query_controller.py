@@ -177,3 +177,27 @@ def run_query(dataset, dataset_name, query, access_url):
     # run the specific instance of 'run_query' for this connector
     results = connector.run_query(dataset, dataset_name, query)
     return results
+
+
+#@timeit
+def create_and_run_query(datasets, query_params):
+    """
+    run a query on a list of datasets and return the results
+    This function combines create_query and run_query
+    :param query:
+    :return:
+    """
+    logger.info('query_controller.create_and_run_query()')
+
+    results = []
+
+    created_queries = create_query(datasets, query_params)
+    for created_queries in created_queries:
+        dataset_uri = created_queries['dataset']
+        dataset = datasets.get(uri=dataset_uri)
+        dataset_name = created_queries['dataset_name']
+        query = created_queries['query']
+        query_results = run_query(dataset, dataset_name, query, "unknown")
+        results.append(query_results)
+
+    return results

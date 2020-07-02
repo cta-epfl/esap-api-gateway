@@ -51,19 +51,16 @@ query_schema = {
       "type": "number",
       "title": "search radius (degrees)",
     },
-    "dataproduct_level": {
+    "level": {
       "type": "string",
       "title": "DataProduct Level",
       "default": "raw",
       "enum": ["all","raw","processed"],
       "enumNames": ["All","Raw","Processed"]
     },
-    "dataproduct_category": {
+    "category": {
       "type": "string",
-      "title": "DataProduct Category",
-      "default": "imaging",
-      "enum": ["imaging","timedomain"],
-      "enumNames": ["Imaging","Time domain"]
+      "title": "Keywords",
     },
   }
 }
