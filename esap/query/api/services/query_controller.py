@@ -183,11 +183,10 @@ def create_and_run_query(datasets, query_params):
     :param query:
     :return:
     """
-    logger.info('query_controller.create_and_run_query()')
 
     results = []
 
-    # call the 'create_query()' function to construct a list of queries per dataset
+    # call the 'create_query' function to construct a list of queries per dataset
     created_queries = create_query(datasets, query_params)
 
     for created_queries in created_queries:

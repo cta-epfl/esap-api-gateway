@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 AMP_REPLACEMENT = '_and_'
 
 # The request header
+ALTA_WEBDAV_HOST = "https://alta.astron.nl/webdav/"
 ALTA_HEADER = {
     'content-type': "application/json",
 }
@@ -145,8 +146,15 @@ class alta_connector(query_base):
                 record['RA'] = dataproduct['RA']
                 record['dec'] = dataproduct['dec']
                 record['fov'] = dataproduct['fov']
+
+
+                # only send back thumbnails that are not placeholders.
+                if record['dataProductSubType']=='continuumMF':
+                    record['thumbnail'] = dataproduct['thumbnail']
+
                 record['storageRef'] = dataproduct['storageRef']
-                record['thumbnail'] = dataproduct['thumbnail']
+                # construct the url based on the storageRef
+                record['url'] = ALTA_WEBDAV_HOST + dataproduct['derived_release_id'] + '/' + dataproduct['storageRef']
 
                 results.append(record)
 
