@@ -84,16 +84,16 @@ def create_query(datasets, query_params):
                             url = str(dataset.dataset_catalog.url)
                             connector = connector_class(url)
 
-                            query, errors = connector.construct_query(dataset, query_params, parameter_mapping,dataset.dataset_catalog.equinox)
+                            query, where, errors = connector.construct_query(dataset, query_params, parameter_mapping,dataset.dataset_catalog.equinox)
                             result['query'] = query
+                            result['where'] = where
 
                             if errors!=None:
-                                result['remark'] = str(errors)
+                                result['error'] = str(errors)
 
                         except Exception as error:
                             # connector not found
-                            result["remark"] = str(error)
-                            result["query"] = str(error)
+                            result["error"] = str(error)
 
                         # usually, the returned result in 'query' is a single query.
                         # occasionally, it is a structure of queries that was created by iterating over a registery
@@ -106,8 +106,7 @@ def create_query(datasets, query_params):
 
 
                 except Exception as error:
-                    result["remark"] = str(error)
-                    result['query'] = str(error)
+                    result["error"] = str(error)
 
 
     except Exception as error:
@@ -121,16 +120,13 @@ def create_query(datasets, query_params):
     return input_results
 
 
-
 #@timeit
-def run_query(dataset, dataset_name, query, access_url):
+def run_query(dataset, dataset_name, query):
     """
     run a query on a dataset (catalog)
     :param query:
     :return:
     """
-    logger.info('query_controller.run_query()')
-
     results = []
 
     # distinguish between types of services to use and run the query accordingly
@@ -167,10 +163,10 @@ def run_query(dataset, dataset_name, query, access_url):
         return results
 
     # the default url to the catalog is defined in the dataset, but can be overridden.
-    if access_url != None:
-        my_url = access_url
-    else:
-        my_url = str(dataset.dataset_catalog.url)
+    # if access_url != None:
+    #    my_url = access_url
+    #else:
+    my_url = str(dataset.dataset_catalog.url)
 
     connector = connector_class(my_url)
 
@@ -191,13 +187,20 @@ def create_and_run_query(datasets, query_params):
 
     results = []
 
+    # call the 'create_query()' function to construct a list of queries per dataset
     created_queries = create_query(datasets, query_params)
+
     for created_queries in created_queries:
         dataset_uri = created_queries['dataset']
         dataset = datasets.get(uri=dataset_uri)
+
         dataset_name = created_queries['dataset_name']
+        # access_url = created_queries['service_url']
         query = created_queries['query']
-        query_results = run_query(dataset, dataset_name, query, "unknown")
+        where = created_queries['where']
+
+        # call the 'run_query()' function to execute a query per dataset
+        query_results = run_query(dataset, dataset_name, query)
         results.append(query_results)
 
-    return results
+    return results[0]

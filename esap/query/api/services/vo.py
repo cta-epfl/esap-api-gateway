@@ -107,7 +107,7 @@ class tap_service_connector(query_base):
             query = query + cone_search
 
         where = where[:-1]
-        return query, errors
+        return query, where, errors
 
 
     # run a query

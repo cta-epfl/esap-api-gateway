@@ -156,7 +156,7 @@ class vo_registry_connector(query_base):
 
             results.append(result)
 
-        return results, errors
+        return results, where, errors
 
 
     # run a query

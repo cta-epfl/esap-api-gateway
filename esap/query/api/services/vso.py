@@ -70,7 +70,7 @@ class vso_connector(query_base):
 
         query = self.url + '?' + where
 
-        return query, errors
+        return query, where, errors
 
 
 

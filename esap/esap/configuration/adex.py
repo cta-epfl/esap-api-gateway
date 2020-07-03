@@ -19,8 +19,7 @@ navbar = [nav1,nav2]
 #datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
 
 # if datasets_disabled is set, then all datasets except these are returned to the GUI
-datasets_disabled = ['nancay.ivoa.obscore']
-
+#datasets_disabled = ['nancay.ivoa.obscore']
 
 # definition of the query
 query_schema = {
