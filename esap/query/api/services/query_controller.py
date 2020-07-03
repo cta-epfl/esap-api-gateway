@@ -203,4 +203,8 @@ def create_and_run_query(datasets, query_params):
         query_results = run_query(dataset, dataset_name, query)
         results.append(query_results)
 
-    return results[0]
+    # extract the array of results
+    try:
+        return results[0]
+    except:
+        return []
