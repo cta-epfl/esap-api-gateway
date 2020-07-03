@@ -40,4 +40,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
-CONFIGURATION_FILE = 'esap_default'
+CONFIGURATION_FILE = 'esap'
