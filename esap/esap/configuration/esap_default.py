@@ -15,7 +15,7 @@ nav2 = {'title': 'Datasets', 'route': '/datasets'}
 nav3 = {'title': 'Telescopes', 'route': '/telescopes'}
 nav4 = {'title': 'Query', 'route': '/query'}
 nav5 = {'title': 'Settings', 'route': '/about'}
-navbar = [nav1,nav4]
+navbar = [nav1,nav2,nav3,nav4,nav5]
 
 # if datasets_enabled is set, then only these datasets are visible to the GUI
 #datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
@@ -39,7 +39,7 @@ query_schema = {
     "keyword": {
       "type": "string",
       "title": "Keyword",
-      "default": ""
+      "default" : ""
     },
     "target": {
       "type": "string",
@@ -60,36 +60,14 @@ query_schema = {
       "title": "search radius (degrees)",
       "default": 10
     },
-    "dataproduct_type": {
-      "type": "string",
-      "title": "DataProduct Type",
-      "default": "all",
-      "enum": ["all","image","cube","timeSeries","visibility"],
-      "enumNames": ["all","image","cube","timeSeries","visibility"]
-    },
+
     "dataproduct_subtype": {
       "type": "string",
-      "title": "DataProduct Subtype",
+      "title": "DataProduct Type",
       "default": "continuumMF",
-      "enum": ["all", "uncalibratedVisibility", "calibrationTable", "continuumMF", "continuumChunk", "imageCube","beamCube", "calibratedImage", "polarisationImage", "polarisationCube", "pulsarTimingTimeSeries"],
-      "enumNames": ["all", "uncalibratedVisibility", "calibrationTable", "continuumMF", "continuumChunk", "imageCube", "beamCube", "calibratedImage", "polarisationImage", "polarisationCube", "pulsarTimingTimeSeries"]
+      "enum": ["all","uncalibratedVisibility","continuumMF","continuumChunk","calibratedImage","polarisationImage","imageCube","beamCube","polarisationCube","pulsarTimingTimeSeries"],
+      "enumNames": ["all","uncalibratedVisibility","continuumMF","continuumChunk","calibratedImage","polarisationImage","imageCube","beamCube","polarisationCube","pulsarTimingTimeSeries"]
     },
-    "startdate": {
-      "type": "string",
-      "format" : "date",
-      "title": "Start Date"
-    }
-    ,
-    "enddate": {
-      "type": "string",
-      "format" : "date",
-      "title": "End Date"
-    },
-    "instrument": {
-      "type": "string",
-      "title": "Instrument",
-      "default": "SOHO__MDI",
-      "enum": ["all", "SOHO__EIT", "SOHO__MDI", "PDMO__COGHA", "HINODE__EIS", "STEREO_A__COR", "STEREO_B__COR"],
-    }
+
   }
 }

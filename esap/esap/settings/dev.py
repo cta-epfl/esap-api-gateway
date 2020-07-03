@@ -36,4 +36,4 @@ AUTH_PASSWORD_VALIDATORS = []
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 
 # CONFIGURATION_FILE = 'esap_solar'
-CONFIGURATION_FILE = 'esap'
+CONFIGURATION_FILE = 'esap_config'
