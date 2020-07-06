@@ -121,7 +121,7 @@ def create_query(datasets, query_params):
 
 
 #@timeit
-def run_query(dataset, dataset_name, query):
+def run_query(dataset, dataset_name, query, access_url=None):
     """
     run a query on a dataset (catalog)
     :param query:
