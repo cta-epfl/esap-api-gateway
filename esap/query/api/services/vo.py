@@ -56,7 +56,7 @@ class tap_service_connector(query_base):
 
     # construct a query for this type of service
     def construct_query(self, dataset, query_params, translation_parameters, equinox):
-        print('*** construct_query')
+
         esap_query_params = dict(query_params)
         query = ''
         where = ''
@@ -116,15 +116,8 @@ class tap_service_connector(query_base):
         # use pyvo to do a vo query
         :param dataset: the dataset object that must be queried
         :param query: the constructed (adql) query (that was probably generated with the above construct_query function)
-        :return: results: an array of dicts with the following structure;
-        {
-            "dataset": "astron.ivoa.obscore",
-            "result": "https://vo.astron.nl/getproduct/tgssadr/fits/TGSSADR_R40D60_5x5.MOSAIC.FITS"
-        },
-        {
-            "dataset": "astron.ivoa.obscore",
-            "result": "https://vo.astron.nl/getproduct/tgssadr/fits/TGSSADR_R40D62_5x5.MOSAIC.FITS"
-        },
+        :return: results: an array of dicts with results from the query
+
         """
 
         results = []
@@ -137,8 +130,7 @@ class tap_service_connector(query_base):
             record = {}
             record['query'] = query
             record['dataset'] = dataset.uri
-            record['dataset_name'] = dataset_name
-            record['result'] =  str(error)
+            record['error'] =  str(error)
             results.append(record)
             return results
 
@@ -182,6 +174,16 @@ class tap_service_connector(query_base):
                 pass
 
             try:
+                record['dataproduct_type'] = row['dataproduct_type']
+            except:
+                pass
+
+            try:
+                record['calibration_level'] = row['calib_level']
+            except:
+                pass
+
+            try:
                 record['thumbnail'] = row[dataset.thumbnail_field]
             except:
                 pass
@@ -191,6 +193,45 @@ class tap_service_connector(query_base):
             except:
                 pass
 
+            try:
+                record['ra'] = row['s_ra']
+            except:
+                pass
+
+            try:
+                record['dec'] = row['s_dec']
+            except:
+                pass
+
+            try:
+                record['fov'] = row['s_fov']
+            except:
+                pass
+
+            try:
+                record['target'] = row['target_name']
+            except:
+                pass
+
+            try:
+                record['obs_collection'] = row['obs_collection']
+            except:
+                pass
+
+            try:
+                record['size'] = row['access_estsize']
+            except:
+                pass
+
+            try:
+                record['facility'] = row['facility_name']
+            except:
+                pass
+
+            try:
+                record['instrument'] = row['instrument_name']
+            except:
+                pass
 
             results.append(record)
 
