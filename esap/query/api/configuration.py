@@ -21,6 +21,7 @@ def get_datasets_disabled():
 # return expanded configuration
 def get_configuration():
     result = {}
+    result['version'] = settings.VERSION
 
     try:
         result['frontend_basename'] = my_config.frontend_basename
