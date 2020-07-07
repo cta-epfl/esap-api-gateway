@@ -198,8 +198,14 @@ def create_and_run_query(datasets, query_params):
         query = created_queries['query']
         where = created_queries['where']
 
+        # the 'query' parameter from the 'create_query' function is a bit richer than the ADQL query
+        # that the 'run_query' expects. When 'run_query' and 'create_query' are handled separately
+        # by a frontend then the extra information is cut off by the frontend.
+        # In this combined 'query' function it must be done here
+        adql_query = query.split('&QUERY=')[1]
+
         # call the 'run_query()' function to execute a query per dataset
-        query_results = run_query(dataset, dataset_name, query)
+        query_results = run_query(dataset, dataset_name, adql_query)
         results.append(query_results)
 
     # extract the array of results
