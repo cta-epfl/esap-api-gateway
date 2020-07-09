@@ -84,16 +84,16 @@ def create_query(datasets, query_params):
                             url = str(dataset.dataset_catalog.url)
                             connector = connector_class(url)
 
-                            query, errors = connector.construct_query(dataset, query_params, parameter_mapping,dataset.dataset_catalog.equinox)
+                            query, where, errors = connector.construct_query(dataset, query_params, parameter_mapping,dataset.dataset_catalog.equinox)
                             result['query'] = query
+                            result['where'] = where
 
                             if errors!=None:
-                                result['remark'] = str(errors)
+                                result['error'] = str(errors)
 
                         except Exception as error:
                             # connector not found
-                            result["remark"] = str(error)
-                            result["query"] = str(error)
+                            result["error"] = str(error)
 
                         # usually, the returned result in 'query' is a single query.
                         # occasionally, it is a structure of queries that was created by iterating over a registery
@@ -106,8 +106,7 @@ def create_query(datasets, query_params):
 
 
                 except Exception as error:
-                    result["remark"] = str(error)
-                    result['query'] = str(error)
+                    result["error"] = str(error)
 
 
     except Exception as error:
@@ -121,16 +120,13 @@ def create_query(datasets, query_params):
     return input_results
 
 
-
 #@timeit
-def run_query(dataset, dataset_name, query, access_url):
+def run_query(dataset, dataset_name, query, access_url=None):
     """
     run a query on a dataset (catalog)
     :param query:
     :return:
     """
-    logger.info('query_controller.run_query()')
-
     results = []
 
     # distinguish between types of services to use and run the query accordingly
@@ -167,13 +163,57 @@ def run_query(dataset, dataset_name, query, access_url):
         return results
 
     # the default url to the catalog is defined in the dataset, but can be overridden.
-    if access_url != None:
-        my_url = access_url
-    else:
-        my_url = str(dataset.dataset_catalog.url)
+    # if access_url != None:
+    #    my_url = access_url
+    #else:
+    my_url = str(dataset.dataset_catalog.url)
 
     connector = connector_class(my_url)
 
     # run the specific instance of 'run_query' for this connector
     results = connector.run_query(dataset, dataset_name, query)
     return results
+
+
+#@timeit
+def create_and_run_query(datasets, query_params):
+    """
+    run a query on a list of datasets and return the results
+    This function combines create_query and run_query
+    :param query:
+    :return:
+    """
+
+    results = []
+
+    # call the 'create_query' function to construct a list of queries per dataset
+    created_queries = create_query(datasets, query_params)
+
+    for created_queries in created_queries:
+        dataset_uri = created_queries['dataset']
+        dataset = datasets.get(uri=dataset_uri)
+
+        dataset_name = created_queries['dataset_name']
+        # access_url = created_queries['service_url']
+        query = created_queries['query']
+        where = created_queries['where']
+
+        # the 'query' parameter from the 'create_query' function can be a bit richer than
+        # what 'run_query' expects. This is the case for VO queries where a ADQL query is created.
+        # When 'run_query' and 'create_query' are handled separately by a frontend then the
+        # frontend ensures that the 'query' parameter is.
+        # In this combined 'query' function it must be done here
+        try:
+            query = query.split('&QUERY=')[1]
+        except:
+            pass
+
+        # call the 'run_query()' function to execute a query per dataset
+        query_results = run_query(dataset, dataset_name, query)
+        results.append(query_results)
+
+    # extract the array of results
+    try:
+        return results[0]
+    except:
+        return []

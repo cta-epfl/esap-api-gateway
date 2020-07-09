@@ -19,8 +19,7 @@ navbar = [nav1,nav2]
 #datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
 
 # if datasets_disabled is set, then all datasets except these are returned to the GUI
-datasets_disabled = ['nancay.ivoa.obscore']
-
+#datasets_disabled = ['nancay.ivoa.obscore']
 
 # definition of the query
 query_schema = {
@@ -51,19 +50,16 @@ query_schema = {
       "type": "number",
       "title": "search radius (degrees)",
     },
-    "dataproduct_level": {
+    "level": {
       "type": "string",
-      "title": "DataProduct Level",
+      "title": "Processing Level",
       "default": "raw",
       "enum": ["all","raw","processed"],
       "enumNames": ["All","Raw","Processed"]
     },
-    "dataproduct_category": {
+    "category": {
       "type": "string",
-      "title": "DataProduct Category",
-      "default": "imaging",
-      "enum": ["imaging","timedomain"],
-      "enumNames": ["Imaging","Time domain"]
+      "title": "Keywords",
     },
   }
 }

@@ -14,137 +14,14 @@ logger = logging.getLogger(__name__)
 AMP_REPLACEMENT = '_and_'
 
 # The request header
+ALTA_WEBDAV_HOST = "https://alta.astron.nl/webdav/"
 ALTA_HEADER = {
     'content-type': "application/json",
 }
 
-
-class observations_connector(query_base):
-    """
-    The connector to access the ALTA observations dataset
-    """
-
-    # Initializer
-    def __init__(self, url):
-        self.url = url
-
-    # construct a query for this type of service
-    def construct_query(self, dataset, esap_query_params, translation_parameters, equinox):
-        query = ''
-        where = ''
-        errors = []
-
-        for esap_param in esap_query_params:
-            esap_key = esap_param
-            value = esap_query_params[esap_key][0]
-
-            try:
-                dataset_key = translation_parameters[esap_key]
-
-                # because '&' has a special meaning in urls (specifying a parameter) replace it with
-                # something harmless during serialization.
-                where = where + dataset_key + '=' + value + AMP_REPLACEMENT
-
-            except Exception as error:
-                # if the parameter could not be translated, then just continue without that key
-                errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
-
-        # cut off the last separation character
-        where = where[:-len(AMP_REPLACEMENT)]
-
-        # construct the query url
-        query = self.url + '?' + where
-
-        return query, errors
-
-
-    def run_query(self, dataset, dataset_name, query):
-        """
-        # use the ALTA REST API to do a query
-        :param dataset: the dataset object that must be queried
-        :param query: the constructed ALTA query (that was probably generated with the above construct_query function)
-        :return: results: an array of dicts with the following structure;
-
-        """
-        results = []
-
-        # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
-        # something harmless during serialization. Replace it again with the &
-        query = query.replace(AMP_REPLACEMENT,'&')
-
-        # execute the http request to ALTA
-        response = requests.request("GET", query, headers=ALTA_HEADER)
-
-        try:
-            json_response = json.loads(response.text)
-            observations = json_response["results"]
-
-            # iterate over the list of results
-            for observation in observations:
-                logger.info(observation)
-                # the dataset.select_fields field specifies which fields must be extracted from the response
-                record = {}
-                result = ''
-
-                select_list = dataset.select_fields.split(',')
-                for select in select_list:
-                    logger.info(select)
-                    try:
-                        result = result + observation[select] + ','
-                    except:
-                        pass
-
-                # cut off the last ','
-                result = result[:-1]
-
-                #result = "https://alta.astron.nl/science/details/"+observation["runId"]
-                record['query'] = query
-                record['dataset'] = dataset.uri
-                record['dataset_name'] = dataset_name
-                record['result'] = result
-
-                # some fields to return some rendering information for the frontend.
-
-                # optional fields
-                try:
-                    record['title'] = observation[dataset.title_field]
-                except:
-                    pass
-
-                try:
-                    record['thumbnail'] = observation[dataset.thumbnail]
-                except:
-                    pass
-
-                # required fields
-                try:
-                    record['runId'] = observation["runId"]
-                    record['target'] = observation["target"]
-                    record['RA'] = observation["RA"]
-                    record['dec'] = observation["dec"]
-                    record['fov'] = observation["fov"]
-                    record['startTime'] = observation["startTime"]
-                    record['endTime'] = observation["endTime"]
-                    record['url'] = "https://alta.astron.nl/science/details/"+observation["runId"]
-                except:
-                    pass
-
-                logger.info(record)
-                results.append(record)
-
-        except Exception as error:
-            record['query'] = query
-            record['dataset_name'] = dataset_name
-            record['dataset'] = dataset.uri
-            record['result'] =  str(error)
-            results.append(record)
-
-        return results
-
-
 # --------------------------------------------------------------------------------------------------------------------
 
-class dataproducts_connector(query_base):
+class alta_connector(query_base):
     """
     The connector to access the ALTA dataproducts dataset
     """
@@ -157,7 +34,6 @@ class dataproducts_connector(query_base):
     # construct a query for this type of service
     def construct_query(self, dataset, esap_query_params, translation_parameters, equinox):
 
-        query = ''
         where = ''
         errors = []
 
@@ -181,41 +57,38 @@ class dataproducts_connector(query_base):
         # cut off the last separation character
         where = where[:-len(AMP_REPLACEMENT)]
 
+        # make a selection of dataproductSubTypes
+        # based on the defined 'category' and 'level' of this dataset.
+
+        if 'IMAGING' in dataset.category.upper():
+
+            if 'RAW' in dataset.level.upper():
+                where = where + AMP_REPLACEMENT + "dataProductSubType__in=uncalibratedVisibility"
+
+            if 'PROCESSED' in dataset.level.upper():
+                where = where + AMP_REPLACEMENT + "dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube"
+
+        if 'TIMEDOMAIN' in dataset.category.upper():
+            where = where + AMP_REPLACEMENT + "pulsarTimingTimeSeries"
+
+
         # construct the query url
         query = self.url + '?' + where
-        query = "no direct query possible to ALTA, see alta.py for additional logic"
-        return query, errors
-
+        return query, where, errors
 
 
     def run_query(self, dataset, dataset_name, query):
         """
         # use the ALTA REST API to do a query
         :param dataset: the dataset object that must be queried
-        :param query: the constructed ALTA query (that was probably generated with the above construct_query function)
+        :param query_params: the incoming esap query parameters)
         :return: results: an array of dicts with the following structure;
 
-        {
-            "dataset": "apertif-dataproducts",
-            "result": "/alta-static//media/190409015_AP_B000/image_mf_02.png"
-        },
-        {
-            "dataset": "apertif-dataproducts",
-            "result": "/alta-static//media/190409015_AP_B001/image_mf_02.png"
-        },
-        {
-            "dataset": "apertif-dataproducts",
-            "result": "/alta-static//media/190409015_AP_B002/image_mf_02.png"
-        },
-        {
-            "dataset": "apertif-dataproducts",
-            "result": "/alta-static//media/190409015_AP_B003/image_mf_01.png"
-        },
-
-        example:
-        /esap-api/run-query/?dataset_uri=apertif-dataproducts&query=https://alta.astron.nl/altapi/observations-flat?view_ra=342.16_and_view_dec=33.94_and_view_fov=10_and_dataProductType=image_and_dataProductSubType=continuumMF
+         example:
+        /esap-api/run-query/?dataset_uri=apertif-imaging-rawdata&query=https://alta.astron.nl/altapi/observations-flat?view_ra=342.16_and_view_dec=33.94_and_view_fov=10_and_dataProductType=image_and_dataProductSubType=continuumMF
 
         """
+
         results = []
 
         # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
@@ -243,64 +116,53 @@ class dataproducts_connector(query_base):
 
             # there may be additional query parameters in the original query, like dataProductSubType=continuumMF
             # copy them over to the secondary query as well.
-            filter = '&'+query_list[1].split('?')[1]
-            query2 = host + '/dataproducts-flat?datasetID__in=' + str(runids) + filter
+            filter = '&' + query_list[1].split('?')[1]
+            dataproduct_query = host + '/dataproducts-flat?datasetID__in=' + str(runids) + filter
 
             # shortcut to add an extra selection criterium... handle better later
-            # query2 = query2 + "&dataProductSubType=continuumMF"
+            # dataproduct_query = dataproduct_query + "&dataProductSubType=continuumMF"
 
             # execute the secondary query to dataproducts
-            response = requests.request("GET", query2, headers=ALTA_HEADER)
+            response = requests.request("GET", dataproduct_query, headers=ALTA_HEADER)
 
             json_response = json.loads(response.text)
             dataproducts = json_response["results"]
 
 
             for dataproduct in dataproducts:
-                logger.info(dataproduct)
-                # the dataset.select_fields field specifies which fields must be extracted from the response
+
                 record = {}
                 result = ''
 
-                select_list = dataset.select_fields.split(',')
-                for select in select_list:
-                    try:
-                        result = result + dataproduct[select] + ','
-                    except:
-                        pass
-
-                # cut off the last ','
-                result = result[:-1]
+                record['name'] = dataproduct['name']
+                record['PID'] = dataproduct['PID']
+                record['dataProductType'] = dataproduct['dataProductType']
+                record['dataProductSubType'] = dataproduct['dataProductSubType']
 
                 # result = "https://alta.astron.nl/science/details/"+observation["runId"]
-                record['query'] = query
-                record['dataset'] = dataset.uri
-                record['dataset_name'] = dataset_name
-                record['result'] = result
+                record['generatedByActivity'] = dataproduct['generatedByActivity'][0]
+                record['datasetID'] = dataproduct['datasetID']
+                # record['target'] = "???"
+                record['RA'] = dataproduct['RA']
+                record['dec'] = dataproduct['dec']
+                record['fov'] = dataproduct['fov']
 
-                # some fields to return some rendering information for the frontend.
-                try:
-                    record['title'] = dataproduct[dataset.title_field]
-                except:
-                    pass
 
-                try:
-                    record['thumbnail'] = dataproduct[dataset.thumbnail_field]
-                except:
-                    pass
+                # only send back thumbnails that are not placeholders.
+                if record['dataProductSubType']=='continuumMF':
+                    record['thumbnail'] = dataproduct['thumbnail']
 
-                try:
-                    record['url'] = dataproduct[dataset.url_field]
-                except:
-                    pass
+                record['storageRef'] = dataproduct['storageRef']
+                # construct the url based on the storageRef
+                record['url'] = ALTA_WEBDAV_HOST + dataproduct['derived_release_id'] + '/' + dataproduct['storageRef']
 
                 results.append(record)
 
         except Exception as error:
+            record = {}
             record['query'] = query
             record['dataset'] = dataset.uri
-            record['dataset_name'] = dataset_name
-            record['result'] =  str(error)
+            record['error'] =  str(error)
             results.append(record)
 
         return results

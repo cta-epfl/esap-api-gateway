@@ -102,7 +102,6 @@ class vo_registry_connector(query_base):
             result['query_id'] = resource.ivoid
             result['dataset'] = dataset.uri
             result['dataset_name'] = resource.short_name
-            result['service_url'] = str(resource.access_url)
             result['output_format'] = str(resource.source_format)
             result['resource_name'] = str(dataset.resource_name)
             result['protocol'] = str(dataset.dataset_catalog.protocol)
@@ -130,8 +129,7 @@ class vo_registry_connector(query_base):
             # add sync (or async) specifier
             # query = resource.access_url + '/sync'
 
-
-            query = resource.access_url + '/sync' if  (self.get_service_type(resource).upper() == "TAP")  else     resource.access_url
+            query = resource.access_url + '/sync' if  (self.get_service_type(resource).upper() == "TAP") else resource.access_url
             # add fixed ADQL parameters
             query_params = {}
             query_params["LANG"] = "ADQL"
@@ -158,7 +156,7 @@ class vo_registry_connector(query_base):
 
             results.append(result)
 
-        return results, errors
+        return results, where, errors
 
 
     # run a query

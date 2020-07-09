@@ -10,6 +10,7 @@ RUN pip install --upgrade pip  "cython==0.29.14"
 RUN pip install cryptography
 RUN pip install -r requirements/prod.txt
 RUN exec python manage.py collectstatic --settings=esap.settings.statics --no-input
+
 CMD exec gunicorn esap.wsgi_docker:application --bind 0.0.0.0:8000 --workers 3
 
 # build the image like this:
