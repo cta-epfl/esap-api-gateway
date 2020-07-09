@@ -8,7 +8,7 @@ try:
     sys.path.append(settings.CONFIGURATION_DIR)
     my_config = importlib.import_module(settings.CONFIGURATION_FILE)
 except:
-    # no configuration found, continue without configuration settings for the frontend.
+    # no configuration found, continue without configuration my_config = importlib.import_module(settings.CONFIGURATION_FILE)settings for the frontend.
     # (the frontend will have to use its defaults)
     pass
 
@@ -30,6 +30,8 @@ def get_configuration(name=None):
 
     if name!=None:
         my_config = importlib.import_module(name,'configuration')
+    else:
+        my_config = importlib.import_module(settings.CONFIGURATION_FILE)
 
     try:
         result['frontend_basename'] = my_config.frontend_basename
