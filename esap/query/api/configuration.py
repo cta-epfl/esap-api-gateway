@@ -1,7 +1,8 @@
 import os, sys
 from django.conf import settings
 
-import importlib
+import logging, importlib
+logger = logging.getLogger(__name__)
 
 try:
     sys.path.append(settings.CONFIGURATION_DIR)
@@ -19,9 +20,16 @@ def get_datasets_disabled():
     return my_config.datasets_disabled
 
 # return expanded configuration
-def get_configuration():
+def get_configuration(name=None):
     result = {}
     result['version'] = settings.VERSION
+
+    # default the configuration from settings.CONFIGURATION_FILE is used,
+    # but it can be overridden with the 'name' parameter like this
+    # /esap-api/query/configuration?name=adex
+
+    if name!=None:
+        my_config = importlib.import_module(name,'configuration')
 
     try:
         result['frontend_basename'] = my_config.frontend_basename
