@@ -14,7 +14,7 @@ from ..utils import timeit
 
 logger = logging.getLogger(__name__)
 
-@timeit
+#@timeit
 def create_query(datasets, query_params):
     """
     create a list of queries for a range of datasets, using their catalog services
@@ -49,7 +49,7 @@ def create_query(datasets, query_params):
                     # get the url to the service for this dataset
                     result['service_url'] = str(dataset.dataset_catalog.url)
                     result['protocol'] = str(dataset.dataset_catalog.protocol)
-                    result['esap_service'] = str(dataset.dataset_catalog.esap_service)
+                    #result['esap_service'] = str(dataset.dataset_catalog.esap_service)
                     result['resource_name'] = str(dataset.resource_name)
                     result['output_format'] = str(dataset.output_format)
                     result['service_connector'] = str(dataset.service_connector)
@@ -175,7 +175,6 @@ def run_query(dataset, dataset_name, query, access_url=None):
     return results
 
 
-#@timeit
 def create_and_run_query(datasets, query_params):
     """
     run a query on a list of datasets and return the results

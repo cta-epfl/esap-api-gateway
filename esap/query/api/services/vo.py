@@ -8,6 +8,7 @@
 from .query_base import query_base
 import pyvo as vo
 
+SEPARATOR = ' AND '
 
 def create_cone_search(esap_query_params, translation_parameters, equinox):
     """
@@ -73,12 +74,14 @@ class tap_service_connector(query_base):
             esap_key = esap_param
             value = esap_query_params[esap_key][0]
 
+            # handle 'keywords' and translate it to 'collection_id'
             try:
                 dataset_key = translation_parameters[esap_key]
-                where = where + dataset_key + "='" + value + "' "
+                where = where + dataset_key + "='" + value + "'" + SEPARATOR
 
             except Exception as error:
-                # if the parameter could not be translated, then just continue
+                # if the parameter could not be translated, use it raw and continue
+                where = where + esap_key + "='" + value + "' " + SEPARATOR
                 errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
 
         # add sync (or async) specifier
@@ -95,8 +98,6 @@ class tap_service_connector(query_base):
 
         if len(where)>0:
             query = query + " WHERE "
-            # cut off the last separation character
-            where = where[:-1]
             query = query + where
 
         if len(cone_search)>0:
@@ -106,7 +107,13 @@ class tap_service_connector(query_base):
 
             query = query + cone_search
 
-        where = where[:-1]
+        # if query ends with a separation character then cut it off
+        if query.endswith(SEPARATOR):
+            query = query[:-len(SEPARATOR)]
+
+        # the same for the 'where' clause
+        if where.endswith(SEPARATOR):
+            where = where[:-len(SEPARATOR)]
         return query, where, errors
 
 

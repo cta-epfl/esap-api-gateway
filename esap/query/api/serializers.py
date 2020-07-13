@@ -90,7 +90,7 @@ class CatalogSerializer(serializers.HyperlinkedModelSerializer):
         model = Catalog
         # fields = "__all__"
         fields = ('id', 'uri', 'name', 'short_description', 'long_description', 'retrieval_description', 'thumbnail',
-                    'url', 'user_url', 'dataset', 'parameters', 'esap_service')
+                    'url', 'user_url', 'dataset', 'parameters')
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
 class ParameterMappingSerializer(serializers.HyperlinkedModelSerializer):
