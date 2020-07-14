@@ -62,6 +62,5 @@ query_schema = {
       "type": "string",
       "title": "Collection",
     },
-
   }
 }
