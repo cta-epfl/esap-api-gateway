@@ -164,6 +164,12 @@ class CreateAndRunQueryView(generics.ListAPIView):
         except:
             pass
 
+        # is there a query on collection?
+        try:
+            collection = self.request.query_params['collection']
+            datasets = datasets.filter(collection=collection)
+        except:
+            pass
 
         # remove the dataset selection params, and keep the query search parameters
         query_params = dict(self.request.query_params)
@@ -181,6 +187,14 @@ class CreateAndRunQueryView(generics.ListAPIView):
             del query_params['category']
         except:
             pass
+
+        # do not remove 'collection' from the query parameters, because (unlike 'level' and 'category')
+        # 'collection' can be used as a parameter in the query itself.
+
+        #try:
+        #    del query_params['collection']
+        #except:
+        #    pass
 
         query_results = query_controller.create_and_run_query(datasets=datasets,query_params = query_params)
 

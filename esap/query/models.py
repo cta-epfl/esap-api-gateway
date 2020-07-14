@@ -72,7 +72,7 @@ class Catalog(EsapBaseObject):
 
 
     # query_base determines which algorithm is used to create and run queries.
-    esap_service = models.CharField(default='vo',max_length=15) # vo, alta, vso
+    # esap_service = models.CharField(default='vo',max_length=15) # vo, alta, vso
 
     equinox = models.CharField(default=ICRS, max_length=10, choices=EQUINOX) # J2000, ICRS
     protocol = models.CharField(max_length=15, choices=PROTOCOL)  # adql, http
@@ -115,8 +115,9 @@ class DataSet(EsapBaseObject):
         (TILES, TILES),
     ]
 
-    category = models.CharField(max_length=30)  # like: imaging, timedomain
-    level = models.CharField(max_length=30)  # like: raw, calibrated, processed
+    category = models.CharField(max_length=30, null=True)  # like: imaging, timedomain
+    level = models.CharField(max_length=30, null=True)  # like: raw, calibrated, processed
+    collection = models.CharField(max_length=30, null=True)  # like: sauron, SVC_2019_Imaging, SVC_2019_TimeDomain
 
     # relationships
     dataset_catalog = models.ForeignKey(Catalog, related_name = 'datasets', on_delete=models.CASCADE, null=True, blank=True)
