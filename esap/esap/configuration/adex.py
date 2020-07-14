@@ -58,9 +58,9 @@ query_schema = {
       "enum": ["all","raw","processed"],
       "enumNames": ["All","Raw","Processed"]
     },
-    "category": {
+    "collection": {
       "type": "string",
-      "title": "Keywords",
+      "title": "Collection",
     },
   }
 }
