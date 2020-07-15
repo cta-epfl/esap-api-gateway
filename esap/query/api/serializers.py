@@ -27,7 +27,7 @@ class DataSetModelSerializer(serializers.ModelSerializer):
         fields = ('id', 'uri', 'name', 'resource_name', 'short_description','long_description', 'retrieval_description',
                   'thumbnail', 'output_format', 'documentation_url', 'service_connector', 'institute',
                   'archive_name_derived', 'archive_uri_derived','catalog_name_derived','catalog_uri_derived',
-                  'catalog_url_derived', 'catalog_user_url_derived')
+                  'catalog_url_derived', 'catalog_user_url_derived','category','level','collection')
 
 
 # this is a serializer that uses hyperlinks to produce a navigable REST API
