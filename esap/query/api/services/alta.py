@@ -58,19 +58,25 @@ class alta_connector(query_base):
         where = where[:-len(AMP_REPLACEMENT)]
 
         # make a selection of dataproductSubTypes
-        # based on the defined 'category' and 'level' of this dataset.
+        # based on the defined 'collection' and 'level' of this dataset.
 
-        if 'IMAGING' in dataset.category.upper():
+        if where != '':
+            where = where + AMP_REPLACEMENT
+
+        if 'IMAGING' in dataset.collection.upper():
 
             if 'RAW' in dataset.level.upper():
-                where = where + AMP_REPLACEMENT + "dataProductSubType__in=uncalibratedVisibility"
+                where = where + "dataProductSubType__in=uncalibratedVisibility"
 
             if 'PROCESSED' in dataset.level.upper():
-                where = where + AMP_REPLACEMENT + "dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube"
+                where = where + "dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube"
 
-        if 'TIMEDOMAIN' in dataset.category.upper():
-            where = where + AMP_REPLACEMENT + "pulsarTimingTimeSeries"
+        if 'TIMEDOMAIN' in dataset.collection.upper():
+            where = where + "dataProductSubType=pulsarTimingTimeSeries"
 
+        # if query ends with a separation character then cut it off
+        if where.endswith(AMP_REPLACEMENT):
+            where = where[:-len(AMP_REPLACEMENT)]
 
         # construct the query url
         query = self.url + '?' + where
