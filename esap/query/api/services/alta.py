@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 AMP_REPLACEMENT = '_and_'
 
 # The request header
+ALTA_HOST = "https://alta.astron.nl/altapi"
 ALTA_WEBDAV_HOST = "https://alta.astron.nl/webdav/"
 ALTA_HEADER = {
     'content-type': "application/json",
@@ -64,15 +65,21 @@ class alta_connector(query_base):
             where = where + AMP_REPLACEMENT
 
         if 'IMAGING' in dataset.collection.upper():
-
+            # instrument__icontains=APERTIF
             if 'RAW' in dataset.level.upper():
                 where = where + "dataProductSubType__in=uncalibratedVisibility"
 
             if 'PROCESSED' in dataset.level.upper():
+
+                # these are not observations, but pipelines. Access activities
+                self.url = self.url.replace('observations','activities')
                 where = where + "dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube"
 
         if 'TIMEDOMAIN' in dataset.collection.upper():
+            where = where + "project__externalRef=ARTSSC"
             where = where + "dataProductSubType=pulsarTimingTimeSeries"
+            # instrument__icontains=ARTS
+            # http://localhost/altapi/activities?project__externalRef=ARTSSC
 
         # if query ends with a separation character then cut it off
         if where.endswith(AMP_REPLACEMENT):
@@ -109,6 +116,8 @@ class alta_connector(query_base):
             json_response = json.loads(response.text)
             observations = json_response["results"]
 
+            logger.info('observations in response: '+str(len(observations)))
+
             # iterate over the list of results.. and gather the runid's in a comma separated list for the next query on datasetid
             list = []
             for observation in observations:
@@ -117,8 +126,15 @@ class alta_connector(query_base):
             runids = ','.join(list)
 
             # construct a second query on dataproducts for the gathered runId's
-            query_list = query.split('/observations')
-            host = query_list[0]
+            host = ALTA_HOST
+            if "/observations" in query:
+                query_list = query.split('/observations')
+                host = query_list[0]
+
+            elif "/activities" in query:
+                query_list = query.split('/activities')
+                host = query_list[0]
+
 
             # there may be additional query parameters in the original query, like dataProductSubType=continuumMF
             # copy them over to the secondary query as well.
