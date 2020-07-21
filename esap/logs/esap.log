@@ -3397,3 +3397,45 @@
 [2020-07-17 15:59:11,602] ConfigurationView
 [2020-07-17 15:59:11,616] ConfigurationView
 [2020-07-17 15:59:11,625] ConfigurationView
+[2020-07-18 09:15:39,221] query_controller.create_query()
+[2020-07-18 09:16:16,633] observations in response: 50
+[2020-07-18 09:18:29,385] query_controller.create_query()
+[2020-07-18 09:18:40,318] observations in response: 50
+[2020-07-18 09:20:22,932] query_controller.create_query()
+[2020-07-18 09:20:31,802] observations in response: 50
+[2020-07-18 09:22:09,065] query_controller.create_query()
+[2020-07-18 09:22:35,868] query_controller.create_query()
+[2020-07-18 09:25:15,862] observations in response: 50
+[2020-07-20 15:23:03,461] query_controller.create_query()
+[2020-07-20 15:50:34,803] query_controller.create_query()
+[2020-07-20 15:51:40,698] observations in response: 500
+[2020-07-20 15:54:48,837] query_controller.create_query()
+[2020-07-20 15:55:29,373] dataproducts in response: 500
+[2020-07-20 15:56:35,351] query_controller.create_query()
+[2020-07-20 15:56:55,128] dataproducts in response: 500
+[2020-07-20 15:57:31,874] query_controller.create_query()
+[2020-07-20 15:57:54,444] dataproducts in response: 500
+[2020-07-20 16:04:15,382] ConfigurationView
+[2020-07-21 08:30:06,008] query_controller.create_query()
+[2020-07-21 08:31:14,049] ConfigurationView
+[2020-07-21 08:31:29,826] dataproducts in response: 500
+[2020-07-21 08:33:10,345] query_controller.create_query()
+[2020-07-21 08:33:22,539] dataproducts in response: 500
+[2020-07-21 08:35:57,079] query_controller.create_query()
+[2020-07-21 08:36:08,775] dataproducts in response: 500
+[2020-07-21 08:36:26,415] query_controller.create_query()
+[2020-07-21 08:36:36,056] dataproducts in response: 398
+[2020-07-21 08:36:52,515] query_controller.create_query()
+[2020-07-21 08:37:04,668] dataproducts in response: 500
+[2020-07-21 08:40:20,157] query_controller.create_query()
+[2020-07-21 08:40:32,999] nr of dataproducts in response: 500
+[2020-07-21 08:52:42,917] query_controller.create_query()
+[2020-07-21 08:52:55,147] nr of dataproducts in response: 500
+[2020-07-21 08:54:17,325] query_controller.create_query()
+[2020-07-21 08:54:29,516] nr of dataproducts in response: 500
+[2020-07-21 09:03:10,803] ConfigurationView
+[2020-07-21 09:03:29,067] query_controller.create_query()
+[2020-07-21 09:05:51,366] nr of dataproducts in response: 500
+[2020-07-21 09:06:07,694] query_controller.create_query()
+[2020-07-21 09:08:37,666] ConfigurationView
+[2020-07-21 09:09:04,950] query_controller.create_query()
