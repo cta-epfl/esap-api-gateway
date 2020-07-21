@@ -209,10 +209,9 @@ def create_and_run_query(datasets, query_params):
 
         # call the 'run_query()' function to execute a query per dataset
         query_results = run_query(dataset, dataset_name, query)
-        results.append(query_results)
+        results = results + query_results
 
-    # extract the array of results
     try:
-        return results[0]
+        return results
     except:
         return []

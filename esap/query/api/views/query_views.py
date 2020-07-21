@@ -130,10 +130,10 @@ class CreateAndRunQueryView(generics.ListAPIView):
     """
     Run a single query on a series of datasets and return the results
     examples:
-       /esap-api/query/query?level=raw&category=imaging&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
-       /esap-api/query/query?level=raw&category=timedomain&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
-       /esap-api/query/query?level=processed&category=imaging&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
-       /esap-api/query/query?&keywords=cutout&ra=342.16&dec=33.94&fov=10&archive_uri=astron_vo
+       /esap-api/query/query?level=raw&collection=imaging&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
+       /esap-api/query/query?level=raw&collection=timedomain&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
+       /esap-api/query/query?level=processed&collection=imaging&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
+       /esap-api/query/query?&collection=cutout&ra=342.16&dec=33.94&fov=10&archive_uri=astron_vo
     """
     model = DataSet
     queryset = DataSet.objects.all()
