@@ -52,8 +52,10 @@ class alta_connector(query_base):
                 where = where + dataset_key + '=' + value + AMP_REPLACEMENT
 
             except Exception as error:
-                # if the parameter could not be translated, then just continue without this parameter
-                errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
+                # if the parameter could not be translated, use it raw and continue
+                where = where + esap_key + "=" + value + AMP_REPLACEMENT
+                logger.info("ERROR: could not translating key " + esap_key + ' ' + str(error)+', using it raw.')
+                # errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
 
         # cut off the last separation character
         where = where[:-len(AMP_REPLACEMENT)]
@@ -81,6 +83,7 @@ class alta_connector(query_base):
 
         # construct the query url
         query = self.url + '?' + where
+        logger.info('construct_query: '+query)
         return query, where, errors
 
 
@@ -92,7 +95,7 @@ class alta_connector(query_base):
         :return: results: an array of dicts with the following structure;
 
          example:
-        /esap-api/run-query/?dataset_uri=apertif-imaging-processeddata
+        /esap-api/query/run-query/?dataset_uri=apertif-imaging-processeddata
         &query='https://alta.astron.nl/altapi/dataproducts?view_ra=342.16_and_view_dec=33.94_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
         """
 
@@ -105,6 +108,7 @@ class alta_connector(query_base):
         try:
 
             # execute the http request to ALTA and retrieve the dataproducts
+            logger.info('run-query: '+query)
             response = requests.request("GET", query, headers=ALTA_HEADER)
 
             json_response = json.loads(response.text)
