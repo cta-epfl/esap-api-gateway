@@ -24,19 +24,19 @@ services:
     volumes:
       - $HOME/shared/:/shared
 
-  esap_nginx:
-    build:
-        context: $HOME/shared
-        dockerfile: Dockerfile
-    container_name: esap_nginx
-    image: esap_nginx:latest
-    networks:
-      - esap_network    
-    ports:
-      - 80:80
-    volumes:
-      - $HOME/shared:/shared
-      - $HOME/shared:/etc/nginx/conf.d 
-      - $HOME/shared/static:/static
-    restart: always
+#  esap_nginx:
+#    build:
+#        context: $HOME/shared
+#        dockerfile: Dockerfile
+#    container_name: esap_nginx
+#    image: esap_nginx:latest
+#    networks:
+#      - esap_network
+#    ports:
+#      - 80:80
+#    volumes:
+#      - $HOME/shared:/shared
+#      - $HOME/shared:/etc/nginx/conf.d
+#      - $HOME/shared/static:/static
+#    restart: always
 
