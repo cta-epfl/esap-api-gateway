@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'staging',
     'accounts',
     'rucio',
+    'ida',
     'knox',
     'django.contrib.admin',
     'django.contrib.auth',

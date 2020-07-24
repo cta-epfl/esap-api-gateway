@@ -21,6 +21,7 @@ urlpatterns = [
     path('esap-api/staging/', include('staging.api.urls')),
     path('esap-api/rucio/', include('rucio.api.urls')),
     path('esap-api/accounts/', include('accounts.api.urls')),
+    path('esap-api/ida/', include('ida.api.urls')),
     path('esap-api/admin/', admin.site.urls, name='admin-view'),
     re_path('^esap-api/oidc/', include('mozilla_django_oidc.urls')),
 ]
