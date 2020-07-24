@@ -17,12 +17,19 @@ ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_ALLOW_ALL = True
 
 # Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+DATABASE_ROUTERS = ['staging.database_router.StagingRouter','ida.database_router.IdaRouter']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
+    },
+    'staging': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'esap_staging_config.sqlite3'),
+    },
+    'ida': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'esap_ida_config.sqlite3'),
     },
 }
 
