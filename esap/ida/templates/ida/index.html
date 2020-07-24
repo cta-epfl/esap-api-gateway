@@ -1,4 +1,4 @@
-{% extends 'query/base.html' %}
+{% extends 'ida/base.html' %}
 {% load static %}
 {% block myBlock %}
 
@@ -22,10 +22,10 @@
                     <div class="row">
                         <tr>
                             <td>
-                                Staging
+                                Interactive Analyses
                             </td>
                             <td>
-                                <a href="{% url 'staging-view' %}">{% url 'staging-view' %}</a>
+                                <a href="{% url 'ida-view' %}">{% url 'ida-view' %}</a>
                             </td>
 
                         </tr>
@@ -44,7 +44,7 @@
 </div>
 
 
-<p class="footer" small>ASTRON 24 jul 2020</p>
+<p class="footer" small>Version 24 july 2020</p>
 
 {% endblock %}
 

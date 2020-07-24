@@ -1,4 +1,3 @@
 from django.contrib import admin
-from esap.staging.models import Staging
-
+from .models import Staging
 admin.site.register(Staging)
