@@ -141,3 +141,5 @@ cython_debug/
 
 esap/docker/docker-compose-query-hjd.yml
 esap/esap/settings/docker_hjd.py
+esap/Dockerfile_hjd
+esap/esap/wsgi_docker_hjd.py
