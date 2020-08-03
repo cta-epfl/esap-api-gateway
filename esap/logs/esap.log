@@ -3658,3 +3658,64 @@
 [2020-07-23 13:38:20,770] construct_query: https://alta.astron.nl/altapi/dataproducts?dataProductType=image_and_collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
 [2020-07-23 13:38:20,773] run-query: https://alta.astron.nl/altapi/dataproducts?dataProductType=image&collection=imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
 [2020-07-23 13:38:39,565] nr of dataproducts in response: 500
+[2020-08-03 11:03:00,852] ConfigurationView
+[2020-08-03 11:03:00,994] ConfigurationView
+[2020-08-03 11:03:16,342] ConfigurationView
+[2020-08-03 11:03:41,987] query_controller.create_query()
+[2020-08-03 11:05:22,300] query_controller.create_query()
+[2020-08-03 11:06:48,371] ConfigurationView
+[2020-08-03 11:07:03,119] query_controller.create_query()
+[2020-08-03 11:07:03,125] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-03 11:07:03,126] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-03 11:07:03,128] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-03 11:07:16,077] nr of dataproducts in response: 500
+[2020-08-03 11:07:55,424] ConfigurationView
+[2020-08-03 11:08:10,941] query_controller.create_query()
+[2020-08-03 11:18:38,921] query_controller.create_query()
+[2020-08-03 11:45:42,442] ConfigurationView
+[2020-08-03 12:14:44,264] ConfigurationView
+[2020-08-03 12:17:10,548] ConfigurationView
+[2020-08-03 12:17:10,668] ConfigurationView
+[2020-08-03 12:17:22,603] ConfigurationView
+[2020-08-03 12:17:22,704] ConfigurationView
+[2020-08-03 13:18:44,486] ConfigurationView
+[2020-08-03 13:18:59,163] query_controller.create_query()
+[2020-08-03 13:18:59,195] run-query: https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL
+[2020-08-03 13:19:12,451] query_controller.create_query()
+[2020-08-03 13:19:12,481] run-query: https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL
+[2020-08-03 13:19:36,790] ConfigurationView
+[2020-08-03 13:19:44,692] query_controller.create_query()
+[2020-08-03 13:19:44,696] construct_query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType__in=uncalibratedVisibility
+[2020-08-03 13:19:44,698] construct_query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-03 13:19:44,699] construct_query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType=pulsarTimingTimeSeries
+[2020-08-03 13:19:44,716] run-query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType__in=uncalibratedVisibility
+[2020-08-03 13:19:54,675] nr of dataproducts in response: 398
+[2020-08-03 13:20:09,632] ConfigurationView
+[2020-08-03 13:20:17,117] query_controller.create_query()
+[2020-08-03 13:20:17,122] construct_query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType__in=uncalibratedVisibility
+[2020-08-03 13:20:17,124] construct_query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-03 13:20:17,126] construct_query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType=pulsarTimingTimeSeries
+[2020-08-03 13:20:17,140] run-query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType__in=uncalibratedVisibility
+[2020-08-03 13:20:26,303] nr of dataproducts in response: 398
+[2020-08-03 13:21:17,137] query_controller.create_query()
+[2020-08-03 13:21:34,765] query_controller.create_query()
+[2020-08-03 13:21:34,772] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-03 13:21:34,773] ERROR: could not translating key view_ra 'view_ra', using it raw.
+[2020-08-03 13:21:34,773] ERROR: could not translating key view_dec 'view_dec', using it raw.
+[2020-08-03 13:21:34,773] ERROR: could not translating key view_fov 'view_fov', using it raw.
+[2020-08-03 13:21:34,773] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_view_ra=342.16_and_view_dec=33.94_and_view_fov=1_and_dataProductSubType__in=uncalibratedVisibility
+[2020-08-03 13:21:34,776] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-03 13:21:34,776] ERROR: could not translating key view_ra 'view_ra', using it raw.
+[2020-08-03 13:21:34,777] ERROR: could not translating key view_dec 'view_dec', using it raw.
+[2020-08-03 13:21:34,777] ERROR: could not translating key view_fov 'view_fov', using it raw.
+[2020-08-03 13:21:34,777] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_view_ra=342.16_and_view_dec=33.94_and_view_fov=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-03 13:21:34,781] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&view_ra=342.16&view_dec=33.94&view_fov=1&dataProductSubType__in=uncalibratedVisibility
+[2020-08-03 13:21:35,505] nr of dataproducts in response: 5
+[2020-08-03 13:21:35,507] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&view_ra=342.16&view_dec=33.94&view_fov=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-03 13:21:39,610] nr of dataproducts in response: 143
+[2020-08-03 13:21:56,501] query_controller.create_query()
+[2020-08-03 13:21:56,505] construct_query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType__in=uncalibratedVisibility
+[2020-08-03 13:21:56,507] construct_query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-03 13:21:56,509] construct_query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType=pulsarTimingTimeSeries
+[2020-08-03 13:21:56,525] run-query: https://alta.astron.nl/altapi/dataproducts?dataProductSubType__in=uncalibratedVisibility
+[2020-08-03 13:22:05,933] nr of dataproducts in response: 398
