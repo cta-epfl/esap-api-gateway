@@ -28,10 +28,13 @@ def get_configuration(name=None):
     # but it can be overridden with the 'name' parameter like this
     # /esap-api/query/configuration?name=adex
 
-    if name!=None:
-        my_config = importlib.import_module(name,'configuration')
-    else:
-        my_config = importlib.import_module(settings.CONFIGURATION_FILE)
+    try:
+        if name!=None:
+            my_config = importlib.import_module(name,'configuration')
+        else:
+            my_config = importlib.import_module(settings.CONFIGURATION_FILE)
+    except:
+        return {"configuration":{"CONFIGURATION_FILE": settings.CONFIGURATION_FILE, "CONFIGURATION_DIR":settings.CONFIGURATION_DIR}}
 
     try:
         result['frontend_basename'] = my_config.frontend_basename
@@ -55,6 +58,11 @@ def get_configuration(name=None):
 
     try:
         result['query_schema'] = my_config.query_schema
+    except:
+        pass
+
+    try:
+        result['ui_schema'] = my_config.ui_schema
     except:
         pass
 
