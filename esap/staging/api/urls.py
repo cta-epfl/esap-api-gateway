@@ -11,7 +11,7 @@ router.register('staging', StagingViewSet, 'staging')
 urlpatterns = router.urls
 
 urlpatterns = [
-    path('admin', admin.site.urls, name='admin-view'),
+    # path('admin', admin.site.urls, name='admin-view'),
     path('', views.IndexView.as_view(), name='index-view'),
     path('staging', views.StagingListViewAPI.as_view(), name='staging-view'),
 ]
