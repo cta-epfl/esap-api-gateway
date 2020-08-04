@@ -65,16 +65,18 @@ class Catalog(EsapBaseObject):
 
     J2000 = 'J2000'
     ICRS = 'ICRS'
+    NA = 'N/A'
     EQUINOX = [
         (J2000, J2000),
         (ICRS, ICRS),
+        (NA, NA),
     ]
 
 
     # query_base determines which algorithm is used to create and run queries.
     # esap_service = models.CharField(default='vo',max_length=15) # vo, alta, vso
 
-    equinox = models.CharField(default=ICRS, max_length=10, choices=EQUINOX) # J2000, ICRS
+    equinox = models.CharField(default=ICRS, max_length=10, choices=EQUINOX, null=True) # J2000, ICRS, N/A
     protocol = models.CharField(max_length=15, choices=PROTOCOL)  # adql, http
 
     # the url for the user (this brings the user to an external web page)
