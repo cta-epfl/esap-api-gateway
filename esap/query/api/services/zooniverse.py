@@ -3,6 +3,8 @@ from panoptes_client import Panoptes, Project
 from panoptes_client.panoptes import PanoptesAPIException
 import logging
 
+from esap.configuration.zooniverse_fields import workflow_fields, project_fields
+
 logger = logging.getLogger(__name__)
 
 # --------------------------------------------------------------------------------------------------------------------
@@ -25,10 +27,8 @@ class panoptes_connector(query_base):
     ):
         where = ""
         errors = []
+        query = ""
 
-        query = str(
-            esap_query_params["catalog"][0]
-        )  # projects, workflows, classifications...
         # Attempt to connect to Panoptes
 
         if (
@@ -44,9 +44,21 @@ class panoptes_connector(query_base):
                 self.panoptes_user = esap_query_params["panoptes_user"][0]
 
             except PanoptesAPIException as e:
-                errors.append(e)
+                errors.append(f"PanoptesAPIException: {e}")
         elif self.panoptes is None:
-            raise Exception("No username or password specified for Panoptes login.")
+            errors.append("No username or password specified for Panoptes login.")
+            return query, where, errors
+
+        try:
+            present_keys = set(
+                ["catalog", "project_fields", "workflow_fields"]
+            ).intersection(esap_query_params.keys())
+            query = "&".join(
+                [f"{key}={esap_query_params[key][0]}" for key in present_keys]
+            )
+        except Exception as e:
+            errors.append(f"Error in construct_query: {e}")
+        # projects, workflows, classifications...
 
         return query, where, errors
 
@@ -55,45 +67,75 @@ class panoptes_connector(query_base):
         Delegates to panoptes_client for queries.
         """
         try:
-            if query in ["zooniverse_projects", "zooniverse_workflows"]:
+            tokens = dict((kv.split("=") for kv in query.split("&")))
+            if tokens["catalog"] in ["zooniverse_projects", "zooniverse_workflows"]:
+                query_type = tokens["catalog"].split("_")[1][:-1]
+                query_fields_key = f"{query_type}_fields"
+                have_query_fields_key = query_fields_key in tokens and tokens[query_fields_key]
                 # Delegate retrieval to Panoptes API
                 projects = Project.where(owner=self.panoptes_user)
-                if "zooniverse_projects" in query:
+                if "project" in query_type:
+                    if have_query_fields_key:
+                        query_fields = tokens[f"{query_type}_fields"].split(",")
+                    else:
+                        query_fields = project_fields()
+
                     results = [
-                        {
-                            "display_name": project.display_name,
-                            "project_id": project.id,
-                            "created_at": project.raw["created_at"],
-                            "updated_at": project.raw["updated_at"],
-                            "slug": project.raw["slug"],
-                            "live": project.raw["live"],
-                            "available_languages": project.raw["available_languages"],
-                            "launch_date": project.raw["launch_date"],
-                        }
+                        dict(
+                            [
+                                ("display_name", project.display_name),
+                                ("project_id", project.id),
+                                ("created_at", project.raw["created_at"]),
+                                ("updated_at", project.raw["updated_at"]),
+                                ("slug", project.raw["slug"]),
+                                ("live", project.raw["live"]),
+                                (
+                                    "available_languages",
+                                    project.raw["available_languages"],
+                                ),
+                                ("launch_date", project.raw["launch_date"]),
+                            ]
+                            + [(field, project.raw[field]) for field in query_fields]
+                        )
                         for project in projects
                     ]
                     return results
                 # must be a workflow query
+                if have_query_fields_key:
+                    query_fields = tokens[f"{query_type}_fields"].split(",")
+                else:
+                    query_fields = workflow_fields()
+
                 results = [
                     {
                         "project_id": project.id,
                         "display_name": project.display_name,
                         "workflows": [
-                            {
-                                "workflow_id": workflow.id,
-                                "display_name": workflow.display_name,
-                                "created_at": workflow.raw["created_at"],
-                                "updated_at": workflow.raw["updated_at"],
-                            }
+                            dict(
+                                [
+                                    ("workflow_id", workflow.id),
+                                    ("display_name", workflow.display_name),
+                                    ("created_at", workflow.raw["created_at"]),
+                                    ("updated_at", workflow.raw["updated_at"]),
+                                ]
+                                + [
+                                    (field, workflow.raw[field])
+                                    for field in query_fields
+                                ]
+                            )
                             for workflow in project.links.workflows
                         ],
                     }
                     for project in projects
                 ]
-                return results
+                if len(results):
+                    return results
+                else:
+                    return [query]
 
             else:
-                raise Exception("Unrecognised Panoptes Entity.")
+                return [query]
+                # raise Exception("Unrecognised Panoptes Entity.")
         except Exception as error:
             record = {}
             record["query"] = query
