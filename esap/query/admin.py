@@ -11,7 +11,7 @@ admin.site.register(ParameterMapping)
 
 class MultiDBModelAdmin(admin.ModelAdmin):
     # A handy constant for the name of the alternate database.
-    using = 'default'
+    using = 'query'
 
     def save_model(self, request, obj, form, change):
         # Tell Django to save objects to the 'other' database.

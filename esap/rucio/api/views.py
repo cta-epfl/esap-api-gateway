@@ -1,10 +1,10 @@
 from rest_framework import viewsets, permissions
 
-from .serializers import StagingSerializer
+from .serializers import RucioSerializer
 
 
-class StagingViewSet(viewsets.ModelViewSet):
-    serializer_class = StagingSerializer
+class RucioViewSet(viewsets.ModelViewSet):
+    serializer_class = RucioSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
