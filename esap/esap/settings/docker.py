@@ -32,10 +32,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, '/shared/esap_config.sqlite3'),
     },
-    'query': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '/shared/esap_config.sqlite3'),
-    },
+#    'query': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, '/shared/esap_config.sqlite3'),
+#    },
     'staging': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, '/shared/esap_staging_config.sqlite3'),

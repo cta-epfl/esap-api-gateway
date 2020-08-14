@@ -33,8 +33,9 @@ def get_configuration(name=None):
             my_config = importlib.import_module(name,'configuration')
         else:
             my_config = importlib.import_module(settings.CONFIGURATION_FILE)
-    except:
-        return {"configuration":{"CONFIGURATION_FILE": settings.CONFIGURATION_FILE, "CONFIGURATION_DIR":settings.CONFIGURATION_DIR}}
+
+    except Exception as error:
+        return {"configuration error in ": name+ ".py : " + str(error)}
 
     try:
         result['frontend_basename'] = my_config.frontend_basename
