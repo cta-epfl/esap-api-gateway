@@ -87,13 +87,11 @@ query_schema = {
             "properties": {
               "catalog": { "enum" : ["apertif"] },
               "collection": {
-                "type": "array",
+                "type": "string",
                 "title": "Apertif Collections",
-                "items": {
-                  "type": "string",
-                  "enum": ["imaging", "timedomain"],
-                  "enumNames": ["imaging", "timedomain"],
-                },
+                "default": "imaging",
+                "enum": ["imaging", "timedomain"],
+                "enumNames": ["imaging", "timedomain"],
                 "uniqueItems": True,
               },
               "dataproduct_type": {

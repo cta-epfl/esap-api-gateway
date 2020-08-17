@@ -3869,3 +3869,29 @@
 [2020-08-14 16:41:12,197] query_controller.create_query()
 [2020-08-14 16:41:44,622] query_controller.create_query()
 [2020-08-14 16:41:51,726] query_controller.create_query()
+[2020-08-14 16:53:29,227] query_controller.create_query()
+[2020-08-14 16:53:31,531] query_controller.create_query()
+[2020-08-14 16:53:34,049] query_controller.create_query()
+[2020-08-14 16:53:37,383] query_controller.create_query()
+[2020-08-14 16:53:43,102] query_controller.create_query()
+[2020-08-17 11:57:20,638] ConfigurationView
+[2020-08-17 11:57:20,756] ConfigurationView
+[2020-08-17 11:59:46,883] ConfigurationView
+[2020-08-17 12:00:14,727] query_controller.create_query()
+[2020-08-17 12:00:17,321] query_controller.create_query()
+[2020-08-17 12:00:17,327] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-17 12:00:17,328] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain_and_dataProductSubType=pulsarTimingTimeSeries
+[2020-08-17 12:00:17,330] run-query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain&dataProductSubType=pulsarTimingTimeSeries
+[2020-08-17 12:00:31,207] nr of dataproducts in response: 500
+[2020-08-17 12:01:45,064] ConfigurationView
+[2020-08-17 12:03:22,315] ConfigurationView
+[2020-08-17 12:04:20,186] ConfigurationView
+[2020-08-17 12:04:45,907] query_controller.create_query()
+[2020-08-17 12:04:45,914] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-17 12:04:45,915] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_dataProductSubType__in=uncalibratedVisibility
+[2020-08-17 12:04:45,917] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-17 12:04:45,917] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-17 12:04:45,920] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&dataProductSubType__in=uncalibratedVisibility
+[2020-08-17 12:04:48,771] nr of dataproducts in response: 0
+[2020-08-17 12:04:48,774] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-17 12:05:04,443] nr of dataproducts in response: 500
