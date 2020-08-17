@@ -23,12 +23,19 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 # Database
-DATABASE_ROUTERS = ['staging.database_router.StagingRouter','ida.database_router.IdaRouter']
+DATABASE_ROUTERS = ['query.database_router.QueryRouter',
+                    'staging.database_router.StagingRouter',
+                    'ida.database_router.IdaRouter',
+                    'rucio.database_router.RucioRouter']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, '/shared/esap_config.sqlite3'),
     },
+#    'query': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, '/shared/esap_config.sqlite3'),
+#    },
     'staging': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, '/shared/esap_staging_config.sqlite3'),
@@ -36,6 +43,10 @@ DATABASES = {
     'ida': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, '/shared/esap_ida_config.sqlite3'),
+    },
+    'rucio': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, '/shared/esap_rucio_config.sqlite3'),
     },
 }
 

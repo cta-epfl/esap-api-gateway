@@ -22,7 +22,7 @@ services:
       - $HOME/shared/oidc
     restart: always
     volumes:
-      - $HOME/shared/:/shared
+      - $HOME/shared/esap-gateway-query/:/shared
 
 #  esap_nginx:
 #    build:

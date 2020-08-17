@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
+
 ROOT_URLCONF = 'esap.urls'
 
 TEMPLATES = [
@@ -218,6 +219,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ASTRON - version 21 jul 2020"
+VERSION = "ASTRON - version 14 aug 2020"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
-CONFIGURATION_FILE = 'esap_config'
+CONFIGURATION_FILE = 'esap_default'

@@ -9,18 +9,19 @@ networks:
     driver: bridge
 
 services:
-  esap_api:
-    container_name: esap_api
-    image: esap_api:latest
-    networks:
-      - esap_network
-    expose:
-      - 8000
-    env_file:
-      - $HOME/shared/oidc
-    restart: always
-    volumes:
-      - $HOME/shared:/shared
+
+#  esap_api:
+#    container_name: esap_api
+#    image: esap_api:latest
+#    networks:
+#      - esap_network
+#    expose:
+#      - 8000
+#    env_file:
+#      - $HOME/shared/oidc
+#    restart: always
+#    volumes:
+#      - $HOME/shared:/shared
 
   esap_api_dev:
     container_name: esap_api_dev
@@ -35,21 +36,21 @@ services:
       - $HOME/shared/oidc
     restart: always
     volumes:
-      - $HOME/shared/:/shared
+      - $HOME/shared/esap-gateway-dev:/shared
 
-  esap_nginx:
-    build:
-        context: $HOME/shared
-        dockerfile: Dockerfile
-    container_name: esap_nginx
-    image: esap_nginx:latest
-    networks:
-      - esap_network    
-    ports:
-      - 80:80
-    volumes:
-      - $HOME/shared:/shared
-      - $HOME/shared:/etc/nginx/conf.d 
-      - $HOME/shared/static:/static
-    restart: always
+#  esap_nginx:
+#    build:
+#        context: $HOME/shared
+#        dockerfile: Dockerfile
+#    container_name: esap_nginx
+#    image: esap_nginx:latest
+#    networks:
+#      - esap_network
+#    ports:
+#      - 80:80
+#    volumes:
+#      - $HOME/shared:/shared
+#      - $HOME/shared:/etc/nginx/conf.d
+#      - $HOME/shared/static:/static
+#    restart: always
 

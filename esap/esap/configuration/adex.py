@@ -28,13 +28,13 @@ query_schema = {
   "title": "ASTRON Data Collection Query",
   "type": "object",
   "properties": {
-    "catalog": {
-      "type": "string",
-      "title": "Catalog",
-      "default": "apertif",
-      "enum": ["all","apertif", "astron_vo"],
-      "enumNames": ["All","Apertif", "ASTRON_VO"]
-    },
+      "catalog": {
+        "type": "string",
+        "title": "Catalog",
+        "default": "apertif",
+        "enum": ["apertif", "astron_vo"],
+        "enumNames": ["Apertif", "ASTRON_VO"],
+      },
     "target": {
       "type": "string",
       "title": "Target"
@@ -55,12 +55,72 @@ query_schema = {
       "type": "string",
       "title": "Processing Level",
       "default": "all",
-      "enum": ["all","raw","processed"],
-      "enumNames": ["All","Raw","Processed"]
+      "enum": ["all", "raw", "processed"],
+      "enumNames": ["All", "Raw", "Processed"]
     },
-    "collection": {
-      "type": "string",
-      "title": "Collection",
+
+#    "dataproduct_type": {
+#      "type": "string",
+#      "title": "DataProductType",
+#      "default": "all",
+#      "enum": ["all", "visibility", "image", "cube"],
+#      "enumNames": ["all", "visibility", "image", "cube"]
+#    },
+
+#    "dataproduct_subtype": {
+#      "type": "string",
+#      "title": "DataProduct Type",
+#      "default": "continuumMF",
+#      "enum": ["all", "uncalibratedVisibility", "continuumMF", "continuumChunk", "calibratedImage", "polarisationImage",
+#               "imageCube", "beamCube", "polarisationCube", "pulsarTimingTimeSeries"],
+#      "enumNames": ["all", "uncalibratedVisibility", "continuumMF", "continuumChunk", "calibratedImage",
+#                    "polarisationImage", "imageCube", "beamCube", "polarisationCube", "pulsarTimingTimeSeries"]
+#    },
+  },
+
+  "required": ["catalog"],
+
+  "dependencies": {
+      "catalog": {
+          "oneOf": [
+          {
+            "properties": {
+              "catalog": { "enum" : ["apertif"] },
+              "collection": {
+                "type": "string",
+                "title": "Apertif Collections",
+                "default": "imaging",
+                "enum": ["imaging", "timedomain"],
+                "enumNames": ["imaging", "timedomain"],
+                "uniqueItems": True,
+              },
+              "dataproduct_type": {
+                "type": "string",
+                "title": "DataProductType",
+                "default": "all",
+                "enum": ["all", "visibility", "image", "cube"],
+                "enumNames": ["all", "visibility", "image", "cube"]
+              },
+            },
+          },
+          {
+            "properties": {
+              "catalog": { "enum": ["astron_vo"] },
+              "collection": {
+                "type": "array",
+                "title": "Astron-VO Collections",
+                "items": {
+                  "type": "string",
+                  "enum": ["hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
+                },
+              "uniqueItems": True,
+            },
+          }
+        }
+      ]
     },
-  }
+
+  },
 }
+
+ui_schema = {"panoptes_password": {"ui:widget": "password"}}

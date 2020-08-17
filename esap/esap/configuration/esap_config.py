@@ -62,5 +62,15 @@ query_schema = {
       "type": "string",
       "title": "Collection",
     },
+    "dataproduct_subtype": {
+      "type": "string",
+      "title": "DataProduct Type",
+      "default": "continuumMF",
+      "enum": ["all", "uncalibratedVisibility", "continuumMF", "continuumChunk", "calibratedImage", "polarisationImage",
+               "imageCube", "beamCube", "polarisationCube", "pulsarTimingTimeSeries"],
+      "enumNames": ["all", "uncalibratedVisibility", "continuumMF", "continuumChunk", "calibratedImage",
+                    "polarisationImage", "imageCube", "beamCube", "polarisationCube", "pulsarTimingTimeSeries"]
+    },
+
   }
 }

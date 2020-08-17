@@ -63,7 +63,6 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
                 if not dataset.institute in query_params['institute']:
                     valid_institute = False
 
-
             if valid_institute:
                 # institute is valid, continue
                 # build a result json structure for the input query
@@ -75,7 +74,6 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
                     # get the url to the service for this dataset
                     result['service_url'] = str(dataset.dataset_catalog.url)
                     result['protocol'] = str(dataset.dataset_catalog.protocol)
-                    #result['esap_service'] = str(dataset.dataset_catalog.esap_service)
                     result['resource_name'] = str(dataset.resource_name)
                     result['output_format'] = str(dataset.output_format)
                     result['service_connector'] = str(dataset.service_connector)
@@ -85,7 +83,7 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
                     # get the translation parameters for the service for this dataset
                     parameter_mapping = json.loads(dataset.dataset_catalog.parameters.parameters)
 
-                    if parameter_mapping!=None:
+                    if parameter_mapping is not None:
                         try:
                             if connector is None:
                                 connector = instantiate_connector(dataset)
@@ -94,7 +92,7 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
                             result['query'] = query
                             result['where'] = where
 
-                            if errors!=None:
+                            if errors is not None:
                                 result['error'] = str(errors)
 
                         except Exception as error:
@@ -112,13 +110,14 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
 
                 except Exception as error:
                     result["error"] = str(error)
+                    input_results.append(result)
 
     except Exception as error:
         try:
             message = str(error.message)
             logger.error(message)
             return message
-        except:
+        except Exception:
             return str(error)
 
     if return_connector:
