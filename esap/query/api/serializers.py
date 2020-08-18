@@ -99,3 +99,5 @@ class ParameterMappingSerializer(serializers.HyperlinkedModelSerializer):
         model = ParameterMapping
         fields = "__all__"
 
+
+

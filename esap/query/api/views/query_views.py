@@ -1,10 +1,13 @@
 import logging
 
-from rest_framework import generics
+from rest_framework import generics, pagination
 from rest_framework.response import Response
 
 from ..services import query_controller
 from query.models import DataSet
+
+from ..query_serializers import ServiceSerializer
+
 from . import common_views
 
 logger = logging.getLogger(__name__)
@@ -251,6 +254,9 @@ class GetServices(generics.ListAPIView):
 
         query_results = query_controller.get_services(dataset=dataset, service_type=service_type, waveband=waveband, keyword=keyword)
 
-        return Response({
-            'services': query_results
-        })
+        # paginate the results
+        page = self.paginate_queryset(query_results)
+        serializer = ServiceSerializer(instance=page, many=True)
+
+        return self.get_paginated_response(serializer.data)
+

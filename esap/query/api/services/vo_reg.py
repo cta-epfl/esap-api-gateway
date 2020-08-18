@@ -239,7 +239,7 @@ class vo_registry_connector(query_base):
 
 
     # Search for a keyword
-    def search(self, keywords=None, servicetype=None, datamodel=None, waveband=None, **kwargs):
+    def search(self, keywords=None, service_type=None, datamodel=None, waveband=None, **kwargs):
         """
         # Use pyvo to do a Registry search by keyword
         :param keyword: The keyword to search for
@@ -249,7 +249,7 @@ class vo_registry_connector(query_base):
         if datamodel:
             services = regsearch(datamodel=datamodel)
         else:
-            services = regsearch(keywords=keywords, servicetype=servicetype, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=servicetype)
+            services = regsearch(keywords=keywords, servicetype=service_type, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=servicetype)
 
         return services
 
@@ -301,7 +301,7 @@ class vo_registry_connector(query_base):
             # VO RegistryResource attributes
             result['id'] = str(resource.standard_id)
             result['title'] = str(resource.res_title)
-            result['description'] = str(resource.res_description)
+            # result['description'] = str(resource.res_description)
             result['service_type'] = str(resource.res_type)
             result['access_url'] = str(resource.access_url)
 
