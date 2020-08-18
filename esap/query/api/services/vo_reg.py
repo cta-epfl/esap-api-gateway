@@ -279,7 +279,6 @@ class vo_registry_connector(query_base):
         """
         # get all available services from the VO registry based on the keyword and possible a service_type
         :param dataset: the dataset object that must be queried
-        :param query: the constructed (adql) query (that was probably generated with the above construct_query function)
         """
 
         results = []
