@@ -19,3 +19,7 @@ class query_base:
     # implement this in the derived service classes
     def run_query(self, dataset, dataset_name, query):
         pass
+
+    # implement this in the derived service classes
+    def get_services(self, dataset, service_type, keyword):
+        pass

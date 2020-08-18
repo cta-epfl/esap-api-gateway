@@ -86,9 +86,9 @@ class vo_registry_connector(query_base):
         services = []
 
         if "keyword" in esap_query_params:
-            services = self.search([esap_query_params["keyword"]])
+            services = self.search([esap_query_params["keyword"]],servicetype="tap")
         else :
-            services = self.search(datamodel='ObsCore')
+            services = self.search(datamodel='ObsCore',servicetype="tap")
 
         for resource in services:
             # see row attributes
@@ -239,7 +239,7 @@ class vo_registry_connector(query_base):
 
 
     # Search for a keyword
-    def search(self, keywords=None, servicetype="tap", datamodel=None, waveband=None, **kwargs):
+    def search(self, keywords=None, servicetype=None, datamodel=None, waveband=None, **kwargs):
         """
         # Use pyvo to do a Registry search by keyword
         :param keyword: The keyword to search for
@@ -273,3 +273,49 @@ class vo_registry_connector(query_base):
 
         return standards[service["standard_id"].decode('utf-8').lower()] if service["standard_id"] else None
 
+
+   # run a query
+    def get_services(self, dataset, service_type, waveband, keyword):
+        """
+        # get all available services from the VO registry based on the keyword and possible a service_type
+        :param dataset: the dataset object that must be queried
+        :param query: the constructed (adql) query (that was probably generated with the above construct_query function)
+        """
+
+        results = []
+        try:
+            services = self.search(keyword, service_type=service_type, waveband=waveband)
+
+        except Exception as error:
+            record = {}
+            record['result'] =  str(error)
+            results.append(record)
+            return results
+
+        for resource in services:
+            # see row attributes
+            # https://pyvo.readthedocs.io/en/latest/api/pyvo.registry.regtap.RegistryResource.html#pyvo.registry.regtap.RegistryResource
+
+            result = {}
+
+            # VO RegistryResource attributes
+            result['id'] = str(resource.standard_id)
+            result['title'] = str(resource.res_title)
+            result['description'] = str(resource.res_description)
+            result['service_type'] = str(resource.res_type)
+            result['access_url'] = str(resource.access_url)
+
+            result['short_name'] = resource.short_name
+            result['content_types'] = str(resource.content_types)
+            result['waveband'] = ' '.join([str(elem) for elem in resource.waveband])
+
+            # result['content_levels'] = str(resource.content_levels)
+            # result['creators'] = str(resource.creators)
+            # result['ivoid'] = str(resource.ivoid)
+            # result['reference_url'] = str(resource.reference_url)
+            # result['region_of_regard'] = str(resource.region_of_regard)
+            # result['source_format'] = str(resource.source_format)
+
+            results.append(result)
+
+        return results

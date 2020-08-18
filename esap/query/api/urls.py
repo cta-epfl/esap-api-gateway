@@ -41,5 +41,8 @@ urlpatterns = [
     # example: /esap-api/query?level=raw&category=imaging&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
     path('query/', views.CreateAndRunQueryView.as_view(), name='query-view'),
 
+    # example: /esap-api/get-services?dataset=ivoa?keyword=ukidss
+    path('get-services/', views.GetServices.as_view()),
+
 ]
 
