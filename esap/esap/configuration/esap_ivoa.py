@@ -29,7 +29,7 @@ query_schema = {
     "title": "ESAP IVOA Query",
     "type": "object",
     "properties": {
-        "service": {
+        "service_type": {
             "type": "string",
             "title": "Service",
             "default": "tap",
@@ -41,5 +41,16 @@ query_schema = {
             "title": "Keyword",
             "default": ""
         },
+
+        # hidden property, keep it at the end of the properties list
+        "catalog": {
+            "type": "string",
+            "title": "Catalog",
+            "default": "vo_reg",
+            "enum": ["vo_reg"],
+            "enumNames": ["IVOA"],
+        },
     }
 }
+
+ui_schema = {"catalog": {"ui:widget": "hidden"}}

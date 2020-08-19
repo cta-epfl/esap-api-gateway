@@ -13,7 +13,9 @@ frontend_basename = "esap-gui"
 # definition of the navigation bar
 nav1 = {'title': 'Archives', 'route': '/archives'}
 nav2 = {'title': 'Query', 'route': '/query'}
-navbar = [nav1, nav2]
+nav3 = {'title': 'Rucio', 'route': '/rucio'}
+nav4 = {'title': 'Interactive Analysis', 'route': '/interactive'}
+navbar = [nav1, nav2, nav3, nav4]
 
 # if datasets_enabled is set, then only these datasets are visible to the GUI
 # datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
@@ -37,30 +39,111 @@ query_schema = {
         },
         "target": {
             "type": "string",
-            "title": "Target"
+            "title": "Object",
+            "default": "",
+        },
+        "resolve": {
+            "type": "boolean",
+            "title": "Resolve RA and Dec",
+            "enum": ["true", "false"],
         },
         "ra": {
             "type": "number",
-            "title": "RA (degrees)",
+            "title": "RA",
         },
         "dec": {
             "type": "number",
-            "title": "dec (degrees)",
+            "title": "Dec",
+        },
+        "units": {
+            "type": "string",
+            "title": "Units",
+            "default": "sexagesimal",
+            "enum": ["rad", "deg", "sexagesimal"],
+        },
+        "ref_system": {
+            "type": "string",
+            "title": "Reference system",
+            "default": "J2000",
+            "enum": ["J2000", "B1950", "SUN", "JUPITER"],
         },
         "fov": {
             "type": "number",
-            "title": "search radius (degrees)",
+            "title": "Search radius",
+            "default": "1.0"
         },
-        "dataproduct_types": {
+        "fov_units": {
             "type": "string",
-            "title": "Data Product Types",
+            "title": "Search Radius Units",
+            "default": "deg",
+            "enum": ["rad", "deg", "arcmin", "arcsec"],
+        },
+        "antenna_type": {
+            "type": "string",
+            "title": "Antenna Type",
+            "default": "all",
+            "enum": ["hba", "lba", "all"],
+            "enumNames": ["HBA", "LBA", "All"],
+        },
+        "public": {
+            "type": "boolean",
+            "title": "Public data only",
+            "enum": ["true", "false"],
+        },
+        "sasid": {
+            "type": "string",
+            "title": "SAS Id",
+
+        },
+        "dataproduct_type": {
+            "type": "string",
+            "title": "Data Product Type",
             "default": "observation",
-            "enum": ["all", "observation", "averaging", "calibration", "imaging", "longbaseline", "pulsar"],
-            "enumNames": ["All", "Observation", "Averaging Pipeline", "Calibration Pipeline", "Imaging Pipeline", "Long Baseline Pipeline", "Pulsar Pipeline"],
+            "enum": ["observation", "averaging", "calibration", "imaging", "longbaseline", "pulsar"],
+            "enumNames": ["Observation", "Averaging Pipeline", "Calibration Pipeline", "Imaging Pipeline", "Long Baseline Pipeline", "Pulsar Pipeline"],
         },
-        "collection": {
-            "type": "string",
-            "title": "Collection",
+    },
+
+    "required": ["catalog", "dataproduct_type"],
+
+    "dependencies": {
+        "dataproduct_type": {
+            "oneOf": [
+                {
+                    "properties": {
+                        "dataproduct_type": {"enum": ["observation"]},
+                        "observing_mode": {
+                            "type": "string",
+                            "title": "Observing Mode",
+                            "default": "all",
+                            "enum": ["all", "imaging", "timedomain"],
+                            "enumNames": ["All", "Imaging", "Time Domain"],
+                            "uniqueItems": True,
+                        },
+                    },
+                },
+                {
+                    "properties": {
+                        "dataproduct_type": {"enum": ["pulsar"]},
+                        "data_type": {
+                            "type": "string",
+                            "title": "Data Type",
+                            "default": "all",
+                            "enum": ["coherent", "incoherent", "flys_eye", "all"],
+                            "enumNames": ["Coherent Stokes", "Incoherent Stokes", "Fly's Eye", "All"],
+                        },
+                    }
+                }
+            ]
         },
-    }
+    },
+}
+
+ui_schema = {
+    "resolve": {
+        "ui:widget": "radio",
+    },
+    "public": {
+        "ui:widget": "radio",
+    },
 }

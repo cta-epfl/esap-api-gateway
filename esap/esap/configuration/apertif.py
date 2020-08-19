@@ -51,14 +51,6 @@ query_schema = {
             "type": "number",
             "title": "search radius (degrees)",
         },
-        "level": {
-            "type": "string",
-            "title": "Processing Level",
-            "default": "all",
-            "enum": ["all", "raw", "processed"],
-            "enumNames": ["All", "Raw", "Processed"]
-        },
-
         "dataproduct_type": {
             "type": "string",
             "title": "DataProduct Type",
