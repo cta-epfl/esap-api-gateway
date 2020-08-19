@@ -10,10 +10,10 @@ frontend_basename = "esap-gui"
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 
 # definition of the navigation bar
-nav1 = {'title': 'Rucio', 'route': '/rucio'}
-nav2 = {'title': 'ADEX', 'route': '/adex'}
-nav3 = {'title': 'IVOA', 'route': '/ivoa'}
-nav4 = {'title': 'Solar', 'route': '/solar'}
+nav1 = {'title': 'Archives', 'route': '/archives'}
+nav2 = {'title': 'Query', 'route': '/query'}
+nav3 = {'title': 'Rucio', 'route': '/rucio'}
+nav4 = {'title': 'Interactive Analysis', 'route': '/interactive'}
 navbar = [nav1, nav2, nav3, nav4]
 
 # if datasets_enabled is set, then only these datasets are visible to the GUI
@@ -25,6 +25,7 @@ datasets_disabled = ['nancay.ivoa.obscore']
 
 # definition of the query
 query_schema = {
+    "name": "ivoa",
     "title": "ESAP IVOA Query",
     "type": "object",
     "properties": {
