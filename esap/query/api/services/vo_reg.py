@@ -10,6 +10,9 @@ import pyvo as vo
 from pyvo.registry import search as regsearch
 import urllib.parse
 
+# available service types for VO
+service_type_list = ['tap','sia','sta','scs']
+
 def create_cone_search(esap_query_params, translation_parameters, equinox):
     """
     Return a cone search subquery when ra, dec and fov are found in the query parameters.
@@ -160,25 +163,38 @@ class vo_registry_connector(query_base):
 
 
     # run a query
-    def run_query(self, dataset, dataset_name, query):
+    def run_query(self, dataset, dataset_name, query, override_access_url, override_service_type):
         """
         # use pyvo to do a vo query
-        :param dataset: the dataset object that must be queried
+        :param dataset: the dataset object that contains the information about the catalog to be queried
         :param query: the constructed (adql) query (that was probably generated with the above construct_query function)
+        :param override_access_url: overrides access_url from the dataset
+        :param override_service_type: overrides service_type from the dataset
         """
 
         results = []
 
-        # use pyvo the get to the results
+        # The default service that the vo_reg dataset connects to is 'vo_reg.vo_registry_connector',
+        # as specified in the 'service_connector' field of the dataset.
+        # To query other catalogs, the 'override_access_url' can be used.
+
+        # The default service_type = TAP, which can also be overridden with 'override_service_type'
 
         service = vo.dal.TAPService(self.url)
+        if override_access_url:
+            if 'SCS' in override_service_type.upper():
+                service = vo.dal.SCSService(override_access_url)
+            elif 'SIA' in override_service_type.upper():
+                service = vo.dal.SIAService(override_access_url)
+            elif 'SSA' in override_service_type.upper():
+                service = vo.dal.SSAService(override_access_url)
+            else: # TAP
+                service = vo.dal.TAPService(override_access_url)
+
         try:
             resultset = service.search(query)
         except Exception as error:
             record = {}
-            record['query'] = query
-            record['dataset'] = dataset.uri
-            record['dataset_name'] = dataset_name
             record['result'] =  str(error)
             results.append(record)
             return results
@@ -211,7 +227,6 @@ class vo_registry_connector(query_base):
             # cut off the last ','
             result = result[:-1]
             record['dataset'] = dataset.uri
-            record['dataset_name'] = dataset_name
             record['result'] = result
             record['query'] = query
 
@@ -249,7 +264,7 @@ class vo_registry_connector(query_base):
         if datamodel:
             services = regsearch(datamodel=datamodel)
         else:
-            services = regsearch(keywords=keywords, servicetype=service_type, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=servicetype)
+            services = regsearch(keywords=keywords, servicetype=service_type, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=service_type)
 
         return services
 
@@ -282,6 +297,7 @@ class vo_registry_connector(query_base):
         """
 
         results = []
+
         try:
             services = self.search(keyword, service_type=service_type, waveband=waveband)
 

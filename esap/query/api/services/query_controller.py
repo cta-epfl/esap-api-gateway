@@ -123,10 +123,14 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
     return input_results
 
 
-def run_query(dataset, dataset_name, query, connector=None, return_connector=False):
+def run_query(dataset, dataset_name, query, override_access_url=None, override_service_type=None, connector=None, return_connector=False):
     """
     run a query on a dataset (catalog)
-    :param query:
+    :param dataset: the dataset object that contains the information about the catalog to be queried
+    :param query: the constructed (adql) query (that was probably generated with the above construct_query function)
+    :param override_access_url: overrides access_url from the dataset
+    :param override_service_type: overrides service_type from the dataset
+
     :return:
     """
     results = []
@@ -142,7 +146,7 @@ def run_query(dataset, dataset_name, query, connector=None, return_connector=Fal
         return results
 
     # run the specific instance of 'run_query' for this connector
-    results = connector.run_query(dataset, dataset_name, query)
+    results = connector.run_query(dataset, dataset_name, query, override_access_url, override_service_type)
     if return_connector:
         return results, connector
     return results

@@ -119,10 +119,17 @@ class RunQueryView(generics.ListAPIView):
         except:
             access_url = "unknown"
 
+        try:
+            service_type = self.request.query_params['service_type']
+        except:
+            service_type = "unknown"
+
         query_results = query_controller.run_query(dataset=dataset,
                                                    dataset_name=dataset_name,
                                                    query = query,
-                                                   access_url=access_url)
+                                                   override_access_url = access_url,
+                                                   override_service_type= service_type
+                                                   )
 
         return Response({
             'query_results': query_results
