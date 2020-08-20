@@ -163,7 +163,7 @@ class vo_registry_connector(query_base):
 
 
     # run a query
-    def run_query(self, dataset, dataset_name, query, override_access_url, override_service_type):
+    def run_query(self, dataset, dataset_name, query, override_access_url=None, override_service_type=None):
         """
         # use pyvo to do a vo query
         :param dataset: the dataset object that contains the information about the catalog to be queried

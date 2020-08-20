@@ -59,7 +59,7 @@ class helio_connector(query_base):
         return query, where, errors
 
 
-    def run_query(self, dataset, dataset_name, query):
+    def run_query(self, dataset, dataset_name, query, override_access_url=None, override_service_type=None):
         """
         :param dataset: the dataset object that must be queried
         :param query: the constructed query (that was probably generated with the above construct_query function)

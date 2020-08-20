@@ -51,22 +51,27 @@ query_schema = {
             "type": "number",
             "title": "search radius (degrees)",
         },
+        "collection": {
+            "type": "string",
+            "title": "Apertif Collections",
+            "default": "imaging",
+            "enum": ["imaging", "timedomain"],
+            "enumNames": ["imaging", "timedomain"],
+            "uniqueItems": True,
+        },
+        "level": {
+            "type": "string",
+            "title": "Processing Level",
+            "default": "all",
+            "enum": ["all", "raw", "processed"],
+            "enumNames": ["All", "Raw", "Processed"]
+        },
         "dataproduct_type": {
             "type": "string",
             "title": "DataProduct Type",
             "default": "all",
             "enum": ["all", "visibility", "image", "cube"],
             "enumNames": ["all", "visibility", "image", "cube"]
-        },
-
-        "dataproduct_subtype": {
-            "type": "string",
-            "title": "DataProduct Subtype",
-            "default": "continuumMF",
-            "enum": ["all", "uncalibratedVisibility", "continuumMF", "continuumChunk", "calibratedImage", "polarisationImage",
-                     "imageCube", "beamCube", "polarisationCube", "pulsarTimingTimeSeries"],
-            "enumNames": ["all", "uncalibratedVisibility", "continuumMF", "continuumChunk", "calibratedImage",
-                          "polarisationImage", "imageCube", "beamCube", "polarisationCube", "pulsarTimingTimeSeries"]
-        },
+        }
     }
 }

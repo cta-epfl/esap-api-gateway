@@ -62,7 +62,7 @@ class panoptes_connector(query_base):
 
         return query, where, errors
 
-    def run_query(self, dataset, dataset_name, query):
+    def run_query(self, dataset, dataset_name, query, override_access_url=None, override_service_type=None):
         """
         Delegates to panoptes_client for queries.
         """
