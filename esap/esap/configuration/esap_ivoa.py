@@ -29,70 +29,73 @@ query_schema = {
     "title": "ESAP IVOA Query",
     "type": "object",
     "properties": {
+        "catalog": {
+            "type": "string",
+            "title": "Catalog",
+            "default": "vo_reg",
+            "enum": ["vo_reg"],
+            "enumNames": ["IVOA"],
+        },
+        "keyword": {
+            "type": "string",
+                    "title": "Keyword",
+                    "default": "UKIDSS"
+        },
         "service_type": {
             "type": "string",
-            "title": "Service Protocol",
+            "title": "Service Type",
             "default": "tap",
             "enum": ["tap", "scs", "ssa", "sia"],
             "enumNames": ["TAP: Tables", "SCS: Cone Search", "SSA: Spectra", "SIA: Images"]
         },
-        "keyword": {
-            "type": "string",
-            "title": "Keyword",
-            "default": ""
-        },
-        "service_list": {
-            "type": "array",
-            "title": "List of services",
-            "items": {
-                "type": "string",
-            }
-        }
     },
 
-    "required": ["service_type"],
+    "required": ["catalog", "service_type"],
 
-    "dependencies": {
-        "service_type": {
-            "oneOf": [
-                {
-                    "properties": {
-                        "service_type": {"enum": ["tap"]},
-                        "adql_query": {
-                            "type": "string",
-                            "title": "ADQL Query",
-                        },
-                        "tap_schema": {
-                            "type": "string",
-                            "title": "TAP_SCHEMA",
-                            "enum": ["TAP_SCHEMA.schemas", "TAP_SCHEMA.tables", "TAP_SCHEMA.columns"],
-                        }
-                    },
-                },
-                {
-                    "properties": {
-                        "service_type": {"enum": ["scs"]},
-                        "ra": {
-                            "type": "number",
-                            "title": "RA (degrees)",
-                        },
-                        "dec": {
-                            "type": "number",
-                            "title": "dec (degrees)",
-                        },
-                        "fov": {
-                            "type": "number",
-                            "title": "search radius (degrees)",
-                        },
-                        "url": {
-                            "type": "string",
-                            "title": "Service URL",
-                        }
-                    }
-                }
-            ]
-        },
-    },
+
+    # "service_type": {
+    #     "oneOf": [
+    #         {
+    #             "properties": {
+    #                 "service_type": {"enum": ["tap"]},
+    #                 "adql_query": {
+    #                     "type": "string",
+    #                     "title": "ADQL Query",
+    #                 },
+    #                 "tap_schema": {
+    #                     "type": "string",
+    #                     "title": "TAP_SCHEMA",
+    #                     "enum": ["TAP_SCHEMA.schemas", "TAP_SCHEMA.tables", "TAP_SCHEMA.columns"],
+    #                 }
+    #             },
+    #         },
+    #         {
+    #             "properties": {
+    #                 "service_type": {"enum": ["scs"]},
+    #                 "ra": {
+    #                     "type": "number",
+    #                     "title": "RA (degrees)",
+    #                 },
+    #                 "dec": {
+    #                     "type": "number",
+    #                     "title": "dec (degrees)",
+    #                 },
+    #                 "fov": {
+    #                     "type": "number",
+    #                     "title": "Search Radius (degrees)",
+    #                 },
+    #                 "url": {
+    #                     "type": "string",
+    #                     "title": "Service URL",
+    #                 }
+    #             }
+    #         }
+    #     ]
+    # },
+
+
 }
 
-ui_schema = {"adql_query": {"ui:widget": "textarea"}}
+ui_schema = {
+    "adql_query": {"ui:widget": "textarea"},
+}
