@@ -48,6 +48,13 @@ query_schema = {
             "enum": ["tap", "scs", "ssa", "sia"],
             "enumNames": ["TAP: Tables", "SCS: Cone Search", "SSA: Spectra", "SIA: Images"]
         },
+        "waveband": {
+            "type": "string",
+            "title": "Waveband",
+            "default": "all",
+            "enum": ["all", "radio", "millimeter", "infrared", "optical", "uv", "euv", "x-ray", "gamma-ray"],
+            "enumNames": ["All", "Radio", "Millimeter", "Nnfrared", "Optical", "UV", "EUV", "X-ray", "Gamma-ray"],
+        }
     },
 
     "required": ["catalog", "service_type"],
