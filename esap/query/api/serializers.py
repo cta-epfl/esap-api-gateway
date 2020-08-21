@@ -47,7 +47,7 @@ class ArchiveSerializer(serializers.HyperlinkedModelSerializer):
         model = Archive
 
         fields = ('id', 'uri', 'name', 'short_description', 'long_description', 'retrieval_description', 'thumbnail',
-                   'documentation_url','instrument','institute','datasets')
+                   'documentation_url','instrument','institute','datasets','order','visible')
 
 
 # this is a serializer that uses uri's in the datasets for easier identification for the frontend

@@ -7,8 +7,8 @@ EsapBaseObject contains the shared fields
 class EsapBaseObject(models.Model):
     # type = models.CharField(max_length=15, null=False) # Archive, Catalog, CatalogService
     uri = models.CharField(max_length=40, null=False)  # unique identifier for this datasource
-    name = models.CharField(max_length=40)             # label in GUI
-    short_description = models.CharField(max_length=40)
+    name = models.CharField(max_length=50)             # label in GUI
+    short_description = models.CharField(max_length=100)
     long_description = models.TextField(null=True, blank=True)
     retrieval_description = models.TextField(null=True, blank=True)
 
@@ -76,7 +76,7 @@ class Catalog(EsapBaseObject):
     # query_base determines which algorithm is used to create and run queries.
     # esap_service = models.CharField(default='vo',max_length=15) # vo, alta, vso
 
-    equinox = models.CharField(default=ICRS, max_length=10, choices=EQUINOX, null=True) # J2000, ICRS, N/A
+    equinox = models.CharField(default=ICRS, max_length=10, choices=EQUINOX, null=True, blank=True) # J2000, ICRS, N/A
     protocol = models.CharField(max_length=15, choices=PROTOCOL)  # adql, http
 
     # the url for the user (this brings the user to an external web page)
@@ -101,6 +101,8 @@ class Archive(EsapBaseObject):
 
     # fields
     instrument = models.CharField(max_length=30)
+    order = models.IntegerField(default=0)
+    visible = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.uri)
@@ -117,9 +119,9 @@ class DataSet(EsapBaseObject):
         (TILES, TILES),
     ]
 
-    category = models.CharField(max_length=30, null=True)  # like: imaging, timedomain
-    level = models.CharField(max_length=30, null=True)  # like: raw, calibrated, processed
-    collection = models.CharField(max_length=30, null=True)  # like: sauron, SVC_2019_Imaging, SVC_2019_TimeDomain
+    category = models.CharField(max_length=30, null=True, blank=True)  # like: imaging, timedomain
+    level = models.CharField(max_length=30, null=True, blank=True)  # like: raw, calibrated, processed
+    collection = models.CharField(max_length=30, null=True, blank=True)  # like: sauron, SVC_2019_Imaging, SVC_2019_TimeDomain
 
     # relationships
     dataset_catalog = models.ForeignKey(Catalog, related_name = 'datasets', on_delete=models.CASCADE, null=True, blank=True)

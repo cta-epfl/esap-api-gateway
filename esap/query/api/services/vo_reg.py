@@ -11,7 +11,7 @@ from pyvo.registry import search as regsearch
 import urllib.parse
 
 # available service types for VO
-service_type_list = ['tap','sia','sta','scs']
+service_type_list = ['tap','sia','ssa','scs']
 
 def create_cone_search(esap_query_params, translation_parameters, equinox):
     """
