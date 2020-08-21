@@ -1,6 +1,6 @@
 from rest_framework import pagination
 from rest_framework.response import Response
-
+from django.conf import settings
 
 # Custom Pagination is used to be able to set the page_size from the client.
 # And to return extra information in the response that can be used by the client.
@@ -27,7 +27,7 @@ class CustomPagination(pagination.PageNumberPagination):
     def get_paginated_response(self, data):
         return Response({
             'description': 'ESAP API Gateway',
-            'version': '18 aug 2020',
+            'version': settings.VERSION,
             'requested_page': self.request.query_params.get('page', '1'),
             'requested_page_size': self.request.query_params.get('page_size'),
             'default_page_size': self.page_size,
