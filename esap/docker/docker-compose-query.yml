@@ -13,7 +13,7 @@ services:
     container_name: esap_api_query
     image: esap_api_query:latest
     ports:
-      - 15671:8000
+      - 5555:8000
     expose:
       - 8000
     networks:

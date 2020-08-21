@@ -118,7 +118,7 @@ class tap_service_connector(query_base):
 
 
     # run a query
-    def run_query(self, dataset, dataset_name, query):
+    def run_query(self, dataset, dataset_name, query, override_access_url=None, override_service_type=None):
         """
         # use pyvo to do a vo query
         :param dataset: the dataset object that must be queried

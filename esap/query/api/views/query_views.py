@@ -1,10 +1,13 @@
 import logging
 
-from rest_framework import generics
+from rest_framework import generics, pagination
 from rest_framework.response import Response
 
 from ..services import query_controller
 from query.models import DataSet
+
+from ..query_serializers import ServiceSerializer
+
 from . import common_views
 
 logger = logging.getLogger(__name__)
@@ -116,10 +119,17 @@ class RunQueryView(generics.ListAPIView):
         except:
             access_url = "unknown"
 
+        try:
+            service_type = self.request.query_params['service_type']
+        except:
+            service_type = "unknown"
+
         query_results = query_controller.run_query(dataset=dataset,
                                                    dataset_name=dataset_name,
                                                    query = query,
-                                                   access_url=access_url)
+                                                   override_access_url = access_url,
+                                                   override_service_type= service_type
+                                                   )
 
         return Response({
             'query_results': query_results
@@ -201,3 +211,59 @@ class CreateAndRunQueryView(generics.ListAPIView):
         return Response({
             'query_results': query_results
         })
+
+
+class GetServices(generics.ListAPIView):
+    """
+    Retrieve a list of ivoa_services by keyword
+    examples: /esap-api/ivoa-get-services?keyword=ukidss
+    """
+    model = DataSet
+    queryset = DataSet.objects.all()
+
+    # override list and generate a custom response
+    def list(self, request, *args, **kwargs):
+
+        datasets = common_views.get_datasets()
+
+        # a dataset is needed to access a service_connector
+        try:
+            dataset_uri = self.request.query_params['dataset_uri']
+            dataset = DataSet.objects.get(uri=dataset_uri)
+        except:
+            return Response({
+                'error': "could not find 'dataset_uri' in the query_params"
+            })
+
+        # find services that support his keyword
+        try:
+            keyword = self.request.query_params['keyword']
+        except:
+            return Response({
+                'error': "could not find 'keyword' in the query_params"
+            })
+
+        # if given, then only return services for this service_type
+        service_type = None
+        try:
+            service_type = self.request.query_params['service_type']
+        except:
+            logger.warning("could not find 'service_type' in the query_params. Continuing...")
+            # give a warning and continue
+
+        # if given, then only return services for this waveband
+        waveband = None
+        try:
+            waveband = self.request.query_params['waveband']
+        except:
+            logger.warning("could not find 'waveband' in the query_params. Continuing...")
+            # give a warning and continue
+
+        query_results = query_controller.get_services(dataset=dataset, service_type=service_type, waveband=waveband, keyword=keyword)
+
+        # paginate the results
+        page = self.paginate_queryset(query_results)
+        serializer = ServiceSerializer(instance=page, many=True)
+
+        return self.get_paginated_response(serializer.data)
+

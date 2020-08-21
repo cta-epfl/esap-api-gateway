@@ -88,7 +88,7 @@ class ArchiveListViewAPI(generics.ListCreateAPIView):
     A list of Archives
     """
     model = Archive
-    queryset = Archive.objects.all()
+    queryset = Archive.objects.order_by('order')
     serializer_class = ArchiveSerializer
 
     # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
@@ -111,7 +111,7 @@ class ArchiveListUriViewAPI(generics.ListCreateAPIView):
     A list of Archives
     """
     model = Archive
-    queryset = Archive.objects.all()
+    queryset = Archive.objects.order_by('order')
     serializer_class = ArchiveModelSerializer
 
 

@@ -1,8 +1,6 @@
 """
-    File name: query_controller.py
-    Author: Nico Vermaas - Astron
-    Date created: 2020-01-28
-    Description:  Business logic for ESAP-gateway. These functions are called from the views (views.py).
+    Business logic for ESAP-gateway.
+    These functions are called from the 'views'.
 """
 
 import json
@@ -41,7 +39,7 @@ def instantiate_connector(dataset):
     connector = connector_class(url)
     return connector
 
-#@timeit
+
 def create_query(datasets, query_params, connector=None, return_connector=False):
     """
     create a list of queries for a range of datasets, using their catalog services
@@ -124,17 +122,19 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
         return input_results, connector
     return input_results
 
-#@timeit
-def run_query(dataset, dataset_name, query, access_url=None, connector=None, return_connector=False):
+
+def run_query(dataset, dataset_name, query, override_access_url=None, override_service_type=None, connector=None, return_connector=False):
     """
     run a query on a dataset (catalog)
-    :param query:
+    :param dataset: the dataset object that contains the information about the catalog to be queried
+    :param query: the constructed (adql) query (that was probably generated with the above construct_query function)
+    :param override_access_url: overrides access_url from the dataset
+    :param override_service_type: overrides service_type from the dataset
+
     :return:
     """
     results = []
 
-    # distinguish between types of services to use and run the query accordingly
-    # query_base = dataset.dataset_catalog.query_base
     try:
         if connector is None:
             connector = instantiate_connector(dataset)
@@ -146,7 +146,7 @@ def run_query(dataset, dataset_name, query, access_url=None, connector=None, ret
         return results
 
     # run the specific instance of 'run_query' for this connector
-    results = connector.run_query(dataset, dataset_name, query)
+    results = connector.run_query(dataset, dataset_name, query, override_access_url, override_service_type)
     if return_connector:
         return results, connector
     return results
@@ -196,3 +196,31 @@ def create_and_run_query(datasets, query_params, connector=None, return_connecto
         if return_connector:
             return [], connector
         return []
+
+
+def get_services(dataset, keyword, service_type=None, waveband=None):
+    """
+
+    :param dataset: dataset containing the link to the service_connector
+    :param keyword: comma separated keywords
+    :param service_type: TAP, SIA, SCS, SSA
+    :param waveband: radio optical infrared uv euv nir gamma-ray x-ray
+
+    :return:
+    """
+
+    results = []
+
+    try:
+        connector = instantiate_connector(dataset)
+    except:
+        # connector not found
+        result = json.dumps({ "dataset" : dataset.uri, "result" : "ERROR: "+connector.__class__+" not found" })
+        results = []
+        results.append(result)
+        return results
+
+    # run the specific instance of 'get_services' for this connector
+    results = connector.get_services(dataset, service_type, waveband, keyword)
+
+    return results

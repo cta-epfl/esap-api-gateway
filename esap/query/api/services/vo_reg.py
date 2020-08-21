@@ -10,6 +10,9 @@ import pyvo as vo
 from pyvo.registry import search as regsearch
 import urllib.parse
 
+# available service types for VO
+service_type_list = ['tap','sia','ssa','scs']
+
 def create_cone_search(esap_query_params, translation_parameters, equinox):
     """
     Return a cone search subquery when ra, dec and fov are found in the query parameters.
@@ -86,9 +89,9 @@ class vo_registry_connector(query_base):
         services = []
 
         if "keyword" in esap_query_params:
-            services = self.search([esap_query_params["keyword"]])
+            services = self.search([esap_query_params["keyword"]],servicetype="tap")
         else :
-            services = self.search(datamodel='ObsCore')
+            services = self.search(datamodel='ObsCore',servicetype="tap")
 
         for resource in services:
             # see row attributes
@@ -160,25 +163,38 @@ class vo_registry_connector(query_base):
 
 
     # run a query
-    def run_query(self, dataset, dataset_name, query):
+    def run_query(self, dataset, dataset_name, query, override_access_url=None, override_service_type=None):
         """
         # use pyvo to do a vo query
-        :param dataset: the dataset object that must be queried
+        :param dataset: the dataset object that contains the information about the catalog to be queried
         :param query: the constructed (adql) query (that was probably generated with the above construct_query function)
+        :param override_access_url: overrides access_url from the dataset
+        :param override_service_type: overrides service_type from the dataset
         """
 
         results = []
 
-        # use pyvo the get to the results
+        # The default service that the vo_reg dataset connects to is 'vo_reg.vo_registry_connector',
+        # as specified in the 'service_connector' field of the dataset.
+        # To query other catalogs, the 'override_access_url' can be used.
+
+        # The default service_type = TAP, which can also be overridden with 'override_service_type'
 
         service = vo.dal.TAPService(self.url)
+        if override_access_url:
+            if 'SCS' in override_service_type.upper():
+                service = vo.dal.SCSService(override_access_url)
+            elif 'SIA' in override_service_type.upper():
+                service = vo.dal.SIAService(override_access_url)
+            elif 'SSA' in override_service_type.upper():
+                service = vo.dal.SSAService(override_access_url)
+            else: # TAP
+                service = vo.dal.TAPService(override_access_url)
+
         try:
             resultset = service.search(query)
         except Exception as error:
             record = {}
-            record['query'] = query
-            record['dataset'] = dataset.uri
-            record['dataset_name'] = dataset_name
             record['result'] =  str(error)
             results.append(record)
             return results
@@ -211,7 +227,6 @@ class vo_registry_connector(query_base):
             # cut off the last ','
             result = result[:-1]
             record['dataset'] = dataset.uri
-            record['dataset_name'] = dataset_name
             record['result'] = result
             record['query'] = query
 
@@ -239,7 +254,7 @@ class vo_registry_connector(query_base):
 
 
     # Search for a keyword
-    def search(self, keywords=None, servicetype="tap", datamodel=None, waveband=None, **kwargs):
+    def search(self, keywords=None, service_type=None, datamodel=None, waveband=None, **kwargs):
         """
         # Use pyvo to do a Registry search by keyword
         :param keyword: The keyword to search for
@@ -249,7 +264,7 @@ class vo_registry_connector(query_base):
         if datamodel:
             services = regsearch(datamodel=datamodel)
         else:
-            services = regsearch(keywords=keywords, servicetype=servicetype, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=servicetype)
+            services = regsearch(keywords=keywords, servicetype=service_type, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=service_type)
 
         return services
 
@@ -273,3 +288,49 @@ class vo_registry_connector(query_base):
 
         return standards[service["standard_id"].decode('utf-8').lower()] if service["standard_id"] else None
 
+
+   # run a query
+    def get_services(self, dataset, service_type, waveband, keyword):
+        """
+        # get all available services from the VO registry based on the keyword and possible a service_type
+        :param dataset: the dataset object that must be queried
+        """
+
+        results = []
+
+        try:
+            services = self.search(keyword, service_type=service_type, waveband=waveband)
+
+        except Exception as error:
+            record = {}
+            record['result'] =  str(error)
+            results.append(record)
+            return results
+
+        for resource in services:
+            # see row attributes
+            # https://pyvo.readthedocs.io/en/latest/api/pyvo.registry.regtap.RegistryResource.html#pyvo.registry.regtap.RegistryResource
+
+            result = {}
+
+            # VO RegistryResource attributes
+            result['id'] = str(resource.standard_id)
+            result['title'] = str(resource.res_title)
+            # result['description'] = str(resource.res_description)
+            result['service_type'] = str(resource.res_type)
+            result['access_url'] = str(resource.access_url)
+
+            result['short_name'] = resource.short_name
+            result['content_types'] = str(resource.content_types)
+            result['waveband'] = ' '.join([str(elem) for elem in resource.waveband])
+
+            # result['content_levels'] = str(resource.content_levels)
+            # result['creators'] = str(resource.creators)
+            # result['ivoid'] = str(resource.ivoid)
+            # result['reference_url'] = str(resource.reference_url)
+            # result['region_of_regard'] = str(resource.region_of_regard)
+            # result['source_format'] = str(resource.source_format)
+
+            results.append(result)
+
+        return results

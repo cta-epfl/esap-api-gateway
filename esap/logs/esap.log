@@ -3895,3 +3895,104 @@
 [2020-08-17 12:04:48,771] nr of dataproducts in response: 0
 [2020-08-17 12:04:48,774] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
 [2020-08-17 12:05:04,443] nr of dataproducts in response: 500
+[2020-08-18 11:23:58,889] could not find 'service_type' in the query_params. Continuing...
+[2020-08-18 11:35:03,067] could not find 'service_type' in the query_params. Continuing...
+[2020-08-18 11:36:15,388] could not find 'service_type' in the query_params. Continuing...
+[2020-08-18 12:01:38,913] could not find 'service_type' in the query_params. Continuing...
+[2020-08-18 12:01:38,914] could not find 'waveband' in the query_params. Continuing...
+[2020-08-18 12:02:13,857] could not find 'service_type' in the query_params. Continuing...
+[2020-08-18 12:02:13,858] could not find 'waveband' in the query_params. Continuing...
+[2020-08-18 12:29:35,998] could not find 'service_type' in the query_params. Continuing...
+[2020-08-20 08:34:09,723] ConfigurationView
+[2020-08-20 08:34:28,198] ConfigurationView
+[2020-08-20 08:34:31,872] ConfigurationView
+[2020-08-20 08:34:51,254] ConfigurationView
+[2020-08-20 08:34:57,256] ConfigurationView
+[2020-08-20 08:35:30,431] ConfigurationView
+[2020-08-20 08:35:35,772] ConfigurationView
+[2020-08-20 09:47:29,674] ConfigurationView
+[2020-08-20 09:58:19,564] ConfigurationView
+[2020-08-20 16:16:25,757] could not find 'waveband' in the query_params. Continuing...
+[2020-08-20 16:17:48,046] could not find 'waveband' in the query_params. Continuing...
+[2020-08-20 16:30:54,843] ConfigurationView
+[2020-08-20 16:31:09,451] ConfigurationView
+[2020-08-20 16:37:24,152] ConfigurationView
+[2020-08-20 16:37:24,291] ConfigurationView
+[2020-08-20 16:40:24,356] ConfigurationView
+[2020-08-20 16:40:24,493] ConfigurationView
+[2020-08-20 16:40:36,896] query_controller.create_query()
+[2020-08-20 16:40:36,909] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-20 16:40:36,910] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType=continuumMF_and_dataProductSubType__in=uncalibratedVisibility
+[2020-08-20 16:40:36,913] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-20 16:40:36,913] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType=continuumMF_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-20 16:41:56,978] ConfigurationView
+[2020-08-20 16:41:57,101] ConfigurationView
+[2020-08-20 16:42:08,570] query_controller.create_query()
+[2020-08-20 16:42:08,578] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-20 16:42:08,585] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain_and_dataProductSubType=pulsarTimingTimeSeries
+[2020-08-20 16:49:33,060] query_controller.create_query()
+[2020-08-20 16:49:39,105] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-20 16:49:39,105] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-20 16:54:03,455] query_controller.create_query()
+[2020-08-20 16:54:03,473] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-20 16:54:03,473] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-20 16:55:15,841] query_controller.create_query()
+[2020-08-20 16:55:15,861] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-20 16:55:15,862] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-20 16:55:29,602] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-20 16:55:42,896] nr of dataproducts in response: 500
+[2020-08-20 16:56:10,026] query_controller.create_query()
+[2020-08-20 16:56:10,042] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-20 16:56:10,042] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_dataProductSubType=continuumMF_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-20 16:56:17,452] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&dataProductSubType=continuumMF&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-20 16:56:21,626] nr of dataproducts in response: 142
+[2020-08-20 16:56:35,296] ConfigurationView
+[2020-08-20 16:56:49,909] ConfigurationView
+[2020-08-20 16:57:02,480] query_controller.create_query()
+[2020-08-20 16:58:58,869] ConfigurationView
+[2020-08-20 16:59:03,589] query_controller.create_query()
+[2020-08-20 16:59:18,489] ConfigurationView
+[2020-08-21 08:48:29,651] ConfigurationView
+[2020-08-21 08:49:09,652] ConfigurationView
+[2020-08-21 08:59:49,728] ConfigurationView
+[2020-08-21 09:04:58,872] ConfigurationView
+[2020-08-21 09:11:06,441] ConfigurationView
+[2020-08-21 09:19:15,374] ConfigurationView
+[2020-08-21 09:26:15,275] ConfigurationView
+[2020-08-21 09:42:18,196] ConfigurationView
+[2020-08-21 09:49:31,919] ConfigurationView
+[2020-08-21 09:50:35,310] ConfigurationView
+[2020-08-21 09:51:39,497] ConfigurationView
+[2020-08-21 09:53:11,207] ConfigurationView
+[2020-08-21 09:53:43,771] ConfigurationView
+[2020-08-21 09:55:03,779] ConfigurationView
+[2020-08-21 10:04:08,223] ConfigurationView
+[2020-08-21 10:09:07,319] ConfigurationView
+[2020-08-21 10:09:43,341] ConfigurationView
+[2020-08-21 10:24:58,548] ConfigurationView
+[2020-08-21 10:44:44,382] ConfigurationView
+[2020-08-21 11:03:28,391] ConfigurationView
+[2020-08-21 11:04:27,888] ConfigurationView
+[2020-08-21 11:06:10,224] ConfigurationView
+[2020-08-21 11:09:20,502] query_controller.create_query()
+[2020-08-21 11:16:38,089] ConfigurationView
+[2020-08-21 11:25:29,539] ConfigurationView
+[2020-08-21 11:25:32,650] ConfigurationView
+[2020-08-21 11:26:10,070] ConfigurationView
+[2020-08-21 11:26:12,022] ConfigurationView
+[2020-08-21 11:34:37,435] ConfigurationView
+[2020-08-21 11:38:09,763] ConfigurationView
+[2020-08-21 11:42:06,048] ConfigurationView
+[2020-08-21 11:45:47,278] ConfigurationView
+[2020-08-21 11:48:31,380] ConfigurationView
+[2020-08-21 11:48:40,661] ConfigurationView
+[2020-08-21 11:48:59,493] ConfigurationView
+[2020-08-21 11:49:01,559] ConfigurationView
+[2020-08-21 11:49:22,127] ConfigurationView
+[2020-08-21 12:11:43,564] ConfigurationView
+[2020-08-21 12:12:49,145] ConfigurationView
+[2020-08-21 12:12:52,310] ConfigurationView
+[2020-08-21 12:13:06,488] ConfigurationView
+[2020-08-21 12:14:14,170] ConfigurationView
+[2020-08-21 12:15:40,976] ConfigurationView
+[2020-08-21 12:16:33,690] ConfigurationView

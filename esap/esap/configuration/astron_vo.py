@@ -1,4 +1,7 @@
 
+# title = "ADEX"
+logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo.png"
+
 # title = "ESFRI Science Analysis Platform"
 #logo = "http://uilennest.net/static/media/tree9.da598501.png"
 
@@ -7,14 +10,10 @@
 # that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
 frontend_basename = "esap-gui"
 
-logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
-
 # definition of the navigation bar
 nav1 = {'title': 'Archives', 'route': '/archives'}
 nav2 = {'title': 'Query', 'route': '/query'}
-nav3 = {'title': 'Rucio', 'route': '/rucio'}
-nav4 = {'title': 'Interactive Analysis', 'route': '/interactive'}
-navbar = [nav1, nav2, nav3, nav4]
+navbar = [nav1, nav2]
 
 # if datasets_enabled is set, then only these datasets are visible to the GUI
 #datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
@@ -25,20 +24,16 @@ datasets_disabled = ['nancay.ivoa.obscore']
 
 # definition of the query
 query_schema = {
-    "title": "ESAP Query",
+    "name": "astron_vo",
+    "title": "ASTRON VO Data Collection Query",
     "type": "object",
     "properties": {
-        "institute": {
+        "catalog": {
             "type": "string",
-            "title": "Institute",
-            "default": "all",
-            "enum": ["all", "Astron", "IVOA"],
-            "enumNames": ["all", "astron", "IVOA"]
-        },
-        "keyword": {
-            "type": "string",
-            "title": "Keyword",
-            "default": ""
+            "title": "Catalog",
+            "default": "astron_vo",
+            "enum": ["astron_vo"],
+            "enumNames": ["ASTRON_VO"],
         },
         "target": {
             "type": "string",
@@ -47,26 +42,30 @@ query_schema = {
         "ra": {
             "type": "number",
             "title": "RA (degrees)",
-            "default": 342.16
         },
         "dec": {
             "type": "number",
             "title": "dec (degrees)",
-            "default": 33.94
         },
         "fov": {
             "type": "number",
             "title": "search radius (degrees)",
-            "default": 10
         },
-
-        "dataproduct_subtype": {
+        "level": {
             "type": "string",
-            "title": "DataProduct Type",
-            "default": "continuumMF",
-            "enum": ["all", "uncalibratedVisibility", "continuumMF", "continuumChunk", "calibratedImage", "polarisationImage", "imageCube", "beamCube", "polarisationCube", "pulsarTimingTimeSeries"],
-            "enumNames": ["all", "uncalibratedVisibility", "continuumMF", "continuumChunk", "calibratedImage", "polarisationImage", "imageCube", "beamCube", "polarisationCube", "pulsarTimingTimeSeries"]
+            "title": "Processing Level",
+            "default": "processed",
+            "enum": ["processed"],
+            "enumNames": ["Processed"]
         },
-
-    }
+        "collection": {
+            "type": "array",
+            "title": "Astron-VO Collections",
+            "items": {
+                "type": "string",
+                "enum": ["hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
+            },
+            "uniqueItems": True,
+        },
+    },
 }
