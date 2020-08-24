@@ -1,7 +1,7 @@
 
 from rest_framework import serializers
 
-# pagination for the 'esap-api/query/get-services request
+# serialization for the 'esap-api/query/get-services request
 class ServiceSerializer(serializers.Serializer):
 
     id = serializers.CharField()
@@ -12,6 +12,17 @@ class ServiceSerializer(serializers.Serializer):
     short_name = serializers.CharField()
     content_types = serializers.CharField()
     waveband = serializers.CharField()
+
+class Meta:
+        fields = '__all__'
+
+
+# serialization for the 'esap-api/query/get-tables-fields request
+class TableFieldSerializer(serializers.Serializer):
+
+    table_name = serializers.CharField()
+    table_type = serializers.CharField()
+    fields     = serializers.ListField()
 
 class Meta:
         fields = '__all__'

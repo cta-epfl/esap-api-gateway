@@ -8,7 +8,6 @@ import logging
 
 from . import alta
 from . import vo, vso, helio, vo_reg, zooniverse
-from ..utils import timeit
 
 logger = logging.getLogger(__name__)
 
@@ -221,6 +220,31 @@ def get_services(dataset, keyword, service_type=None, waveband=None):
         return results
 
     # run the specific instance of 'get_services' for this connector
-    results = connector.get_services(dataset, service_type, waveband, keyword)
+    results = connector.get_services(service_type, waveband, keyword)
 
+    return results
+
+
+def get_table_fields(dataset, access_url):
+    """
+
+    :param dataset: dataset containing the link to the service_connector
+    :param access_url: access_url to the service to get the fields from
+
+    :return:
+    """
+
+    results = []
+
+    try:
+        connector = instantiate_connector(dataset)
+    except:
+        # connector not found
+        result = json.dumps({ "dataset" : dataset.uri, "result" : "ERROR: "+connector.__class__+" not found" })
+        results = []
+        results.append(result)
+        return results
+
+    # run the specific instance of 'get_fields' for this connector
+    results = connector.get_table_fields(dataset, access_url)
     return results

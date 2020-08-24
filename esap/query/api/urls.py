@@ -32,17 +32,20 @@ urlpatterns = [
 
     #--- REST API: controllers ---
 
-    # example: /esap-api/query/?target=M51&archive_uri=astron_vo
+    # example: /esap-api/query/create-query/?target=M51&archive_uri=astron_vo
     path('create-query/', views.CreateQueryView.as_view(), name='create-query-view'),
 
-    # example: /esap-api/run-query?dataset=ivoa.obscore&query=https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 10 * from ivoa.obscore where obs_title='TGSSADR_R01D36_5x5'
+    # example: /esap-api/query/run-query?dataset=ivoa.obscore&query=https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 10 * from ivoa.obscore where obs_title='TGSSADR_R01D36_5x5'
     path('run-query/', views.RunQueryView.as_view(), name='run-query-view'),
 
-    # example: /esap-api/query?level=raw&category=imaging&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
+    # example: /esap-api/query/query?level=raw&category=imaging&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
     path('query/', views.CreateAndRunQueryView.as_view(), name='query-view'),
 
-    # example: /esap-api/get-services?dataset=ivoa?keyword=ukidss
+    # example: /esap-api/query/get-services?dataset_uri=vo_reg&service_type=image&waveband=optical&keyword=UKIDSS
     path('get-services/', views.GetServices.as_view()),
+
+    # example: /esap-api/query/get-fields?dataset_uri=vo_reg&access_url=https://vo.astron.nl/tap
+    path('get-tables-fields/', views.GetTableFields.as_view()),
 
 ]
 

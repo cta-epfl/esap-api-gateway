@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from ..services import query_controller
 from query.models import DataSet
 
-from ..query_serializers import ServiceSerializer
+from ..query_serializers import ServiceSerializer, TableFieldSerializer
 
 from . import common_views
 
@@ -216,7 +216,7 @@ class CreateAndRunQueryView(generics.ListAPIView):
 class GetServices(generics.ListAPIView):
     """
     Retrieve a list of ivoa_services by keyword
-    examples: /esap-api/ivoa-get-services?keyword=ukidss
+    examples: /esap-api/query/get-services?dataset_uri=vo_reg&service_type=image&waveband=optical&keyword=UKIDSS
     """
     model = DataSet
     queryset = DataSet.objects.all()
@@ -224,7 +224,7 @@ class GetServices(generics.ListAPIView):
     # override list and generate a custom response
     def list(self, request, *args, **kwargs):
 
-        datasets = common_views.get_datasets()
+        # datasets = common_views.get_datasets()
 
         # a dataset is needed to access a service_connector
         try:
@@ -259,11 +259,60 @@ class GetServices(generics.ListAPIView):
             logger.warning("could not find 'waveband' in the query_params. Continuing...")
             # give a warning and continue
 
-        query_results = query_controller.get_services(dataset=dataset, service_type=service_type, waveband=waveband, keyword=keyword)
+        results = query_controller.get_services(dataset=dataset, service_type=service_type, waveband=waveband, keyword=keyword)
+
+        if "ERROR:" in results:
+              return Response({
+                  results
+            })
 
         # paginate the results
-        page = self.paginate_queryset(query_results)
+        page = self.paginate_queryset(results)
         serializer = ServiceSerializer(instance=page, many=True)
+
+        return self.get_paginated_response(serializer.data)
+
+
+class GetTableFields(generics.ListAPIView):
+    """
+    Retrieve a list of fields from the access_url
+    examples: /esap-api/query/get-fields?dataset_uri=vo_reg&access_url=https://vo.astron.nl/tap
+    """
+    model = DataSet
+    queryset = DataSet.objects.all()
+
+    # override list and generate a custom response
+    def list(self, request, *args, **kwargs):
+
+        datasets = common_views.get_datasets()
+
+        # a dataset is needed to access a service_connector
+        try:
+            dataset_uri = self.request.query_params['dataset_uri']
+            dataset = DataSet.objects.get(uri=dataset_uri)
+        except:
+            return Response({
+                'error': "could not find 'dataset_uri' in the query_params"
+            })
+
+        # find services that support his keyword
+        try:
+            access_url = self.request.query_params['access_url']
+        except:
+            return Response({
+                'error': "could not find 'access_url' in the query_params"
+            })
+
+        results = query_controller.get_table_fields(dataset=dataset, access_url=access_url)
+
+        if "ERROR:" in results:
+              return Response({
+                  results
+            })
+
+        # paginate the results
+        page = self.paginate_queryset(results)
+        serializer = TableFieldSerializer(instance=page, many=True)
 
         return self.get_paginated_response(serializer.data)
 
