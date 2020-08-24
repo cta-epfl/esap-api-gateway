@@ -239,9 +239,10 @@ class GetServices(generics.ListAPIView):
         try:
             keyword = self.request.query_params['keyword']
         except:
-            return Response({
-                'error': "could not find 'keyword' in the query_params"
-            })
+            keyword = None
+#            return Response({
+#                'error': "could not find 'keyword' in the query_params"
+#            })
 
         # if given, then only return services for this service_type
         service_type = None
