@@ -136,82 +136,36 @@ class vo_registry_connector(query_base):
                 errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
 
 
-        results = []
-        services = []
+        query = self.url + '/sync'
 
-        if "keyword" in esap_query_params:
-            services = self.search([esap_query_params["keyword"]],servicetype="tap")
-        else :
-            services = self.search(datamodel='ObsCore',servicetype="tap")
+        # add fixed ADQL parameters
+        query_params = {}
+        query_params["LANG"] = "ADQL"
+        query_params["REQUEST"] = "doQuery"
+        query_params["QUERY"] = "SELECT TOP 10 * from " + dataset.resource_name
 
-        for resource in services:
-            # see row attributes
-            # https://pyvo.readthedocs.io/en/latest/api/pyvo.registry.regtap.RegistryResource.html#pyvo.registry.regtap.RegistryResource
-            #resource.describe()
+        # add ADQL where where
+        if where:
+            if len(where)>0:
+                query_params["QUERY"] += " WHERE " + where
 
-            service = resource.service
-
-            result = {}
-            # ESAP attributes
-            result['query_id'] = resource.ivoid
-            result['dataset'] = dataset.uri
-            result['dataset_name'] = resource.short_name
-            result['output_format'] = str(resource.source_format)
-            result['resource_name'] = str(dataset.resource_name)
-            result['protocol'] = str(dataset.dataset_catalog.protocol)
-            result['esap_service'] = str(dataset.dataset_catalog.esap_service)
-            result['service_connector'] = str(dataset.service_connector)
-
-            # VO RegistryResource attributes
-            result['service_url'] = str(resource.access_url)
-            result['access_url'] = str(resource.access_url)
-            result['content_levels'] = str(resource.content_levels)
-            result['content_types'] = str(resource.content_types)
-            result['creators'] = str(resource.creators)
-            result['ivoid'] = str(resource.ivoid)
-            result['reference_url'] = str(resource.reference_url)
-            result['region_of_regard'] = str(resource.region_of_regard)
-            result['res_description'] = str(resource.res_description)
-            result['res_title'] = str(resource.res_title)
-            result['res_type'] = str(resource.res_type)
-            result['short_name'] = resource.short_name
-            result['source_format'] = str(resource.source_format)
-            result['standard_id'] = str(resource.standard_id)
-            result['waveband'] = ' '.join([str(elem) for elem in resource.waveband])
-            #result['waveband'] = str(resource.waveband)
-
-            # add sync (or async) specifier
-            # query = resource.access_url + '/sync'
-
-            query = resource.access_url + '/sync' if  (self.get_service_type(resource).upper() == "TAP") else resource.access_url
-            # add fixed ADQL parameters
-            query_params = {}
-            query_params["LANG"] = "ADQL"
-            query_params["REQUEST"] = "doQuery"
-            query_params["QUERY"] = "SELECT TOP 10 * from " + dataset.resource_name
-
-            # add ADQL where where
-            if where:
+        if cone_search:
+            if len(cone_search)>0:
                 if len(where)>0:
-                    # cut off the last separation character
-                    query_params["QUERY"] += " WHERE " + where
+                    query_params["QUERY"] += " AND " + cone_search
+                else:
+                    query_params["QUERY"] += " WHERE " + cone_search
 
-            if cone_search:
-                if len(cone_search)>0:
-                    if len(where)>0:
-                        query_params["QUERY"] += " AND " + cone_search
-                    else:
-                        query_params["QUERY"] += " WHERE " + cone_search
+        query = query  + "?" + urllib.parse.urlencode(query_params)
 
-            result['query'] = query  + "?" + urllib.parse.urlencode(query_params)
 
-            results.append(result)
-
-        return results, where, errors
+        return query, where, errors
 
 
     # run a query
-    def run_query(self, dataset, dataset_name, query, override_access_url=None, override_service_type=None):
+    def run_query(self, dataset, dataset_name, query,
+                  override_access_url=None,
+                  override_service_type=None):
         """
         # use pyvo to do a vo query
         :param dataset: the dataset object that contains the information about the catalog to be queried
@@ -232,7 +186,10 @@ class vo_registry_connector(query_base):
             service = self.get_service(override_service_type, override_access_url)
 
         try:
-            resultset = service.search(query)
+            # SELECT TOP 10 * from ivoa.obscore WHERE CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',10.16,10.94,1.0))=1
+            # SELECT+TOP+10+%2A+from+ivoa.obscore+WHERE+CONTAINS%28POINT%28%27ICRS%27%2Cs_ra%2Cs_dec%29%2C+CIRCLE%28%27ICRS%27%2C342.16%2C33.94%2C10.0%29%29%3D1
+            q = urllib.parse.unquote(query).replace("+"," ")
+            resultset = service.search(q)
         except Exception as error:
             record = {}
             record['result'] =  str(error)
