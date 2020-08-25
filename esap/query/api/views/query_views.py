@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from ..services import query_controller
 from query.models import DataSet
 
-from ..query_serializers import ServiceSerializer, TableFieldSerializer
+from ..query_serializers import ServiceSerializer, TableFieldSerializer, CreateAndRunQuerySerializer
 
 from . import common_views
 
@@ -186,9 +186,15 @@ class CreateAndRunQueryView(generics.ListAPIView):
             override_adql_query=adql_query
         )
 
-        return Response({
-            'query_results': query_results
-        })
+        # paginate the results
+        page = self.paginate_queryset(query_results)
+        serializer = CreateAndRunQuerySerializer(instance=page, many=True)
+
+        return self.get_paginated_response(serializer.data)
+        # return Response({
+        #    'query_results': query_results
+        # })
+
 
 
 class GetServices(generics.ListAPIView):

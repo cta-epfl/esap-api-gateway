@@ -2,6 +2,17 @@
 from rest_framework import serializers
 
 # serialization for the 'esap-api/query/get-services request
+class CreateAndRunQuerySerializer(serializers.Serializer):
+    dataset = serializers.CharField()
+    result = serializers.CharField()
+    query = serializers.CharField()
+    url = serializers.CharField()
+
+class Meta:
+        fields = '__all__'
+
+
+# serialization for the 'esap-api/query/get-services request
 class ServiceSerializer(serializers.Serializer):
 
     id = serializers.CharField()
