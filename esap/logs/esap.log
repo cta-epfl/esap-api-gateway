@@ -4023,3 +4023,82 @@
 [2020-08-24 10:14:01,665] ConfigurationView
 [2020-08-24 10:14:38,881] ConfigurationView
 [2020-08-24 10:15:35,290] ConfigurationView
+[2020-08-25 09:39:46,500] query_controller.create_query()
+[2020-08-25 09:39:46,527] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-25 09:39:46,528] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 09:39:46,535] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 09:40:01,602] nr of dataproducts in response: 500
+[2020-08-25 09:59:31,409] query_controller.create_query()
+[2020-08-25 09:59:31,430] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-25 09:59:31,431] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 09:59:31,441] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 09:59:45,251] nr of dataproducts in response: 500
+[2020-08-25 10:16:22,772] query_controller.create_query()
+[2020-08-25 10:28:08,667] query_controller.create_query()
+[2020-08-25 11:04:12,880] query_controller.create_query()
+[2020-08-25 11:05:40,113] query_controller.create_query()
+[2020-08-25 11:09:07,817] query_controller.create_query()
+[2020-08-25 11:11:07,746] query_controller.create_query()
+[2020-08-25 11:25:49,588] query_controller.create_query()
+[2020-08-25 11:25:49,601] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-25 11:25:49,602] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 11:25:49,609] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 11:26:04,133] nr of dataproducts in response: 500
+[2020-08-25 11:29:55,092] query_controller.create_query()
+[2020-08-25 11:30:38,569] query_controller.create_query()
+[2020-08-25 11:30:38,584] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-25 11:30:38,584] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 11:30:38,589] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 11:30:54,029] nr of dataproducts in response: 500
+[2020-08-25 12:17:55,058] query_controller.create_query()
+[2020-08-25 12:17:55,079] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-25 12:17:55,080] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 12:18:47,223] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 12:19:07,146] nr of dataproducts in response: 500
+[2020-08-25 12:19:22,185] query_controller.create_query()
+[2020-08-25 12:27:49,340] query_controller.create_query()
+[2020-08-25 12:28:54,235] query_controller.create_query()
+[2020-08-25 12:30:36,438] query_controller.create_query()
+[2020-08-25 12:33:20,752] query_controller.create_query()
+[2020-08-25 13:25:05,225] query_controller.create_query()
+[2020-08-25 14:45:54,462] query_controller.create_query()
+[2020-08-25 14:55:57,524] query_controller.create_query()
+[2020-08-25 15:03:23,864] query_controller.create_query()
+[2020-08-25 15:07:03,479] query_controller.create_query()
+[2020-08-25 15:14:20,097] query_controller.create_query()
+[2020-08-25 15:16:10,245] query_controller.create_query()
+[2020-08-25 15:17:12,757] query_controller.create_query()
+[2020-08-25 15:18:30,481] query_controller.create_query()
+[2020-08-25 15:19:28,264] query_controller.create_query()
+[2020-08-25 15:19:59,267] query_controller.create_query()
+[2020-08-25 15:20:50,185] query_controller.create_query()
+[2020-08-25 15:22:39,742] query_controller.create_query()
+[2020-08-25 15:23:49,676] query_controller.create_query()
+[2020-08-25 15:39:49,239] query_controller.create_query()
+[2020-08-25 15:41:15,733] query_controller.create_query()
+[2020-08-25 15:42:29,953] query_controller.create_query()
+[2020-08-25 15:58:33,723] query_controller.create_query()
+[2020-08-25 16:01:24,317] query_controller.create_query()
+[2020-08-25 16:04:35,085] query_controller.create_query()
+[2020-08-25 16:12:37,026] query_controller.create_query()
+[2020-08-25 16:18:16,698] query_controller.create_query()
+[2020-08-25 16:19:02,019] query_controller.create_query()
+[2020-08-25 16:19:02,035] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-25 16:19:02,036] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 16:19:02,042] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 16:19:20,810] nr of dataproducts in response: 500
+[2020-08-25 16:19:53,238] query_controller.create_query()
+[2020-08-25 16:19:53,260] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-25 16:19:53,261] ERROR: could not translating key view_ra 'view_ra', using it raw.
+[2020-08-25 16:19:53,261] ERROR: could not translating key view_dec 'view_dec', using it raw.
+[2020-08-25 16:19:53,262] ERROR: could not translating key view_fov 'view_fov', using it raw.
+[2020-08-25 16:19:53,263] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_view_ra=342.16_and_view_dec=33.94_and_view_fov=1_and_dataProductSubType__in=uncalibratedVisibility
+[2020-08-25 16:19:53,269] ERROR: could not translating key collection 'collection', using it raw.
+[2020-08-25 16:19:53,270] ERROR: could not translating key view_ra 'view_ra', using it raw.
+[2020-08-25 16:19:53,270] ERROR: could not translating key view_dec 'view_dec', using it raw.
+[2020-08-25 16:19:53,270] ERROR: could not translating key view_fov 'view_fov', using it raw.
+[2020-08-25 16:19:53,270] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_view_ra=342.16_and_view_dec=33.94_and_view_fov=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 16:19:53,278] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&view_ra=342.16&view_dec=33.94&view_fov=1&dataProductSubType__in=uncalibratedVisibility
+[2020-08-25 16:19:58,936] nr of dataproducts in response: 5
+[2020-08-25 16:19:58,943] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&view_ra=342.16&view_dec=33.94&view_fov=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-25 16:20:08,988] nr of dataproducts in response: 143

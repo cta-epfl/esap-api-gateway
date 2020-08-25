@@ -6,11 +6,24 @@ from rest_framework.response import Response
 from ..services import query_controller
 from query.models import DataSet
 
-from ..query_serializers import ServiceSerializer, TableFieldSerializer
+from ..query_serializers import ServiceSerializer, TableFieldSerializer, CreateAndRunQuerySerializer
 
 from . import common_views
 
 logger = logging.getLogger(__name__)
+
+
+# extract a control parameter from the given list and then remove it from the list
+# this is used to separate the control parameters from query parameters in the same url
+def extract_and_remove(query_params, parameter):
+    try:
+        value = query_params[parameter][0]
+        del query_params[parameter]
+        return query_params, value
+    except:
+        # continue if the parameter was not found, they are usually not mandatory
+        return query_params, None
+
 
 class CreateQueryView(generics.ListAPIView):
     """
@@ -25,50 +38,23 @@ class CreateQueryView(generics.ListAPIView):
     # override list and generate a custom response
     def list(self, request, *args, **kwargs):
 
-        # read fields from the query
-
         datasets = common_views.get_datasets()
+        query_params = dict(self.request.query_params)
 
         # is there a query on archives?
-        try:
-            archive_uri = self.request.query_params['archive_uri']
+        query_params,archive_uri = extract_and_remove(query_params, 'archive_uri')
+        if archive_uri:
             datasets = datasets.filter(dataset_archive__uri=archive_uri)
 
-        except:
-            pass
-
         # is there a query on level?
-        try:
-            level = self.request.query_params['level']
+        query_params, level = extract_and_remove(query_params, 'level')
+        if level:
             datasets = datasets.filter(level=level)
 
-        except:
-            pass
-
         # is there a query on category?
-        try:
-            category = self.request.query_params['category']
+        query_params, category = extract_and_remove(query_params, 'category')
+        if category:
             datasets = datasets.filter(category=category)
-
-        except:
-            pass
-
-        # (remove the archive_uri (if present) from the params to prevent it being searched again
-        query_params = dict(self.request.query_params)
-        try:
-            del query_params['archive_uri']
-        except:
-            pass
-
-        try:
-            del query_params['level']
-        except:
-            pass
-
-        try:
-            del query_params['category']
-        except:
-            pass
 
         input_results = query_controller.create_query(datasets=datasets, query_params = query_params)
 
@@ -104,7 +90,7 @@ class RunQueryView(generics.ListAPIView):
 
         except Exception as error:
             return Response({
-                'error': str(error)
+                'ERROR': str(error)
             })
 
 
@@ -136,9 +122,13 @@ class RunQueryView(generics.ListAPIView):
         })
 
 
+
 class CreateAndRunQueryView(generics.ListAPIView):
     """
     Run a single query on a series of datasets and return the results
+    This function combines 'create-query' and 'run-query' in the 'query-controller'
+    to be able to make a single request by the frontend, instead of 2 separate ones.
+
     examples:
        /esap-api/query/query?level=raw&collection=imaging&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
        /esap-api/query/query?level=raw&collection=timedomain&ra=342.16&dec=33.94&fov=10&archive_uri=apertif
@@ -152,65 +142,59 @@ class CreateAndRunQueryView(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
 
         datasets = common_views.get_datasets()
+        query_params = dict(self.request.query_params)
 
-        # is there a query on archives?
-        try:
-            archive_uri = self.request.query_params['archive_uri']
+        # the query will be run on all datasets that belong to the given archive_uri...
+        query_params,archive_uri = extract_and_remove(query_params, 'archive_uri')
+        if archive_uri:
             datasets = datasets.filter(dataset_archive__uri=archive_uri)
-        except:
-            pass
+
+        # ...unless a dataset_uri is given, then it will only use that dataset
+        query_params,dataset_uri = extract_and_remove(query_params, 'dataset_uri')
+        if dataset_uri:
+            datasets = datasets.filter(uri=dataset_uri)
 
         # is there a query on level?
-        try:
-            level = self.request.query_params['level']
+        query_params, level = extract_and_remove(query_params, 'level')
+        if level:
             datasets = datasets.filter(level=level)
-        except:
-            pass
 
         # is there a query on category?
-        try:
-            category = self.request.query_params['category']
+        query_params, category = extract_and_remove(query_params, 'category')
+        if category:
             datasets = datasets.filter(category=category)
-        except:
-            pass
 
         # is there a query on collection?
         try:
-            collection = self.request.query_params['collection']
-            datasets = datasets.filter(collection=collection)
+            collection = query_params['collection'][0]
+            if collection:
+                # do not remove 'collection' from the query parameters,
+                # because (unlike 'level' and 'category') 'collection' is also a query parameter
+                datasets = datasets.filter(collection=collection)
         except:
             pass
 
-        # remove the dataset selection params, and keep the query search parameters
-        query_params = dict(self.request.query_params)
-        try:
-            del query_params['archive_uri']
-        except:
-            pass
+        query_params, access_url = extract_and_remove(query_params, 'access_url')
+        query_params, service_type = extract_and_remove(query_params, 'service_type')
+        query_params, adql_query = extract_and_remove(query_params, 'adql_query')
 
-        try:
-            del query_params['level']
-        except:
-            pass
+        query_results = query_controller.create_and_run_query(
+            datasets=datasets,
+            query_params = query_params,
+            override_access_url=access_url,
+            override_service_type=service_type,
+            override_adql_query=adql_query
+        )
 
-        try:
-            del query_params['category']
-        except:
-            pass
+        # paginate the results
+        page = self.paginate_queryset(query_results)
+        serializer = CreateAndRunQuerySerializer(instance=page, many=True)
 
-        # do not remove 'collection' from the query parameters, because (unlike 'level' and 'category')
-        # 'collection' can be used as a parameter in the query itself.
+        return self.get_paginated_response(serializer.data)
+        # return Response({
+        #    'query_results': query_results
+        # })
 
-        #try:
-        #    del query_params['collection']
-        #except:
-        #    pass
-
-        query_results = query_controller.create_and_run_query(datasets=datasets,query_params = query_params)
-
-        return Response({
-            'query_results': query_results
-        })
 
 
 class GetServices(generics.ListAPIView):
@@ -223,8 +207,6 @@ class GetServices(generics.ListAPIView):
 
     # override list and generate a custom response
     def list(self, request, *args, **kwargs):
-
-        # datasets = common_views.get_datasets()
 
         # a dataset is needed to access a service_connector
         try:
@@ -240,9 +222,6 @@ class GetServices(generics.ListAPIView):
             keyword = self.request.query_params['keyword']
         except:
             keyword = None
-#            return Response({
-#                'error': "could not find 'keyword' in the query_params"
-#            })
 
         # if given, then only return services for this service_type
         service_type = None

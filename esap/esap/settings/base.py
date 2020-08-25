@@ -220,6 +220,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ASTRON - version 24 aug 2020"
+VERSION = "ASTRON - version 25 aug 2020"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'

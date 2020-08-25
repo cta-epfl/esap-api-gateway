@@ -59,7 +59,6 @@ class tap_service_connector(query_base):
     def construct_query(self, dataset, query_params, translation_parameters, equinox):
 
         esap_query_params = dict(query_params)
-        query = ''
         where = ''
         errors = []
 
@@ -85,7 +84,7 @@ class tap_service_connector(query_base):
                 errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
 
         # add sync (or async) specifier
-        query = self.url + '/sync' \
+        query = self.url + '/sync'
 
         # add fixed ADQL parameters
         query = query + "?lang=ADQL&REQUEST=doQuery"
