@@ -5,6 +5,8 @@
     Description:  ESAP service abstract base class.
                   This shows what the services should implement.
 """
+from rest_framework import serializers
+
 
 class query_base:
 
@@ -25,8 +27,5 @@ class query_base:
         pass
 
     # implement this in the derived service classes
-    def get_table_fields(self, dataset, access_url):
-        pass
-
-    def nico(self):
+    def get_tables_fields(self, dataset, access_url):
         pass

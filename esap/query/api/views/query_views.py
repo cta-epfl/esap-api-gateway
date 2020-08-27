@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from ..services import query_controller
 from query.models import DataSet
 
-from ..query_serializers import ServiceSerializer, TableFieldSerializer, CreateAndRunQuerySerializer
+from ..query_serializers import ServiceSerializer, TablesFieldSerializer, CreateAndRunQuerySerializer
 
 from . import common_views
 
@@ -178,7 +178,7 @@ class CreateAndRunQueryView(generics.ListAPIView):
         query_params, service_type = extract_and_remove(query_params, 'service_type')
         query_params, adql_query = extract_and_remove(query_params, 'adql_query')
 
-        query_results = query_controller.create_and_run_query(
+        query_results, custom_serializer = query_controller.create_and_run_query(
             datasets=datasets,
             query_params = query_params,
             override_access_url=access_url,
@@ -188,7 +188,13 @@ class CreateAndRunQueryView(generics.ListAPIView):
 
         # paginate the results
         page = self.paginate_queryset(query_results)
-        serializer = CreateAndRunQuerySerializer(instance=page, many=True)
+
+        # try to read the custom serializer from the controller...
+        try:
+            serializer = custom_serializer(instance=page, many=True)
+        except:
+            # ... if no serializer was implemented, then use the default serializer for this endpoint
+            serializer = CreateAndRunQuerySerializer(instance=page, many=True)
 
         return self.get_paginated_response(serializer.data)
         # return Response({
@@ -253,7 +259,7 @@ class GetServices(generics.ListAPIView):
         return self.get_paginated_response(serializer.data)
 
 
-class GetTableFields(generics.ListAPIView):
+class GetTablesFields(generics.ListAPIView):
     """
     Retrieve a list of fields from the access_url
     examples: /esap-api/query/get-fields?dataset_uri=vo_reg&access_url=https://vo.astron.nl/tap
@@ -283,7 +289,7 @@ class GetTableFields(generics.ListAPIView):
                 'error': "could not find 'access_url' in the query_params"
             })
 
-        results = query_controller.get_table_fields(dataset=dataset, access_url=access_url)
+        results = query_controller.get_tables_fields(dataset=dataset, access_url=access_url)
 
         if "ERROR:" in results:
               return Response({
@@ -292,7 +298,7 @@ class GetTableFields(generics.ListAPIView):
 
         # paginate the results
         page = self.paginate_queryset(results)
-        serializer = TableFieldSerializer(instance=page, many=True)
+        serializer = TablesFieldSerializer(instance=page, many=True)
 
         return self.get_paginated_response(serializer.data)
 

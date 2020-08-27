@@ -209,10 +209,16 @@ def create_and_run_query(datasets,
                                   connector=connector, return_connector=False)
         results = results + query_results
 
+        # attempt to retrieve a serializer for this function
+        try:
+            serializer = connector.CreateAndRunQuerySerializer
+        except:
+            serializer = None
+
     try:
         if return_connector:
-            return results, connector
-        return results
+            return results, connector, serializer
+        return results, serializer
     except:
         if return_connector:
             return [], connector
@@ -247,7 +253,7 @@ def get_services(dataset, keyword, service_type=None, waveband=None):
     return results
 
 
-def get_table_fields(dataset, access_url):
+def get_tables_fields(dataset, access_url):
     """
 
     :param dataset: dataset containing the link to the service_connector
@@ -268,5 +274,5 @@ def get_table_fields(dataset, access_url):
         return results
 
     # run the specific instance of 'get_fields' for this connector
-    results = connector.get_table_fields(dataset, access_url)
+    results = connector.get_tables_fields(dataset, access_url)
     return results

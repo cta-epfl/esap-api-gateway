@@ -181,7 +181,8 @@ class vo_registry_connector(query_base):
         # To query other catalogs, the 'override_access_url' can be used.
 
         # The default service_type = TAP, which can also be overridden with 'override_service_type'
-        service = vo.dal.TAPService(self.url)
+        #service = vo.dal.TAPService(self.url)
+        service = self.get_service("TAP",self.url)
         if override_access_url:
             service = self.get_service(override_service_type, override_access_url)
 
@@ -297,7 +298,7 @@ class vo_registry_connector(query_base):
 
 
     # retrieve the fields of a service (get-tap-schema in VO speak)
-    def get_table_fields(self, dataset, access_url):
+    def get_tables_fields(self, dataset, access_url):
         """
         # get all available services from the VO registry based on the keyword and possible a service_type
         :param service_type
