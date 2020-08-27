@@ -231,17 +231,17 @@ class vo_registry_connector(query_base):
             # add some fields to return some rendering information for the frontend.
             # for ivoa.obscore field names see: http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
             try:
-                record['title'] = row[dataset.title_field]
+                record['title'] = row[dataset.title_field].decode('utf-8')
             except:
                 pass
 
             try:
-                record['thumbnail'] = row[dataset.thumbnail_field]
+                record['thumbnail'] = row[dataset.thumbnail_field].decode('utf-8')
             except:
                 pass
 
             try:
-                record['url'] = row[dataset.url_field]
+                record['url'] = row[dataset.url_field].decode('utf-8')
             except:
                 pass
 
