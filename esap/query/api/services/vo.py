@@ -4,7 +4,7 @@
     Date created: 2020-02-07
     Description:  ESAP services for VO.
 """
-
+from rest_framework import serializers
 from .query_base import query_base
 import pyvo as vo
 
@@ -242,3 +242,24 @@ class tap_service_connector(query_base):
             results.append(record)
 
         return results
+
+
+    # custom serializer for the 'query' endpoint
+    class CreateAndRunQuerySerializer(serializers.Serializer):
+        dataset = serializers.CharField()
+        # dataset_name = serializers.CharField()
+        result = serializers.CharField()
+        dataproduct_type = serializers.CharField()
+        calibration_level = serializers.IntegerField()
+        target = serializers.CharField()
+        obs_collection = serializers.CharField()
+        size = serializers.IntegerField()
+        ra = serializers.FloatField()
+        dec = serializers.FloatField()
+        fov = serializers.FloatField()
+        facility = serializers.CharField()
+        instrument = serializers.CharField()
+        url = serializers.CharField()
+
+        class Meta:
+            fields = '__all__'
