@@ -4,7 +4,7 @@
     Date created: 2020-02-07
     Description:  ESAP services for VO.
 """
-
+from rest_framework import serializers
 from .query_base import query_base
 import pyvo as vo
 
@@ -175,12 +175,12 @@ class tap_service_connector(query_base):
             # add some fields to return some rendering information for the frontend.
             # for ivoa.obscore field names see: http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
             try:
-                record['title'] = row[dataset.title_field]
+                record['title'] = row[dataset.title_field].decode('utf-8')
             except:
                 pass
 
             try:
-                record['dataproduct_type'] = row['dataproduct_type']
+                record['dataproduct_type'] = row['dataproduct_type'].decode('utf-8')
             except:
                 pass
 
@@ -190,12 +190,12 @@ class tap_service_connector(query_base):
                 pass
 
             try:
-                record['thumbnail'] = row[dataset.thumbnail_field]
+                record['thumbnail'] = row[dataset.thumbnail_field].decode('utf-8')
             except:
                 pass
 
             try:
-                record['url'] = row[dataset.url_field]
+                record['url'] = row[dataset.url_field].decode('utf-8')
             except:
                 pass
 
@@ -215,12 +215,12 @@ class tap_service_connector(query_base):
                 pass
 
             try:
-                record['target'] = row['target_name']
+                record['target'] = row['target_name'].decode('utf-8')
             except:
                 pass
 
             try:
-                record['obs_collection'] = row['obs_collection']
+                record['obs_collection'] = row['obs_collection'].decode('utf-8')
             except:
                 pass
 
@@ -230,15 +230,36 @@ class tap_service_connector(query_base):
                 pass
 
             try:
-                record['facility'] = row['facility_name']
+                record['facility'] = row['facility_name'].decode('utf-8')
             except:
                 pass
 
             try:
-                record['instrument'] = row['instrument_name']
+                record['instrument'] = row['instrument_name'].decode('utf-8')
             except:
                 pass
 
             results.append(record)
 
         return results
+
+
+    # custom serializer for the 'query' endpoint
+    class CreateAndRunQuerySerializer(serializers.Serializer):
+        dataset = serializers.CharField()
+        # dataset_name = serializers.CharField()
+        result = serializers.CharField()
+        dataproduct_type = serializers.CharField()
+        calibration_level = serializers.IntegerField()
+        target = serializers.CharField()
+        obs_collection = serializers.CharField()
+        size = serializers.IntegerField()
+        ra = serializers.FloatField()
+        dec = serializers.FloatField()
+        fov = serializers.FloatField()
+        facility = serializers.CharField()
+        instrument = serializers.CharField()
+        url = serializers.CharField()
+
+        class Meta:
+            fields = '__all__'

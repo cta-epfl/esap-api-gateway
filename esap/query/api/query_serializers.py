@@ -1,7 +1,7 @@
 
 from rest_framework import serializers
 
-# serialization for the 'esap-api/query/get-services request
+# serialization for the 'esap-api/query/query request
 class CreateAndRunQuerySerializer(serializers.Serializer):
     dataset = serializers.CharField()
     result = serializers.CharField()
@@ -29,7 +29,7 @@ class Meta:
 
 
 # serialization for the 'esap-api/query/get-tables-fields request
-class TableFieldSerializer(serializers.Serializer):
+class TablesFieldSerializer(serializers.Serializer):
 
     table_name = serializers.CharField()
     table_type = serializers.CharField()

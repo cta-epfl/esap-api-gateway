@@ -45,7 +45,7 @@ urlpatterns = [
     path('get-services/', views.GetServices.as_view()),
 
     # example: /esap-api/query/get-fields?dataset_uri=vo_reg&access_url=https://vo.astron.nl/tap
-    path('get-tables-fields/', views.GetTableFields.as_view()),
+    path('get-tables-fields/', views.GetTablesFields.as_view()),
 
 ]
 

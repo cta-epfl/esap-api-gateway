@@ -5,6 +5,7 @@
     Description:  ESAP services for ALTA.
 """
 
+from rest_framework import serializers
 from .query_base import query_base
 import requests, json
 import logging
@@ -153,3 +154,21 @@ class alta_connector(query_base):
             results.append(record)
 
         return results
+
+
+    # custom serializer for the 'query' endpoint
+    class CreateAndRunQuerySerializer(serializers.Serializer):
+        name = serializers.CharField()
+        PID = serializers.CharField()
+        dataProductType = serializers.CharField()
+        dataProductSubType = serializers.CharField()
+        generatedByActivity = serializers.CharField()
+        datasetID = serializers.CharField()
+        RA = serializers.FloatField()
+        dec = serializers.FloatField()
+        fov = serializers.FloatField()
+        storageRef = serializers.CharField()
+        url = serializers.CharField()
+
+        class Meta:
+            fields = '__all__'
