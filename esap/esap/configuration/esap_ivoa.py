@@ -39,7 +39,7 @@ query_schema = {
         "keyword": {
             "type": "string",
                     "title": "Keyword",
-                    "default": "UKIDSS"
+                    "default": ""
         },
         "service_type": {
             "type": "string",
@@ -54,55 +54,61 @@ query_schema = {
             "default": "all",
             "enum": ["all", "radio", "millimeter", "infrared", "optical", "uv", "euv", "x-ray", "gamma-ray"],
             "enumNames": ["All", "Radio", "Millimeter", "Nnfrared", "Optical", "UV", "EUV", "X-ray", "Gamma-ray"],
-        }
+        },
     },
 
     "required": ["catalog", "service_type"],
 
+    "dependencies": {
+        "service_type": {
+            "oneOf": [
+                    {
+                        "properties": {
+                            "service_type": {"enum": ["tap"]},
+                            "query": {
+                                "type": "string",
+                                "title": "ADQL Query",
+                            },
+                            "tap_schema": {
+                                "type": "string",
+                                "title": "TAP_SCHEMA",
+                                "enum": ["TAP_SCHEMA.schemas", "TAP_SCHEMA.tables", "TAP_SCHEMA.columns"],
+                            }
 
-    # "service_type": {
-    #     "oneOf": [
-    #         {
-    #             "properties": {
-    #                 "service_type": {"enum": ["tap"]},
-    #                 "adql_query": {
-    #                     "type": "string",
-    #                     "title": "ADQL Query",
-    #                 },
-    #                 "tap_schema": {
-    #                     "type": "string",
-    #                     "title": "TAP_SCHEMA",
-    #                     "enum": ["TAP_SCHEMA.schemas", "TAP_SCHEMA.tables", "TAP_SCHEMA.columns"],
-    #                 }
-    #             },
-    #         },
-    #         {
-    #             "properties": {
-    #                 "service_type": {"enum": ["scs"]},
-    #                 "ra": {
-    #                     "type": "number",
-    #                     "title": "RA (degrees)",
-    #                 },
-    #                 "dec": {
-    #                     "type": "number",
-    #                     "title": "dec (degrees)",
-    #                 },
-    #                 "fov": {
-    #                     "type": "number",
-    #                     "title": "Search Radius (degrees)",
-    #                 },
-    #                 "url": {
-    #                     "type": "string",
-    #                     "title": "Service URL",
-    #                 }
-    #             }
-    #         }
-    #     ]
-    # },
+                        },
+                    },
+                {
+                        "properties": {
+                            "service_type": {"enum": ["scs"]},
+                            "ra": {
+                                "type": "number",
+                                "title": "RA (degrees)",
+                            },
+                            "dec": {
+                                "type": "number",
+                                "title": "dec (degrees)",
+                            },
+                            "fov": {
+                                "type": "number",
+                                "title": "Search Radius (degrees)",
+                            },
+                            "url": {
+                                "type": "string",
+                                "title": "Service URL",
+                            }
+                        }
+                }
+            ]
+        },
 
-
+    }
 }
 
 ui_schema = {
-    "adql_query": {"ui:widget": "textarea"},
+    "query": {"ui:widget": "hidden"},
+    "tap_schema": {"ui:widget": "hidden"},
+    "ra": {"ui:widget": "hidden"},
+    "dec": {"ui:widget": "hidden"},
+    "fov": {"ui:widget": "hidden"},
+    "url": {"ui:widget": "hidden"},
 }

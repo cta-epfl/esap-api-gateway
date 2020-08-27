@@ -111,7 +111,7 @@ class ArchiveListUriViewAPI(generics.ListCreateAPIView):
     A list of Archives
     """
     model = Archive
-    queryset = Archive.objects.order_by('order')
+    queryset = Archive.objects.filter(visible=True).order_by('order')
     serializer_class = ArchiveModelSerializer
 
 

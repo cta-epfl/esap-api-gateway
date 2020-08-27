@@ -57,6 +57,57 @@ class vo_registry_connector(query_base):
         if self.url.endswith('/sync'):
             self.url = self.url[:-4]
 
+    # === helper functions ===
+
+    # return the VO service based on service_type and access_url
+    def get_service(self,service_type,access_url):
+        if 'SCS' in service_type.upper():
+            service = vo.dal.SCSService(access_url)
+        elif 'SIA' in service_type.upper():
+            service = vo.dal.SIAService(access_url)
+        elif 'SSA' in service_type.upper():
+            service = vo.dal.SSAService(access_url)
+        elif 'TAP' in service_type.upper():
+            service = vo.dal.TAPService(access_url)
+        return service
+
+
+    # Search for a keyword
+    def search(self, keywords=None, service_type=None, datamodel=None, waveband=None, **kwargs):
+        """
+        # Use pyvo to do a Registry search by keyword
+        :param keyword: The keyword to search for
+        :param servicetype: The service type that we are searching for (e.g. tap)
+        """
+
+        if datamodel:
+            services = regsearch(datamodel=datamodel)
+        else:
+            services = regsearch(keywords=keywords, servicetype=service_type, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=service_type)
+
+        return services
+
+
+    def get_service_type (self, service):
+        """
+        # Get the IVOA Service Type
+        :param service: The service ->  pyvo.registry.regtap.RegistryResource
+        """
+        servicetype = None
+
+        standards = {
+            "ivo://ivoa.net/std/tap" : "TAP",
+            "ivo://ivoa.net/std/sia" : "SIA",
+            "ivo://ivoa.net/std/obscore" : "OBSCORE",
+            }
+
+        if not service:
+            return servicetype
+
+        return standards[service["standard_id"].decode('utf-8').lower()] if service["standard_id"] else None
+
+
+    # === interface functions, called from the API ===
 
     # construct a query for this type of service
     def construct_query(self, dataset, query_params, translation_parameters, equinox):
@@ -85,85 +136,36 @@ class vo_registry_connector(query_base):
                 errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
 
 
-        results = []
-        services = []
+        query = self.url + '/sync'
 
-        if "keyword" in esap_query_params:
-            services = self.search([esap_query_params["keyword"]],servicetype="tap")
-        else :
-            services = self.search(datamodel='ObsCore',servicetype="tap")
+        # add fixed ADQL parameters
+        query_params = {}
+        query_params["LANG"] = "ADQL"
+        query_params["REQUEST"] = "doQuery"
+        query_params["QUERY"] = "SELECT TOP 10 * from " + dataset.resource_name
 
-        for resource in services:
-            # see row attributes
-            # https://pyvo.readthedocs.io/en/latest/api/pyvo.registry.regtap.RegistryResource.html#pyvo.registry.regtap.RegistryResource
-            #resource.describe()
+        # add ADQL where where
+        if where:
+            if len(where)>0:
+                query_params["QUERY"] += " WHERE " + where
 
-            service = resource.service
-
-            result = {}
-            # ESAP attributes
-            result['query_id'] = resource.ivoid
-            result['dataset'] = dataset.uri
-            result['dataset_name'] = resource.short_name
-            result['output_format'] = str(resource.source_format)
-            result['resource_name'] = str(dataset.resource_name)
-            result['protocol'] = str(dataset.dataset_catalog.protocol)
-            result['esap_service'] = str(dataset.dataset_catalog.esap_service)
-            result['service_connector'] = str(dataset.service_connector)
-
-            # VO RegistryResource attributes
-            result['service_url'] = str(resource.access_url)
-            result['access_url'] = str(resource.access_url)
-            result['content_levels'] = str(resource.content_levels)
-            result['content_types'] = str(resource.content_types)
-            result['creators'] = str(resource.creators)
-            result['ivoid'] = str(resource.ivoid)
-            result['reference_url'] = str(resource.reference_url)
-            result['region_of_regard'] = str(resource.region_of_regard)
-            result['res_description'] = str(resource.res_description)
-            result['res_title'] = str(resource.res_title)
-            result['res_type'] = str(resource.res_type)
-            result['short_name'] = resource.short_name
-            result['source_format'] = str(resource.source_format)
-            result['standard_id'] = str(resource.standard_id)
-            result['waveband'] = ' '.join([str(elem) for elem in resource.waveband])
-            #result['waveband'] = str(resource.waveband)
-
-            # add sync (or async) specifier
-            # query = resource.access_url + '/sync'
-
-            query = resource.access_url + '/sync' if  (self.get_service_type(resource).upper() == "TAP") else resource.access_url
-            # add fixed ADQL parameters
-            query_params = {}
-            query_params["LANG"] = "ADQL"
-            query_params["REQUEST"] = "doQuery"
-            query_params["QUERY"] = "SELECT TOP 10 * from " + dataset.resource_name
-
-
-            # add ADQL where where
-            if where:
+        if cone_search:
+            if len(cone_search)>0:
                 if len(where)>0:
-                    # cut off the last separation character
+                    query_params["QUERY"] += " AND " + cone_search
+                else:
+                    query_params["QUERY"] += " WHERE " + cone_search
 
-                    query_params["QUERY"] += " WHERE " + where
-
-            if cone_search:
-                if len(cone_search)>0:
-                    if len(where)>0:
-                        query_params["QUERY"] += " AND " + cone_search
-                    else:
-                        query_params["QUERY"] += " WHERE " + cone_search
-
-            result['query'] = query  + "?" + urllib.parse.urlencode(query_params)
+        query = query  + "?" + urllib.parse.urlencode(query_params)
 
 
-            results.append(result)
-
-        return results, where, errors
+        return query, where, errors
 
 
     # run a query
-    def run_query(self, dataset, dataset_name, query, override_access_url=None, override_service_type=None):
+    def run_query(self, dataset, dataset_name, query,
+                  override_access_url=None,
+                  override_service_type=None):
         """
         # use pyvo to do a vo query
         :param dataset: the dataset object that contains the information about the catalog to be queried
@@ -179,20 +181,16 @@ class vo_registry_connector(query_base):
         # To query other catalogs, the 'override_access_url' can be used.
 
         # The default service_type = TAP, which can also be overridden with 'override_service_type'
-
-        service = vo.dal.TAPService(self.url)
+        #service = vo.dal.TAPService(self.url)
+        service = self.get_service("TAP",self.url)
         if override_access_url:
-            if 'SCS' in override_service_type.upper():
-                service = vo.dal.SCSService(override_access_url)
-            elif 'SIA' in override_service_type.upper():
-                service = vo.dal.SIAService(override_access_url)
-            elif 'SSA' in override_service_type.upper():
-                service = vo.dal.SSAService(override_access_url)
-            else: # TAP
-                service = vo.dal.TAPService(override_access_url)
+            service = self.get_service(override_service_type, override_access_url)
 
         try:
-            resultset = service.search(query)
+            # SELECT TOP 10 * from ivoa.obscore WHERE CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',10.16,10.94,1.0))=1
+            # SELECT+TOP+10+%2A+from+ivoa.obscore+WHERE+CONTAINS%28POINT%28%27ICRS%27%2Cs_ra%2Cs_dec%29%2C+CIRCLE%28%27ICRS%27%2C342.16%2C33.94%2C10.0%29%29%3D1
+            q = urllib.parse.unquote(query).replace("+"," ")
+            resultset = service.search(q)
         except Exception as error:
             record = {}
             record['result'] =  str(error)
@@ -233,17 +231,17 @@ class vo_registry_connector(query_base):
             # add some fields to return some rendering information for the frontend.
             # for ivoa.obscore field names see: http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
             try:
-                record['title'] = row[dataset.title_field]
+                record['title'] = row[dataset.title_field].decode('utf-8')
             except:
                 pass
 
             try:
-                record['thumbnail'] = row[dataset.thumbnail_field]
+                record['thumbnail'] = row[dataset.thumbnail_field].decode('utf-8')
             except:
                 pass
 
             try:
-                record['url'] = row[dataset.url_field]
+                record['url'] = row[dataset.url_field].decode('utf-8')
             except:
                 pass
 
@@ -253,47 +251,13 @@ class vo_registry_connector(query_base):
         return results
 
 
-    # Search for a keyword
-    def search(self, keywords=None, service_type=None, datamodel=None, waveband=None, **kwargs):
-        """
-        # Use pyvo to do a Registry search by keyword
-        :param keyword: The keyword to search for
-        :param servicetype: The service type that we are searching for (e.g. tap)
-        """
-
-        if datamodel:
-            services = regsearch(datamodel=datamodel)
-        else:
-            services = regsearch(keywords=keywords, servicetype=service_type, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=service_type)
-
-        return services
-
-
-
-    def get_service_type (self, service):
-        """
-        # Get the IVOA Service Type
-        :param service: The service ->  pyvo.registry.regtap.RegistryResource
-        """
-        servicetype = None
-
-        standards = {
-            "ivo://ivoa.net/std/tap" : "TAP",
-            "ivo://ivoa.net/std/sia" : "SIA",
-            "ivo://ivoa.net/std/obscore" : "OBSCORE",
-            }
-
-        if not service:
-            return servicetype
-
-        return standards[service["standard_id"].decode('utf-8').lower()] if service["standard_id"] else None
-
-
-   # run a query
-    def get_services(self, dataset, service_type, waveband, keyword):
+   # retrieve all the vo services that satisfy the given parameters
+    def get_services(self, service_type, waveband, keyword):
         """
         # get all available services from the VO registry based on the keyword and possible a service_type
-        :param dataset: the dataset object that must be queried
+        :param service_type
+        :param waveband
+        :param keyword
         """
 
         results = []
@@ -302,10 +266,7 @@ class vo_registry_connector(query_base):
             services = self.search(keyword, service_type=service_type, waveband=waveband)
 
         except Exception as error:
-            record = {}
-            record['result'] =  str(error)
-            results.append(record)
-            return results
+            return "ERROR: "+str(error)
 
         for resource in services:
             # see row attributes
@@ -316,7 +277,6 @@ class vo_registry_connector(query_base):
             # VO RegistryResource attributes
             result['id'] = str(resource.standard_id)
             result['title'] = str(resource.res_title)
-            # result['description'] = str(resource.res_description)
             result['service_type'] = str(resource.res_type)
             result['access_url'] = str(resource.access_url)
 
@@ -324,6 +284,7 @@ class vo_registry_connector(query_base):
             result['content_types'] = str(resource.content_types)
             result['waveband'] = ' '.join([str(elem) for elem in resource.waveband])
 
+            # result['description'] = str(resource.res_description)
             # result['content_levels'] = str(resource.content_levels)
             # result['creators'] = str(resource.creators)
             # result['ivoid'] = str(resource.ivoid)
@@ -334,3 +295,44 @@ class vo_registry_connector(query_base):
             results.append(result)
 
         return results
+
+
+    # retrieve the fields of a service (get-tap-schema in VO speak)
+    def get_tables_fields(self, dataset, access_url):
+        """
+        # get all available services from the VO registry based on the keyword and possible a service_type
+        :param service_type
+        :param waveband
+        :param keyword
+        """
+
+        tables = []
+
+        try:
+            # query = "select+*+from+TAP_SCHEMA.schemas"
+            # query = "select+*+from+TAP_SCHEMA.tables"
+            # query = "select+*+from+TAP_SCHEMA.columns+where+table_name='II/336/apass9'"
+
+            service = self.get_service("TAP", access_url)
+            for table in service.tables:
+                my_table = {}
+                my_table['table_name'] = table.name
+                my_table['table_type'] = table.type
+
+                my_columns = []
+                for column in table.columns:
+                    my_column = {}
+                    my_column['name'] = column.name
+                    my_column['description'] = column.description
+                    my_column['unit'] = column.unit
+                    my_column['datatype'] = column.datatype.content
+                    my_columns.append(my_column)
+
+                my_table['fields'] = my_columns
+
+                tables.append(my_table)
+
+        except Exception as error:
+            return "ERROR: " + str(error)
+
+        return tables

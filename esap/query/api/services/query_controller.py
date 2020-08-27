@@ -8,7 +8,6 @@ import logging
 
 from . import alta
 from . import vo, vso, helio, vo_reg, zooniverse
-from ..utils import timeit
 
 logger = logging.getLogger(__name__)
 
@@ -123,7 +122,13 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
     return input_results
 
 
-def run_query(dataset, dataset_name, query, override_access_url=None, override_service_type=None, connector=None, return_connector=False):
+def run_query(dataset,
+              dataset_name,
+              query,
+              override_access_url=None,
+              override_service_type=None,
+              connector=None,
+              return_connector=False):
     """
     run a query on a dataset (catalog)
     :param dataset: the dataset object that contains the information about the catalog to be queried
@@ -152,7 +157,13 @@ def run_query(dataset, dataset_name, query, override_access_url=None, override_s
     return results
 
 
-def create_and_run_query(datasets, query_params, connector=None, return_connector=False):
+def create_and_run_query(datasets,
+                         query_params,
+                         override_access_url,
+                         override_service_type,
+                         override_adql_query,
+                         connector=None,
+                         return_connector=False):
     """
     run a query on a list of datasets and return the results
     This function combines create_query and run_query
@@ -161,18 +172,25 @@ def create_and_run_query(datasets, query_params, connector=None, return_connecto
     """
 
     results = []
+    created_queries = []
+    if override_adql_query:
+        q = {}
+        # when a adql_query is given then there will also be only one dataset
+        q['dataset'] = datasets[0].uri
+        q['dataset_name'] = datasets[0].name
+        q['query'] = override_adql_query
+        created_queries.append(q)
+    else:
+        # call the 'create_query' function to construct a list of queries per dataset
+        created_queries, connector = create_query(datasets, query_params, connector=connector, return_connector=True)
 
-    # call the 'create_query' function to construct a list of queries per dataset
-    created_queries, connector = create_query(datasets, query_params, connector=connector, return_connector=True)
 
-    for created_queries in created_queries:
-        dataset_uri = created_queries['dataset']
+    for q in created_queries:
+        dataset_uri = q['dataset']
         dataset = datasets.get(uri=dataset_uri)
 
-        dataset_name = created_queries['dataset_name']
-        # access_url = created_queries['service_url']
-        query = created_queries['query']
-        where = created_queries['where']
+        dataset_name = q['dataset_name']
+        query = q['query']
 
         # the 'query' parameter from the 'create_query' function can be a bit richer than
         # what 'run_query' expects. This is the case for VO queries where a ADQL query is created.
@@ -185,13 +203,22 @@ def create_and_run_query(datasets, query_params, connector=None, return_connecto
             pass
 
         # call the 'run_query()' function to execute a query per dataset
-        query_results = run_query(dataset, dataset_name, query, connector=connector, return_connector=False)
+        query_results = run_query(dataset, dataset_name, query,
+                                  override_access_url=override_access_url,
+                                  override_service_type=override_service_type,
+                                  connector=connector, return_connector=False)
         results = results + query_results
+
+        # attempt to retrieve a serializer for this function
+        try:
+            serializer = connector.CreateAndRunQuerySerializer
+        except:
+            serializer = None
 
     try:
         if return_connector:
-            return results, connector
-        return results
+            return results, connector, serializer
+        return results, serializer
     except:
         if return_connector:
             return [], connector
@@ -221,6 +248,31 @@ def get_services(dataset, keyword, service_type=None, waveband=None):
         return results
 
     # run the specific instance of 'get_services' for this connector
-    results = connector.get_services(dataset, service_type, waveband, keyword)
+    results = connector.get_services(service_type, waveband, keyword)
 
+    return results
+
+
+def get_tables_fields(dataset, access_url):
+    """
+
+    :param dataset: dataset containing the link to the service_connector
+    :param access_url: access_url to the service to get the fields from
+
+    :return:
+    """
+
+    results = []
+
+    try:
+        connector = instantiate_connector(dataset)
+    except:
+        # connector not found
+        result = json.dumps({ "dataset" : dataset.uri, "result" : "ERROR: "+connector.__class__+" not found" })
+        results = []
+        results.append(result)
+        return results
+
+    # run the specific instance of 'get_fields' for this connector
+    results = connector.get_tables_fields(dataset, access_url)
     return results
