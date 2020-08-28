@@ -81,8 +81,8 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        #'knox.auth.TokenAuthentication',
-        #'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
+        'knox.auth.TokenAuthentication',
+        'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
@@ -168,7 +168,6 @@ LOGGING = {
     'loggers': {
         'query': {
             'handlers': ['my_handler','my_file_handler','mail_admins'],
-            #'handlers': ['my_handler','my_file_handler','mail_admins'],
             'level': 'INFO',
         },
         'django': {
