@@ -39,8 +39,7 @@ class alta_connector(query_base):
         where = ''
         errors = []
 
-        # add some weird business logic for the ALTA dataproducts query, which cannot really do a cone search
-
+        # translate the esap_parameters to specific catalog parameters
         for esap_param in esap_query_params:
             esap_key = esap_param
             value = esap_query_params[esap_key][0]
