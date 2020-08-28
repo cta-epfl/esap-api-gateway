@@ -56,9 +56,10 @@ class lta_connector(query_base):
         if where.endswith(AMP_REPLACEMENT):
             where = where[:-len(AMP_REPLACEMENT)]
 
-        # Zheng, this is where the query to LOFAR LTA should be constructed
-        # At this point the 'where' variable contains the query parameters translated to LOFAR format.
-        # (you may still need to change the lofar parameter_mapping)
+        # Zheng, this is where you could change the format of the LOFAR query.
+        # this is not required, you can also leave it like this.
+        # The 'query' variable that is returned is already translated with the lofar parameter_mapping
+        # here. I only used some example paramters, so you may still want to change the parameter_mapping.
 
         # construct the query url
         # for now simply like: 'https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10'
@@ -77,12 +78,13 @@ class lta_connector(query_base):
 
         results = []
 
-        # Zheng: implement run_query functionality here
+        # Zheng: implement run_query functionality here,
+        # you can use the incoming 'query' to find the requested parameters
 
         # create a function that reads the data from lofar
         # lofar_results = get_data_from_lofar(query)
 
-        # fake example
+        # fake example, something like this should come from your connection to LOFAR
         lofar_results = [
             {"name" : "crap nebula","sasid" : "12345", "ra": "12.34","dec": "56.78","url": "https://https://lta.lofar.eu/"},
             {"name" : "Nico's Star", "sasid": "12345", "ra": "12.34", "dec": "56.78","url": "https://https://lta.lofar.eu/"},
