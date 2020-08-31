@@ -145,7 +145,7 @@ class vo_registry_connector(query_base):
         query_params = {}
         query_params["LANG"] = "ADQL"
         query_params["REQUEST"] = "doQuery"
-        query_params["QUERY"] = "SELECT TOP 10 * from " + dataset.resource_name
+        query_params["QUERY"] = "SELECT * from " + dataset.resource_name
 
         # add ADQL where where
         if where:

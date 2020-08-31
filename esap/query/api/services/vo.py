@@ -90,7 +90,7 @@ class tap_service_connector(query_base):
         query = query + "?lang=ADQL&REQUEST=doQuery"
 
         # add query ADQL parameters (limit to 10 results)
-        query = query + "&QUERY=SELECT TOP 10 * from " + dataset.resource_name
+        query = query + "&QUERY=SELECT * from " + dataset.resource_name
         # query = query + "&QUERY=SELECT TOP 10 " + dataset.select_fields +" from " + dataset.resource_name
 
         # add ADQL where clause
