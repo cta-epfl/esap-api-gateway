@@ -4212,3 +4212,14 @@
 [2020-08-28 17:26:30,293] query_controller.create_query()
 [2020-08-28 17:26:30,311] ERROR: could not translating key fov 'fov', using it raw.
 [2020-08-28 17:26:30,311] construct_query: https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10
+[2020-08-31 10:50:15,748] query_controller.create_query()
+[2020-08-31 10:50:54,622] query_controller.create_query()
+[2020-08-31 10:51:17,477] query_controller.create_query()
+[2020-08-31 11:07:37,701] query_controller.create_query()
+[2020-08-31 11:08:59,392] query_controller.create_query()
+[2020-08-31 11:09:31,338] query_controller.create_query()
+[2020-08-31 11:10:16,951] query_controller.create_query()
+[2020-08-31 11:33:13,575] query_controller.create_query()
+[2020-08-31 11:33:25,491] query_controller.create_query()
+[2020-08-31 11:33:36,299] query_controller.create_query()
+[2020-08-31 11:53:19,346] query_controller.create_query()

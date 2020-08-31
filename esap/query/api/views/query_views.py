@@ -187,7 +187,8 @@ class CreateAndRunQueryView(generics.ListAPIView):
             override_adql_query=adql_query
         )
 
-        if pagination.upper()=='FALSE':
+        # if the parameter 'pagination==false' is given, then do not paginate the response
+        if pagination!=None and pagination.upper()=='FALSE':
 
             # try to read the custom serializer from the controller...
             try:
@@ -197,7 +198,7 @@ class CreateAndRunQueryView(generics.ListAPIView):
                 serializer = CreateAndRunQuerySerializer(instance=query_results, many=True)
 
             return Response({
-                'query_results': query_results
+                'results': serializer.data
             })
 
         else:

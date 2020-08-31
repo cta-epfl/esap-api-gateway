@@ -60,7 +60,10 @@ class vo_registry_connector(query_base):
     # === helper functions ===
 
     # return the VO service based on service_type and access_url
-    def get_service(self,service_type,access_url):
+    def get_service(self,access_url, service_type="TAP"):
+        if service_type==None:
+            service_type="TAP"
+
         if 'SCS' in service_type.upper():
             service = vo.dal.SCSService(access_url)
         elif 'SIA' in service_type.upper():
@@ -182,11 +185,12 @@ class vo_registry_connector(query_base):
 
         # The default service_type = TAP, which can also be overridden with 'override_service_type'
         #service = vo.dal.TAPService(self.url)
-        service = self.get_service("TAP",self.url)
-        if override_access_url:
-            service = self.get_service(override_service_type, override_access_url)
 
         try:
+            service = self.get_service(access_url=self.url,service_type="TAP")
+            if override_access_url:
+                service = self.get_service(access_url=override_access_url, service_type=override_service_type)
+
             # SELECT TOP 10 * from ivoa.obscore WHERE CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',10.16,10.94,1.0))=1
             # SELECT+TOP+10+%2A+from+ivoa.obscore+WHERE+CONTAINS%28POINT%28%27ICRS%27%2Cs_ra%2Cs_dec%29%2C+CIRCLE%28%27ICRS%27%2C342.16%2C33.94%2C10.0%29%29%3D1
             q = urllib.parse.unquote(query).replace("+"," ")
