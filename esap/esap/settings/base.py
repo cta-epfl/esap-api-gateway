@@ -81,8 +81,8 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        #'knox.auth.TokenAuthentication',
-        #'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
+        'knox.auth.TokenAuthentication',
+        'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
@@ -168,7 +168,6 @@ LOGGING = {
     'loggers': {
         'query': {
             'handlers': ['my_handler','my_file_handler','mail_admins'],
-            #'handlers': ['my_handler','my_file_handler','mail_admins'],
             'level': 'INFO',
         },
         'django': {
@@ -220,6 +219,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ASTRON - version 27 aug 2020"
+VERSION = "ASTRON - version 31 aug 2020"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'
