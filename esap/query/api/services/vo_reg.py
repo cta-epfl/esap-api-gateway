@@ -113,7 +113,7 @@ class vo_registry_connector(query_base):
     # === interface functions, called from the API ===
 
     # construct a query for this type of service
-    def construct_query(self, dataset, query_params, translation_parameters, equinox):
+    def construct_query(self, dataset, query_params, translation_parameters, equinox, override_resource=None):
 
         esap_query_params = dict(query_params)
         where = ''
@@ -145,7 +145,13 @@ class vo_registry_connector(query_base):
         query_params = {}
         query_params["LANG"] = "ADQL"
         query_params["REQUEST"] = "doQuery"
-        query_params["QUERY"] = "SELECT * from " + dataset.resource_name
+
+        # if the parameter '&resource=...' is given to the url, then use that resource..
+        if override_resource:
+            query_params["QUERY"] = "SELECT * from " + override_resource
+        else:
+            # ... otherwise use the resource as defined in the datasets
+            query_params["QUERY"] = "SELECT * from " + dataset.resource_name
 
         # add ADQL where where
         if where:

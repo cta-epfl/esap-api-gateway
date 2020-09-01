@@ -56,7 +56,7 @@ class tap_service_connector(query_base):
             self.url = self.url[:-4]
 
     # construct a query for this type of service
-    def construct_query(self, dataset, query_params, translation_parameters, equinox):
+    def construct_query(self, dataset, query_params, translation_parameters, equinox, override_resource=None):
 
         esap_query_params = dict(query_params)
         where = ''
@@ -90,11 +90,16 @@ class tap_service_connector(query_base):
         query = query + "?lang=ADQL&REQUEST=doQuery"
 
         # add query ADQL parameters (limit to 10 results)
-        query = query + "&QUERY=SELECT * from " + dataset.resource_name
-        # query = query + "&QUERY=SELECT TOP 10 " + dataset.select_fields +" from " + dataset.resource_name
+        query = query + "&QUERY=SELECT * from "
+
+        # if the parameter '&resource=...' is given to the url, then use that resource..
+        if override_resource:
+            query = query + override_resource
+        else:
+            # ... otherwise use the resource as defined in the datasets
+            query = query + dataset.resource_name
 
         # add ADQL where clause
-
         if len(where)>0:
             query = query + " WHERE "
             query = query + where
@@ -132,13 +137,9 @@ class tap_service_connector(query_base):
         service = vo.dal.TAPService(self.url)
         try:
             resultset = service.search(query)
+
         except Exception as error:
-            record = {}
-            record['query'] = query
-            record['dataset'] = dataset.uri
-            record['error'] =  str(error)
-            results.append(record)
-            return results
+            return "ERROR: " + str(error)
 
         for row in resultset:
             # for the definition of standard fields to return see:

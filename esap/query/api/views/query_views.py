@@ -178,10 +178,12 @@ class CreateAndRunQueryView(generics.ListAPIView):
         query_params, service_type = extract_and_remove(query_params, 'service_type')
         query_params, adql_query = extract_and_remove(query_params, 'adql_query')
         query_params, pagination = extract_and_remove(query_params, 'pagination')
+        query_params, resource = extract_and_remove(query_params, 'resource')
 
         query_results, custom_serializer = query_controller.create_and_run_query(
             datasets=datasets,
             query_params = query_params,
+            override_resource=resource,
             override_access_url=access_url,
             override_service_type=service_type,
             override_adql_query=adql_query
