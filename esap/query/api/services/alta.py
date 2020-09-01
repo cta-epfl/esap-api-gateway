@@ -146,11 +146,7 @@ class alta_connector(query_base):
                 results.append(record)
 
         except Exception as error:
-            record = {}
-            record['query'] = query
-            record['dataset'] = dataset.uri
-            record['error'] =  str(error)
-            results.append(record)
+            return "ERROR: " + str(error)
 
         return results
 

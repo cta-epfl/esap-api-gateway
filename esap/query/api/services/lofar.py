@@ -91,17 +91,20 @@ class lta_connector(query_base):
             {"name" : "Zheng's Voorwerp", "sasid": "12345", "ra": "12.34", "dec": "56.78","url": "https://https://lta.lofar.eu/"},
         ]
 
+        try:
+            for lofar_result in lofar_results:
+                record = {}
 
-        for lofar_result in lofar_results:
-            record = {}
+                record['name']  = lofar_result['name']
+                record['sasid'] = lofar_result['sasid']
+                record['ra']    = lofar_result['ra']
+                record['dec']   = lofar_result['dec']
+                record['url']   = lofar_result['url']
 
-            record['name']  = lofar_result['name']
-            record['sasid'] = lofar_result['sasid']
-            record['ra']    = lofar_result['ra']
-            record['dec']   = lofar_result['dec']
-            record['url']   = lofar_result['url']
+                results.append(record)
 
-            results.append(record)
+        except Exception as error:
+            return "ERROR: " + str(error)
 
         return results
 
