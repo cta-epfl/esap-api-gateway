@@ -96,7 +96,8 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
                                 result['error'] = str(errors)
 
                         except Exception as error:
-                            # connector not found
+                            # connector not found.
+                            # store the error in the result and continue
                             result["error"] = str(error)
 
                         # usually, the returned result in 'query' is a single query.
@@ -109,16 +110,12 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
                             input_results.append(result)
 
                 except Exception as error:
+                    # store the error in the result and continue
                     result["error"] = str(error)
                     input_results.append(result)
 
     except Exception as error:
-        try:
-            message = str(error.message)
-            logger.error(message)
-            return message
-        except Exception:
-            return str(error)
+        return "ERROR: " + str(error)
 
     if return_connector:
         return input_results, connector
@@ -187,6 +184,9 @@ def create_and_run_query(datasets,
         # call the 'create_query' function to construct a list of queries per dataset
         created_queries, connector = create_query(datasets, query_params, connector=connector, return_connector=True)
 
+        if "ERROR:" in created_queries:
+            return created_queries
+
 
     for q in created_queries:
         dataset_uri = q['dataset']
@@ -210,6 +210,10 @@ def create_and_run_query(datasets,
                                   override_access_url=override_access_url,
                                   override_service_type=override_service_type,
                                   connector=connector, return_connector=False)
+
+        if "ERROR:" in query_results:
+            return query_results,None
+
         results = results + query_results
 
         # attempt to retrieve a serializer for this function

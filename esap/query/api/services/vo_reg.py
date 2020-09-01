@@ -195,11 +195,9 @@ class vo_registry_connector(query_base):
             # SELECT+TOP+10+%2A+from+ivoa.obscore+WHERE+CONTAINS%28POINT%28%27ICRS%27%2Cs_ra%2Cs_dec%29%2C+CIRCLE%28%27ICRS%27%2C342.16%2C33.94%2C10.0%29%29%3D1
             q = urllib.parse.unquote(query).replace("+"," ")
             resultset = service.search(q)
+
         except Exception as error:
-            record = {}
-            record['result'] =  str(error)
-            results.append(record)
-            return results
+            return "ERROR: " + str(error)
 
         for row in resultset:
             # for the definition of standard fields to return see:

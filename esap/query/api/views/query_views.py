@@ -187,6 +187,11 @@ class CreateAndRunQueryView(generics.ListAPIView):
             override_adql_query=adql_query
         )
 
+        if "ERROR:" in query_results:
+              return Response({
+                  query_results
+            })
+
         # if the parameter 'pagination==false' is given, then do not paginate the response
         if pagination!=None and pagination.upper()=='FALSE':
 

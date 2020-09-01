@@ -4223,3 +4223,13 @@
 [2020-08-31 11:33:25,491] query_controller.create_query()
 [2020-08-31 11:33:36,299] query_controller.create_query()
 [2020-08-31 11:53:19,346] query_controller.create_query()
+[2020-08-31 13:42:55,632] query_controller.create_query()
+[2020-08-31 13:47:48,907] query_controller.create_query()
+[2020-08-31 13:47:48,929] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=342.16_and_view_dec=33.94_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-31 13:47:48,937] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=342.16&view_dec=33.94&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-31 13:48:02,221] nr of dataproducts in response: 500
+[2020-08-31 13:52:59,330] query_controller.create_query()
+[2020-09-01 10:08:51,025] query_controller.create_query()
+[2020-09-01 10:09:27,993] query_controller.create_query()
+[2020-09-01 10:09:47,987] query_controller.create_query()
+[2020-09-01 10:14:46,141] query_controller.create_query()
