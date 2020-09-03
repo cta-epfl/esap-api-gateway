@@ -321,7 +321,7 @@ class vo_registry_connector(query_base):
             # query = "select+*+from+TAP_SCHEMA.tables"
             # query = "select+*+from+TAP_SCHEMA.columns+where+table_name='II/336/apass9'"
 
-            service = self.get_service("TAP", access_url)
+            service = self.get_service(access_url, "TAP")
             for table in service.tables:
                 my_table = {}
                 my_table['table_name'] = table.name
