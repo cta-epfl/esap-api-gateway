@@ -9,33 +9,18 @@ networks:
     driver: bridge
 
 services:
-  esap_api_release:
+  esap_api:
     container_name: esap_api_release
     image: esap_api_release:latest
-    ports:
-      - 15671:8000
     networks:
       - esap_network
-    expose: 
+    expose:
       - 8000
     env_file:
       - $HOME/shared/oidc
     restart: always
     volumes:
       - $HOME/shared/esap-gateway-release/:/shared
-
-  esap_api:
-    container_name: esap_api
-    image: esap_api:latest
-    networks:
-      - esap_network
-    expose: 
-      - 8000
-    env_file:
-      - $HOME/shared/oidc
-    restart: always
-    volumes:
-      - $HOME/shared:/shared
 
   esap_nginx:
     build:
@@ -44,11 +29,12 @@ services:
     container_name: esap_nginx
     image: esap_nginx:latest
     networks:
-      - esap_network    
+      - esap_network
     ports:
       - 80:80
     volumes:
       - $HOME/shared:/shared
-      - $HOME/shared:/etc/nginx/conf.d 
+      - $HOME/shared:/etc/nginx/conf.d
       - $HOME/shared/static:/static
     restart: always
+
