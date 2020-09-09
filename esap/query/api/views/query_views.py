@@ -177,29 +177,50 @@ class CreateAndRunQueryView(generics.ListAPIView):
         query_params, access_url = extract_and_remove(query_params, 'access_url')
         query_params, service_type = extract_and_remove(query_params, 'service_type')
         query_params, adql_query = extract_and_remove(query_params, 'adql_query')
+        query_params, pagination = extract_and_remove(query_params, 'pagination')
+        query_params, resource = extract_and_remove(query_params, 'resource')
 
         query_results, custom_serializer = query_controller.create_and_run_query(
             datasets=datasets,
             query_params = query_params,
+            override_resource=resource,
             override_access_url=access_url,
             override_service_type=service_type,
             override_adql_query=adql_query
         )
 
-        # paginate the results
-        page = self.paginate_queryset(query_results)
+        if "ERROR:" in query_results:
+              return Response({
+                  query_results
+            })
 
-        # try to read the custom serializer from the controller...
-        try:
-            serializer = custom_serializer(instance=page, many=True)
-        except:
-            # ... if no serializer was implemented, then use the default serializer for this endpoint
-            serializer = CreateAndRunQuerySerializer(instance=page, many=True)
+        # if the parameter 'pagination==false' is given, then do not paginate the response
+        if pagination!=None and pagination.upper()=='FALSE':
 
-        return self.get_paginated_response(serializer.data)
-        # return Response({
-        #    'query_results': query_results
-        # })
+            # try to read the custom serializer from the controller...
+            try:
+                serializer = custom_serializer(instance=query_results, many=True)
+            except:
+                # ... if no serializer was implemented, then use the default serializer for this endpoint
+                serializer = CreateAndRunQuerySerializer(instance=query_results, many=True)
+
+            return Response({
+                'results': serializer.data
+            })
+
+        else:
+            # paginate the results
+            page = self.paginate_queryset(query_results)
+
+            # try to read the custom serializer from the controller...
+            try:
+                serializer = custom_serializer(instance=page, many=True)
+            except:
+                # ... if no serializer was implemented, then use the default serializer for this endpoint
+                serializer = CreateAndRunQuerySerializer(instance=page, many=True)
+
+            return self.get_paginated_response(serializer.data)
+
 
 
 

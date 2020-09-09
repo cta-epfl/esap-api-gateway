@@ -4182,3 +4182,101 @@
 [2020-08-27 17:21:51,665] query_controller.create_query()
 [2020-08-27 17:22:19,876] query_controller.create_query()
 [2020-08-27 17:24:25,711] query_controller.create_query()
+[2020-08-28 08:48:56,911] query_controller.create_query()
+[2020-08-28 16:59:38,434] query_controller.create_query()
+[2020-08-28 17:01:23,110] query_controller.create_query()
+[2020-08-28 17:02:26,962] query_controller.create_query()
+[2020-08-28 17:04:00,467] query_controller.create_query()
+[2020-08-28 17:05:49,077] query_controller.create_query()
+[2020-08-28 17:06:34,000] query_controller.create_query()
+[2020-08-28 17:07:19,323] ERROR: could not translating key fov 'fov', using it raw.
+[2020-08-28 17:07:30,982] construct_query: https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10
+[2020-08-28 17:11:06,381] query_controller.create_query()
+[2020-08-28 17:11:14,568] ERROR: could not translating key fov 'fov', using it raw.
+[2020-08-28 17:11:17,189] construct_query: https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10
+[2020-08-28 17:11:41,094] query_controller.create_query()
+[2020-08-28 17:11:53,929] ERROR: could not translating key fov 'fov', using it raw.
+[2020-08-28 17:11:53,930] construct_query: https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10
+[2020-08-28 17:13:06,060] query_controller.create_query()
+[2020-08-28 17:13:06,079] ERROR: could not translating key fov 'fov', using it raw.
+[2020-08-28 17:13:06,079] construct_query: https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10
+[2020-08-28 17:14:08,596] query_controller.create_query()
+[2020-08-28 17:14:08,616] ERROR: could not translating key fov 'fov', using it raw.
+[2020-08-28 17:14:08,617] construct_query: https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10
+[2020-08-28 17:14:13,371] query_controller.create_query()
+[2020-08-28 17:14:13,392] ERROR: could not translating key fov 'fov', using it raw.
+[2020-08-28 17:14:13,393] construct_query: https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10
+[2020-08-28 17:14:25,223] query_controller.create_query()
+[2020-08-28 17:14:25,240] ERROR: could not translating key fov 'fov', using it raw.
+[2020-08-28 17:14:25,240] construct_query: https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10
+[2020-08-28 17:26:30,293] query_controller.create_query()
+[2020-08-28 17:26:30,311] ERROR: could not translating key fov 'fov', using it raw.
+[2020-08-28 17:26:30,311] construct_query: https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10
+[2020-08-31 10:50:15,748] query_controller.create_query()
+[2020-08-31 10:50:54,622] query_controller.create_query()
+[2020-08-31 10:51:17,477] query_controller.create_query()
+[2020-08-31 11:07:37,701] query_controller.create_query()
+[2020-08-31 11:08:59,392] query_controller.create_query()
+[2020-08-31 11:09:31,338] query_controller.create_query()
+[2020-08-31 11:10:16,951] query_controller.create_query()
+[2020-08-31 11:33:13,575] query_controller.create_query()
+[2020-08-31 11:33:25,491] query_controller.create_query()
+[2020-08-31 11:33:36,299] query_controller.create_query()
+[2020-08-31 11:53:19,346] query_controller.create_query()
+[2020-08-31 13:42:55,632] query_controller.create_query()
+[2020-08-31 13:47:48,907] query_controller.create_query()
+[2020-08-31 13:47:48,929] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=342.16_and_view_dec=33.94_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-31 13:47:48,937] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=342.16&view_dec=33.94&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
+[2020-08-31 13:48:02,221] nr of dataproducts in response: 500
+[2020-08-31 13:52:59,330] query_controller.create_query()
+[2020-09-01 10:08:51,025] query_controller.create_query()
+[2020-09-01 10:09:27,993] query_controller.create_query()
+[2020-09-01 10:09:47,987] query_controller.create_query()
+[2020-09-01 10:14:46,141] query_controller.create_query()
+[2020-09-01 10:37:15,434] could not find 'waveband' in the query_params. Continuing...
+[2020-09-01 10:58:34,883] could not find 'waveband' in the query_params. Continuing...
+[2020-09-01 11:09:22,325] could not find 'waveband' in the query_params. Continuing...
+[2020-09-01 12:19:19,314] query_controller.create_query()
+[2020-09-01 12:29:06,961] query_controller.create_query()
+[2020-09-01 12:54:15,760] query_controller.create_query()
+[2020-09-01 12:55:06,931] query_controller.create_query()
+[2020-09-01 12:56:32,978] query_controller.create_query()
+[2020-09-01 12:57:41,395] query_controller.create_query()
+[2020-09-01 12:59:17,798] query_controller.create_query()
+[2020-09-01 13:01:13,422] query_controller.create_query()
+[2020-09-01 13:04:21,705] query_controller.create_query()
+[2020-09-01 13:04:41,627] ERROR: could not translating key fov 'fov', using it raw.
+[2020-09-01 13:04:41,628] construct_query: https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10
+[2020-09-01 13:05:16,001] query_controller.create_query()
+[2020-09-01 13:07:01,738] query_controller.create_query()
+[2020-09-01 13:07:11,268] query_controller.create_query()
+[2020-09-01 13:08:43,206] query_controller.create_query()
+[2020-09-01 13:09:30,101] query_controller.create_query()
+[2020-09-01 13:11:31,416] query_controller.create_query()
+[2020-09-01 13:21:47,500] query_controller.create_query()
+[2020-09-01 13:22:28,115] query_controller.create_query()
+[2020-09-01 13:23:42,681] query_controller.create_query()
+[2020-09-01 13:26:17,069] query_controller.create_query()
+[2020-09-01 13:43:41,271] query_controller.create_query()
+[2020-09-01 13:43:53,847] query_controller.create_query()
+[2020-09-01 13:47:59,843] query_controller.create_query()
+[2020-09-01 13:48:07,570] query_controller.create_query()
+[2020-09-01 13:49:19,565] query_controller.create_query()
+[2020-09-01 13:49:32,064] query_controller.create_query()
+[2020-09-01 13:49:44,415] query_controller.create_query()
+[2020-09-01 13:51:02,054] query_controller.create_query()
+[2020-09-01 13:51:54,586] query_controller.create_query()
+[2020-09-01 13:52:33,570] query_controller.create_query()
+[2020-09-01 13:52:50,859] query_controller.create_query()
+[2020-09-01 13:53:53,952] query_controller.create_query()
+[2020-09-01 13:54:05,839] query_controller.create_query()
+[2020-09-01 13:55:58,884] query_controller.create_query()
+[2020-09-01 13:56:13,273] query_controller.create_query()
+[2020-09-01 13:56:21,720] query_controller.create_query()
+[2020-09-01 13:58:48,932] query_controller.create_query()
+[2020-09-01 13:59:00,898] query_controller.create_query()
+[2020-09-01 13:59:31,748] query_controller.create_query()
+[2020-09-01 14:00:54,313] query_controller.create_query()
+[2020-09-01 14:01:01,951] query_controller.create_query()
+[2020-09-01 14:02:00,481] query_controller.create_query()
+[2020-09-01 14:02:10,199] query_controller.create_query()

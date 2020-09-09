@@ -7,7 +7,7 @@ import json
 import logging
 
 from . import alta
-from . import vo, vso, helio, vo_reg, zooniverse
+from . import vo, vso, helio, vo_reg, zooniverse, lofar
 
 logger = logging.getLogger(__name__)
 
@@ -34,12 +34,15 @@ def instantiate_connector(dataset):
     elif service_module.upper() == 'ZOONIVERSE':
         connector_class = getattr(zooniverse, service_connector)
 
+    elif service_module.upper() == 'LOFAR':
+        connector_class = getattr(lofar, service_connector)
+
     url = str(dataset.dataset_catalog.url)
     connector = connector_class(url)
     return connector
 
 
-def create_query(datasets, query_params, connector=None, return_connector=False):
+def create_query(datasets, query_params, override_resource=None, connector=None, return_connector=False):
     """
     create a list of queries for a range of datasets, using their catalog services
     :param datasets:
@@ -85,7 +88,18 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
                             if connector is None:
                                 connector = instantiate_connector(dataset)
 
-                            query, where, errors = connector.construct_query(dataset, query_params, parameter_mapping,dataset.dataset_catalog.equinox)
+                            if override_resource:
+                                query, where, errors = connector.construct_query(dataset,
+                                                                                 query_params,
+                                                                                 parameter_mapping,
+                                                                                 dataset.dataset_catalog.equinox,
+                                                                                 override_resource)
+                            else:
+                                query, where, errors = connector.construct_query(dataset,
+                                                                                 query_params,
+                                                                                 parameter_mapping,
+                                                                                 dataset.dataset_catalog.equinox)
+
                             result['query'] = query
                             result['where'] = where
 
@@ -93,7 +107,8 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
                                 result['error'] = str(errors)
 
                         except Exception as error:
-                            # connector not found
+                            # connector not found.
+                            # store the error in the result and continue
                             result["error"] = str(error)
 
                         # usually, the returned result in 'query' is a single query.
@@ -106,16 +121,12 @@ def create_query(datasets, query_params, connector=None, return_connector=False)
                             input_results.append(result)
 
                 except Exception as error:
+                    # store the error in the result and continue
                     result["error"] = str(error)
                     input_results.append(result)
 
     except Exception as error:
-        try:
-            message = str(error.message)
-            logger.error(message)
-            return message
-        except Exception:
-            return str(error)
+        return "ERROR: " + str(error)
 
     if return_connector:
         return input_results, connector
@@ -159,6 +170,7 @@ def run_query(dataset,
 
 def create_and_run_query(datasets,
                          query_params,
+                         override_resource,
                          override_access_url,
                          override_service_type,
                          override_adql_query,
@@ -182,8 +194,17 @@ def create_and_run_query(datasets,
         created_queries.append(q)
     else:
         # call the 'create_query' function to construct a list of queries per dataset
-        created_queries, connector = create_query(datasets, query_params, connector=connector, return_connector=True)
+        created_queries, connector = create_query(datasets, query_params, override_resource=override_resource, connector=connector, return_connector=True)
 
+        # check if a "ERROR:" string was returned
+        if "ERROR:" in created_queries:
+            return created_queries, None
+
+        # check if the returned dict contains an error
+        if created_queries[0]['error']:
+            error = created_queries[0]['error']
+            if len(error)>2:
+                return error, None
 
     for q in created_queries:
         dataset_uri = q['dataset']
@@ -207,6 +228,10 @@ def create_and_run_query(datasets,
                                   override_access_url=override_access_url,
                                   override_service_type=override_service_type,
                                   connector=connector, return_connector=False)
+
+        if "ERROR:" in query_results:
+            return query_results,None
+
         results = results + query_results
 
         # attempt to retrieve a serializer for this function
