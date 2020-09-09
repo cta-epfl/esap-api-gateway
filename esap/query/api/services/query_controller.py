@@ -246,8 +246,8 @@ def create_and_run_query(datasets,
         return results, serializer
     except:
         if return_connector:
-            return [], connector
-        return []
+            return [], connector, None
+        return [], None
 
 
 def get_services(dataset, keyword, service_type=None, waveband=None):

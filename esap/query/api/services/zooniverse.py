@@ -1,3 +1,4 @@
+from rest_framework import serializers
 from .query_base import query_base
 from panoptes_client import Panoptes, Project
 from panoptes_client.panoptes import PanoptesAPIException
@@ -17,11 +18,48 @@ class panoptes_connector(query_base):
     The connector to access the Zooniverse Panoptes dataset
     """
 
+    class TypeToSerializerMap:
+
+        map = {
+            type(float): serializers.FloatField(),
+            type(int): serializers.IntegerField(),
+            type(str): serializers.CharField(),
+            type(dict): serializers.DictField(),
+            type(list) : serializers.ListField()
+        }
+
+        @classmethod
+        def getFieldForType(cls, value):
+            return cls.map.get(type(value), serializers.JSONField())
+
+    #
+    class CreateAndRunQuerySerializer(serializers.Serializer):
+        """
+        Custom serializer classes implement dynamic field definition based on
+        the contents of the query passed to it.
+        """
+
+        def __init__(self, *args, **kwargs):
+
+            self.example_result = kwargs.get("instance", [])[0]
+
+            super().__init__(*args, **kwargs)
+
+            self.fields.update(
+                {
+                    key: panoptes_connector.TypeToSerializerMap.getFieldForType(
+                        value
+                    )
+                    for key, value in self.example_result.items()
+                }
+            )
+
     # Initializer
     def __init__(self, url):
         self.url = url
         self.panoptes = None
         self.panoptes_user = None
+        self.pagination = "FALSE"
 
     # construct a query for this type of service
     def construct_query(
@@ -131,7 +169,9 @@ class panoptes_connector(query_base):
                     elif len(results):
                         return results
                     else:
-                        raise Exception(f"Zero length response for project query: {query}")
+                        raise Exception(
+                            f"Zero length response for project query: {query}"
+                        )
                 # must be a workflow query
                 if have_query_fields_key:
                     query_fields = tokens[f"{query_type}_fields"].split(",")
@@ -143,7 +183,7 @@ class panoptes_connector(query_base):
                         "project_id": project.id,
                         "display_name": project.display_name,
                         "requested_page": resultPage,
-                        "pages" : numPages,
+                        "pages": numPages,
                         "workflows": [
                             dict(
                                 [
