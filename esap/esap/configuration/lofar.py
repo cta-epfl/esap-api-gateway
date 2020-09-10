@@ -88,6 +88,7 @@ query_schema = {
         "public": {
             "type": "boolean",
             "title": "Public data only",
+            "default": "true",
             "enum": ["true", "false"],
         },
         "sasid": {
