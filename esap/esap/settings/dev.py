@@ -26,10 +26,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
     },
-#    'query': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
-#    },
+    #    'query': {
+    #        'ENGINE': 'django.db.backends.sqlite3',
+    #        'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
+    #    },
     'staging': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_staging_config.sqlite3'),
@@ -42,6 +42,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_rucio_config.sqlite3'),
     },
+
 }
 
 # Password validation

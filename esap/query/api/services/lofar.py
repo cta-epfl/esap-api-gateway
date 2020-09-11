@@ -4,6 +4,14 @@
     Description:  LOFAR Service Connector for ESAP.
 """
 
+from astropy.coordinates import SkyCoord
+import math
+import datetime
+from awlofar.main.aweimports import CorrelatedDataProduct, \
+    AveragingPipeline, \
+    Observation, FileObject, \
+    SubArrayPointing, Pointing
+from awlofar.database.Context import context
 from rest_framework import serializers
 from .query_base import query_base
 import requests
@@ -18,6 +26,64 @@ AMP_REPLACEMENT = '_and_'
 LTA_HOST = "https://https://lta.lofar.eu/"
 
 # --------------------------------------------------------------------------------------------------------------------
+
+
+def get_data_from_lofar(query):
+    """ use awlofar library to query Lofar LTA """
+
+    # parse query string, e.g. target_name, ra, dec, ...
+    target_name = "A2255"
+    dataproduct_type = "AveragingPipeline"
+    antenna_type = "HBA"
+    public = "true"  # query public data only
+
+    # convert object name to sky coordinates
+    # target_coords = SkyCoord.from_name(target_name)
+    # Resolved coordinates is
+    # <SkyCoord (ICRS): (ra, dec) in deg
+    # (258.2085, 64.05294444)>
+    # target_coords.ra.deg, target_coords.dec.deg
+    # target_coords.ra.rad, target_coords.dec.rad
+
+    # Given (ra, dec) in deg (258.2085, 64.05294444)
+    # construct lta query
+    target_coords = SkyCoord.from_name("A2255")
+    results = []
+    observations = set()
+    lta_query = (Pointing.rightAscension > math.floor(target_coords.ra.deg)) &\
+        (Pointing.rightAscension < math.floor(target_coords.ra.deg+1)) &\
+        (Pointing.declination > math.floor(target_coords.dec.deg)) &\
+        (Pointing.declination < math.floor(target_coords.dec.deg+1))
+
+    for pointing in lta_query:
+        print("Pointing found RA %f DEC %f" %
+              (pointing.rightAscension, pointing.declination))
+        query_obs = Observation.subArrayPointings.contains(
+            SubArrayPointing.pointing == pointing)
+        for obs in query_obs:
+            observations.add(obs)
+
+    # for obs in observations:
+    #     print(obs.observationId, obs.observingMode)
+    #     "HBA" in obs.antennaSet
+    #     "A2255" in obs.observationDescription
+
+    for obs in observations:
+        dataproducts = AveragingPipeline.sourceData.contains(
+            CorrelatedDataProduct.observations.contains(obs))
+        dataproducts &= AveragingPipeline.isValid == 1
+        for dataproduct in dataproducts:
+            result = {"project": obs.projectInformation.projectCode, "sas_id": obs.observationId, "antennaSet": obs.antennaSet,
+                      "instrumentFilter": obs.instrumentFilter, "target": obs.observationDescription,
+                      "startTime": obs.startTime, "duration": obs.duration,
+                      "releaseDate": dataproduct.releaseDate, "pipeline": dataproduct.pipelineName,
+                      "ra": obs.subArrayPointings[1].pointing.rightAscension,
+                      "dec": obs.subArrayPointings[1].pointing.declination}
+            results.append(result)
+
+    print(results)
+
+    return list(results)
 
 
 class lta_connector(query_base):
@@ -70,75 +136,6 @@ class lta_connector(query_base):
         logger.info('construct_query: '+query)
         return query, where, errors
 
-    def get_data_from_lofar(query):
-        """ use awlofar library to query Lofar LTA """
-
-        from astropy.coordinates import SkyCoord
-        from awlofar.database.Context import context
-        from awlofar.main.aweimports import CorrelatedDataProduct, \
-            AveragingPipeline, \
-            Observation, FileObject, \
-            SubArrayPointing, Pointing
-        import math
-
-        results = []
-        # parse query string, e.g. target_name, ra, dec, ...
-        target_name = "A2255"
-        dataproduct_type = "AveragingPipeline"
-        antenna_type = "HBA"
-        public = "true"  # query public data only
-
-        # convert object name to sky coordinates
-
-        target_coords = SkyCoord.from_name("A2255")
-        # Resolved coordinates is
-        # <SkyCoord (ICRS): (ra, dec) in deg
-        # (258.2085, 64.05294444)>
-        # target_coords.ra.deg, target_coords.dec.deg
-        # target_coords.ra.rad, target_coords.dec.rad
-
-        # Given (ra, dec) in deg (258.2085, 64.05294444) and fov 1.0
-        # construct lta query
-        observations = set()
-        lta_query = (Pointing.rightAscension > math.floor(target_coords.ra.deg)) &\
-            (Pointing.rightAscension < math.floor(target_coords.ra.deg+1)) &\
-            (Pointing.declination > math.floor(target_coords.dec.deg)) &\
-            (Pointing.declination < math.floor(target_coords.dec.deg+1))
-
-        for pointing in lta_query:
-            print("Pointing found RA %f DEC %f" %
-                  (pointing.rightAscension, pointing.declination))
-            query_subarr = SubArrayPointing.pointing == pointing
-            for subarr in query_subarr:
-                query_obs = Observation.subArrayPointings.contains(subarr)
-                for obs in query_obs:
-                    observations.add(obs)
-
-            for obs in observations:
-                print(obs.observationId, obs.observingMode)
-                "HBA" in obs.antennaSet
-
-            Observation.antennaSet.like("HBA Dual")
-
-        cls = AveragingPipeline
-        for obs in observations:
-            dataproduct_query = AveragingPipeline.sourceData.contains(obs)
-            # isValid = 1 means there should be an associated URI
-            dataproduct_query &= AveragingPipeline.isValid == 1
-            for dataproduct in dataproduct_query:
-                print(dataproduct.centralFrequency,
-                      dataproduct.creationDate, dataproduct.dataProductType,
-                      dataproduct.releaseDate, dataproduct.subArrayPointing)
-
-        observation = list(observations)[0]
-        dataproduct_query = CorrelatedDataProduct.observations.contains(
-            observation)
-        dataproduct_query = AveragingPipeline.sourceData.contains(
-            observation)
-        dataproduct = dataproduct_query[0]
-
-        return results
-
     def run_query(self, dataset, dataset_name, query, override_access_url=None, override_service_type=None):
         """
         :param dataset: the dataset object that must be queried
@@ -148,31 +145,65 @@ class lta_connector(query_base):
 
         results = []
 
-        # Zheng: implement run_query functionality here,
-        # you can use the incoming 'query' to find the requested parameters
-
         # create a function that reads the data from lofar
-        # lofar_results = get_data_from_lofar(query)
+        #lofar_results = get_data_from_lofar(query)
 
-        # fake example, something like this should come from your connection to LOFAR
+        # database connection is not working, copied results returned from get_data_from_lofar(query)
         lofar_results = [
-            {"name": "crap nebula", "sasid": "12345", "ra": "12.34",
-                "dec": "56.78", "url": "https://https://lta.lofar.eu/"},
-            {"name": "Nico's Star", "sasid": "12345", "ra": "12.34",
-                "dec": "56.78", "url": "https://https://lta.lofar.eu/"},
-            {"name": "Zheng's Voorwerp", "sasid": "12345", "ra": "12.34",
-                "dec": "56.78", "url": "https://https://lta.lofar.eu/"},
-        ]
+            {'project': 'LC12_027', 'sas_id': '727108', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 7, 3, 18, 0, 1), 'duration': 29170.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'A2255/1.1/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '727108', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 7, 3, 18, 0, 1), 'duration': 29170.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'EDS-N/1.2/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '751364', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 11, 15, 9, 11), 'duration': 29140.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'A2255/1.1/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '751364', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 11, 15, 9, 11), 'duration': 29140.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'EDS-N/1.2/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '747611', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 10, 4, 12, 41, 1), 'duration': 29170.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'A2255/1.1/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '747611', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 10, 4, 12, 41, 1), 'duration': 29170.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'EDS-N/1.2/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '746862', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 9, 28, 12, 0, 1), 'duration': 29180.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'EDS-N/1.2/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '746862', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 9, 28, 12, 0, 1), 'duration': 29180.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'A2255/1.1/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '725452', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 6, 22, 19, 0, 1), 'duration': 29170.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'A2255/1.1/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '725452', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 6, 22, 19, 0, 1), 'duration': 29170.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'EDS-N/1.2/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '726706', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 6, 28, 18, 0, 1), 'duration': 30060.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'EDS-N/1.2/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '726706', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 6, 28, 18, 0, 1), 'duration': 30060.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'A2255/1.1/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '733075', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 8, 9, 16, 30), 'duration': 29180.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'EDS-N/1.2/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '733075', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 8, 9, 16, 30), 'duration': 29180.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'A2255/1.1/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '720376', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 6, 7, 20, 3, 59), 'duration': 29180.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'A2255/1.1/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '720376', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 6, 7, 20, 3, 59), 'duration': 29180.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'EDS-N/1.2/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC0_037', 'sas_id': '122880', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255_11042013/A2255/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2013, 4, 11, 18, 49, 1), 'duration': 0.0, 'releaseDate': datetime.datetime(2015, 3, 1, 0, 0), 'pipeline': 'A2255_11042013/4C+64', 'ra': 259.998403, 'dec': 64.076898},
+            {'project': 'LC12_027', 'sas_id': '728072', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 7, 8, 17, 51, 1), 'duration': 29180.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'EDS-N/1.2/TP', 'ra': 258.2085, 'dec': 64.05294444444444},
+            {'project': 'LC12_027', 'sas_id': '728072', 'antennaSet': 'HBA Dual Inner', 'instrumentFilter': '110-190 MHz', 'target': 'A2255EDSREF/1/TO (Target Observation)',
+             'startTime': datetime.datetime(2019, 7, 8, 17, 51, 1), 'duration': 29180.0, 'releaseDate': datetime.datetime(2020, 11, 26, 0, 0), 'pipeline': 'A2255/1.1/TP', 'ra': 258.2085, 'dec': 64.05294444444444}]
 
         try:
             for lofar_result in lofar_results:
                 record = {}
 
-                record['name'] = lofar_result['name']
-                record['sasid'] = lofar_result['sasid']
+                record['project'] = lofar_result['project']
+                record['sas_id'] = lofar_result['sas_id']
+                record['antennaSet'] = lofar_result['antennaSet']
+                record['instrumentFilter'] = lofar_result['instrumentFilter']
+                record['target'] = lofar_result['target']
+                record['startTime'] = lofar_result['startTime']
+                record['duration'] = lofar_result['duration']
+                record['releaseDate'] = lofar_result['releaseDate']
+                record['pipeline'] = lofar_result['pipeline']
                 record['ra'] = lofar_result['ra']
                 record['dec'] = lofar_result['dec']
-                record['url'] = lofar_result['url']
 
                 results.append(record)
 
@@ -188,11 +219,17 @@ class lta_connector(query_base):
         # Zheng: this defines the structure of the response to /esap/query/query for LOFAR
         # the fields should be the same as in run-query
 
-        name = serializers.CharField()
-        sasid = serializers.CharField()
+        project = serializers.CharField()
+        sas_id = serializers.CharField()
+        antennaSet = serializers.CharField()
+        instrumentFilter = serializers.CharField()
+        target = serializers.CharField()
+        startTime = serializers.CharField()
+        duration = serializers.CharField()
+        releaseDate = serializers.CharField()
+        pipeline = serializers.CharField()
         ra = serializers.FloatField()
         dec = serializers.FloatField()
-        url = serializers.CharField()
 
         class Meta:
             fields = '__all__'
