@@ -40,13 +40,13 @@ query_schema = {
         "target": {
             "type": "string",
             "title": "Object",
-            "default": "",
+            "default": "A2255",
         },
-        "resolve": {
-            "type": "boolean",
-            "title": "Resolve RA and Dec",
-            "enum": ["true", "false"],
-        },
+        # "resolve": {
+        #     "type": "boolean",
+        #     "title": "Resolve RA and Dec",
+        #     "enum": ["true", "false"],
+        # },
         "ra": {
             "type": "number",
             "title": "RA",
@@ -70,7 +70,6 @@ query_schema = {
         "fov": {
             "type": "number",
             "title": "Search radius",
-            "default": "1.0"
         },
         "fov_units": {
             "type": "string",
@@ -81,15 +80,15 @@ query_schema = {
         "antenna_type": {
             "type": "string",
             "title": "Antenna Type",
-            "default": "all",
-            "enum": ["hba", "lba", "all"],
+            "default": "HBA",
+            "enum": ["HBA", "LBA", "all"],
             "enumNames": ["HBA", "LBA", "All"],
         },
         "public": {
             "type": "boolean",
             "title": "Public data only",
-            "default": "true",
-            "enum": ["true", "false"],
+            "default": True,
+            "enum": [True, False],
         },
         "sasid": {
             "type": "string",
@@ -99,8 +98,8 @@ query_schema = {
         "dataproduct_type": {
             "type": "string",
             "title": "Data Product Type",
-            "default": "observation",
-            "enum": ["observation", "averaging", "calibration", "imaging", "longbaseline", "pulsar"],
+            "default": "AveragingPipeline",
+            "enum": ["CorrelatedDataProduct", "AveragingPipeline", "CalibrationPipeline", "ImagingPipeline", "LongBaselinePipeline", "PulsarPipeline"],
             "enumNames": ["Observation", "Averaging Pipeline", "Calibration Pipeline", "Imaging Pipeline", "Long Baseline Pipeline", "Pulsar Pipeline"],
         },
     },

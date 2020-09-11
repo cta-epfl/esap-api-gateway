@@ -101,6 +101,7 @@ class lta_connector(query_base):
 
         where = ''
         errors = []
+        print("ESAP Lofar query params:", esap_query_params)
 
         # translate the esap_parameters to specific catalog parameters
         for esap_param in esap_query_params:
@@ -142,7 +143,7 @@ class lta_connector(query_base):
         :param query_params: the incoming esap query parameters)
         :return: results: an array of dicts with the following structure;
         """
-
+        print("query:", query)
         results = []
 
         # create a function that reads the data from lofar
