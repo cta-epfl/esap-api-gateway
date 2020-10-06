@@ -7,11 +7,11 @@
 from astropy.coordinates import SkyCoord
 import math
 import datetime
-from awlofar.main.aweimports import CorrelatedDataProduct, \
-    AveragingPipeline, \
-    Observation, FileObject, \
-    SubArrayPointing, Pointing
-from awlofar.database.Context import context
+# from awlofar.main.aweimports import CorrelatedDataProduct, \
+#    AveragingPipeline, \
+#    Observation, FileObject, \
+#    SubArrayPointing, Pointing
+# from awlofar.database.Context import context
 from rest_framework import serializers
 from .query_base import query_base
 import requests
