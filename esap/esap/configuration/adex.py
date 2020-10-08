@@ -8,7 +8,7 @@ logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo.png"
 # the url location of the frontend application,
 # this makes it possible to install multiple instances in different directories on the webserver
 # that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
-frontend_basename = "esap-gui"
+frontend_basename = "adex-gui"
 
 # definition of the navigation bar
 nav1 = {'title': 'Archives', 'route': '/archives'}
