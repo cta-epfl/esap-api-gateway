@@ -37,6 +37,11 @@ def get_data_from_lofar(query):
     antenna_type = "HBA"
     public = "true"  # query public data only
 
+    # two major use cases
+    # 1. Given a target or sky coordinates
+    # 2. Given a SAS ID
+    # to find a list of observations
+
     # convert object name to sky coordinates
     # target_coords = SkyCoord.from_name(target_name)
     # Resolved coordinates is
@@ -63,12 +68,14 @@ def get_data_from_lofar(query):
         for obs in query_obs:
             observations.add(obs)
 
+    # Check other observation related query parameters
     # for obs in observations:
     #     print(obs.observationId, obs.observingMode)
     #     "HBA" in obs.antennaSet
     #     "A2255" in obs.observationDescription
 
     for obs in observations:
+        # check parameters such as antennaSet etc.
         dataproducts = AveragingPipeline.sourceData.contains(
             CorrelatedDataProduct.observations.contains(obs))
         dataproducts &= AveragingPipeline.isValid == 1
