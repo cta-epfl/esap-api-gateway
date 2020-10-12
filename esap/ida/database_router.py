@@ -7,13 +7,15 @@ class IdaRouter:
         Attempts to read ida models go to ida database.
         """
         if model._meta.app_label in self.route_app_labels:
-            return 'ida'
+            # return 'ida'
+            return 'default'
 
     def db_for_write(self, model, **hints):
         """
         Writes always go to ida.
         """
-        return 'ida'
+        #return 'ida'
+        return 'default'
 
     def allow_relation(self, obj1, obj2, **hints):
         """
@@ -33,5 +35,7 @@ class IdaRouter:
         'ida' database.
         """
         if app_label in self.route_app_labels:
-            return db == 'ida'
+            #return db == 'ida'
+            return db == 'default'
+
         return None
