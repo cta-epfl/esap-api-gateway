@@ -4373,3 +4373,4 @@
 [2020-10-12 08:43:35,934] ERROR: could not translating key page 'page', using it raw.
 [2020-10-12 08:43:35,935] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=2_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
 [2020-10-12 08:43:57,553] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=2&dataProductSubType__in=uncalibratedVisibility
+[2020-10-12 10:07:17,822] query_controller.create_query()

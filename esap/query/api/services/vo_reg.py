@@ -151,11 +151,13 @@ class vo_registry_connector(query_base):
         query_params["REQUEST"] = "doQuery"
 
         # if the parameter '&resource=...' is given to the url, then use that resource..
+        # todo: temporarily using TOP 250 until we have implemented pagination from the VO service
+        # SELECT TOP 50 () OFFSET 50
         if override_resource:
-            query_params["QUERY"] = "SELECT * from " + override_resource
+            query_params["QUERY"] = "SELECT TOP 250 * from " + override_resource
         else:
             # ... otherwise use the resource as defined in the datasets
-            query_params["QUERY"] = "SELECT * from " + dataset.resource_name
+            query_params["QUERY"] = "SELECT TOP 250 * from " + dataset.resource_name
 
         # add ADQL where where
         if where:
