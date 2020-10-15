@@ -56,8 +56,7 @@ query_schema = {
             "title": "Apertif Collections",
             "default": "imaging",
             "enum": ["imaging", "timedomain"],
-            "enumNames": ["imaging", "timedomain"],
-            "uniqueItems": True,
+            "enumNames": ["Imaging", "Timedomain"],
         },
         "level": {
             "type": "string",
@@ -71,7 +70,7 @@ query_schema = {
             "title": "DataProduct Type",
             "default": "all",
             "enum": ["all", "visibility", "image", "cube"],
-            "enumNames": ["all", "visibility", "image", "cube"]
+            "enumNames": ["All", "Visibility", "Image", "Cube"]
         }
     }
 }

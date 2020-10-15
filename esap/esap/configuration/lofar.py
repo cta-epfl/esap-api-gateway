@@ -42,11 +42,6 @@ query_schema = {
             "title": "Object",
             "default": "A2255",
         },
-        # "resolve": {
-        #     "type": "boolean",
-        #     "title": "Resolve RA and Dec",
-        #     "enum": ["true", "false"],
-        # },
         "ra": {
             "type": "number",
             "title": "RA",
@@ -140,9 +135,6 @@ query_schema = {
 }
 
 ui_schema = {
-    "resolve": {
-        "ui:widget": "radio",
-    },
     "public": {
         "ui:widget": "radio",
     },
