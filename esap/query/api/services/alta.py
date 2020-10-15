@@ -45,6 +45,12 @@ class alta_connector(query_base):
             value = esap_query_params[esap_key][0]
 
             try:
+                # translate pagination parameter to 'ALTA size'
+                # temporary dirty solution until ALTA can query dataproducts with page_size=50
+                if esap_key in ['page']:
+                    alta_page, mod = divmod(int(value)*50,500)
+                    value = str(alta_page + 1)
+
                 dataset_key = translation_parameters[esap_key]
 
                 # because '&' has a special meaning in urls (specifying a parameter) replace it with

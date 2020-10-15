@@ -7,7 +7,7 @@ import json
 import logging
 
 from . import alta
-from . import vo, vso, helio, vo_reg, zooniverse, lofar
+from . import vo, helio, vo_reg, zooniverse, lofar
 
 logger = logging.getLogger(__name__)
 
@@ -21,9 +21,6 @@ def instantiate_connector(dataset):
 
     elif service_module.upper() == 'ALTA':
         connector_class = getattr(alta, service_connector)
-
-    elif service_module.upper() == 'VSO':
-        connector_class = getattr(vso, service_connector)
 
     elif service_module.upper() == 'HELIO':
         connector_class = getattr(helio, service_connector)

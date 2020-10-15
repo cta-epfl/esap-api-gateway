@@ -75,13 +75,16 @@ class tap_service_connector(query_base):
 
             # handle 'keywords' and translate it to 'collection_id'
             try:
-                dataset_key = translation_parameters[esap_key]
-                where = where + dataset_key + "='" + value + "'" + SEPARATOR
+                # skip pagination parameters
+                # they are not 'esap parameters', and not used in VO
+                if not esap_key in ['page', 'page_size']:
+                    dataset_key = translation_parameters[esap_key]
+                    where = where + dataset_key + "='" + value + "'" + SEPARATOR
 
             except Exception as error:
                 # if the parameter could not be translated, use it raw and continue
                 where = where + esap_key + "='" + value + "' " + SEPARATOR
-                errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
+                # errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
 
         # add sync (or async) specifier
         query = self.url + '/sync'
