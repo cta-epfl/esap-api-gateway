@@ -8,21 +8,12 @@ logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo.png"
 # the url location of the frontend application,
 # this makes it possible to install multiple instances in different directories on the webserver
 # that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
-frontend_basename = "esap-gui"
+frontend_basename = "adex-gui"
 
 # definition of the navigation bar
 nav1 = {'title': 'Archives', 'route': '/archives'}
 nav2 = {'title': 'Query', 'route': '/query'}
-nav3 = {'title': 'Rucio', 'route': '/rucio'}
-nav4 = {'title': 'Interactive Analysis', 'route': '/interactive'}
-navbar = [nav1, nav2, nav3, nav4]
-
-# if datasets_enabled is set, then only these datasets are visible to the GUI
-# datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
-
-# if datasets_disabled is set, then all datasets except these are returned to the GUI
-datasets_disabled = ['nancay.ivoa.obscore']
-
+navbar = [nav1, nav2]
 
 # definition of the query
 query_schema = {
@@ -34,8 +25,8 @@ query_schema = {
             "type": "string",
             "title": "Catalog",
             "default": "lofar",
-            "enum": ["lofar"],
-            "enumNames": ["LOFAR"],
+            "enum": ["adex", "lofar"],
+            "enumNames": ["ADEX", "LOFAR"],
         },
         "target": {
             "type": "string",
