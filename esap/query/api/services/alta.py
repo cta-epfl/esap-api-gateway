@@ -2,15 +2,17 @@
     File name: alta.py
     Author: Nico Vermaas - Astron
     Date created: 2020-02-07
-    Description:  ESAP services for ALTA.
+    Description:  ESAP service connector for Apertif (ALTA).
 """
-
+import urllib.parse as urlparse
+from django.conf import settings
 from rest_framework import serializers
 from .query_base import query_base
 import requests, json
 import logging
 
 logger = logging.getLogger(__name__)
+
 
 AMP_REPLACEMENT = '_and_'
 
@@ -30,12 +32,31 @@ class alta_connector(query_base):
 
     # Initializer
     def __init__(self, url):
+        if settings.USE_DOP457:
+            url = "http://dop457.astron.nl/altapi"
+
         self.url = url + '/dataproducts'
 
+    # create a paginated response.
+    def get_paginated_response(self, results, query, json_response):
+        record={}
+
+        # retrieve the requested page from the query
+        try:
+            page = int(urlparse.parse_qs(query)['page'][0])
+        except:
+            page = 1
+
+        record['description'] = "ESAP API Gateway - ALTA"
+        record['version'] = settings.VERSION,
+        record['count'] = int(json_response["count"])
+        record['requested_page'] = page
+        record['pages'] = int(json_response["pages"])
+        record['results'] = results
+        return record
 
     # construct a query for this type of service
     def construct_query(self, dataset, esap_query_params, translation_parameters, equinox):
-
         where = ''
         errors = []
 
@@ -45,11 +66,9 @@ class alta_connector(query_base):
             value = esap_query_params[esap_key][0]
 
             try:
-                # translate pagination parameter to 'ALTA size'
-                # temporary dirty solution until ALTA can query dataproducts with page_size=50
-                if esap_key in ['page']:
-                    alta_page, mod = divmod(int(value)*50,500)
-                    value = str(alta_page + 1)
+                # skip pagination parameters
+                # they are handled in the query_controller
+                # if not esap_key in ['page', 'page_size']:
 
                 dataset_key = translation_parameters[esap_key]
 
@@ -83,6 +102,10 @@ class alta_connector(query_base):
         if 'TIMEDOMAIN' in dataset.collection.upper():
               where = where + "dataProductSubType=pulsarTimingTimeSeries"
 
+        # if no page_size is given, then set it here for ALTA, because ALTA default uses 500
+        if not "page_size" in where:
+            where = where + AMP_REPLACEMENT + "page_size=50"
+
         # if query ends with a separation character then cut it off
         if where.endswith(AMP_REPLACEMENT):
             where = where[:-len(AMP_REPLACEMENT)]
@@ -98,7 +121,7 @@ class alta_connector(query_base):
         # use the ALTA REST API to do a query
         :param dataset: the dataset object that must be queried
         :param query_params: the incoming esap query parameters)
-        :return: results: an array of dicts with the following structure;
+        :return: results: a paginated response containing the results of the requested page
 
          example:
         /esap-api/query/run-query/?dataset_uri=apertif-imaging-processeddata
@@ -106,7 +129,7 @@ class alta_connector(query_base):
         """
 
         results = []
-
+        pagination_record = {}
         # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
         # something harmless during serialization. Replace it again with the &
         query = query.replace(AMP_REPLACEMENT,'&')
@@ -118,15 +141,13 @@ class alta_connector(query_base):
             response = requests.request("GET", query, headers=ALTA_HEADER)
 
             json_response = json.loads(response.text)
-            dataproducts = json_response["results"]
-
-            logger.info('nr of dataproducts in response: '+str(len(dataproducts)))
+            try:
+                dataproducts = json_response["results"]
+            except:
+                raise Exception(json_response)
 
             for dataproduct in dataproducts:
-
                 record = {}
-                result = ''
-
                 record['name'] = dataproduct['name']
                 record['PID'] = dataproduct['PID']
                 record['dataProductType'] = dataproduct['dataProductType']
@@ -154,8 +175,11 @@ class alta_connector(query_base):
         except Exception as error:
             return "ERROR: " + str(error)
 
-        return results
+        # create a paginated response based on information from the query and the response
+        paginated_results = self.get_paginated_response(results, query, json_response)
 
+        return paginated_results
+        # return results # unpaginated response
 
     # custom serializer for the 'query' endpoint
     class CreateAndRunQuerySerializer(serializers.Serializer):
