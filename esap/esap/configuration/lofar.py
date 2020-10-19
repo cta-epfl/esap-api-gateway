@@ -8,21 +8,12 @@ logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo.png"
 # the url location of the frontend application,
 # this makes it possible to install multiple instances in different directories on the webserver
 # that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
-frontend_basename = "esap-gui"
+frontend_basename = "adex-gui"
 
 # definition of the navigation bar
 nav1 = {'title': 'Archives', 'route': '/archives'}
 nav2 = {'title': 'Query', 'route': '/query'}
-nav3 = {'title': 'Rucio', 'route': '/rucio'}
-nav4 = {'title': 'Interactive Analysis', 'route': '/interactive'}
-navbar = [nav1, nav2, nav3, nav4]
-
-# if datasets_enabled is set, then only these datasets are visible to the GUI
-# datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
-
-# if datasets_disabled is set, then all datasets except these are returned to the GUI
-datasets_disabled = ['nancay.ivoa.obscore']
-
+navbar = [nav1, nav2]
 
 # definition of the query
 query_schema = {
@@ -34,18 +25,13 @@ query_schema = {
             "type": "string",
             "title": "Catalog",
             "default": "lofar",
-            "enum": ["lofar"],
-            "enumNames": ["LOFAR"],
+            "enum": ["adex", "lofar"],
+            "enumNames": ["ADEX", "LOFAR"],
         },
         "target": {
             "type": "string",
             "title": "Object",
-            "default": "",
-        },
-        "resolve": {
-            "type": "boolean",
-            "title": "Resolve RA and Dec",
-            "enum": ["true", "false"],
+            "default": "A2255",
         },
         "ra": {
             "type": "number",
@@ -70,7 +56,6 @@ query_schema = {
         "fov": {
             "type": "number",
             "title": "Search radius",
-            "default": "1.0"
         },
         "fov_units": {
             "type": "string",
@@ -81,14 +66,15 @@ query_schema = {
         "antenna_type": {
             "type": "string",
             "title": "Antenna Type",
-            "default": "all",
-            "enum": ["hba", "lba", "all"],
+            "default": "HBA",
+            "enum": ["HBA", "LBA", "all"],
             "enumNames": ["HBA", "LBA", "All"],
         },
         "public": {
             "type": "boolean",
             "title": "Public data only",
-            "enum": ["true", "false"],
+            "default": True,
+            "enum": [True, False],
         },
         "sasid": {
             "type": "string",
@@ -98,8 +84,8 @@ query_schema = {
         "dataproduct_type": {
             "type": "string",
             "title": "Data Product Type",
-            "default": "observation",
-            "enum": ["observation", "averaging", "calibration", "imaging", "longbaseline", "pulsar"],
+            "default": "AveragingPipeline",
+            "enum": ["CorrelatedDataProduct", "AveragingPipeline", "CalibrationPipeline", "ImagingPipeline", "LongBaselinePipeline", "PulsarPipeline"],
             "enumNames": ["Observation", "Averaging Pipeline", "Calibration Pipeline", "Imaging Pipeline", "Long Baseline Pipeline", "Pulsar Pipeline"],
         },
     },
@@ -140,9 +126,6 @@ query_schema = {
 }
 
 ui_schema = {
-    "resolve": {
-        "ui:widget": "radio",
-    },
     "public": {
         "ui:widget": "radio",
     },

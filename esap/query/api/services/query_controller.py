@@ -7,7 +7,7 @@ import json
 import logging
 
 from . import alta
-from . import vo, vso, helio, vo_reg, zooniverse, lofar
+from . import vo, helio, vo_reg, zooniverse, lofar
 
 logger = logging.getLogger(__name__)
 
@@ -21,9 +21,6 @@ def instantiate_connector(dataset):
 
     elif service_module.upper() == 'ALTA':
         connector_class = getattr(alta, service_connector)
-
-    elif service_module.upper() == 'VSO':
-        connector_class = getattr(vso, service_connector)
 
     elif service_module.upper() == 'HELIO':
         connector_class = getattr(helio, service_connector)
@@ -149,6 +146,7 @@ def run_query(dataset,
 
     :return:
     """
+    logger.info('query_controller.run_query()')
     results = []
 
     try:
@@ -167,6 +165,49 @@ def run_query(dataset,
         return results, connector
     return results
 
+# when multiple queries are executed then the results must be combined.
+def combine_results(data,data_to_add):
+    logger.info('query_controller.combine_results()')
+    if not data:
+        data = data_to_add
+        return data
+
+    # if the data are a list, then just concatenate them.
+    if isinstance(data, list):
+        data = data + data_to_add
+
+    # if the data are a (paginated) dict, then combine the totals and concatenate the data
+    if isinstance(data, dict):
+        count = int(data['count']) + int(data_to_add['count'])
+        pages = int(data['pages']) + int(data_to_add['pages'])
+        results = data['results'] + data_to_add['results']
+        data['count']=count
+        data['pages'] = pages
+        data['results'] = results
+    return data
+
+# if the requested page_size spans multiple queries then adjust the page_size per query
+def resize_page_size(query, new_page_size):
+    # find 'page_size=' in the query
+
+    logger.info('query_controller.resize_page_size('+str(new_page_size)+')')
+    start = query.find("page_size=")
+
+    if start >= 0:
+        # find the next & or eol
+        end = query.find("&",start)
+        if end < 0:
+            end = len(query)
+
+        # replace the old page_size with the adjusted page_size
+        old_page_size = query[start:end]
+        new_page_size = "page_size="+str(new_page_size)
+        query = query.replace(old_page_size,new_page_size)
+    else:
+        query = query + "page_size=" + str(new_page_size)
+
+    return query
+
 
 def create_and_run_query(datasets,
                          query_params,
@@ -182,7 +223,7 @@ def create_and_run_query(datasets,
     :param query:
     :return:
     """
-
+    logger.info("query_controller.create_and_run_query()")
     results = []
     created_queries = []
     if override_adql_query:
@@ -223,6 +264,19 @@ def create_and_run_query(datasets,
         except:
             pass
 
+        # if 'create_query' gave back multiple queries to execute
+        # then the requested page_size must be divided by the number of queries
+        # so that the response still gives back the expected number of results
+
+        nr_of_queries = len(created_queries)
+        if nr_of_queries > 1:
+            try:
+                page_size = int(query_params['page_size'][0])
+            except:
+                page_size = 50
+            new_page_size = int(page_size / nr_of_queries)
+            query = resize_page_size(query, new_page_size)
+
         # call the 'run_query()' function to execute a query per dataset
         query_results = run_query(dataset, dataset_name, query,
                                   override_access_url=override_access_url,
@@ -230,9 +284,11 @@ def create_and_run_query(datasets,
                                   connector=connector, return_connector=False)
 
         if "ERROR:" in query_results:
-            return query_results,None
+            return query_results, None, None
 
-        results = results + query_results
+        # results = query_results
+        ### results = results + query_results
+        results = combine_results(results, query_results)
 
         # attempt to retrieve a serializer for this function
         try:
@@ -260,7 +316,7 @@ def get_services(dataset, keyword, service_type=None, waveband=None):
 
     :return:
     """
-
+    logger.info("query_controller.get_services()")
     results = []
 
     try:
@@ -286,6 +342,7 @@ def get_tables_fields(dataset, access_url):
 
     :return:
     """
+    logger.info("query_controller.get_tables_fields('+access_url+')")
 
     results = []
 

@@ -1,5 +1,6 @@
 import logging
 
+from django.http import QueryDict
 from rest_framework import generics, pagination
 from rest_framework.response import Response
 
@@ -138,6 +139,7 @@ class CreateAndRunQueryView(generics.ListAPIView):
     model = DataSet
     queryset = DataSet.objects.all()
 
+
     # override list and generate a custom response
     def list(self, request, *args, **kwargs):
 
@@ -174,53 +176,64 @@ class CreateAndRunQueryView(generics.ListAPIView):
         except:
             pass
 
-        query_params, access_url = extract_and_remove(query_params, 'access_url')
-        query_params, service_type = extract_and_remove(query_params, 'service_type')
-        query_params, adql_query = extract_and_remove(query_params, 'adql_query')
-        query_params, pagination = extract_and_remove(query_params, 'pagination')
-        query_params, resource = extract_and_remove(query_params, 'resource')
+        query_params, access_url = extract_and_remove(query_params, "access_url")
+        query_params, service_type = extract_and_remove(query_params, "service_type")
+        query_params, adql_query = extract_and_remove(query_params, "adql_query")
+        query_params, auto_pagination = extract_and_remove(query_params, "pagination")
+        query_params, resource = extract_and_remove(query_params, "resource")
 
-        query_results, custom_serializer = query_controller.create_and_run_query(
+        query_results, connector, custom_serializer = query_controller.create_and_run_query(
             datasets=datasets,
-            query_params = query_params,
+            query_params=query_params,
             override_resource=resource,
             override_access_url=access_url,
             override_service_type=service_type,
-            override_adql_query=adql_query
+            override_adql_query=adql_query,
+            return_connector=True,
         )
 
         if "ERROR:" in query_results:
-              return Response({
-                  query_results
-            })
+            return Response({query_results})
 
-        # if the parameter 'pagination==false' is given, then do not paginate the response
-        if pagination!=None and pagination.upper()=='FALSE':
+        # Allow pagination to be overriden by connector class
+        auto_pagination = getattr(connector, "pagination", auto_pagination)
+
+        # if the parameter 'pagination==false' is given, then do not automatically paginate the response
+        # (currently this is only used by the zooniverse service)
+        if auto_pagination != None and auto_pagination.upper() == "FALSE":
+            # pagination is implemented in the service connector
 
             # try to read the custom serializer from the controller...
             try:
                 serializer = custom_serializer(instance=query_results, many=True)
             except:
                 # ... if no serializer was implemented, then use the default serializer for this endpoint
-                serializer = CreateAndRunQuerySerializer(instance=query_results, many=True)
+                serializer = CreateAndRunQuerySerializer(
+                    instance=query_results, many=True
+                )
 
-            return Response({
-                'results': serializer.data
-            })
+            # return the results with the custom or default serializer, but do not further paginate them.
+            return Response({"results": serializer.data})
 
         else:
             # paginate the results
-            page = self.paginate_queryset(query_results)
+            if isinstance(query_results, dict):
+                # if the query_results are a dict, then it is already in a paginated form.
+                return Response(query_results)
 
-            # try to read the custom serializer from the controller...
-            try:
-                serializer = custom_serializer(instance=page, many=True)
-            except:
-                # ... if no serializer was implemented, then use the default serializer for this endpoint
-                serializer = CreateAndRunQuerySerializer(instance=page, many=True)
+            else:
+                # the query_results are a list of results,
+                # use a custom or default paginator to paginate and serialize them
 
-            return self.get_paginated_response(serializer.data)
+                page = self.paginate_queryset(query_results)
+                # try to read the custom serializer from the controller...
+                try:
+                   serializer = custom_serializer(instance=page, many=True)
+                except:
+                    # ... if no serializer was implemented, then use the default serializer for this endpoint
+                   serializer = CreateAndRunQuerySerializer(instance=page, many=True)
 
+                return self.get_paginated_response(serializer.data)
 
 
 
