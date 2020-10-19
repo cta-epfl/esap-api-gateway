@@ -6566,3 +6566,30 @@
 [2020-10-19 08:18:59,721] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=25
 [2020-10-19 08:19:44,355] ConfigurationView
 [2020-10-19 08:19:44,469] ConfigurationView
+[2020-10-19 09:06:17,802] ConfigurationView
+[2020-10-19 09:06:17,817] query_controller.create_and_run_query()
+[2020-10-19 09:06:17,818] query_controller.create_query()
+[2020-10-19 09:06:17,835] ERROR: could not translating key collection 'collection', using it raw.
+[2020-10-19 09:06:17,836] ERROR: could not translating key page 'page', using it raw.
+[2020-10-19 09:06:17,838] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=1_and_dataProductSubType__in=uncalibratedVisibility_and_page_size=50
+[2020-10-19 09:06:17,847] ERROR: could not translating key collection 'collection', using it raw.
+[2020-10-19 09:06:17,848] ERROR: could not translating key page 'page', using it raw.
+[2020-10-19 09:06:17,849] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[2020-10-19 09:06:17,856] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=1&dataProductSubType__in=uncalibratedVisibility&page_size=25
+[2020-10-19 09:06:19,157] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=25
+[2020-10-19 09:06:21,675] ConfigurationView
+[2020-10-19 09:06:47,382] ConfigurationView
+[2020-10-19 09:07:06,589] ConfigurationView
+[2020-10-19 09:07:22,489] ConfigurationView
+[2020-10-19 09:08:15,196] ConfigurationView
+[2020-10-19 09:08:27,196] ConfigurationView
+[2020-10-19 09:08:32,138] query_controller.create_and_run_query()
+[2020-10-19 09:08:32,139] query_controller.create_query()
+[2020-10-19 09:09:45,853] ConfigurationView
+[2020-10-19 09:09:45,939] ConfigurationView
+[2020-10-19 09:09:49,029] query_controller.create_and_run_query()
+[2020-10-19 09:09:49,031] query_controller.create_query()
+[2020-10-19 09:09:49,037] ERROR: could not translating key collection 'collection', using it raw.
+[2020-10-19 09:09:49,037] ERROR: could not translating key page 'page', using it raw.
+[2020-10-19 09:09:49,038] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[2020-10-19 09:09:49,039] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50

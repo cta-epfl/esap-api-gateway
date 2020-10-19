@@ -32,10 +32,11 @@ class alta_connector(query_base):
 
     # Initializer
     def __init__(self, url):
-        if settings.USE_DOP457:
-            url = "http://dop457.astron.nl/altapi"
-
-        self.url = url + '/dataproducts'
+        try:
+            if settings.USE_DOP457:
+                url = "http://dop457.astron.nl/altapi"
+        except:
+            self.url = url + '/dataproducts'
 
     # create a paginated response.
     def get_paginated_response(self, results, query, json_response):
