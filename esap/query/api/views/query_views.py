@@ -140,29 +140,6 @@ class CreateAndRunQueryView(generics.ListAPIView):
     queryset = DataSet.objects.all()
 
 
-    def parse_pagination_record(self,query_results):
-        # temporary hack... the last record contains a pagination record with totals
-        # extract and delete it, just to have the totals available to see if I can
-        # insert them into the serializer somehow
-
-        my_pagination_record = query_results[-1:][0]
-        del query_results[-1]
-
-        # make it mutable
-        my_GET = self.request.GET.copy()
-        my_GET['pagination_record'] = my_pagination_record
-        my_GET['real_page'] = self.request.query_params['page']
-        my_GET['page'] = '1'
-
-        # update the orignal request parameters
-        self.request.GET = my_GET
-
-        my_query_params = self.request.query_params.copy()
-        my_query_params['page'] = '1'
-        self.request.query_params = my_query_params # this doesn't work
-
-        return query_results
-
     # override list and generate a custom response
     def list(self, request, *args, **kwargs):
 
@@ -205,6 +182,7 @@ class CreateAndRunQueryView(generics.ListAPIView):
         query_params, auto_pagination = extract_and_remove(query_params, "pagination")
         query_params, resource = extract_and_remove(query_params, "resource")
 
+        logger.info("query_controller.create_and_run_query()")
         query_results, connector, custom_serializer = query_controller.create_and_run_query(
             datasets=datasets,
             query_params=query_params,
