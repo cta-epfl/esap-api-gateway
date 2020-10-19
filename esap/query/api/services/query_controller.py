@@ -146,6 +146,7 @@ def run_query(dataset,
 
     :return:
     """
+    logger.info('query_controller.run_query()')
     results = []
 
     try:
@@ -166,6 +167,7 @@ def run_query(dataset,
 
 # when multiple queries are executed then the results must be combined.
 def combine_results(data,data_to_add):
+    logger.info('query_controller.combine_results()')
     if not data:
         data = data_to_add
         return data
@@ -186,8 +188,9 @@ def combine_results(data,data_to_add):
 
 # if the requested page_size spans multiple queries then adjust the page_size per query
 def resize_page_size(query, new_page_size):
-
     # find 'page_size=' in the query
+
+    logger.info('query_controller.resize_page_size('+str(new_page_size)+')')
     start = query.find("page_size=")
 
     if start >= 0:
@@ -220,7 +223,7 @@ def create_and_run_query(datasets,
     :param query:
     :return:
     """
-
+    logger.info("query_controller.create_and_run_query()")
     results = []
     created_queries = []
     if override_adql_query:
@@ -313,7 +316,7 @@ def get_services(dataset, keyword, service_type=None, waveband=None):
 
     :return:
     """
-
+    logger.info("query_controller.get_services()")
     results = []
 
     try:
@@ -339,6 +342,7 @@ def get_tables_fields(dataset, access_url):
 
     :return:
     """
+    logger.info("query_controller.get_tables_fields('+access_url+')")
 
     results = []
 

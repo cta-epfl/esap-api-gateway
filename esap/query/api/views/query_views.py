@@ -182,7 +182,6 @@ class CreateAndRunQueryView(generics.ListAPIView):
         query_params, auto_pagination = extract_and_remove(query_params, "pagination")
         query_params, resource = extract_and_remove(query_params, "resource")
 
-        logger.info("query_controller.create_and_run_query()")
         query_results, connector, custom_serializer = query_controller.create_and_run_query(
             datasets=datasets,
             query_params=query_params,
