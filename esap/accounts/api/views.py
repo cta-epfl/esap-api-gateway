@@ -1,15 +1,52 @@
-from django.contrib.auth import login
+from rest_framework import viewsets
+from .serializers import *
+from ..models import *
 
-from rest_framework import permissions
-from rest_framework.authtoken.serializers import AuthTokenSerializer
-from knox.views import LoginView as KnoxLoginView
 
-class LoginView(KnoxLoginView):
-    permission_classes = (permissions.AllowAny,)
+class EsapQuerySchemaViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows EsapQuerySchemas to be viewed or edited.
+    """
 
-    def post(self, request, format=None):
-        serializer = AuthTokenSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        login(request, user)
-        return super(LoginView, self).post(request, format=None)
+    queryset = EsapQuerySchema.objects.all().order_by("schema_name")
+    serializer_class = EsapQuerySchemaSerializer
+
+
+class EsapComputeResourceViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows EsapComputeResources to be viewed or edited.
+    """
+
+    queryset = EsapComputeResource.objects.all().order_by("resource_name")
+    serializer_class = EsapComputeResourceSerializer
+
+
+class EsapSoftwareRepositoryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows EsapSoftwareRepositorys to be viewed or edited.
+    """
+
+    queryset = EsapSoftwareRepository.objects.all().order_by("repository_name")
+    serializer_class = EsapSoftwareRepositorySerializer
+
+
+class EsapShoppingItemViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows EsapShoppingItems to be viewed or edited.
+    """
+
+    queryset = EsapShoppingItem.objects.all()
+    serializer_class = EsapShoppingItemSerializer
+
+
+class EsapUserProfileViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows EsapUserProfiles to be viewed or edited.
+    """
+
+    queryset = EsapUserProfile.objects.all().order_by("user_name")
+    serializer_class = EsapUserProfileSerializer
+
+    def get_queryset(self):
+        user_name = self.request.query_params.get("user_name", None)
+        return EsapUserProfile.objects.filter(user_name=user_name)

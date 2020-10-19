@@ -13,19 +13,21 @@ class AccountsRouter:
         """
         Writes always go to accounts.
         """
-        return 'accounts'
+        if model._meta.app_label in self.route_app_labels:
+            return 'accounts'
+
 
     def allow_relation(self, obj1, obj2, **hints):
         """
-        Allow relations if a model in the accounts apps is
-        involved.
+        Allow relations if a both involved models are in the accounts
+        app.
         """
         if (
-            obj1._meta.app_label in self.route_app_labels or
-            obj2._meta.app_label in self.route_app_labels
+            obj1._state.db in self.route_app_labels and
+            obj2._state.db in self.route_app_labels
         ):
-           return True
-        return None
+            return True
+        return False
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         """
@@ -34,4 +36,4 @@ class AccountsRouter:
         """
         if app_label in self.route_app_labels:
             return db == 'accounts'
-        return None
+        return False
