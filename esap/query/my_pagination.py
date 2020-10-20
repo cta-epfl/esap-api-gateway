@@ -25,6 +25,7 @@ class CustomPagination(pagination.PageNumberPagination):
     # Note how properties from the request are also returned,
     # this mechanism could perhaps also be used to handshake id's and guarantee correct order of execution.
     def get_paginated_response(self, data):
+
         return Response({
             'description': 'ESAP API Gateway',
             'version': settings.VERSION,
@@ -34,9 +35,8 @@ class CustomPagination(pagination.PageNumberPagination):
             'max_page_size': self.max_page_size,
             'count': self.page.paginator.count,
             'pages': self.get_number_of_pages(),
-            'links': {
-                'next': self.get_next_link(),
-                'previous': self.get_previous_link()
-            },
+
             'results': data,
         })
+
+

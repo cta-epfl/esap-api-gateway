@@ -257,7 +257,7 @@ def ConfigurationView(request):
     """
 
     # optional parameters
-    logger.info("ConfigurationView")
+    #logger.info("ConfigurationView")
     try:
         name = request.GET.get('name')
     except:
