@@ -101,7 +101,7 @@ REST_FRAMEWORK = {
     ),
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'DEFAULT_PAGINATION_CLASS': 'query.my_pagination.CustomPagination',
-    # 'PAGE_SIZE': 100
+    # 'PAGE_SIZE': 50
 }
 
 

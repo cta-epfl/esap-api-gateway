@@ -6593,3 +6593,77 @@
 [2020-10-19 09:09:49,037] ERROR: could not translating key page 'page', using it raw.
 [2020-10-19 09:09:49,038] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
 [2020-10-19 09:09:49,039] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[2020-10-19 09:17:47,272] query_controller.create_and_run_query()
+[2020-10-19 09:17:47,273] query_controller.create_query()
+[2020-10-19 09:17:47,279] ERROR: could not translating key collection 'collection', using it raw.
+[2020-10-19 09:17:47,280] ERROR: could not translating key page 'page', using it raw.
+[2020-10-19 09:17:47,280] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[2020-10-19 09:17:47,283] query_controller.run_query()
+[2020-10-19 09:17:47,284] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[2020-10-19 09:17:49,669] query_controller.combine_results()
+[2020-10-19 09:17:57,891] query_controller.create_and_run_query()
+[2020-10-19 09:17:57,892] query_controller.create_query()
+[2020-10-19 09:17:57,899] ERROR: could not translating key collection 'collection', using it raw.
+[2020-10-19 09:17:57,899] ERROR: could not translating key page 'page', using it raw.
+[2020-10-19 09:17:57,900] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_page=3_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[2020-10-19 09:17:57,902] query_controller.run_query()
+[2020-10-19 09:17:57,903] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&page=3&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[2020-10-19 09:18:00,326] query_controller.combine_results()
+[2020-10-19 13:08:04,773] query_controller.create_and_run_query()
+[2020-10-19 13:08:04,773] query_controller.create_query()
+[2020-10-19 13:08:04,780] query_controller.run_query()
+[2020-10-19 13:08:17,665] query_controller.create_and_run_query()
+[2020-10-19 13:08:17,665] query_controller.create_query()
+[2020-10-19 13:08:17,673] query_controller.run_query()
+[2020-10-19 13:09:16,412] could not find 'waveband' in the query_params. Continuing...
+[2020-10-19 13:09:16,413] query_controller.get_services()
+[2020-10-19 16:42:19,472] could not find 'waveband' in the query_params. Continuing...
+[2020-10-19 16:42:19,472] query_controller.get_services()
+[2020-10-19 16:42:40,702] query_controller.create_and_run_query()
+[2020-10-19 16:42:40,702] query_controller.create_query()
+[2020-10-19 16:42:40,708] query_controller.run_query()
+[2020-10-20 08:05:59,786] query_controller.create_and_run_query()
+[2020-10-20 08:05:59,787] query_controller.create_query()
+[2020-10-20 08:05:59,792] ERROR: could not translating key collection 'collection', using it raw.
+[2020-10-20 08:05:59,793] ERROR: could not translating key page 'page', using it raw.
+[2020-10-20 08:05:59,793] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[2020-10-20 08:05:59,796] query_controller.run_query()
+[2020-10-20 08:05:59,797] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[2020-10-20 08:06:04,139] query_controller.create_and_run_query()
+[2020-10-20 08:06:04,139] query_controller.create_query()
+[2020-10-20 08:06:04,148] ERROR: could not translating key collection 'collection', using it raw.
+[2020-10-20 08:06:04,149] ERROR: could not translating key page 'page', using it raw.
+[2020-10-20 08:06:04,149] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=49_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[2020-10-20 08:06:04,158] query_controller.run_query()
+[2020-10-20 08:06:04,159] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=49&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[2020-10-20 08:06:08,435] query_controller.create_and_run_query()
+[2020-10-20 08:06:08,435] query_controller.create_query()
+[2020-10-20 08:06:08,441] ERROR: could not translating key collection 'collection', using it raw.
+[2020-10-20 08:06:08,442] ERROR: could not translating key page 'page', using it raw.
+[2020-10-20 08:06:08,443] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[2020-10-20 08:06:08,445] query_controller.run_query()
+[2020-10-20 08:06:08,445] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[2020-10-20 08:43:49,103] could not find 'waveband' in the query_params. Continuing...
+[2020-10-20 08:43:49,104] query_controller.get_services()
+[2020-10-20 08:44:31,042] query_controller.create_and_run_query()
+[2020-10-20 08:44:31,047] query_controller.create_and_run_query()
+[2020-10-20 08:44:31,047] query_controller.create_query()
+[2020-10-20 08:44:31,047] query_controller.create_query()
+[2020-10-20 08:44:31,055] query_controller.run_query()
+[2020-10-20 08:44:31,059] query_controller.run_query()
+[2020-10-20 08:45:04,983] query_controller.get_services()
+[2020-10-20 08:45:30,101] query_controller.create_and_run_query()
+[2020-10-20 08:45:30,103] query_controller.create_and_run_query()
+[2020-10-20 08:45:30,103] query_controller.create_query()
+[2020-10-20 08:45:30,103] query_controller.create_query()
+[2020-10-20 08:45:30,114] query_controller.run_query()
+[2020-10-20 08:45:30,121] query_controller.run_query()
+[2020-10-20 08:45:30,403] query_controller.create_and_run_query()
+[2020-10-20 08:45:30,403] query_controller.create_query()
+[2020-10-20 08:45:30,408] query_controller.create_and_run_query()
+[2020-10-20 08:45:30,409] query_controller.create_query()
+[2020-10-20 08:45:30,410] query_controller.create_and_run_query()
+[2020-10-20 08:45:30,415] query_controller.create_query()
+[2020-10-20 08:45:30,417] query_controller.run_query()
+[2020-10-20 08:45:30,424] query_controller.run_query()
+[2020-10-20 08:45:30,429] query_controller.run_query()

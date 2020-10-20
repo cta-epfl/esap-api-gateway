@@ -136,6 +136,10 @@ class vo_registry_connector(query_base):
                 if not esap_key in ['page', 'page_size']:
                     dataset_key = translation_parameters[esap_key]
                     where = where + dataset_key + "='" + value + "' "
+                else:
+                    # translate ESAP pagination parameters to VO pagination parameters
+                    # page and page_size => TOP and OFFSET
+                    pass
 
             except Exception as error:
                 # if the parameter could not be translated, use it raw and continue
@@ -144,6 +148,11 @@ class vo_registry_connector(query_base):
 
 
         query = self.url + '/sync'
+
+        # add pagination parameters
+        # if no page_size is given, then set it here for ALTA, because ALTA default uses 500
+        if not "page_size" in where:
+            page_size = 50
 
         # add fixed ADQL parameters
         query_params = {}

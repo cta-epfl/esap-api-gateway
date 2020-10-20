@@ -286,9 +286,10 @@ def create_and_run_query(datasets,
         if "ERROR:" in query_results:
             return query_results, None, None
 
-        # results = query_results
-        ### results = results + query_results
-        results = combine_results(results, query_results)
+        if nr_of_queries > 1:
+            results = combine_results(results, query_results)
+        else:
+            results = query_results
 
         # attempt to retrieve a serializer for this function
         try:
