@@ -1,0 +1,27 @@
+version: '3.4'
+
+networks:
+  esap_network: 
+  traefik_proxy:
+    external:
+      name: traefik_proxy
+  default:
+    driver: bridge
+
+services:
+  esap_api:
+    container_name: esap_api_adex
+    image: esap_api_adex:latest
+    networks:
+      - esap_network
+    ports:
+      - 5557:8000
+    expose:
+      - 8000
+    env_file:
+      - $HOME/shared/oidc
+    restart: always
+    volumes:
+      - $HOME/shared/esap-gateway-adex/:/shared
+
+

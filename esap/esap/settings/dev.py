@@ -12,6 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# USE_DOP457 = False
 
 ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_ALLOW_ALL = True
@@ -26,10 +27,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
     },
-#    'query': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
-#    },
+    #    'query': {
+    #        'ENGINE': 'django.db.backends.sqlite3',
+    #        'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
+    #    },
     'staging': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_staging_config.sqlite3'),
@@ -42,6 +43,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_rucio_config.sqlite3'),
     },
+
 }
 
 # Password validation
@@ -53,4 +55,5 @@ AUTH_PASSWORD_VALIDATORS = []
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 
 # CONFIGURATION_FILE = 'esap_solar'
-CONFIGURATION_FILE = 'esap_config'
+# CONFIGURATION_FILE = 'esap_config'
+CONFIGURATION_FILE = 'adex'
