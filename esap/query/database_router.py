@@ -1,15 +1,15 @@
 class QueryRouter:
 
     route_app_labels = {'query', 'auth', 'contenttypes', 'sessions', 'admin'}
+    custom_router_app_labels = {'ida', 'rucio', 'accounts', 'staging'}
 
     def db_for_read(self, model, **hints):
-        if model._meta.app_label in self.route_app_labels:
-#            return 'query'
+        if model._meta.app_label not in self.custom_router_app_labels:
             return 'default'
 
     def db_for_write(self, model, **hints):
-#        return 'query'
-        return 'default'
+        if model._meta.app_label not in self.custom_router_app_labels:
+            return 'default'
 
     def allow_relation(self, obj1, obj2, **hints):
         """
@@ -29,6 +29,5 @@ class QueryRouter:
         'query' database.
         """
         if app_label in self.route_app_labels:
-#            return db == 'query'
             return db == 'default'
         return None
