@@ -6667,3 +6667,38 @@
 [2020-10-20 08:45:30,417] query_controller.run_query()
 [2020-10-20 08:45:30,424] query_controller.run_query()
 [2020-10-20 08:45:30,429] query_controller.run_query()
+[20/Oct/2020 11:26:35,148] query_controller.create_and_run_query()
+[20/Oct/2020 11:26:35,149] query_controller.create_query()
+[20/Oct/2020 11:26:35,156] ERROR: could not translating key collection 'collection', using it raw.
+[20/Oct/2020 11:26:35,156] ERROR: could not translating key page 'page', using it raw.
+[20/Oct/2020 11:26:35,157] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[20/Oct/2020 11:26:35,159] query_controller.run_query()
+[20/Oct/2020 11:26:35,159] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[20/Oct/2020 11:26:38,901] query_controller.create_and_run_query()
+[20/Oct/2020 11:26:38,902] query_controller.create_query()
+[20/Oct/2020 11:26:38,907] ERROR: could not translating key collection 'collection', using it raw.
+[20/Oct/2020 11:26:38,907] ERROR: could not translating key page 'page', using it raw.
+[20/Oct/2020 11:26:38,908] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=4_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[20/Oct/2020 11:26:38,909] query_controller.run_query()
+[20/Oct/2020 11:26:38,910] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=4&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[20/Oct/2020 11:54:14,149] query_controller.create_and_run_query()
+[20/Oct/2020 11:54:14,150] query_controller.create_query()
+[20/Oct/2020 11:54:14,156] ERROR: could not translating key collection 'collection', using it raw.
+[20/Oct/2020 11:54:14,156] ERROR: could not translating key page 'page', using it raw.
+[20/Oct/2020 11:54:14,156] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=1_and_dataProductSubType__in=uncalibratedVisibility_and_page_size=50
+[20/Oct/2020 11:54:14,160] query_controller.run_query()
+[20/Oct/2020 11:54:14,161] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=1&dataProductSubType__in=uncalibratedVisibility&page_size=50
+[20/Oct/2020 11:54:17,773] query_controller.create_and_run_query()
+[20/Oct/2020 11:54:17,774] query_controller.create_query()
+[20/Oct/2020 11:54:17,780] ERROR: could not translating key collection 'collection', using it raw.
+[20/Oct/2020 11:54:17,780] ERROR: could not translating key page 'page', using it raw.
+[20/Oct/2020 11:54:17,781] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=2_and_dataProductSubType__in=uncalibratedVisibility_and_page_size=50
+[20/Oct/2020 11:54:17,784] query_controller.run_query()
+[20/Oct/2020 11:54:17,784] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=2&dataProductSubType__in=uncalibratedVisibility&page_size=50
+[20/Oct/2020 11:54:21,102] query_controller.create_and_run_query()
+[20/Oct/2020 11:54:21,102] query_controller.create_query()
+[20/Oct/2020 11:54:21,106] ERROR: could not translating key collection 'collection', using it raw.
+[20/Oct/2020 11:54:21,107] ERROR: could not translating key page 'page', using it raw.
+[20/Oct/2020 11:54:21,107] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_page=8_and_dataProductSubType__in=uncalibratedVisibility_and_page_size=50
+[20/Oct/2020 11:54:21,109] query_controller.run_query()
+[20/Oct/2020 11:54:21,110] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&page=8&dataProductSubType__in=uncalibratedVisibility&page_size=50
