@@ -7,6 +7,9 @@ class EsapQuerySchema(models.Model):
     def __unicode__(self):
         return self.schema_name
 
+    def __str__(self):
+        return self.schema_name
+
     class Meta:
         verbose_name = "Query Schema"
         verbose_name_plural = "Query Schemas"
@@ -21,6 +24,9 @@ class EsapComputeResource(models.Model):
     # OR SUBCLASS??
 
     def __unicode__(self):
+        return self.resource_name
+
+    def __str__(self):
         return self.resource_name
 
     class Meta:
@@ -38,6 +44,9 @@ class EsapSoftwareRepository(models.Model):
     def __unicode__(self):
         return self.repository_name
 
+    def __str__(self):
+        return self.repository_name
+
     class Meta:
         verbose_name = "Software Repository"
         verbose_name_plural = "Software Repositories"
@@ -46,6 +55,12 @@ class EsapSoftwareRepository(models.Model):
 
 class EsapShoppingItem(models.Model):
     item_data = models.JSONField("Item Data")
+
+    def __unicode__(self):
+        return "ShoppingItem"
+
+    def __str__(self):
+        return "ShoppingItem"
 
     class Meta:
         verbose_name = "Selected Item"
@@ -75,6 +90,9 @@ class EsapUserProfile(models.Model):
     )
 
     def __unicode__(self):
+        return self.user_name
+
+    def __str__(self):
         return self.user_name
 
     class Meta:
