@@ -47,5 +47,8 @@ urlpatterns = [
     # example: /esap-api/query/get-fields?dataset_uri=vo_reg&access_url=https://vo.astron.nl/tap
     path('get-tables-fields/', views.GetTablesFields.as_view()),
 
+    # example: /esap-api/query/get-sky-coordinates?target_name=m31
+    path('get-sky-coordinates/', views.GetSkyCoordinates.as_view()),
+
 ]
 

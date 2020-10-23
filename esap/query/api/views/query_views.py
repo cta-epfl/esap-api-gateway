@@ -1,10 +1,12 @@
 import logging
 
-from django.http import QueryDict
-from rest_framework import generics, pagination
+from rest_framework import generics, viewsets
 from rest_framework.response import Response
+from rest_framework.decorators import api_view, renderer_classes
+from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
 
 from ..services import query_controller
+from .. import utils
 from query.models import DataSet
 
 from ..query_serializers import (
@@ -344,3 +346,37 @@ class GetTablesFields(generics.ListAPIView):
         serializer = TablesFieldSerializer(instance=page, many=True)
 
         return self.get_paginated_response(serializer.data)
+
+
+class GetSkyCoordinates(generics.ListAPIView):
+    """
+    Retrieve a list of fields from the access_url
+    examples: /esap-api/query/get-fields?dataset_uri=vo_reg&access_url=https://vo.astron.nl/tap
+    """
+
+    model = DataSet
+    queryset = DataSet.objects.all()
+
+    # override list and generate a custom response
+    def list(self, request, *args, **kwargs):
+
+        try:
+            target_name = self.request.query_params["target_name"]
+        except:
+            return Response(
+                {"error": "no target_name given"}
+            )
+
+        logger.info('GetSkyCoordinates(' + target_name + ')')
+        target_coords = utils.get_sky_coords(target_name)
+        print(target_coords)
+        ra = target_coords.ra.deg
+        dec = target_coords.dec.deg
+        content = {
+            'description' : 'ICRS (ra, dec) in deg',
+            'target_name' : target_name,
+            'ra': str(ra),
+            'dec': str(dec)
+        }
+
+        return Response(content)
