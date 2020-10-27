@@ -7,7 +7,7 @@ rucio_url = "https://escape-rucio.cern.ch"
 AUTH_PORT = 32301
 STANDARD_PORT = 32300
 
-RUCIO_AUTH_TOKEN = "grange-/DC=org/DC=terena/DC=tcs/C=NL/O=ASTRON/CN=Robot - Yan Grange 1086@astron.nl-unknown-809a62ca07bb471cac3012b6af752c86"
+RUCIO_AUTH_TOKEN = ""
 
 def validate():
     url = os.path.join(f"{rucio_url}:{AUTH_PORT}", "auth", "validate")
