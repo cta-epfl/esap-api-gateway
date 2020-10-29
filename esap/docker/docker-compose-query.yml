@@ -9,7 +9,7 @@ networks:
     driver: bridge
 
 services:
-  backend:
+  esap_api:
     container_name: esap_api_query
     image: esap_api_query:latest
     ports:
@@ -24,7 +24,7 @@ services:
     volumes:
       - $HOME/shared/esap-gateway-query/:/shared
 
-  frontend:
+  esap_gui:
     build:
         context: $HOME/my_docker/esap-gui
         dockerfile: Dockerfile
