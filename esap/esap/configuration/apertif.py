@@ -54,9 +54,9 @@ query_schema = {
         "level": {
             "type": "string",
             "title": "Processing Level",
-            "default": "all",
-            "enum": ["all", "raw", "processed"],
-            "enumNames": ["All", "Raw", "Processed"]
+            "default": "processed",
+            "enum": ["raw", "processed"],
+            "enumNames": ["Raw", "Processed"]
         },
         "dataproduct_type": {
             "type": "string",
