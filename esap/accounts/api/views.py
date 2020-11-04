@@ -3,6 +3,8 @@ from rest_framework import permissions
 from .serializers import *
 from ..models import *
 
+from django.contrib import auth
+
 
 class EsapQuerySchemaViewSet(viewsets.ModelViewSet):
     """
@@ -53,7 +55,11 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
     serializer_class = EsapUserProfileSerializer
     permission_classes = [permissions.AllowAny]
 
-    # def get_queryset(self):
-    #     # Returns nothing if no user_name supplied instead of all
-    #     user_name = self.request.query_params.get("user_name", None)
-    #     return EsapUserProfile.objects.filter(user_name=user_name)
+    def get_queryset(self):
+        # Returns nothing if no user_name supplied instead of all
+        user = auth.get_user(self.request)
+        if user is None:
+            user_name = self.request.query_params.get("user_name", None)
+            return EsapUserProfile.objects.filter(user_name=user_name)
+        user_email = user.email
+        return EsapUserProfile.objects.filter(user_email=user_email)

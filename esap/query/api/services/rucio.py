@@ -18,12 +18,13 @@ AMP_REPLACEMENT = "_and_"
 # The request header
 RUCIO_HOST = "https://escape-rucio.cern.ch:32300"
 RUCIO_PORT = 32300
-RUCIO_AUTH_TOKEN = "grange-/DC=org/DC=terena/DC=tcs/C=NL/O=ASTRON/CN=Robot - Yan Grange 1086@astron.nl-unknown-809a62ca07bb471cac3012b6af752c86"
+RUCIO_AUTH_TOKEN = "<REDACTED>"
 
 URLPATTERNS = dict(
     scope="{host}/scopes/",
     dids="{host}/dids/{scope}/",
     files="{host}/dids/{scope}/files/",
+    replicas="{host}/replicas/{scope}/"
 )
 
 # --------------------------------------------------------------------------------------------------------------------
