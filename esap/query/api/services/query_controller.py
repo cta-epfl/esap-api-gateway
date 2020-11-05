@@ -5,9 +5,10 @@
 
 import json
 import logging
+from inspect import currentframe, getframeinfo
 
 from . import alta
-from . import vo, helio, vo_reg, zooniverse, lofar
+from . import vo, helio, vo_reg, zooniverse, lofar, rucio
 
 logger = logging.getLogger(__name__)
 
@@ -33,6 +34,9 @@ def instantiate_connector(dataset):
 
     elif service_module.upper() == 'LOFAR':
         connector_class = getattr(lofar, service_connector)
+
+    elif service_module.upper() == 'RUCIO':
+        connector_class = getattr(rucio, service_connector)
 
     url = str(dataset.dataset_catalog.url)
     connector = connector_class(url)
@@ -64,6 +68,8 @@ def create_query(datasets, query_params, override_resource=None, connector=None,
                 # institute is valid, continue
                 # build a result json structure for the input query
                 result = {}
+                result['query'] = "empty"
+                result['error'] = []
                 result['query_id'] = dataset.uri
                 result['dataset'] = dataset.uri
                 result['dataset_name'] = dataset.name
@@ -100,13 +106,13 @@ def create_query(datasets, query_params, override_resource=None, connector=None,
                             result['query'] = query
                             result['where'] = where
 
-                            if errors is not None:
-                                result['error'] = str(errors)
+                            if errors is not None and len(errors):
+                                result['error'].append(f"{getframeinfo(currentframe()).lineno}, {errors}")
 
                         except Exception as error:
                             # connector not found.
                             # store the error in the result and continue
-                            result["error"] = str(error)
+                            result["error"].append(f"{getframeinfo(currentframe()).filename}, {getframeinfo(currentframe()).lineno}, {type(error)}, {error}")
 
                         # usually, the returned result in 'query' is a single query.
                         # occasionally, it is a structure of queries that was created by iterating over a registery
@@ -119,7 +125,7 @@ def create_query(datasets, query_params, override_resource=None, connector=None,
 
                 except Exception as error:
                     # store the error in the result and continue
-                    result["error"] = str(error)
+                    result["error"].append(f"{getframeinfo(currentframe()).lineno}, {type(error)}, {error}")
                     input_results.append(result)
 
     except Exception as error:

@@ -69,7 +69,7 @@ class EsapShoppingItem(models.Model):
 
 
 class EsapUserProfile(models.Model):
-    user_name = models.CharField("Username", max_length=50)
+    user_name = models.CharField("Username", max_length=50, primary_key=True)
     full_name = models.CharField("Full Name", max_length=100, null=True)
     user_email = models.EmailField("User Email")
     query_schema = models.ForeignKey(
@@ -86,7 +86,7 @@ class EsapUserProfile(models.Model):
         to=EsapComputeResource, verbose_name="Compute Resources", blank=True
     )
     shopping_cart = models.ManyToManyField(
-        to=EsapShoppingItem, verbose_name="Shopping Cart", blank=True
+        to=EsapShoppingItem, verbose_name="Shopping Cart", blank=True,
     )
 
     def __unicode__(self):
