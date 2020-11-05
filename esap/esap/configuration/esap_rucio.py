@@ -1,5 +1,5 @@
 import requests
-import os
+import urllib.parse
 import json
 
 rucio_url = "https://escape-rucio.cern.ch"
@@ -11,7 +11,7 @@ RUCIO_AUTH_TOKEN = "<REDACTED>"
 
 
 def validate():
-    url = os.path.join(f"{rucio_url}:{AUTH_PORT}", "auth", "validate")
+    url = urllib.parse.urljoin(f"{rucio_url}:{AUTH_PORT}", "auth/validate")
     response = requests.get(
         url, headers={"X-Rucio-Auth-Token": RUCIO_AUTH_TOKEN}, verify=False
     )
@@ -25,7 +25,7 @@ def get_scope_names():
     # try:
     validated = validate()
     if validated:
-        url = os.path.join(f"{rucio_url}:{STANDARD_PORT}", "scopes")
+        url = urllib.parse.urljoin(f"{rucio_url}:{STANDARD_PORT}", "scopes")
         response = requests.get(
             url + "/", headers={"X-Rucio-Auth-Token": RUCIO_AUTH_TOKEN}, verify=False
         )
