@@ -1,6 +1,9 @@
 from rest_framework import viewsets
+from rest_framework import permissions
 from .serializers import *
 from ..models import *
+
+from django.contrib import auth
 
 
 class EsapQuerySchemaViewSet(viewsets.ModelViewSet):
@@ -10,7 +13,7 @@ class EsapQuerySchemaViewSet(viewsets.ModelViewSet):
 
     queryset = EsapQuerySchema.objects.all().order_by("schema_name")
     serializer_class = EsapQuerySchemaSerializer
-    permission_classes = []
+    permission_classes = [permissions.AllowAny]
 
 
 class EsapComputeResourceViewSet(viewsets.ModelViewSet):
@@ -20,7 +23,7 @@ class EsapComputeResourceViewSet(viewsets.ModelViewSet):
 
     queryset = EsapComputeResource.objects.all().order_by("resource_name")
     serializer_class = EsapComputeResourceSerializer
-    permission_classes = []
+    permission_classes = [permissions.AllowAny]
 
 
 class EsapSoftwareRepositoryViewSet(viewsets.ModelViewSet):
@@ -30,7 +33,7 @@ class EsapSoftwareRepositoryViewSet(viewsets.ModelViewSet):
 
     queryset = EsapSoftwareRepository.objects.all().order_by("repository_name")
     serializer_class = EsapSoftwareRepositorySerializer
-    permission_classes = []
+    permission_classes = [permissions.AllowAny]
 
 
 class EsapShoppingItemViewSet(viewsets.ModelViewSet):
@@ -40,7 +43,7 @@ class EsapShoppingItemViewSet(viewsets.ModelViewSet):
 
     queryset = EsapShoppingItem.objects.all()
     serializer_class = EsapShoppingItemSerializer
-    permission_classes = []
+    permission_classes = [permissions.AllowAny]
 
 
 class EsapUserProfileViewSet(viewsets.ModelViewSet):
@@ -50,9 +53,13 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
 
     queryset = EsapUserProfile.objects.all().order_by("user_name")
     serializer_class = EsapUserProfileSerializer
-    permission_classes = []
+    permission_classes = [permissions.AllowAny]
 
     def get_queryset(self):
         # Returns nothing if no user_name supplied instead of all
-        user_name = self.request.query_params.get("user_name", None)
-        return EsapUserProfile.objects.filter(user_name=user_name)
+        user = auth.get_user(self.request)
+        if user is None:
+            user_name = self.request.query_params.get("user_name", None)
+            return EsapUserProfile.objects.filter(user_name=user_name)
+        user_email = user.email
+        return EsapUserProfile.objects.filter(user_email=user_email)
