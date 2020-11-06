@@ -47,7 +47,7 @@ logo = "http://rucio.cern.ch/images/wide_logo2.png"
 # the url location of the frontend application,
 # this makes it possible to install multiple instances in different directories on the webserver
 # that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
-frontend_basename = "esap-rucio"
+frontend_basename = "esap-gui"
 
 # definition of the navigation bar
 nav1 = {"title": "Archives", "route": "/archives"}
