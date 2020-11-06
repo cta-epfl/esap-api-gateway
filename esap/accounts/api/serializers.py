@@ -36,6 +36,51 @@ class EsapShoppingItemSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class EsapUserProfileSerializer(serializers.HyperlinkedModelSerializer):
+    shopping_cart = EsapShoppingItemSerializer(
+        many=True,
+        # view_name="shopping-items",
+        read_only=False,
+        # queryset=EsapShoppingItem.objects.all(),
+    )
+
+    def update(self, instance, validated_data):
+        # Do not allow the user name to be updated - it is the primary key
+        _ = validated_data.pop("user_name", None)
+
+        for m2m_field in [
+            "software_repositories",
+            "compute_resources",
+            "shopping_cart",
+        ]:
+            field_data = validated_data.pop(m2m_field, None)
+            if field_data is not None:
+                if len(field_data[0]) == 0:
+                    raise RuntimeError(f"WTF! {validated_data}")
+                field_instances = [
+                    getattr(instance, m2m_field).model.objects.create(
+                        item_data=str(dict(field_datum))
+                    )
+                    for field_datum in field_data
+                ]
+                getattr(instance, m2m_field).add(*field_instances)
+
+        for key, value in validated_data.items():
+            setattr(instance, key, value)
+        instance.save()
+        return instance
+
+    def to_internal_value(self, data):
+        internal_value = super().to_internal_value(data)
+        for m2m_field in [
+            "software_repositories",
+            "compute_resources",
+            "shopping_cart",
+        ]:
+            field_data = data.get(m2m_field, None)
+            if field_data is not None:
+                internal_value.update({m2m_field: field_data})
+        return internal_value
+
     class Meta:
         model = EsapUserProfile
         fields = [

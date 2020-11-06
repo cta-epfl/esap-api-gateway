@@ -64,3 +64,6 @@ CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 # CONFIGURATION_FILE = 'esap_solar'
 # CONFIGURATION_FILE = 'esap_config'
 CONFIGURATION_FILE = 'adex'
+
+LOGIN_REDIRECT_URL = " http://localhost:3000/esap-gui/login"
+LOGOUT_REDIRECT_URL = "http://localhost:3000/esap-gui/logout"

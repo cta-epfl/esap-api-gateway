@@ -9,50 +9,25 @@ from .query_base import query_base
 import requests
 import json
 import logging
+import string
 
 logger = logging.getLogger(__name__)
 
-AMP_REPLACEMENT = '_and_'
+AMP_REPLACEMENT = "_and_"
 
 # The request header
 RUCIO_HOST = "https://escape-rucio.cern.ch:32300"
+RUCIO_PORT = 32300
+RUCIO_AUTH_TOKEN = "<REDACTED>"
+
+URLPATTERNS = dict(
+    scope="{host}/scopes/",
+    dids="{host}/dids/{scope}/",
+    files="{host}/dids/{scope}/files/",
+    replicas="{host}/replicas/{scope}/"
+)
 
 # --------------------------------------------------------------------------------------------------------------------
-
-
-def get_data_from_rucio(query):
-    """ use Rucio REST API to query the data lake """
-
-    # authenticate user using X509 certificates
-    # curl --insecure -i --cert ~/.globus/client.crt -i --key ~/.globus/client.key -i -H "X-Rucio-Account: meyer" -X GET "https://escape-rucio.cern.ch:32301/auth/x509"
-
-    # export RUCIO_AUTH_TOKEN="meyer-/DC=org/DC=terena/DC=tcs/C=NL/O=ASTRON/CN=meyer 1775@astron.nl-unknown-*"
-    # validate user
-    # curl --insecure -X GET -H "X-Rucio-Auth-Token: $RUCIO_AUTH_TOKEN" https://escape-rucio.cern.ch:32301/auth/validate
-
-    # query DIDs with scope-name LOFAR_ASTRON_GRANGE
-    # curl --insecure -X GET -H "X-Rucio-Auth-Token: $RUCIO_AUTH_TOKEN" https://escape-rucio.cern.ch:32300/dids/LOFAR_ASTRON_GRANGE/
-
-    # list of scope names
-    # ESCAPE_CERN_TEAM-noise
-    # CMS_INFN_DCIANGOT
-    # SKA_SKAO_COLLINSON
-    # ESCAPE_DESY_TEAM-testing
-    # FAIR_GSI_SZUBA
-    # SKA_SKAO_JOSHI-testing
-    # CTA_LAPP_FREDERIC
-    # SKA_SKAO_BARNSLEY-testing
-    # ESCAPE_CERN_TEAM
-    # VIRGO_EGO_CHANIAL
-    # ESCAPE_CERN_TEAM-testing
-    # LSST_CCIN2P3_GOUNON
-    # ATLAS_LAPP_JEZEQUEL
-    # SKA_SKAO_COLL-testing
-    # MAGIC_PIC_BRUZZESE
-    # LOFAR_ASTRON_GRANGE
-    logger.info(results)
-
-    return list(results)
 
 
 class rucio_connector(query_base):
@@ -64,87 +39,123 @@ class rucio_connector(query_base):
     def __init__(self, url):
         self.url = url
 
-    # construct a query for this type of service
+    # construct a query for the Rucio REST API
+    def construct_query(
+        self, dataset, esap_query_params, translation_parameters, equinox
+    ):
 
-    def construct_query(self, dataset, esap_query_params, translation_parameters, equinox):
-
-        where = ''
+        query = {}
+        where = {}
         errors = []
 
-        # translate the esap_parameters to specific catalog parameters
-        for esap_param in esap_query_params:
-            esap_key = esap_param
-            value = esap_query_params[esap_key][0]
+        query = dict(
+            resource_category=esap_query_params.pop("resource_category", ["dids"])[0]
+        )
 
-            try:
-                dataset_key = translation_parameters[esap_key]
+        url_pattern = URLPATTERNS.get(
+            query["resource_category"], URLPATTERNS.get("dids")
+        )
 
-                # because '&' has a special meaning in urls (specifying a parameter) replace it with
-                # something harmless during serialization.
-                where = where + dataset_key + '=' + value + AMP_REPLACEMENT
+        url_pattern_fields = [
+            field[1] for field in string.Formatter().parse(url_pattern)
+        ]
 
-            except Exception as error:
-                # if the parameter could not be translateget_data_from_lofard not translating key " +
-                            esap_key + ' ' + str(error)+', using it raw.')
-                # errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
+        try:
+            url_params = {
+                field: esap_query_params.pop(field, "Missing")[0]
+                for field in url_pattern_fields
+                if field is not None and field != "host"
+            }
 
-        # if query ends with a separation character then cut it off
-        if where.endswith(AMP_REPLACEMENT):
-            where=where[:-len(AMP_REPLACEMENT)]
+            # translate the remianing esap_parameters to specific catalog parameters
+            where = {
+                translation_parameters.get(key, key): value[0]
+                for key, value in esap_query_params.items()
+                if key not in ["catalog"]
+            }
+            query = dict(
+                query_info=dict(
+                    url_pattern=url_pattern, url_params=url_params, where=where
+                )
+            )
+        except Exception as e:
+            errors.append(f"Rucio Connector {type(e)} {e}")
 
-        # Zheng, this is where you could change the format of the Rucio query.
-        # this is not required, you can also leave it like this.
-        # The 'query' variable that is returned is already translated with the Rucio parameter_mapping
-        # here. I only used some example paramters, so you may still want to change the parameter_mapping.
-
-        # construct the query url
-        # for now simply like: 'https://escape-rucio.cern.ch:32300/dids/LOFAR_ASTRON_GRANGE/'
-        query=self.url + '?' + where
-        logger.info('construct_query: '+query)
         return query, where, errors
 
-    def run_query(self, dataset, dataset_name, query, override_access_url = None, override_service_type = None):
+    def _get_data_from_rucio(self, query):
+        """ use Rucio REST API to query the data lake """
+        query_info = query["query_info"]
+        url = query_info["url_pattern"].format(
+            host=f"{self.url}:{RUCIO_PORT}", **query_info["url_params"]
+        )
+        response = requests.get(
+            url,
+            query_info["where"],
+            headers={"X-Rucio-Auth-Token": RUCIO_AUTH_TOKEN},
+            verify=False,
+        )
+        results = []
+        if response.ok and len(response.content.strip()):
+            results = [
+                json.loads(element)
+                for element in response.content.decode("utf-8").strip().split("\n")
+            ]
+
+        return results
+
+    def run_query(
+        self,
+        dataset,
+        dataset_name,
+        query,
+        override_access_url=None,
+        override_service_type=None,
+    ):
         """
         :param dataset: the dataset object that must be queried
         :param query_params: the incoming esap query parameters)
         :return: results: an array of dicts with the following structure;
         """
-        logger.info('query:'+query)
-        results=[]
+        logger.info("query:" + str(query))
+        results = []
 
         # create a function that reads the data from lofar
-        # rucio_results = get_data_from_rucio(query)
+        rucio_results = self._get_data_from_rucio(query)
 
-        try:
-            for rucio_result in rucio_results:
-                record={}
-                record['name']=rucio_result['name']
-                record['parent']=rucio_result['parent']
-                record['level']=rucio_result['level']
-                record['bytes']=rucio_result['bytes']
-                record['scope']=rucio_result['scope']
-                record['type']=rucio_result['type']
-
-                results.append(record)
-
-        except Exception as error:
-            return "ERROR: " + str(error)
-
-        return results
+        return rucio_results
 
     # custom serializer for the 'query' endpoint
 
+    class TypeToSerializerMap:
+
+        map = {
+            type(float): serializers.FloatField(),
+            type(int): serializers.IntegerField(),
+            type(str): serializers.CharField(),
+            type(dict): serializers.DictField(),
+            type(list): serializers.ListField(),
+        }
+
+        @classmethod
+        def getFieldForType(cls, value):
+            return cls.map.get(type(value), serializers.JSONField())
+
     class CreateAndRunQuerySerializer(serializers.Serializer):
+        """
+        Custom serializer classes implement dynamic field definition based on
+        the contents of the query passed to it.
+        """
 
-        # Zheng: this defines the structure of the response to /esap/query/query for Rucio
-        # the fields should be the same as in run-query
+        def __init__(self, *args, **kwargs):
 
-        name=serializers.CharField()
-        parent=serializers.CharField()
-        level=serializers.IntegerField()
-        size_in_bytes=serializers.IntegerField()
-        scope=serializers.CharField()
-        result_type=serializers.CharField()
+            self.example_result = kwargs.get("instance", [])[0]
 
-        class Meta:
-            fields='__all__'
+            super().__init__(*args, **kwargs)
+
+            self.fields.update(
+                {
+                    key: rucio_connector.TypeToSerializerMap.getFieldForType(value)
+                    for key, value in self.example_result.items()
+                }
+            )
