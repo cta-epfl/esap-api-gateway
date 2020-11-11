@@ -218,8 +218,6 @@ OIDC_OP_USER_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/userinfo"
 OIDC_STORE_ACCESS_TOKEN = True
 OIDC_STORE_ID_TOKEN = True
 
-#LOGIN_REDIRECT_URL = "http://127.0.0.1:3000/esap-gui/login"
-#LOGOUT_REDIRECT_URL = "http://127.0.0.1:3000/esap-gui/logout"
 LOGIN_REDIRECT_URL = " https://sdc.astron.nl/esap-gui/login"
 LOGOUT_REDIRECT_URL = "https://sdc.astron.nl/esap-gui/logout"
 
