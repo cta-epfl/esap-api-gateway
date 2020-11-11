@@ -61,3 +61,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = "https://sdc.astron.nl/esap-gui/login"
 LOGOUT_REDIRECT_URL = "https://sdc.astron.nl/esap-gui/logout"
+LOGIN_REDIRECT_URL_FAILURE = "https://sdc.astron.nl/esap-gui/error"

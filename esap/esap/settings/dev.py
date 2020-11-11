@@ -73,3 +73,4 @@ CONFIGURATION_FILE = 'adex'
 
 LOGIN_REDIRECT_URL = "http://localhost:3000/login"
 LOGOUT_REDIRECT_URL = "http://localhost:3000/logout"
+LOGIN_REDIRECT_URL_FAILURE = "http://localhost:3000/logout/error"
