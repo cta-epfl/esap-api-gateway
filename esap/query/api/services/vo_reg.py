@@ -86,7 +86,10 @@ class vo_registry_connector(query_base):
         if datamodel:
             services = regsearch(datamodel=datamodel)
         else:
-            services = regsearch(keywords=keywords, servicetype=service_type, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=service_type)
+            if waveband:
+                services = regsearch(keywords=keywords, servicetype=service_type, waveband=waveband)
+            else:
+                services = regsearch(keywords=keywords, servicetype=service_type)
 
         return services
 
