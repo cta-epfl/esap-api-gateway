@@ -12,7 +12,7 @@ frontend_basename = "adex-gui"
 
 # definition of the navigation bar
 nav1 = {'title': 'Archives', 'route': '/archives'}
-nav2 = {'title': 'Query', 'route': '/query'}
+nav2 = {'title': 'Query', 'route': '/adex-query'}
 navbar = [nav1, nav2]
 
 
