@@ -14,8 +14,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = True
 # USE_DOP457 = False
 
-ALLOWED_HOSTS = ["*"]
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5555",
+    "http://localhost:3000",
+    "http://127.0.0.1:5555",
+    "http://127.0.0.1:3000",
+]
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
 
 # Database
 DATABASE_ROUTERS = [
@@ -65,5 +71,6 @@ CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 # CONFIGURATION_FILE = 'esap_config'
 CONFIGURATION_FILE = 'adex'
 
-LOGIN_REDIRECT_URL = " http://localhost:3000/esap-gui/login"
+LOGIN_REDIRECT_URL = "http://localhost:3000/esap-gui/login"
 LOGOUT_REDIRECT_URL = "http://localhost:3000/esap-gui/logout"
+LOGIN_REDIRECT_URL_FAILURE = "http://localhost:3000/esap-gui/error"

@@ -218,8 +218,9 @@ OIDC_OP_USER_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/userinfo"
 OIDC_STORE_ACCESS_TOKEN = True
 OIDC_STORE_ID_TOKEN = True
 
-LOGIN_REDIRECT_URL = " http://sdc.astron.nl/esap-gui/login"
-LOGOUT_REDIRECT_URL = "http://sdc.astron.nl/esap-gui/logout"
+LOGIN_REDIRECT_URL = "https://sdc.astron.nl/esap-gui/login"
+LOGOUT_REDIRECT_URL = "https://sdc.astron.nl/esap-gui/logout"
+LOGIN_REDIRECT_URL_FAILURE = "https://sdc.astron.nl/esap-gui/error"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
@@ -228,6 +229,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ASTRON - version 27 oct 2020"
+VERSION = "ASTRON - version 11 nov 2020"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'
