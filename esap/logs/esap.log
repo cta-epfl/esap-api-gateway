@@ -3888,3 +3888,15 @@
 [13/Nov/2020 08:57:01,867] query_controller.create_query()
 [13/Nov/2020 08:57:01,872] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT * TOP 250 from ivoa.obscore WHERE obs_collection='apertif-dr1'
 [13/Nov/2020 08:57:01,875] query_controller.run_query()
+[13/Nov/2020 08:57:46,075] query_controller.create_and_run_query()
+[13/Nov/2020 08:57:46,076] query_controller.create_query()
+[13/Nov/2020 08:57:46,083] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[13/Nov/2020 08:57:46,086] query_controller.run_query()
+[13/Nov/2020 10:13:04,264] query_controller.create_and_run_query()
+[13/Nov/2020 10:13:04,265] query_controller.create_query()
+[13/Nov/2020 10:13:04,269] ERROR: could not translating key collection 'collection', using it raw.
+[13/Nov/2020 10:13:04,269] ERROR: could not translating key page 'page', using it raw.
+[13/Nov/2020 10:13:04,270] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_view_ra=202_and_view_dec=48_and_view_fov=10_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 10:13:04,270] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_view_ra=202_and_view_dec=48_and_view_fov=10_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 10:13:04,274] query_controller.run_query()
+[13/Nov/2020 10:13:04,275] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&view_ra=202&view_dec=48&view_fov=10&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
