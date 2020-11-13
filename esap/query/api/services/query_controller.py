@@ -102,7 +102,7 @@ def create_query(datasets, query_params, override_resource=None, connector=None,
                                                                                  query_params,
                                                                                  parameter_mapping,
                                                                                  dataset.dataset_catalog.equinox)
-
+                            logger.info(query)
                             result['query'] = query
                             result['where'] = where
 
@@ -248,10 +248,13 @@ def create_and_run_query(datasets,
             return created_queries, None
 
         # check if the returned dict contains an error
-        if created_queries[0]['error']:
-            error = created_queries[0]['error']
-            if len(error)>2:
-                return error, None
+        try:
+            if created_queries[0]['error']:
+                error = created_queries[0]['error']
+                if len(error)>2:
+                    return error, None
+        except:
+            return "ERROR: could not create a query from these parameters"
 
     for q in created_queries:
         dataset_uri = q['dataset']

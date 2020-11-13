@@ -93,7 +93,7 @@ class tap_service_connector(query_base):
         query = query + "?lang=ADQL&REQUEST=doQuery"
 
         # add query ADQL parameters (limit to 10 results)
-        query = query + "&QUERY=SELECT * from "
+        query = query + "&QUERY=SELECT TOP 250 * from "
 
         # if the parameter '&resource=...' is given to the url, then use that resource..
         if override_resource:

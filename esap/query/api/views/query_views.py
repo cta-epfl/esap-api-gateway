@@ -154,6 +154,10 @@ class CreateAndRunQueryView(generics.ListAPIView):
         query_params, archive_uri = extract_and_remove(query_params, "archive_uri")
         if archive_uri:
             datasets = datasets.filter(dataset_archive__uri=archive_uri)
+            if len(datasets)==0:
+                error = "ERROR: No datasets found for this archive_uri: "+archive_uri+\
+                        ". Check your 'dataset' configurations in the esap_config database"
+                return Response({error})
 
         # ...unless a dataset_uri is given, then it will only use that dataset
         query_params, dataset_uri = extract_and_remove(query_params, "dataset_uri")
@@ -185,6 +189,12 @@ class CreateAndRunQueryView(generics.ListAPIView):
         query_params, adql_query = extract_and_remove(query_params, "adql_query")
         query_params, auto_pagination = extract_and_remove(query_params, "pagination")
         query_params, resource = extract_and_remove(query_params, "resource")
+
+        # there should be some datasets in the 'datasets' parameter by now
+        if len(datasets)==0:
+            error = "ERROR: No datasets for this query. Check if your 'dataset' configurations for "\
+                    +archive_uri+" fits the query parameters: "+str(query_params)
+            return Response({error})
 
         query_results, connector, custom_serializer = query_controller.create_and_run_query(
             datasets=datasets,
