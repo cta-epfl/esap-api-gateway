@@ -4084,3 +4084,97 @@
 [13/Nov/2020 15:40:42,038] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
 [13/Nov/2020 15:40:42,042] query_controller.run_query()
 [13/Nov/2020 15:40:42,044] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 15:41:24,391] query_controller.create_and_run_query()
+[13/Nov/2020 15:41:24,392] query_controller.create_query()
+[13/Nov/2020 15:41:24,396] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:41:24,396] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:41:24,398] query_controller.run_query()
+[13/Nov/2020 15:41:24,398] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 15:41:27,608] query_controller.create_and_run_query()
+[13/Nov/2020 15:41:27,608] query_controller.create_query()
+[13/Nov/2020 15:41:27,611] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:41:27,612] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:41:27,615] query_controller.run_query()
+[13/Nov/2020 15:41:27,615] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 15:41:49,335] query_controller.create_and_run_query()
+[13/Nov/2020 15:41:49,336] query_controller.create_query()
+[13/Nov/2020 15:41:49,339] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=20_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:41:49,339] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=20_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:41:49,341] query_controller.run_query()
+[13/Nov/2020 15:41:49,342] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=20&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 15:42:30,815] query_controller.create_and_run_query()
+[13/Nov/2020 15:42:30,815] query_controller.create_query()
+[13/Nov/2020 15:42:30,817] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=125.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:42:30,817] https://alta.astron.nl/altapi/dataproducts?view_ra=125.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:42:30,819] query_controller.run_query()
+[13/Nov/2020 15:42:30,819] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=125.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 15:42:39,043] query_controller.create_and_run_query()
+[13/Nov/2020 15:42:39,044] query_controller.create_query()
+[13/Nov/2020 15:42:39,046] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=225.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:42:39,046] https://alta.astron.nl/altapi/dataproducts?view_ra=225.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:42:39,048] query_controller.run_query()
+[13/Nov/2020 15:42:39,049] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=225.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 15:42:57,928] query_controller.create_and_run_query()
+[13/Nov/2020 15:42:57,928] query_controller.create_query()
+[13/Nov/2020 15:42:57,931] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=202_and_view_dec=48_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:42:57,931] https://alta.astron.nl/altapi/dataproducts?view_ra=202_and_view_dec=48_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:42:57,932] query_controller.run_query()
+[13/Nov/2020 15:42:57,933] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=202&view_dec=48&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 15:53:49,853] query_controller.create_and_run_query()
+[13/Nov/2020 15:53:49,854] query_controller.create_query()
+[13/Nov/2020 15:53:49,856] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[13/Nov/2020 15:53:49,857] query_controller.run_query()
+[13/Nov/2020 15:56:21,745] query_controller.create_and_run_query()
+[13/Nov/2020 15:56:21,746] query_controller.create_query()
+[13/Nov/2020 15:56:21,752] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[13/Nov/2020 15:56:21,757] query_controller.run_query()
+[13/Nov/2020 15:56:38,149] query_controller.create_and_run_query()
+[13/Nov/2020 15:56:38,149] query_controller.create_query()
+[13/Nov/2020 15:56:38,157] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[13/Nov/2020 15:56:38,161] query_controller.run_query()
+[13/Nov/2020 16:00:49,425] query_controller.create_and_run_query()
+[13/Nov/2020 16:00:49,425] query_controller.create_query()
+[13/Nov/2020 16:00:49,436] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[13/Nov/2020 16:00:49,441] query_controller.run_query()
+[13/Nov/2020 16:01:57,744] query_controller.create_and_run_query()
+[13/Nov/2020 16:01:57,745] query_controller.create_query()
+[13/Nov/2020 16:01:57,751] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[13/Nov/2020 16:01:57,756] query_controller.run_query()
+[13/Nov/2020 16:05:34,073] could not find 'waveband' in the query_params. Continuing...
+[13/Nov/2020 16:05:34,073] query_controller.get_services()
+[13/Nov/2020 16:06:32,536] query_controller.create_and_run_query()
+[13/Nov/2020 16:06:32,537] query_controller.create_query()
+[13/Nov/2020 16:06:32,543] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore
+[13/Nov/2020 16:06:32,546] query_controller.run_query()
+[13/Nov/2020 16:08:46,754] could not find 'waveband' in the query_params. Continuing...
+[13/Nov/2020 16:08:46,755] query_controller.get_services()
+[13/Nov/2020 16:08:55,824] query_controller.create_and_run_query()
+[13/Nov/2020 16:08:55,825] query_controller.create_query()
+[13/Nov/2020 16:08:55,835] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore
+[13/Nov/2020 16:08:55,840] query_controller.run_query()
+[13/Nov/2020 16:10:15,380] query_controller.create_and_run_query()
+[13/Nov/2020 16:10:15,380] query_controller.create_query()
+[13/Nov/2020 16:10:15,387] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore
+[13/Nov/2020 16:10:15,391] query_controller.run_query()
+[13/Nov/2020 16:13:02,380] query_controller.create_and_run_query()
+[13/Nov/2020 16:13:02,381] query_controller.create_query()
+[13/Nov/2020 16:13:02,390] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='sauron'
+[13/Nov/2020 16:13:02,395] query_controller.run_query()
+[13/Nov/2020 16:15:29,599] query_controller.create_and_run_query()
+[13/Nov/2020 16:15:29,599] query_controller.create_query()
+[13/Nov/2020 16:15:29,607] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='sauron'
+[13/Nov/2020 16:15:29,611] query_controller.run_query()
+[13/Nov/2020 16:17:31,969] query_controller.create_and_run_query()
+[13/Nov/2020 16:17:31,972] query_controller.run_query()
+[13/Nov/2020 16:18:09,584] query_controller.create_and_run_query()
+[13/Nov/2020 16:18:09,585] query_controller.create_query()
+[13/Nov/2020 16:18:09,606] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore
+[13/Nov/2020 16:18:09,623] query_controller.run_query()
+[13/Nov/2020 16:18:46,969] query_controller.create_and_run_query()
+[13/Nov/2020 16:18:46,969] query_controller.create_query()
+[13/Nov/2020 16:18:46,976] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore
+[13/Nov/2020 16:18:46,982] query_controller.run_query()
+[13/Nov/2020 16:19:46,650] query_controller.create_and_run_query()
+[13/Nov/2020 16:19:46,651] query_controller.create_query()
+[13/Nov/2020 16:19:46,657] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore
+[13/Nov/2020 16:19:46,661] query_controller.run_query()

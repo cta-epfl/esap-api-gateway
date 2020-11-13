@@ -268,7 +268,7 @@ class vo_registry_connector(query_base):
             try:
                 record['thumbnail'] = row[dataset.thumbnail_field].decode('utf-8')
             except:
-                pass
+                record['thumbnail'] = ''
 
             try:
                 record['url'] = row[dataset.url_field].decode('utf-8')
