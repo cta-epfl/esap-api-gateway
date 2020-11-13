@@ -4044,3 +4044,35 @@
 [13/Nov/2020 14:05:13,633] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
 [13/Nov/2020 14:05:13,638] query_controller.run_query()
 [13/Nov/2020 14:05:13,641] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 14:45:48,509] query_controller.create_and_run_query()
+[13/Nov/2020 14:45:48,510] query_controller.create_query()
+[13/Nov/2020 14:45:48,518] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1' AND CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',202.0,48.0,10.0))=1
+[13/Nov/2020 14:45:48,522] query_controller.run_query()
+[13/Nov/2020 14:46:21,547] query_controller.create_and_run_query()
+[13/Nov/2020 14:46:21,548] query_controller.create_query()
+[13/Nov/2020 14:46:21,562] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='sauron' AND CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',342.16,33.94,10.0))=1
+[13/Nov/2020 14:46:21,567] query_controller.run_query()
+[13/Nov/2020 14:47:50,206] query_controller.create_and_run_query()
+[13/Nov/2020 14:47:50,206] query_controller.create_query()
+[13/Nov/2020 14:47:50,211] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1' AND CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',342.16,33.94,10.0))=1
+[13/Nov/2020 14:47:50,214] query_controller.run_query()
+[13/Nov/2020 14:48:39,124] query_controller.create_and_run_query()
+[13/Nov/2020 14:48:39,124] query_controller.create_query()
+[13/Nov/2020 14:48:39,129] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1' AND CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',342.16,33.94,10.0))=1
+[13/Nov/2020 14:48:39,133] query_controller.run_query()
+[13/Nov/2020 14:49:54,524] query_controller.create_and_run_query()
+[13/Nov/2020 14:49:54,524] query_controller.create_query()
+[13/Nov/2020 14:49:54,529] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1' AND CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',342.16,33.94,10.0))=1
+[13/Nov/2020 14:49:54,534] query_controller.run_query()
+[13/Nov/2020 14:52:41,846] query_controller.create_and_run_query()
+[13/Nov/2020 14:52:41,846] query_controller.create_query()
+[13/Nov/2020 14:52:41,852] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1' AND CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',342.16,33.94,10.0))=1
+[13/Nov/2020 14:52:41,855] query_controller.run_query()
+[13/Nov/2020 14:53:47,612] query_controller.create_and_run_query()
+[13/Nov/2020 14:53:47,613] query_controller.create_query()
+[13/Nov/2020 14:53:47,620] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1' AND CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',342.16,33.94,10.0))=1
+[13/Nov/2020 14:53:47,624] query_controller.run_query()
+[13/Nov/2020 14:55:17,940] query_controller.create_and_run_query()
+[13/Nov/2020 14:55:17,941] query_controller.create_query()
+[13/Nov/2020 14:55:17,947] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1' AND CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',342.16,33.94,10.0))=1
+[13/Nov/2020 14:55:17,952] query_controller.run_query()

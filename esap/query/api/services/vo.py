@@ -264,6 +264,7 @@ class tap_service_connector(query_base):
         facility = serializers.CharField()
         instrument = serializers.CharField()
         url = serializers.CharField()
+        thumbnail = serializers.CharField()
 
         class Meta:
             fields = '__all__'
