@@ -3900,3 +3900,141 @@
 [13/Nov/2020 10:13:04,270] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_view_ra=202_and_view_dec=48_and_view_fov=10_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
 [13/Nov/2020 10:13:04,274] query_controller.run_query()
 [13/Nov/2020 10:13:04,275] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&view_ra=202&view_dec=48&view_fov=10&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 11:54:33,411] query_controller.create_and_run_query()
+[13/Nov/2020 11:54:33,412] query_controller.create_query()
+[13/Nov/2020 11:54:33,417] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 11:54:33,417] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 11:54:33,419] query_controller.run_query()
+[13/Nov/2020 11:54:33,420] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 11:55:41,202] query_controller.create_and_run_query()
+[13/Nov/2020 11:55:41,203] query_controller.create_query()
+[13/Nov/2020 11:55:41,209] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 11:55:41,209] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 11:55:41,213] query_controller.run_query()
+[13/Nov/2020 11:55:41,215] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 11:57:48,097] query_controller.create_and_run_query()
+[13/Nov/2020 11:57:48,098] query_controller.create_query()
+[13/Nov/2020 11:57:48,107] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 11:57:48,107] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 11:57:48,111] query_controller.run_query()
+[13/Nov/2020 11:57:48,113] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:04:22,997] query_controller.create_and_run_query()
+[13/Nov/2020 12:04:22,998] query_controller.create_query()
+[13/Nov/2020 12:04:23,003] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:04:23,003] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:04:23,007] query_controller.run_query()
+[13/Nov/2020 12:04:23,008] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:08:25,306] query_controller.create_and_run_query()
+[13/Nov/2020 12:08:25,307] query_controller.create_query()
+[13/Nov/2020 12:08:25,311] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:08:25,312] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:08:25,315] query_controller.run_query()
+[13/Nov/2020 12:08:25,316] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:09:34,320] query_controller.create_and_run_query()
+[13/Nov/2020 12:09:34,320] query_controller.create_query()
+[13/Nov/2020 12:09:34,327] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:09:34,328] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:09:34,332] query_controller.run_query()
+[13/Nov/2020 12:09:34,332] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:12:49,990] query_controller.create_and_run_query()
+[13/Nov/2020 12:12:49,990] query_controller.create_query()
+[13/Nov/2020 12:12:49,996] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:12:49,996] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:12:49,999] query_controller.run_query()
+[13/Nov/2020 12:12:49,999] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:12:51,905] query_controller.create_and_run_query()
+[13/Nov/2020 12:12:51,905] query_controller.create_query()
+[13/Nov/2020 12:12:51,909] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:12:51,910] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:12:51,913] query_controller.run_query()
+[13/Nov/2020 12:12:51,913] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:14:05,613] query_controller.create_and_run_query()
+[13/Nov/2020 12:14:05,613] query_controller.create_query()
+[13/Nov/2020 12:14:05,623] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:14:05,624] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:14:05,628] query_controller.run_query()
+[13/Nov/2020 12:14:05,628] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:14:22,601] query_controller.create_and_run_query()
+[13/Nov/2020 12:14:22,602] query_controller.create_query()
+[13/Nov/2020 12:14:22,610] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:14:22,611] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:14:22,615] query_controller.run_query()
+[13/Nov/2020 12:14:22,615] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:15:26,648] query_controller.create_and_run_query()
+[13/Nov/2020 12:15:26,648] query_controller.create_query()
+[13/Nov/2020 12:15:26,654] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:15:26,654] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:15:26,658] query_controller.run_query()
+[13/Nov/2020 12:15:26,659] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:32:07,892] query_controller.create_and_run_query()
+[13/Nov/2020 12:32:07,892] query_controller.create_query()
+[13/Nov/2020 12:32:07,898] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:32:07,898] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:32:07,901] query_controller.run_query()
+[13/Nov/2020 12:32:07,902] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:42:05,215] query_controller.create_and_run_query()
+[13/Nov/2020 12:42:05,215] query_controller.create_query()
+[13/Nov/2020 12:42:05,222] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:42:05,222] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:42:05,226] query_controller.run_query()
+[13/Nov/2020 12:42:05,226] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:42:06,797] query_controller.create_and_run_query()
+[13/Nov/2020 12:42:06,798] query_controller.create_query()
+[13/Nov/2020 12:42:06,802] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:42:06,803] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:42:06,807] query_controller.run_query()
+[13/Nov/2020 12:42:06,807] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:44:13,695] query_controller.create_and_run_query()
+[13/Nov/2020 12:44:13,695] query_controller.create_query()
+[13/Nov/2020 12:44:13,703] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:44:13,704] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:44:13,710] query_controller.run_query()
+[13/Nov/2020 12:44:13,710] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 12:44:13,917] query_controller.create_and_run_query()
+[13/Nov/2020 12:44:13,917] query_controller.create_query()
+[13/Nov/2020 12:44:13,922] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:44:13,923] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 12:44:13,927] query_controller.run_query()
+[13/Nov/2020 12:44:13,927] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 13:48:36,003] query_controller.create_and_run_query()
+[13/Nov/2020 13:48:36,004] query_controller.create_query()
+[13/Nov/2020 13:48:36,008] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:48:36,009] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:48:36,013] query_controller.run_query()
+[13/Nov/2020 13:48:36,014] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 13:48:51,273] query_controller.create_and_run_query()
+[13/Nov/2020 13:48:51,274] query_controller.create_query()
+[13/Nov/2020 13:48:51,278] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:48:51,278] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:48:51,283] query_controller.run_query()
+[13/Nov/2020 13:48:51,283] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 13:54:34,058] query_controller.create_and_run_query()
+[13/Nov/2020 13:54:34,059] query_controller.create_query()
+[13/Nov/2020 13:54:34,067] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:54:34,067] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:54:34,071] query_controller.run_query()
+[13/Nov/2020 13:54:34,073] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 13:56:19,550] query_controller.create_and_run_query()
+[13/Nov/2020 13:56:19,550] query_controller.create_query()
+[13/Nov/2020 13:56:19,558] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:56:19,559] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:56:19,563] query_controller.run_query()
+[13/Nov/2020 13:56:19,563] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 13:56:20,475] query_controller.create_and_run_query()
+[13/Nov/2020 13:56:20,475] query_controller.create_query()
+[13/Nov/2020 13:56:20,480] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:56:20,480] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:56:20,483] query_controller.run_query()
+[13/Nov/2020 13:56:20,483] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 13:56:39,583] query_controller.create_and_run_query()
+[13/Nov/2020 13:56:39,584] query_controller.create_query()
+[13/Nov/2020 13:56:39,590] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:56:39,590] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 13:56:39,595] query_controller.run_query()
+[13/Nov/2020 13:56:39,596] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[13/Nov/2020 14:02:31,406] query_controller.create_and_run_query()
+[13/Nov/2020 14:02:31,407] query_controller.create_query()
+[13/Nov/2020 14:02:31,413] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 14:02:31,414] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 14:02:31,418] query_controller.run_query()
+[13/Nov/2020 14:02:31,418] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
