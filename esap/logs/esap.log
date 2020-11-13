@@ -4076,3 +4076,11 @@
 [13/Nov/2020 14:55:17,941] query_controller.create_query()
 [13/Nov/2020 14:55:17,947] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 250 * from ivoa.obscore WHERE obs_collection='apertif-dr1' AND CONTAINS(POINT('ICRS',s_ra,s_dec), CIRCLE('ICRS',342.16,33.94,10.0))=1
 [13/Nov/2020 14:55:17,952] query_controller.run_query()
+[13/Nov/2020 15:29:09,594] query_controller.create_and_run_query()
+[13/Nov/2020 15:29:09,597] query_controller.run_query()
+[13/Nov/2020 15:40:42,032] query_controller.create_and_run_query()
+[13/Nov/2020 15:40:42,033] query_controller.create_query()
+[13/Nov/2020 15:40:42,038] construct_query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:40:42,038] https://alta.astron.nl/altapi/dataproducts?view_ra=25.4_and_view_dec=36.37_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[13/Nov/2020 15:40:42,042] query_controller.run_query()
+[13/Nov/2020 15:40:42,044] run-query: https://alta.astron.nl/altapi/dataproducts?view_ra=25.4&view_dec=36.37&view_fov=10&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50

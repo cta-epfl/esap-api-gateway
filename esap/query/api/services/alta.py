@@ -194,13 +194,13 @@ class alta_connector(query_base):
                 if record['dataProductSubType']=='continuumMF':
                     record['thumbnail'] = dataproduct['thumbnail']
 
-                # continuumMF, imageCube, polarisationImage, polarisationCube?
-
-                if (record['dataProductSubType']=='imageCube') or \
-                        (record['dataProductSubType'] == 'continuumMF') or \
-                        (record['dataProductSubType']=='polarisationImage') or \
-                        (record['dataProductSubType']=='polarisationCube') :
-                    record['thumbnail'] = construct_vo_thumbnail(dataproduct)
+                # add thumbnails for Apertif DR1
+                if record['release']=='APERTIF_DR1_Imaging':
+                    if (record['dataProductSubType']=='imageCube') or \
+                            (record['dataProductSubType'] == 'continuumMF') or \
+                            (record['dataProductSubType']=='polarisationImage') or \
+                            (record['dataProductSubType']=='polarisationCube') :
+                        record['thumbnail'] = construct_vo_thumbnail(dataproduct)
 
                 record['storageRef'] = dataproduct['storageRef']
 
