@@ -197,8 +197,9 @@ class alta_connector(query_base):
                 # continuumMF, imageCube, polarisationImage, polarisationCube?
 
                 if (record['dataProductSubType']=='imageCube') or \
-                    (record['dataProductSubType']=='polarisationImage') or \
-                    (record['dataProductSubType']=='polarisationCube') :
+                        (record['dataProductSubType'] == 'continuumMF') or \
+                        (record['dataProductSubType']=='polarisationImage') or \
+                        (record['dataProductSubType']=='polarisationCube') :
                     record['thumbnail'] = construct_vo_thumbnail(dataproduct)
 
                 record['storageRef'] = dataproduct['storageRef']
