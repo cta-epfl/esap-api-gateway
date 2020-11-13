@@ -62,8 +62,8 @@ query_schema = {
             "type": "string",
             "title": "Astron-VO Collections",
             "default": "sauron",
-            "enum": ["hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
-            "enumNames": ["hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
+            "enum": ["apertif-dr1","hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
+            "enumNames": ["apertif-dr1","hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
         },
     },
 }
