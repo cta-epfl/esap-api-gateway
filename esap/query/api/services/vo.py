@@ -93,7 +93,7 @@ class tap_service_connector(query_base):
         query = query + "?lang=ADQL&REQUEST=doQuery"
 
         # add query ADQL parameters (limit to 10 results)
-        query = query + "&QUERY=SELECT * from "
+        query = query + "&QUERY=SELECT TOP 250 * from "
 
         # if the parameter '&resource=...' is given to the url, then use that resource..
         if override_resource:
@@ -196,7 +196,7 @@ class tap_service_connector(query_base):
             try:
                 record['thumbnail'] = row[dataset.thumbnail_field].decode('utf-8')
             except:
-                pass
+                record['thumbnail'] = ''
 
             try:
                 record['url'] = row[dataset.url_field].decode('utf-8')
@@ -264,6 +264,7 @@ class tap_service_connector(query_base):
         facility = serializers.CharField()
         instrument = serializers.CharField()
         url = serializers.CharField()
+        thumbnail = serializers.CharField()
 
         class Meta:
             fields = '__all__'
