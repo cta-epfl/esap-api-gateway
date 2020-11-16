@@ -275,7 +275,8 @@ class vo_registry_connector(query_base):
             except:
                 pass
 
-
+            # record['fieldnames'] = str(resultset.fieldnames)
+            # record['row'] = str(row)
             results.append(record)
 
         return results

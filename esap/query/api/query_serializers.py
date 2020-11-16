@@ -8,6 +8,8 @@ class CreateAndRunQuerySerializer(serializers.Serializer):
     query = serializers.CharField()
     url = serializers.CharField()
     thumbnail = serializers.CharField()
+    # fieldnames = serializers.CharField()
+    # row = serializers.CharField()
 
 class Meta:
         fields = '__all__'
