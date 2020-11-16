@@ -39,7 +39,7 @@ query_schema = {
         "keyword": {
             "type": "string",
                     "title": "Keyword",
-                    "default": ""
+                    "default": "apertif"
         },
         "service_type": {
             "type": "string",
@@ -65,9 +65,10 @@ query_schema = {
                     {
                         "properties": {
                             "service_type": {"enum": ["tap"]},
-                            "query": {
+                            "adql_query": {
                                 "type": "string",
                                 "title": "ADQL Query",
+                                "default": "SELECT TOP 100 * from ivoa.obscore WHERE obs_collection='apertif-dr1' and dataproduct_subtype='continuum'",
                             },
                             "tap_schema": {
                                 "type": "string",
@@ -105,7 +106,7 @@ query_schema = {
 }
 
 ui_schema = {
-    "query": {"ui:widget": "hidden"},
+    "adql_query": {"ui:widget": "hidden"},
     "tap_schema": {"ui:widget": "hidden"},
     "ra": {"ui:widget": "hidden"},
     "dec": {"ui:widget": "hidden"},
