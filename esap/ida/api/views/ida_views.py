@@ -111,6 +111,6 @@ class SearchWorkflows(generics.ListAPIView):
 
         # paginate the results
         page = self.paginate_queryset(data)
-        serializer = IdaSerializer(instance=page, many=True)
+        serializer = WorkflowSerializer(instance=page, many=True)
         
         return self.get_paginated_response(serializer.data)

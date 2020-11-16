@@ -6,6 +6,9 @@
 import json
 import logging
 from ida.models import *
+from django.db.models import Q
+import django_filters
+import collections
 
 logger = logging.getLogger(__name__)
 
@@ -30,14 +33,6 @@ def search_workflows(keyword="", objectclass=""):
 
 
 
-def apply_search(keyword, model, objectclass):
-    
-    if objectclass.lower()=="workflow":
-        results  = model.objects.filter(name__contains=keyword).filter(description__contains=keyword).filter(url__contains=keyword)
-    if objectclass.lower()=="facility":
-        results  = model.objects.filter(name__contains=keyword).filter(description__contains=keyword).filter(url__contains=keyword)
-             
-    return results
 
 
 def search(model, keyword="", objectclass=""):
@@ -47,7 +42,22 @@ def search(model, keyword="", objectclass=""):
     :return:
     """
     
+    def apply_search(keyword, model, objectclass):   
+        if objectclass.lower()=="workflow":
+            results = model.objects.filter(
+                Q(name__icontains=keyword) | Q(description__icontains=keyword) | Q(url__icontains=keyword) 
+            )
+        if objectclass.lower()=="facility":
+            #results  = model.objects.filter(name__contains=keyword).filter(description__contains=keyword).filter(url__contains=keyword)
+            results = model.objects.filter(
+                Q(name__icontains=keyword) | Q(description__icontains=keyword) | Q(url__icontains=keyword) 
+            )
+
+        return results
+    
+    
     results = []
+    
     try:
         if keyword:
             results = apply_search(keyword, model, objectclass)

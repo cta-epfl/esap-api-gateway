@@ -4,7 +4,6 @@ from .models import *
 admin.site.register(Ida)
 admin.site.register(Facility)
 admin.site.register(Workflow)
-admin.site.register(JupyterHubFacility)
 
 class MultiDBModelAdmin(admin.ModelAdmin):
     # A handy constant for the name of the alternate database.
