@@ -57,9 +57,10 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         # Returns nothing if no user_name supplied instead of all
-        user = auth.get_user(self.request)
-        if user is None:
+        try:
+            user = auth.get_user(self.request)
+            user_email = user.email
+            return EsapUserProfile.objects.filter(user_email=user_email)
+        except AttributeError as e:
             user_name = self.request.query_params.get("user_name", None)
             return EsapUserProfile.objects.filter(user_name=user_name)
-        user_email = user.email
-        return EsapUserProfile.objects.filter(user_email=user_email)
