@@ -42,6 +42,7 @@ docker-deploy-branch:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
   script:
-    - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd ~; touch test.txt"
+    # - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd ~; touch test.txt"
+    - ssh -o StrictHostKeyChecking=no nvermaas@uilennest.net "cd ~; touch test.txt"
   only:
     - esap-gateway-query
