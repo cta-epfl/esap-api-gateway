@@ -29,7 +29,7 @@ docker-build-branch:
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
   # except:
   only:
-    - master
+    - esap-gateway-query
 
 docker-deploy-branch:
   image: docker:latest
@@ -45,4 +45,4 @@ docker-deploy-branch:
     - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd ~; touch test.txt"
     # - ssh -o StrictHostKeyChecking=no nvermaas@uilennest.net "cd ~; touch test.txt"
   only:
-    - esap-gateway-query
+    - esap-gateway-query-xxx
