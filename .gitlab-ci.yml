@@ -27,9 +27,12 @@ docker-build-branch-query:
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" esap
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-  except:
-  # only:
+  # except:
+  only:
     - esap-gateway-query
+
+# this deploys the 'esap-gateway-query' branch (a dev/test branch) as 'vermaas'
+# by running /docker_compose/esap-api-gateway/docker-compose-query-cd.yml
 
 docker-deploy-branch-query:
   image: docker:latest
