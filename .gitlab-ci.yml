@@ -1,3 +1,6 @@
+stages:
+  - build
+  - deploy
 
 docker-build-master:
   # Official docker image.
@@ -13,7 +16,7 @@ docker-build-master:
   only:
     - master
 
-docker-build:
+docker-build-branch-query:
   # Official docker image.
   image: docker:latest
   stage: build
@@ -24,5 +27,26 @@ docker-build:
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" esap
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-  except:
-    - master
+  # except:
+  only:
+    - esap-gateway-query
+
+# this deploys the 'esap-gateway-query' branch (a dev/test branch) as 'vermaas'
+# by running /docker_compose/esap-api-gateway/docker-compose-query-cd.yml
+
+docker-deploy-branch-query:
+  image: docker:latest
+  stage: deploy
+  before_script:
+    - ls -rtl
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan sdc.astron.nl >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd /docker_compose/esap-api-gateway; docker pull "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"; docker-compose -p esap -f docker-compose-query-cd.yml up -d"
+  only:
+    - esap-gateway-query
