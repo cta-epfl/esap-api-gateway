@@ -38,7 +38,7 @@ docker-deploy-branch:
     - ls -rtl
     - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | base64 -d | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
   script:
