@@ -48,5 +48,6 @@ docker-deploy-branch-query:
     - chmod 644 ~/.ssh/known_hosts
   script:
     - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd /docker_compose/esap-api-gateway; docker pull "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"; docker-compose -p esap -f docker-compose-query-cd.yml up -d"
+  when: manual
   only:
     - esap-gateway-query
