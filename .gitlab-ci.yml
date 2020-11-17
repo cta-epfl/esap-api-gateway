@@ -1,3 +1,6 @@
+stages:
+  # build
+  - deploy
 
 docker-build-master:
   # Official docker image.
@@ -13,7 +16,7 @@ docker-build-master:
   only:
     - master
 
-docker-build:
+docker-build-branch:
   # Official docker image.
   image: docker:latest
   stage: build
@@ -26,3 +29,19 @@ docker-build:
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
   except:
     - master
+
+docker-deploy-branch:
+  # Official docker image.
+  image: alpine
+  stage: deploy
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd ~; touch test.txt"
+
+  only:
+    - /^query.*$/
