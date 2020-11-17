@@ -27,8 +27,8 @@ docker-build-branch:
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" esap
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-  # except:
-  only:
+  except:
+  # only:
     - esap-gateway-query
 
 docker-deploy-branch:
@@ -41,8 +41,11 @@ docker-deploy-branch:
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
+    - ssh-keyscan sdc.astron.nl >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
   script:
     - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd ~; touch test.txt"
     # - ssh -o StrictHostKeyChecking=no nvermaas@uilennest.net "cd ~; touch test.txt"
   only:
-    - esap-gateway-query-xxx
+    - esap-gateway-query
