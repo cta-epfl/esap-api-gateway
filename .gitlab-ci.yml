@@ -16,7 +16,7 @@ docker-build-master:
   only:
     - master
 
-docker-build-branch:
+docker-build-branch-query:
   # Official docker image.
   image: docker:latest
   stage: build
@@ -31,7 +31,7 @@ docker-build-branch:
   # only:
     - esap-gateway-query
 
-docker-deploy-branch:
+docker-deploy-branch-query:
   image: docker:latest
   stage: deploy
   before_script:
@@ -43,9 +43,10 @@ docker-deploy-branch:
     - chmod 700 ~/.ssh
     - ssh-keyscan sdc.astron.nl >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
-    - cat ~/.ssh/known_hosts
   script:
     - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd ~; touch test.txt"
+    - cd /docker_compose/esap-api-gateway
+    - docker-compose -p esap -f docker-compose-query-cd.yml up -d
     # - ssh -o StrictHostKeyChecking=no nvermaas@uilennest.net "cd ~; touch test.txt"
   only:
     - esap-gateway-query
