@@ -44,5 +44,4 @@ docker-deploy-branch:
   script:
     - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd ~; touch test.txt"
   only:
-    refs:
-      - esap-api-gateway
+    - esap-api-gateway
