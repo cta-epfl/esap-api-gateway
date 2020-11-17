@@ -44,9 +44,6 @@ docker-deploy-branch-query:
     - ssh-keyscan sdc.astron.nl >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
   script:
-    - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd ~; touch test.txt"
-    - cd /docker_compose/esap-api-gateway
-    - docker-compose -p esap -f docker-compose-query-cd.yml up -d
-    # - ssh -o StrictHostKeyChecking=no nvermaas@uilennest.net "cd ~; touch test.txt"
+    - ssh -o StrictHostKeyChecking=no vermaas@sdc.astron.nl "cd /docker_compose/esap-api-gateway; docker-compose -p esap -f docker-compose-query-cd.yml up -d"
   only:
     - esap-gateway-query
