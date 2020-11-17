@@ -32,7 +32,7 @@ docker-build-branch:
     - master
 
 docker-deploy-branch:
-  image: alpine
+  image: docker:latest
   stage: deploy
 before_script:
   ##
