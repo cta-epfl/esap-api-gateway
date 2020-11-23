@@ -64,6 +64,13 @@ query_schema = {
             "default": "all",
             "enum": ["all", "visibility", "image", "cube"],
             "enumNames": ["All", "Visibility", "Image", "Cube"]
-        }
+        },
+        "release__release_id": {
+            "type": "string",
+            "title": "Data Release",
+            "default": "APERTIF_DR1_Imaging",
+            "enum": ["all", "APERTIF_DR1_Imaging","SVC_2019_Imaging","SVC_2019_TimeDomain","Commissioning2018"],
+            "enumNames": ["All", "APERTIF Imaging Data Release 1","Science Verification Campaign 2019 (Imaging)","Science Verification Campaign 2019 (Time Domain)","Commissioning 2018"]
+        },
     }
 }

@@ -38,7 +38,6 @@ docker-deploy-branch-query:
   image: docker:latest
   stage: deploy
   before_script:
-    - ls -rtl
     - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
