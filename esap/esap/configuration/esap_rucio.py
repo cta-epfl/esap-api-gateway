@@ -36,29 +36,14 @@ def get_scope_names():
                 "validated but failed query"
             ]  # , val_response.status_code, val_response.reason]
     else:
-        return ["not validated"]  # , val_response.status_code, val_response.reason]
+        # , val_response.status_code, val_response.reason]
+        return ["not validated"]
     # except Exception as e:
     #     return ["Failed", "Authentication", e]
 
 
 title = "Rucio"
 logo = "http://rucio.cern.ch/images/wide_logo2.png"
-
-# the url location of the frontend application,
-# this makes it possible to install multiple instances in different directories on the webserver
-# that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
-frontend_basename = "esap-gui"
-
-# definition of the navigation bar
-nav1 = {"title": "Archives", "route": "/archives"}
-nav2 = {"title": "Query", "route": "/query"}
-navbar = [nav1, nav2]
-
-# if datasets_enabled is set, then only these datasets are visible to the GUI
-# datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
-
-# if datasets_disabled is set, then all datasets except these are returned to the GUI
-# datasets_disabled = ['nancay.ivoa.obscore']
 
 # definition of the query
 query_schema = {

@@ -1,19 +1,4 @@
-
-# title = "ADEX"
 logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo.png"
-
-# title = "ESFRI Science Analysis Platform"
-# logo = "http://uilennest.net/static/media/tree9.da598501.png"
-
-# the url location of the frontend application,
-# this makes it possible to install multiple instances in different directories on the webserver
-# that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
-frontend_basename = "adex-gui"
-
-# definition of the navigation bar
-nav1 = {'title': 'Archives', 'route': '/archives'}
-nav2 = {'title': 'Query', 'route': '/query'}
-navbar = [nav1, nav2]
 
 # definition of the query
 query_schema = {
@@ -69,8 +54,8 @@ query_schema = {
             "type": "string",
             "title": "Data Release",
             "default": "APERTIF_DR1_Imaging",
-            "enum": ["all", "APERTIF_DR1_Imaging","SVC_2019_Imaging","SVC_2019_TimeDomain","Commissioning2018"],
-            "enumNames": ["All", "APERTIF Imaging Data Release 1","Science Verification Campaign 2019 (Imaging)","Science Verification Campaign 2019 (Time Domain)","Commissioning 2018"]
+            "enum": ["all", "APERTIF_DR1_Imaging", "SVC_2019_Imaging", "SVC_2019_TimeDomain", "Commissioning2018"],
+            "enumNames": ["All", "APERTIF Imaging Data Release 1", "Science Verification Campaign 2019 (Imaging)", "Science Verification Campaign 2019 (Time Domain)", "Commissioning 2018"]
         },
     }
 }
