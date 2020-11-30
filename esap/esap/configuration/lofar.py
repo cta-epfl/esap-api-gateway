@@ -25,8 +25,8 @@ query_schema = {
             "type": "string",
             "title": "Catalog",
             "default": "lofar",
-            "enum": ["adex", "lofar"],
-            "enumNames": ["ADEX", "LOFAR"],
+            "enum": ["lofar"],
+            "enumNames": ["LOFAR"],
         },
         "target": {
             "type": "string",
