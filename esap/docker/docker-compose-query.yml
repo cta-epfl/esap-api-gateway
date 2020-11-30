@@ -28,7 +28,7 @@ services:
       - "traefik.http.routers.esap-qstatic.rule=Host(`sdc.astron.nl`) && PathPrefix(`/static`)"
       - "traefik.http.services.esap-qstatic.loadbalancer.server.port=8000"
     env_file:
-      - $HOME/shared/oidc
+      - $HOME/shared/oidc.env
     restart: always
     volumes:
       - $HOME/shared/esap-gateway-query/:/shared
