@@ -1,5 +1,3 @@
-
-title = "ADEX"
 logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo.png"
 
 
