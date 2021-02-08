@@ -21,7 +21,7 @@ ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 
 # CORS_ALLOWED_ORIGINS = [
-#    "https://sdc.astron.nl",
+#    "https://sdc-dev.astron.nl",
 #]
 #CORS_ORIGIN_ALLOW_ALL = False
 #CORS_ALLOW_CREDENTIALS = True

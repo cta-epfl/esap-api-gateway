@@ -43,11 +43,11 @@ docker-deploy-branch-query:
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan sdc-dev.astron.nl >> ~/.ssh/known_hosts
+    - ssh-keyscan dop814.astron.nl >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
   script:
-    - ssh -o StrictHostKeyChecking=no vermaas@sdc-dev.astron.nl "docker pull "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG""
-    - ssh -o StrictHostKeyChecking=no vermaas@sdc-dev.astron.nl "docker-compose -p esap -f /docker_compose/esap-api-gateway/docker-compose-query-dev-cd.yml up -d"
+    - ssh -o StrictHostKeyChecking=no vermaas@dop814.astron.nl "docker pull "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG""
+    - ssh -o StrictHostKeyChecking=no vermaas@dop814.astron.nl "docker-compose -p esap -f /docker_compose/esap-api-gateway/docker-compose-query-dev-cd.yml up -d"
   when: manual
   only:
     - esap-gateway-query
