@@ -1,0 +1,36 @@
+version: '3.4'
+
+networks:
+  esap_network: 
+  traefik_proxy:
+    external:
+      name: traefik_proxy
+  default:
+    driver: bridge
+
+services:
+  esap_api:
+    container_name: esap_api_adex
+    image: esap_api_adex:latest
+    expose:
+      - 8000
+    networks:
+      - traefik_proxy
+      - esap_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.esap-api.entryPoints=esap-api-adex"
+      - "traefik.http.routers.esap-api.service=esap-api-adex"
+      - "traefik.http.routers.esap-api.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-api`)"
+      - "traefik.http.services.esap-api.loadbalancer.server.port=8000"
+      - "traefik.http.routers.esap-qstatic.entryPoints=esap-api-adex"
+      - "traefik.http.routers.esap-qstatic.service=esap-qstatic"
+      - "traefik.http.routers.esap-qstatic.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static`)"
+      - "traefik.http.services.esap-qstatic.loadbalancer.server.port=8000"
+    env_file:
+      - $HOME/shared/esap-gateway-adex/oidc.env
+    restart: always
+    volumes:
+      - $HOME/shared/esap-gateway-adex/:/shared
+
+
