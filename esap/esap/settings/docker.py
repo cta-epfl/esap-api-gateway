@@ -20,6 +20,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 
+# CORS_ALLOWED_ORIGINS = [
+#    "https://sdc-dev.astron.nl",
+#]
+#CORS_ORIGIN_ALLOW_ALL = False
+#CORS_ALLOW_CREDENTIALS = True
+
 # Application definition
 
 # Database
@@ -59,6 +65,6 @@ DATABASES = {
 STATIC_URL = '/static_esap/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-LOGIN_REDIRECT_URL = "https://sdc.astron.nl/esap-gui/login"
-LOGOUT_REDIRECT_URL = "https://sdc.astron.nl/esap-gui/logout"
-LOGIN_REDIRECT_URL_FAILURE = "https://sdc.astron.nl/esap-gui/error"
+LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
+LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
+LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']

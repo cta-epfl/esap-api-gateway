@@ -190,18 +190,21 @@ class alta_connector(query_base):
                 record['fov'] = dataproduct['fov']
                 record['release'] = dataproduct['derived_release_id']
 
+
+#                if record['dataProductSubType']=='continuumMF':
+#                    record['thumbnail'] = dataproduct['thumbnail']
+
+#                # add thumbnails for Apertif DR1
+#                if record['release']=='APERTIF_DR1_Imaging':
+#                    if (record['dataProductSubType']=='imageCube') or \
+#                            (record['dataProductSubType'] == 'continuumMF') or \
+#                            (record['dataProductSubType']=='polarisationImage') or \
+#                            (record['dataProductSubType']=='polarisationCube') :
+#                        record['thumbnail'] = construct_vo_thumbnail(dataproduct)
+
                 # only send back thumbnails that are not static placeholders.
-                if record['dataProductSubType']=='continuumMF':
+                if not 'static' in dataproduct['thumbnail']:
                     record['thumbnail'] = dataproduct['thumbnail']
-
-                # add thumbnails for Apertif DR1
-                if record['release']=='APERTIF_DR1_Imaging':
-                    if (record['dataProductSubType']=='imageCube') or \
-                            (record['dataProductSubType'] == 'continuumMF') or \
-                            (record['dataProductSubType']=='polarisationImage') or \
-                            (record['dataProductSubType']=='polarisationCube') :
-                        record['thumbnail'] = construct_vo_thumbnail(dataproduct)
-
                 record['storageRef'] = dataproduct['storageRef']
 
                 # construct the url to the data based on the storageRef

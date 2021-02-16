@@ -17,14 +17,8 @@ SECRET_KEY = 'cie-((m#n$br$6l53yash45*2^mwuux*2u)bad5(0flx@krnj9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['*']
-# CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOWED_ORIGINS = [
-    "https://sdc.astron.nl:5555",
-    "https://sdc.astron.nl:3000",
-]
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ALLOW_CREDENTIALS = True
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Setup support for proxy headers
 USE_X_FORWARDED_HOST = True
@@ -220,17 +214,17 @@ OIDC_DRF_AUTH_BACKEND = 'mozilla_django_oidc.auth.OIDCAuthenticationBackend'
 OIDC_RP_CLIENT_ID = os.environ['OIDC_RP_CLIENT_ID']
 OIDC_RP_CLIENT_SECRET = os.environ['OIDC_RP_CLIENT_SECRET']
 OIDC_RP_SIGN_ALGO = "RS256"
-OIDC_OP_JWKS_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/jwk"
-OIDC_OP_AUTHORIZATION_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/authorize"
-OIDC_OP_TOKEN_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/token"
-OIDC_OP_USER_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/userinfo"
+OIDC_OP_JWKS_ENDPOINT = os.environ['OIDC_OP_JWKS_ENDPOINT']
+OIDC_OP_AUTHORIZATION_ENDPOINT = os.environ['OIDC_OP_AUTHORIZATION_ENDPOINT']
+OIDC_OP_TOKEN_ENDPOINT = os.environ['OIDC_OP_TOKEN_ENDPOINT']
+OIDC_OP_USER_ENDPOINT = os.environ['OIDC_OP_USER_ENDPOINT']
 
 OIDC_STORE_ACCESS_TOKEN = True
 OIDC_STORE_ID_TOKEN = True
 
-LOGIN_REDIRECT_URL = "https://sdc.astron.nl/esap-gui/login"
-LOGOUT_REDIRECT_URL = "https://sdc.astron.nl/esap-gui/logout"
-LOGIN_REDIRECT_URL_FAILURE = "https://sdc.astron.nl/esap-gui/error"
+LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
+LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
+LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/

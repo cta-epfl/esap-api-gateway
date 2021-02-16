@@ -19,7 +19,7 @@ services:
     networks:
       - esap_network
     env_file:
-      - $HOME/shared/oidc
+      - $HOME/shared/oidc.env
     restart: always
     volumes:
       - $HOME/shared/esap-gateway-master/:/shared
