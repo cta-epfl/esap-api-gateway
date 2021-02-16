@@ -20,7 +20,7 @@ def get_datasets_disabled():
     return my_config.datasets_disabled
 
 # return expanded configuration
-def get_configuration(name=None):
+def get_configuration(name=None, session=None):
     result = {}
     result['version'] = settings.VERSION
 
@@ -34,8 +34,14 @@ def get_configuration(name=None):
         else:
             my_config = importlib.import_module(settings.CONFIGURATION_FILE)
 
+        # More sophisticated config files can embed the config in a class called Config
+        try:
+            my_config = my_config.Config(session)
+        except AttributeError as e:
+            pass
+
     except Exception as error:
-        return {"configuration error in ": name+ ".py : " + str(error)}
+        return {"configuration error in ": name+ ".py : " + str(error) + " session => " + str(session.keys())}
 
     try:
         result['frontend_basename'] = my_config.frontend_basename

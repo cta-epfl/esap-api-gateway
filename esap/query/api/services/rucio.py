@@ -16,9 +16,15 @@ logger = logging.getLogger(__name__)
 AMP_REPLACEMENT = "_and_"
 
 # The request header
-RUCIO_HOST = "https://escape-rucio.cern.ch:32300"
+RUCIO_HOST = "https://escape-rucio.cern.ch"
 RUCIO_PORT = 32300
-RUCIO_AUTH_TOKEN = "<REDACTED>"
+RUCIO_AUTH_TOKEN_PATH = "/shared/rucio-token"
+
+ID_TOKEN_KEY = "oidc_id_token"
+ACCESS_TOKEN_KEY = "oidc_access_token"
+
+with open(RUCIO_AUTH_TOKEN_PATH, mode="r") as tokenFile:
+    RUCIO_AUTH_TOKEN = tokenFile.read().strip()
 
 URLPATTERNS = dict(
     scope="{host}/scopes/",
@@ -36,7 +42,7 @@ class rucio_connector(query_base):
     """
 
     # Initializer
-    def __init__(self, url):
+    def __init__(self, url = RUCIO_HOST):
         self.url = url
 
     # construct a query for the Rucio REST API
