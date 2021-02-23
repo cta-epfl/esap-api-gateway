@@ -58,7 +58,12 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         # Returns nothing if no user_name supplied instead of all
         try:
-            user = auth.get_user(self.request)
+            # id_token = self.request.session["oidc_id_token"]
+            # uid = id_token["iss"]+id_token["sub"]
+            # preferred_username = id_token["preferred_username"]
+            # name = id_token["name"]
+            # access_token = self.request.session["oidc_access_token"]
+            # user = auth.get_user(self.request)
             user_email = user.email
             return EsapUserProfile.objects.filter(user_email=user_email)
         except AttributeError as e:
