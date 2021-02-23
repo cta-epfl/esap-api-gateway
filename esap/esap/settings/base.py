@@ -45,14 +45,14 @@ INSTALLED_APPS = [
     'django_filters',
 ]
 
-DATABASES = {
-    'awlofar': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'awlofar',
-        'USER': 'AWWORLD',
-        'PASSWORD': 'WORLD',
-    }
-}
+#DATABASES = {
+#    'awlofar': {
+#        'ENGINE': 'django.db.backends.oracle',
+#        'NAME': 'awlofar',
+#        'USER': 'AWWORLD',
+#        'PASSWORD': 'WORLD',
+#    }
+#}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -207,7 +207,8 @@ LOGGING = {
 # use 'mozilla_django_oidc' authentication backend
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
+    #'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
+    'accounts.my_oidc.MyOIDCAB'
 )
 OIDC_DRF_AUTH_BACKEND = 'mozilla_django_oidc.auth.OIDCAuthenticationBackend'
 

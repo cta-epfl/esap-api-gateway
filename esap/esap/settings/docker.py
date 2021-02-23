@@ -29,7 +29,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 # Database
-DATABASE_ROUTERS = ['query.database_router.QueryRouter',
+DATABASE_ROUTERS = [
+    'query.database_router.QueryRouter',
     'accounts.database_router.AccountsRouter',
     'staging.database_router.StagingRouter',
     'ida.database_router.IdaRouter',

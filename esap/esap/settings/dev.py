@@ -31,6 +31,7 @@ DATABASE_ROUTERS = [
     'ida.database_router.IdaRouter',
     'rucio.database_router.RucioRouter',
 ]
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
