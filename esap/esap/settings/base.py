@@ -238,6 +238,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ESAP-API version 23 feb 2021"
+VERSION = "ESAP-API version 23 march 2021"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'
