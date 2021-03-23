@@ -1,0 +1,21 @@
+version: '3.4'
+networks:
+  esap_network:
+  default:
+    driver: bridge
+
+services:
+
+  esap_api:
+    container_name: esap_api_query
+    image: git.astron.nl:5000/astron-sdc/esap-api-gateway
+    expose:
+      - 8000
+    networks:
+      - traefik_proxy
+      - esap_network
+    env_file:
+      - $HOME/shared/oidc.env
+    restart: always
+    volumes:
+      - /data/shared/esap-gateway-query/:/shared      

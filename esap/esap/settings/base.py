@@ -183,6 +183,10 @@ LOGGING = {
             'handlers': ['my_handler', 'my_file_handler', 'mail_admins'],
             'level': 'INFO',
         },
+        'accounts': {
+            'handlers': ['my_handler', 'my_file_handler', 'mail_admins'],
+            'level': 'INFO',
+        },
         'django': {
             'handlers': ['console', 'mail_admins'],
             'level': 'INFO',
@@ -234,6 +238,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ASTRON - version 13 nov 2020"
+VERSION = "ESAP-API version 23 feb 2021"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'

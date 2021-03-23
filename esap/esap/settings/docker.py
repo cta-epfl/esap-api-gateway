@@ -20,11 +20,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 
-# CORS_ALLOWED_ORIGINS = [
-#    "https://sdc-dev.astron.nl",
-#]
-#CORS_ORIGIN_ALLOW_ALL = False
-#CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://sdc-dev.astron.nl","https://sdc.astron.nl",
+]
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
