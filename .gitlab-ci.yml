@@ -15,6 +15,8 @@ docker-build-master:
     - docker push "$CI_REGISTRY_IMAGE"
   only:
     - master
+    - acceptance
+    - release
 
 docker-build-branch-query:
   # Official docker image.
@@ -68,3 +70,23 @@ docker-deploy-branch-query:
   when: manual
   only:
     - esap-gateway-query
+
+
+# deploy acceptance version on 'dop457.astron.nl'
+docker-deploy-acceptance:
+  image: docker:latest
+  stage: deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan dop457.astron.nl >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh -o StrictHostKeyChecking=no vermaas@dop457.astron.nl "docker pull "$CI_REGISTRY_IMAGE""
+    - ssh -o StrictHostKeyChecking=no vermaas@dop457.astron.nl "docker-compose -p esap -f /data/docker_compose/docker-compose-esap-acc-cd.yml up -d"
+  when: manual
+  only:
+    - acceptance
