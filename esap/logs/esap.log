@@ -4596,3 +4596,77 @@
 [23/Feb/2021 15:25:34,658] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
 [23/Feb/2021 15:25:34,661] query_controller.run_query()
 [23/Feb/2021 15:25:34,668] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[23/Mar/2021 15:28:53,752] query_controller.create_and_run_query()
+[23/Mar/2021 15:28:53,764] query_controller.create_and_run_query()
+[23/Mar/2021 15:28:53,801] query_controller.create_query()
+[23/Mar/2021 15:28:53,801] query_controller.create_query()
+[23/Mar/2021 15:28:53,849] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-dr1'
+[23/Mar/2021 15:28:53,850] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-dr1'
+[23/Mar/2021 15:28:53,853] query_controller.run_query()
+[23/Mar/2021 15:28:53,853] query_controller.run_query()
+[23/Mar/2021 15:28:59,964] query_controller.create_and_run_query()
+[23/Mar/2021 15:28:59,965] query_controller.create_query()
+[23/Mar/2021 15:28:59,968] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-dr1'
+[23/Mar/2021 15:28:59,970] query_controller.run_query()
+[23/Mar/2021 15:29:36,238] query_controller.create_and_run_query()
+[23/Mar/2021 15:29:36,239] query_controller.create_query()
+[23/Mar/2021 15:29:36,243] ERROR: could not translating key collection 'collection', using it raw.
+[23/Mar/2021 15:29:36,243] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[23/Mar/2021 15:29:36,243] query_controller.create_and_run_query()
+[23/Mar/2021 15:29:36,244] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[23/Mar/2021 15:29:36,244] query_controller.create_query()
+[23/Mar/2021 15:29:36,245] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[23/Mar/2021 15:29:36,249] ERROR: could not translating key collection 'collection', using it raw.
+[23/Mar/2021 15:29:36,250] query_controller.run_query()
+[23/Mar/2021 15:29:36,250] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[23/Mar/2021 15:29:36,251] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[23/Mar/2021 15:29:36,251] ERROR: could not translating key page 'page', using it raw.
+[23/Mar/2021 15:29:36,253] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[23/Mar/2021 15:29:36,254] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[23/Mar/2021 15:29:36,256] query_controller.run_query()
+[23/Mar/2021 15:29:36,256] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[23/Mar/2021 15:29:51,965] query_controller.create_and_run_query()
+[23/Mar/2021 15:29:51,965] query_controller.create_query()
+[23/Mar/2021 15:29:51,968] ERROR: could not translating key collection 'collection', using it raw.
+[23/Mar/2021 15:29:51,969] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[23/Mar/2021 15:29:51,969] ERROR: could not translating key page 'page', using it raw.
+[23/Mar/2021 15:29:51,970] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_release__release_id=APERTIF_DR1_Imaging_and_page=485_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[23/Mar/2021 15:29:51,970] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_release__release_id=APERTIF_DR1_Imaging_and_page=485_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[23/Mar/2021 15:29:51,974] query_controller.run_query()
+[23/Mar/2021 15:29:51,974] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&release__release_id=APERTIF_DR1_Imaging&page=485&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[23/Mar/2021 15:29:55,636] query_controller.create_and_run_query()
+[23/Mar/2021 15:29:55,636] query_controller.create_query()
+[23/Mar/2021 15:29:55,638] ERROR: could not translating key collection 'collection', using it raw.
+[23/Mar/2021 15:29:55,639] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[23/Mar/2021 15:29:55,639] ERROR: could not translating key page 'page', using it raw.
+[23/Mar/2021 15:29:55,640] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_release__release_id=APERTIF_DR1_Imaging_and_page=485_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[23/Mar/2021 15:29:55,641] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_release__release_id=APERTIF_DR1_Imaging_and_page=485_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[23/Mar/2021 15:29:55,642] query_controller.run_query()
+[23/Mar/2021 15:29:55,643] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&release__release_id=APERTIF_DR1_Imaging&page=485&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[23/Mar/2021 15:30:22,509] query_controller.create_and_run_query()
+[23/Mar/2021 15:30:22,509] query_controller.create_query()
+[23/Mar/2021 15:30:22,512] ERROR: could not translating key target 'target', using it raw.
+[23/Mar/2021 15:30:22,513] ERROR: could not translating key units 'units', using it raw.
+[23/Mar/2021 15:30:22,513] ERROR: could not translating key ref_system 'ref_system', using it raw.
+[23/Mar/2021 15:30:22,518] ERROR: could not translating key fov_units 'fov_units', using it raw.
+[23/Mar/2021 15:30:22,518] ERROR: could not translating key antenna_type 'antenna_type', using it raw.
+[23/Mar/2021 15:30:22,519] ERROR: could not translating key public 'public', using it raw.
+[23/Mar/2021 15:30:22,520] ERROR: could not translating key dataproduct_type 'dataproduct_type', using it raw.
+[23/Mar/2021 15:30:22,520] construct_query: https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline
+[23/Mar/2021 15:30:22,521] query_controller.create_and_run_query()
+[23/Mar/2021 15:30:22,521] https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline
+[23/Mar/2021 15:30:22,521] query_controller.create_query()
+[23/Mar/2021 15:30:22,526] query_controller.run_query()
+[23/Mar/2021 15:30:22,526] ERROR: could not translating key target 'target', using it raw.
+[23/Mar/2021 15:30:22,526] query:https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline
+[23/Mar/2021 15:30:22,527] ERROR: could not translating key units 'units', using it raw.
+[23/Mar/2021 15:30:22,532] ERROR: could not translating key ref_system 'ref_system', using it raw.
+[23/Mar/2021 15:30:22,533] ERROR: could not translating key fov_units 'fov_units', using it raw.
+[23/Mar/2021 15:30:22,534] ERROR: could not translating key antenna_type 'antenna_type', using it raw.
+[23/Mar/2021 15:30:22,535] ERROR: could not translating key public 'public', using it raw.
+[23/Mar/2021 15:30:22,535] ERROR: could not translating key dataproduct_type 'dataproduct_type', using it raw.
+[23/Mar/2021 15:30:22,536] ERROR: could not translating key page 'page', using it raw.
+[23/Mar/2021 15:30:22,536] construct_query: https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline_and_page=1
+[23/Mar/2021 15:30:22,536] https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline_and_page=1
+[23/Mar/2021 15:30:22,538] query_controller.run_query()
+[23/Mar/2021 15:30:22,539] query:https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline_and_page=1
