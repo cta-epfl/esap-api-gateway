@@ -216,6 +216,8 @@ AUTHENTICATION_BACKENDS = (
 )
 OIDC_DRF_AUTH_BACKEND = 'mozilla_django_oidc.auth.OIDCAuthenticationBackend'
 
+# OIDC environment variables
+
 OIDC_RP_CLIENT_ID = os.environ['OIDC_RP_CLIENT_ID']
 OIDC_RP_CLIENT_SECRET = os.environ['OIDC_RP_CLIENT_SECRET']
 OIDC_RP_SIGN_ALGO = "RS256"
@@ -231,6 +233,13 @@ LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
 LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
 LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
 
+# Rucio environment variables
+
+RUCIO_AUTH_TOKEN = os.environ['RUCIO_AUTH_TOKEN']
+RUCIO_HOST = os.environ['RUCIO_HOST']
+RUCIO_PORT = os.environ['RUCIO_PORT']
+RUCIO_AUTH_PORT = os.environ['RUCIO_AUTH_PORT']
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
@@ -238,6 +247,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ESAP-API version 23 march 2021"
+VERSION = "ESAP-API version 29 april 2021"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'

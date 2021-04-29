@@ -361,7 +361,7 @@ class GetTablesFields(generics.ListAPIView):
 class GetSkyCoordinates(generics.ListAPIView):
     """
     Retrieve a list of fields from the access_url
-    examples: /esap-api/query/get-fields?dataset_uri=vo_reg&access_url=https://vo.astron.nl/tap
+    examples: /esap-api/query/get-sky-coordinates/?target_name=M31
     """
 
     model = DataSet
