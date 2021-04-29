@@ -264,9 +264,9 @@ def ConfigurationView(request):
         pass
 
     try:
-        config_from_settings = configuration.get_configuration(name)
+        config_from_settings = configuration.get_configuration(name, request.session)
     except Exception as error:
-        config_from_settings = "ERROR in configuration: "+str(error)
+        config_from_settings = "ERROR in configuration: "+str(error) + " session => " + str(request.session)
 
     return JsonResponse({'configuration': config_from_settings})
 

@@ -7,15 +7,16 @@ networks:
 services:
 
   esap_api:
-    container_name: esap_api_query
+    container_name: esap_api_acceptance
     image: git.astron.nl:5000/astron-sdc/esap-api-gateway
+    ports:
+      - "5556:8000"
     expose:
       - 8000
     networks:
-      - traefik_proxy
       - esap_network
     env_file:
-      - $HOME/shared/oidc.env
+      - /data/shared/oidc.env
     restart: always
     volumes:
-      - /data/shared/esap-gateway-query/:/shared      
+      - /data/shared/:/shared      
