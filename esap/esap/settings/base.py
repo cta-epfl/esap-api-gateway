@@ -234,11 +234,16 @@ LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
 LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
 
 # Rucio environment variables
-
-RUCIO_AUTH_TOKEN = os.environ['RUCIO_AUTH_TOKEN']
-RUCIO_HOST = os.environ['RUCIO_HOST']
-RUCIO_PORT = os.environ['RUCIO_PORT']
-RUCIO_AUTH_PORT = os.environ['RUCIO_AUTH_PORT']
+try:
+    RUCIO_AUTH_TOKEN = os.environ['RUCIO_AUTH_TOKEN']
+    RUCIO_HOST = os.environ['RUCIO_HOST']
+    RUCIO_PORT = os.environ['RUCIO_PORT']
+    RUCIO_AUTH_PORT = os.environ['RUCIO_AUTH_PORT']
+except:
+    RUCIO_AUTH_TOKEN = None
+    RUCIO_HOST = None
+    RUCIO_PORT = None
+    RUCIO_AUTH_PORT = None
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
