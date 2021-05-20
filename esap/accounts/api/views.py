@@ -4,6 +4,7 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from .serializers import *
 from ..models import *
+from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
@@ -61,17 +62,35 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
         print("EsapUserProfileViewSet.get_queryset()")
 
         try:
-            id_token = self.request.session["oidc_id_token"]
+            try:
+                id_token = self.request.session["oidc_id_token"]
+            except:
+                id_token = None
 
             #uid = id_token["iss"]+id_token["sub"]
             #preferred_username = id_token["preferred_username"]
             #name = id_token["name"]
             #access_token = self.request.session["oidc_access_token"]
+
+#            if settings.IS_DEV:
+#                try:
+#                    user = auth.get_user(self.request)
+#                    user_email = user.email
+#
+#                except:
+#                    # hardcode, because I don't get FAA to work in dev
+#                    # 401 Client Error: Unauthorized for url: https://iam-escape.cloud.cnaf.infn.it/token
+#                    user_email = "vermaas@astron.nl"
+#            else:
             user = auth.get_user(self.request)
             user_email = user.email
+
             return EsapUserProfile.objects.filter(user_email=user_email)
 
         except AttributeError as e:
             print('ERROR: '+str(e))
             user_name = self.request.query_params.get("user_name", None)
             return EsapUserProfile.objects.filter(user_name=user_name)
+
+#    def update(self, request, pk=None):
+#        self.update()

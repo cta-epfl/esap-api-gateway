@@ -60,7 +60,7 @@ class EsapShoppingItem(models.Model):
         return "ShoppingItem"
 
     def __str__(self):
-        return "ShoppingItem"
+        return str(self.item_data)
 
     class Meta:
         verbose_name = "Selected Item"

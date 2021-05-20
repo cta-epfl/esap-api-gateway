@@ -12,10 +12,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+IS_DEV = True
 # USE_DOP457 = False
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5555",
+    "https://iam-escape.cloud.cnaf.infn.it",
     "http://localhost:3000",
     "http://127.0.0.1:5555",
     "http://127.0.0.1:3000",
