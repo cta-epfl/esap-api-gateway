@@ -77,7 +77,7 @@ class EsapUserProfile(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         verbose_name="Preferred Query Schema",
-        default="esap_default",
+        default=None,
     )
     software_repositories = models.ManyToManyField(
         to=EsapSoftwareRepository, verbose_name="Software Repositories", blank=True
