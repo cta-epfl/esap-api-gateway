@@ -72,15 +72,25 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 decoded_payload = base64.urlsafe_b64decode(token[1])
                 decoded_token = json.loads(decoded_payload.decode("UTF-8"))
 
+                sub = decoded_token["sub"]
+                uid = decoded_token["iss"] + decoded_token["sub"]
+                name = decoded_token["name"]
+
+                user = auth.get_user(self.request)
+                user_email = user.email
             except:
                 id_token = None
 
-            sub = decoded_token["sub"]
-            uid = decoded_token["iss"] + decoded_token["sub"]
-            name = decoded_token["name"]
-
-            user = auth.get_user(self.request)
-            user_email = user.email
+                # no AAI token found, try basic authentication (dev only)
+                try:
+                    user = self.request.user
+                    user_email = user.email
+                except:
+                    # if that doesn't work either, and this is 'development'
+                    # then force feed my e-mail to be able to test downstream functionality
+                    # TODO: remove this when shopping basket is working properly
+                    if settings.IS_DEV:
+                        user_email = "vermaas@astron.nl"
 
             return EsapUserProfile.objects.filter(user_email=user_email)
 
