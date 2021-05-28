@@ -72,12 +72,10 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 decoded_payload = base64.urlsafe_b64decode(token[1])
                 decoded_token = json.loads(decoded_payload.decode("UTF-8"))
 
-                sub = decoded_token["sub"]
-                uid = decoded_token["iss"] + decoded_token["sub"]
-                name = decoded_token["name"]
+                uid = decoded_token["iss"] + 'userinfo:' + decoded_token["sub"]
 
-                user = auth.get_user(self.request)
-                user_email = user.email
+                user_profile = EsapUserProfile.objects.filter(uid=uid)
+
             except:
                 id_token = None
 
@@ -85,14 +83,16 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 try:
                     user = self.request.user
                     user_email = user.email
+                    user_profile = EsapUserProfile.objects.filter(user_email=user_email)
                 except:
                     # if that doesn't work either, and this is 'development'
                     # then force feed my e-mail to be able to test downstream functionality
                     # TODO: remove this when shopping basket is working properly
                     if settings.IS_DEV:
                         user_email = "vermaas@astron.nl"
+                        user_profile = EsapUserProfile.objects.filter(user_email=user_email)
 
-            return EsapUserProfile.objects.filter(user_email=user_email)
+            return user_profile
 
         except AttributeError as e:
             print('ERROR: '+str(e))
