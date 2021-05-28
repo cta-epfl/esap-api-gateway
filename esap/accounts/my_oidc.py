@@ -1,19 +1,21 @@
 from mozilla_django_oidc.auth import OIDCAuthenticationBackend
+from django.conf import settings
 from .models import EsapUserProfile
 
 def update_userprofile(claims):
-    # check if a user already has a userprofile (by e-mail)
-    user_email = claims['email']
+    # check if a user already has a userprofile (by unique id)
+    uid = settings.OIDC_OP_USER_ENDPOINT + ":" + claims['sub']
     try:
-        user = EsapUserProfile.objects.get(user_email=user_email)
+        user = EsapUserProfile.objects.get(uid=uid)
     except:
         # to get more claims than just email, the 'profile' scope must be enabled in settings
         # OIDC_RP_SCOPES = "openid email profile"
-        #uid = claims['iss'] + claims['sub']
-        sub = claims['sub']
+
+        uid = settings.OIDC_OP_USER_ENDPOINT + ":" + claims['sub']
+        user_email = claims['email']
         user_name = claims['preferred_username']
         full_name= claims['name']
-        new_user = EsapUserProfile(user_name=user_name, full_name=full_name, user_email=user_email)
+        new_user = EsapUserProfile(user_name=user_name, full_name=full_name, user_email=user_email, uid=uid)
         new_user.save()
 
 

@@ -72,6 +72,7 @@ class EsapUserProfile(models.Model):
     user_name = models.CharField("Username", max_length=50, primary_key=True)
     full_name = models.CharField("Full Name", max_length=100, null=True)
     user_email = models.EmailField("User Email")
+    uid = models.CharField("uid", default="uid", max_length=255, null=True)
     query_schema = models.ForeignKey(
         to=EsapQuerySchema,
         on_delete=models.SET_NULL,
