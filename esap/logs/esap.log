@@ -4976,3 +4976,69 @@
 [01/Jun/2021 15:48:41,304] query_controller.create_query()
 [01/Jun/2021 15:48:41,307] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
 [01/Jun/2021 15:48:41,309] query_controller.run_query()
+[03/Jun/2021 11:54:24,471] query_controller.create_and_run_query()
+[03/Jun/2021 11:54:24,472] query_controller.create_query()
+[03/Jun/2021 11:54:24,478] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 11:54:24,482] query_controller.run_query()
+[03/Jun/2021 11:54:24,487] query_controller.create_and_run_query()
+[03/Jun/2021 11:54:24,487] query_controller.create_query()
+[03/Jun/2021 11:54:24,491] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 11:54:24,498] query_controller.run_query()
+[03/Jun/2021 11:55:10,188] query_controller.create_and_run_query()
+[03/Jun/2021 11:55:10,189] query_controller.create_query()
+[03/Jun/2021 11:55:10,193] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 11:55:10,198] query_controller.run_query()
+[03/Jun/2021 11:55:10,202] query_controller.create_and_run_query()
+[03/Jun/2021 11:55:10,203] query_controller.create_query()
+[03/Jun/2021 11:55:10,206] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 11:55:10,209] query_controller.run_query()
+[03/Jun/2021 12:01:19,078] could not find 'waveband' in the query_params. Continuing...
+[03/Jun/2021 12:01:19,078] query_controller.get_services()
+[03/Jun/2021 12:01:37,089] could not find 'waveband' in the query_params. Continuing...
+[03/Jun/2021 12:01:37,089] query_controller.get_services()
+[03/Jun/2021 12:02:24,440] query_controller.create_and_run_query()
+[03/Jun/2021 12:02:24,440] query_controller.create_query()
+[03/Jun/2021 12:02:24,443] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore+WHERE+get-services%2F%3Fkeyword%3D%27apertif%27+
+[03/Jun/2021 12:02:24,446] query_controller.run_query()
+[03/Jun/2021 12:03:10,426] query_controller.create_and_run_query()
+[03/Jun/2021 12:03:10,427] query_controller.create_query()
+[03/Jun/2021 12:03:10,433] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 12:03:10,435] query_controller.run_query()
+[03/Jun/2021 12:03:10,441] query_controller.create_and_run_query()
+[03/Jun/2021 12:03:10,441] query_controller.create_query()
+[03/Jun/2021 12:03:10,444] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 12:03:10,449] query_controller.run_query()
+[03/Jun/2021 12:03:29,120] query_controller.create_and_run_query()
+[03/Jun/2021 12:03:29,120] query_controller.create_query()
+[03/Jun/2021 12:03:29,123] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore+WHERE+get-services%2F%3Fkeyword%3D%27apertif%27+
+[03/Jun/2021 12:03:29,126] query_controller.run_query()
+[03/Jun/2021 12:06:03,529] query_controller.create_and_run_query()
+[03/Jun/2021 12:06:03,529] query_controller.create_query()
+[03/Jun/2021 12:06:03,535] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 12:06:03,538] query_controller.run_query()
+[03/Jun/2021 12:06:03,539] query_controller.create_and_run_query()
+[03/Jun/2021 12:06:03,542] query_controller.create_query()
+[03/Jun/2021 12:06:03,545] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 12:06:03,547] query_controller.run_query()
+[03/Jun/2021 12:06:44,467] could not find 'waveband' in the query_params. Continuing...
+[03/Jun/2021 12:06:44,468] query_controller.get_services()
+[03/Jun/2021 12:07:27,221] query_controller.create_and_run_query()
+[03/Jun/2021 12:07:27,221] query_controller.create_query()
+[03/Jun/2021 12:07:27,227] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 12:07:27,230] query_controller.run_query()
+[03/Jun/2021 12:07:27,233] query_controller.create_and_run_query()
+[03/Jun/2021 12:07:27,234] query_controller.create_query()
+[03/Jun/2021 12:07:27,237] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 12:07:27,238] query_controller.run_query()
+[03/Jun/2021 12:07:53,295] query_controller.create_and_run_query()
+[03/Jun/2021 12:07:53,296] query_controller.create_query()
+[03/Jun/2021 12:07:53,303] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='tgssadr'
+[03/Jun/2021 12:07:53,305] query_controller.run_query()
+[03/Jun/2021 12:07:53,306] query_controller.create_and_run_query()
+[03/Jun/2021 12:07:53,307] query_controller.create_query()
+[03/Jun/2021 12:07:53,310] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='tgssadr'
+[03/Jun/2021 12:07:53,312] query_controller.run_query()
+[03/Jun/2021 12:08:00,589] query_controller.create_and_run_query()
+[03/Jun/2021 12:08:00,590] query_controller.create_query()
+[03/Jun/2021 12:08:00,592] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[03/Jun/2021 12:08:00,594] query_controller.run_query()
