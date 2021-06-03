@@ -4727,3 +4727,252 @@
 [18/May/2021 14:19:35,437] query_controller.run_query()
 [18/May/2021 14:19:36,810] page=1__safe__amp__catalog=zooniverse_projects__safe__amp__project_fields=workflow_description
 [18/May/2021 14:19:36,814] query_controller.run_query()
+[01/Jun/2021 13:58:04,645] query_controller.create_and_run_query()
+[01/Jun/2021 13:58:04,645] query_controller.create_query()
+[01/Jun/2021 13:58:04,650] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore+WHERE+get-services%2F%3Fkeyword%3D%27apertif%27+
+[01/Jun/2021 13:58:04,653] query_controller.run_query()
+[01/Jun/2021 13:58:21,876] query_controller.create_and_run_query()
+[01/Jun/2021 13:58:21,880] query_controller.create_query()
+[01/Jun/2021 13:58:21,886] query_controller.create_and_run_query()
+[01/Jun/2021 13:58:21,886] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 13:58:21,887] query_controller.create_query()
+[01/Jun/2021 13:58:21,887] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 13:58:21,889] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 13:58:21,890] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 13:58:21,891] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 13:58:21,892] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 13:58:21,893] query_controller.run_query()
+[01/Jun/2021 13:58:21,893] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 13:58:21,893] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 13:58:21,894] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 13:58:21,895] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 13:58:21,899] query_controller.run_query()
+[01/Jun/2021 13:58:21,900] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 13:58:57,373] query_controller.create_and_run_query()
+[01/Jun/2021 13:58:57,373] query_controller.create_query()
+[01/Jun/2021 13:58:57,386] query_controller.create_and_run_query()
+[01/Jun/2021 13:58:57,387] query_controller.create_query()
+[01/Jun/2021 13:58:57,993] project_fields=featured__safe__amp__catalog=zooniverse_projects
+[01/Jun/2021 13:58:57,999] query_controller.run_query()
+[01/Jun/2021 13:58:58,054] page=1__safe__amp__project_fields=featured__safe__amp__catalog=zooniverse_projects
+[01/Jun/2021 13:58:58,057] query_controller.run_query()
+[01/Jun/2021 14:00:24,048] query_controller.create_and_run_query()
+[01/Jun/2021 14:00:24,048] query_controller.create_query()
+[01/Jun/2021 14:00:24,055] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:00:24,056] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:00:24,056] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:00:24,056] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:00:24,062] query_controller.run_query()
+[01/Jun/2021 14:00:24,063] query_controller.create_and_run_query()
+[01/Jun/2021 14:00:24,064] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:00:24,064] query_controller.create_query()
+[01/Jun/2021 14:00:24,070] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:00:24,071] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:00:24,071] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 14:00:24,072] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:00:24,072] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:00:24,074] query_controller.run_query()
+[01/Jun/2021 14:00:24,074] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:05:24,007] query_controller.create_and_run_query()
+[01/Jun/2021 14:05:24,007] query_controller.create_query()
+[01/Jun/2021 14:05:24,011] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:05:24,011] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:05:24,012] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:05:24,014] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:05:24,019] query_controller.run_query()
+[01/Jun/2021 14:05:24,019] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:05:24,024] query_controller.create_and_run_query()
+[01/Jun/2021 14:05:24,024] query_controller.create_query()
+[01/Jun/2021 14:05:24,028] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:05:24,028] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:05:24,029] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 14:05:24,029] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:05:24,029] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:05:24,032] query_controller.run_query()
+[01/Jun/2021 14:05:24,033] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:16:05,871] query_controller.create_and_run_query()
+[01/Jun/2021 14:16:05,872] query_controller.create_query()
+[01/Jun/2021 14:16:05,874] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:16:05,875] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:16:05,875] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:16:05,876] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_dataProductType=image_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:16:05,878] query_controller.run_query()
+[01/Jun/2021 14:16:05,878] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&dataProductType=image&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:20:37,506] query_controller.create_and_run_query()
+[01/Jun/2021 14:20:37,506] query_controller.create_query()
+[01/Jun/2021 14:20:37,509] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:20:37,510] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:20:37,510] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:20:37,511] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:20:37,516] query_controller.run_query()
+[01/Jun/2021 14:20:37,519] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:20:37,526] query_controller.create_and_run_query()
+[01/Jun/2021 14:20:37,527] query_controller.create_query()
+[01/Jun/2021 14:20:37,531] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:20:37,532] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:20:37,532] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 14:20:37,533] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:20:37,533] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:20:37,535] query_controller.run_query()
+[01/Jun/2021 14:20:37,536] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:25:33,851] query_controller.create_and_run_query()
+[01/Jun/2021 14:25:33,851] query_controller.create_query()
+[01/Jun/2021 14:25:33,856] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:25:33,856] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:25:33,856] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:25:33,857] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:25:33,860] query_controller.run_query()
+[01/Jun/2021 14:25:33,864] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:25:33,871] query_controller.create_and_run_query()
+[01/Jun/2021 14:25:33,872] query_controller.create_query()
+[01/Jun/2021 14:25:33,874] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:25:33,875] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:25:33,875] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 14:25:33,876] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:25:33,876] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:25:33,881] query_controller.run_query()
+[01/Jun/2021 14:25:33,881] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:27:16,434] query_controller.create_and_run_query()
+[01/Jun/2021 14:27:16,435] query_controller.create_query()
+[01/Jun/2021 14:27:16,441] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:27:16,442] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:27:16,442] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:27:16,443] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:27:16,445] query_controller.run_query()
+[01/Jun/2021 14:27:16,447] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:27:16,448] query_controller.create_and_run_query()
+[01/Jun/2021 14:27:16,449] query_controller.create_query()
+[01/Jun/2021 14:27:16,455] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:27:16,455] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:27:16,456] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 14:27:16,456] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:27:16,456] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:27:16,459] query_controller.run_query()
+[01/Jun/2021 14:27:16,459] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:43:51,733] query_controller.create_and_run_query()
+[01/Jun/2021 14:43:51,734] query_controller.create_query()
+[01/Jun/2021 14:43:51,740] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:43:51,740] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:43:51,741] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:43:51,743] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:43:51,746] query_controller.create_and_run_query()
+[01/Jun/2021 14:43:51,747] query_controller.create_query()
+[01/Jun/2021 14:43:51,749] query_controller.run_query()
+[01/Jun/2021 14:43:51,749] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:43:51,752] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:43:51,752] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:43:51,755] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 14:43:51,756] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:43:51,756] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:43:51,759] query_controller.run_query()
+[01/Jun/2021 14:43:51,759] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:49:40,506] query_controller.create_and_run_query()
+[01/Jun/2021 14:49:40,508] query_controller.create_query()
+[01/Jun/2021 14:49:40,513] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:49:40,514] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:49:40,514] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:49:40,516] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:49:40,518] query_controller.create_and_run_query()
+[01/Jun/2021 14:49:40,519] query_controller.create_query()
+[01/Jun/2021 14:49:40,520] query_controller.run_query()
+[01/Jun/2021 14:49:40,521] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:49:40,523] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:49:40,525] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:49:40,527] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 14:49:40,527] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:49:40,528] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:49:40,530] query_controller.run_query()
+[01/Jun/2021 14:49:40,532] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:51:47,975] query_controller.create_and_run_query()
+[01/Jun/2021 14:51:47,976] query_controller.create_query()
+[01/Jun/2021 14:51:47,980] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:51:47,983] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:51:47,984] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:51:47,985] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:51:47,987] query_controller.run_query()
+[01/Jun/2021 14:51:47,988] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:51:47,989] query_controller.create_and_run_query()
+[01/Jun/2021 14:51:47,991] query_controller.create_query()
+[01/Jun/2021 14:51:47,994] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:51:47,994] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:51:47,995] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 14:51:47,995] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:51:47,996] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:51:47,998] query_controller.run_query()
+[01/Jun/2021 14:51:48,001] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:55:34,171] query_controller.create_and_run_query()
+[01/Jun/2021 14:55:34,171] query_controller.create_query()
+[01/Jun/2021 14:55:34,174] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:55:34,175] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:55:34,175] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:55:34,176] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:55:34,181] query_controller.run_query()
+[01/Jun/2021 14:55:34,182] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:55:34,188] query_controller.create_and_run_query()
+[01/Jun/2021 14:55:34,188] query_controller.create_query()
+[01/Jun/2021 14:55:34,194] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:55:34,195] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:55:34,195] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 14:55:34,196] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:55:34,196] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:55:34,199] query_controller.run_query()
+[01/Jun/2021 14:55:34,200] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:55:59,920] query_controller.create_and_run_query()
+[01/Jun/2021 14:55:59,921] query_controller.create_query()
+[01/Jun/2021 14:55:59,925] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:55:59,925] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:55:59,926] query_controller.create_and_run_query()
+[01/Jun/2021 14:55:59,926] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:55:59,927] query_controller.create_query()
+[01/Jun/2021 14:55:59,928] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:55:59,933] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 14:55:59,934] query_controller.run_query()
+[01/Jun/2021 14:55:59,934] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 14:55:59,934] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 14:55:59,935] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 14:55:59,936] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:55:59,937] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 14:55:59,942] query_controller.run_query()
+[01/Jun/2021 14:55:59,943] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 15:20:09,580] query_controller.create_and_run_query()
+[01/Jun/2021 15:20:09,580] query_controller.create_query()
+[01/Jun/2021 15:20:09,583] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 15:20:09,583] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 15:20:09,584] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 15:20:09,584] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 15:20:09,589] query_controller.run_query()
+[01/Jun/2021 15:20:09,590] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 15:20:09,594] query_controller.create_and_run_query()
+[01/Jun/2021 15:20:09,596] query_controller.create_query()
+[01/Jun/2021 15:20:09,603] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 15:20:09,603] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 15:20:09,604] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 15:20:09,604] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 15:20:09,605] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 15:20:09,607] query_controller.run_query()
+[01/Jun/2021 15:20:09,608] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 15:22:58,077] query_controller.create_and_run_query()
+[01/Jun/2021 15:22:58,078] query_controller.create_query()
+[01/Jun/2021 15:22:58,081] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 15:22:58,083] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 15:22:58,083] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 15:22:58,084] query_controller.create_and_run_query()
+[01/Jun/2021 15:22:58,084] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 15:22:58,084] query_controller.create_query()
+[01/Jun/2021 15:22:58,090] query_controller.run_query()
+[01/Jun/2021 15:22:58,091] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 15:22:58,092] ERROR: could not translating key collection 'collection', using it raw.
+[01/Jun/2021 15:22:58,096] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[01/Jun/2021 15:22:58,098] ERROR: could not translating key page 'page', using it raw.
+[01/Jun/2021 15:22:58,098] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 15:22:58,098] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[01/Jun/2021 15:22:58,100] query_controller.run_query()
+[01/Jun/2021 15:22:58,101] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[01/Jun/2021 15:48:41,293] query_controller.create_and_run_query()
+[01/Jun/2021 15:48:41,294] query_controller.create_query()
+[01/Jun/2021 15:48:41,298] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[01/Jun/2021 15:48:41,301] query_controller.run_query()
+[01/Jun/2021 15:48:41,301] query_controller.create_and_run_query()
+[01/Jun/2021 15:48:41,304] query_controller.create_query()
+[01/Jun/2021 15:48:41,307] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[01/Jun/2021 15:48:41,309] query_controller.run_query()
