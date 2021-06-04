@@ -1,15 +1,19 @@
 class QueryRouter:
-
     route_app_labels = {'query', 'auth', 'contenttypes', 'sessions', 'admin'}
     custom_router_app_labels = {'ida', 'rucio', 'accounts', 'staging'}
 
     def db_for_read(self, model, **hints):
+
         if model._meta.app_label not in self.custom_router_app_labels:
             return 'default'
+        else:
+            return model._meta.app_label
 
     def db_for_write(self, model, **hints):
         if model._meta.app_label not in self.custom_router_app_labels:
             return 'default'
+        else:
+            return model._meta.app_label
 
     def allow_relation(self, obj1, obj2, **hints):
         """
@@ -17,10 +21,10 @@ class QueryRouter:
         involved.
         """
         if (
-            obj1._meta.app_label in self.route_app_labels or
-            obj2._meta.app_label in self.route_app_labels
+                obj1._meta.app_label in self.route_app_labels or
+                obj2._meta.app_label in self.route_app_labels
         ):
-           return True
+            return True
         return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
@@ -33,5 +37,4 @@ class QueryRouter:
         elif app_label in self.custom_router_app_labels:
             return db == app_label
 
-        return None
-
+        return True
