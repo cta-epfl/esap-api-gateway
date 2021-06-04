@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Ida
-
-admin.site.register(Ida)
+from .models import Ida, Facility, Workflow
 
 class MultiDBModelAdmin(admin.ModelAdmin):
     # A handy constant for the name of the alternate database.
@@ -28,3 +26,6 @@ class MultiDBModelAdmin(admin.ModelAdmin):
         # Tell Django to populate ManyToMany widgets using a query
         # on the 'other' database.
         return super().formfield_for_manytomany(db_field, request, using=self.using, **kwargs)
+
+    admin.site.register(Ida)
+    admin.site.register(Facility)

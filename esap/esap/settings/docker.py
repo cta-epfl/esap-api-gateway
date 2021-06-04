@@ -32,7 +32,6 @@ CORS_ALLOW_CREDENTIALS = True
 DATABASE_ROUTERS = [
     'query.database_router.QueryRouter',
     'accounts.database_router.AccountsRouter',
-    'staging.database_router.StagingRouter',
     'ida.database_router.IdaRouter',
     'rucio.database_router.RucioRouter',
 ]
