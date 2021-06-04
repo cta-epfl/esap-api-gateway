@@ -20,6 +20,7 @@ class EsapComputeResource(models.Model):
     resource_name = models.CharField("Resource Name", max_length=50)
     resource_type = models.CharField("Resource Type", max_length=50)
     resource_url = models.URLField("Resource URL")
+
     # resource_metadata = models.JSONField("Resource Metadata")
     # OR SUBCLASS??
 
@@ -73,6 +74,7 @@ class EsapUserProfile(models.Model):
     full_name = models.CharField("Full Name", max_length=100, null=True)
     user_email = models.EmailField("User Email")
     uid = models.CharField("uid", default="uid", max_length=255, null=True)
+
     query_schema = models.ForeignKey(
         to=EsapQuerySchema,
         on_delete=models.SET_NULL,

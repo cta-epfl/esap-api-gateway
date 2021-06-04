@@ -30,4 +30,8 @@ class QueryRouter:
         """
         if app_label in self.route_app_labels:
             return db == 'default'
+        elif app_label in self.custom_router_app_labels:
+            return db == app_label
+
         return None
+

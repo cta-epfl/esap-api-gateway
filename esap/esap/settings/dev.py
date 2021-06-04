@@ -28,7 +28,6 @@ CORS_ALLOW_CREDENTIALS = True
 DATABASE_ROUTERS = [
     'query.database_router.QueryRouter',
     'accounts.database_router.AccountsRouter',
-    'staging.database_router.StagingRouter',
     'ida.database_router.IdaRouter',
     'rucio.database_router.RucioRouter',
 ]
@@ -38,10 +37,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
     },
-    #    'query': {
-    #        'ENGINE': 'django.db.backends.sqlite3',
-    #        'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
-    #    },
     'accounts': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_accounts_config.sqlite3'),
