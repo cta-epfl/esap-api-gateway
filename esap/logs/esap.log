@@ -5042,3 +5042,50 @@
 [03/Jun/2021 12:08:00,590] query_controller.create_query()
 [03/Jun/2021 12:08:00,592] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
 [03/Jun/2021 12:08:00,594] query_controller.run_query()
+[04/Jun/2021 10:25:15,887] query_controller.create_and_run_query()
+[04/Jun/2021 10:25:15,888] query_controller.create_query()
+[04/Jun/2021 10:25:15,893] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[04/Jun/2021 10:25:15,897] query_controller.run_query()
+[04/Jun/2021 10:25:15,901] query_controller.create_and_run_query()
+[04/Jun/2021 10:25:15,901] query_controller.create_query()
+[04/Jun/2021 10:25:15,906] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[04/Jun/2021 10:25:15,910] query_controller.run_query()
+[04/Jun/2021 10:26:03,153] query_controller.create_and_run_query()
+[04/Jun/2021 10:26:03,153] query_controller.create_query()
+[04/Jun/2021 10:26:03,157] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[04/Jun/2021 10:26:03,160] query_controller.run_query()
+[04/Jun/2021 10:26:03,172] query_controller.create_and_run_query()
+[04/Jun/2021 10:26:03,172] query_controller.create_query()
+[04/Jun/2021 10:26:03,176] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[04/Jun/2021 10:26:03,178] query_controller.run_query()
+[04/Jun/2021 10:26:27,894] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:26:27,895] query_controller.get_services()
+[04/Jun/2021 10:27:32,923] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:27:32,924] query_controller.get_services()
+[04/Jun/2021 10:27:43,166] query_controller.create_and_run_query()
+[04/Jun/2021 10:27:43,168] query_controller.run_query()
+[04/Jun/2021 10:27:43,769] query_controller.get_tables_fields('+access_url+')
+[04/Jun/2021 10:28:33,757] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:28:33,757] query_controller.get_services()
+[04/Jun/2021 10:29:18,721] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:29:18,721] query_controller.get_services()
+[04/Jun/2021 10:29:28,297] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:29:28,297] query_controller.get_services()
+[04/Jun/2021 10:29:41,617] query_controller.create_and_run_query()
+[04/Jun/2021 10:29:41,619] query_controller.run_query()
+[04/Jun/2021 10:29:42,609] query_controller.get_tables_fields('+access_url+')
+[04/Jun/2021 10:47:08,702] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:47:08,702] query_controller.get_services()
+[04/Jun/2021 10:47:14,885] query_controller.create_and_run_query()
+[04/Jun/2021 10:47:14,886] query_controller.run_query()
+[04/Jun/2021 10:47:15,497] query_controller.get_tables_fields('+access_url+')
+[04/Jun/2021 10:49:32,264] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:49:32,265] query_controller.get_services()
+[04/Jun/2021 10:49:47,995] query_controller.create_and_run_query()
+[04/Jun/2021 10:49:47,996] query_controller.run_query()
+[04/Jun/2021 10:49:50,212] query_controller.get_tables_fields('+access_url+')
+[04/Jun/2021 10:58:59,374] query_controller.create_and_run_query()
+[04/Jun/2021 10:58:59,375] query_controller.create_query()
+[04/Jun/2021 10:58:59,378] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'M'}, 'where': {}}}
+[04/Jun/2021 10:58:59,380] query_controller.run_query()
+[04/Jun/2021 10:58:59,380] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'M'}, 'where': {}}}
