@@ -5089,3 +5089,67 @@
 [04/Jun/2021 10:58:59,378] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'M'}, 'where': {}}}
 [04/Jun/2021 10:58:59,380] query_controller.run_query()
 [04/Jun/2021 10:58:59,380] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'M'}, 'where': {}}}
+[04/Jun/2021 15:03:40,404] query_controller.create_and_run_query()
+[04/Jun/2021 15:03:40,412] query_controller.create_query()
+[04/Jun/2021 15:03:40,423] ERROR: could not translating key collection 'collection', using it raw.
+[04/Jun/2021 15:03:40,423] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[04/Jun/2021 15:03:40,424] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[04/Jun/2021 15:03:40,424] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[04/Jun/2021 15:03:40,432] query_controller.run_query()
+[04/Jun/2021 15:03:40,433] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[04/Jun/2021 15:03:40,434] query_controller.create_and_run_query()
+[04/Jun/2021 15:03:40,434] query_controller.create_query()
+[04/Jun/2021 15:03:40,446] ERROR: could not translating key collection 'collection', using it raw.
+[04/Jun/2021 15:03:40,446] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[04/Jun/2021 15:03:40,447] ERROR: could not translating key page 'page', using it raw.
+[04/Jun/2021 15:03:40,447] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[04/Jun/2021 15:03:40,447] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[04/Jun/2021 15:03:40,451] query_controller.run_query()
+[04/Jun/2021 15:03:40,451] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[04/Jun/2021 10:25:15,887] query_controller.create_and_run_query()
+[04/Jun/2021 10:25:15,888] query_controller.create_query()
+[04/Jun/2021 10:25:15,893] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[04/Jun/2021 10:25:15,897] query_controller.run_query()
+[04/Jun/2021 10:25:15,901] query_controller.create_and_run_query()
+[04/Jun/2021 10:25:15,901] query_controller.create_query()
+[04/Jun/2021 10:25:15,906] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[04/Jun/2021 10:25:15,910] query_controller.run_query()
+[04/Jun/2021 10:26:03,153] query_controller.create_and_run_query()
+[04/Jun/2021 10:26:03,153] query_controller.create_query()
+[04/Jun/2021 10:26:03,157] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[04/Jun/2021 10:26:03,160] query_controller.run_query()
+[04/Jun/2021 10:26:03,172] query_controller.create_and_run_query()
+[04/Jun/2021 10:26:03,172] query_controller.create_query()
+[04/Jun/2021 10:26:03,176] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[04/Jun/2021 10:26:03,178] query_controller.run_query()
+[04/Jun/2021 10:26:27,894] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:26:27,895] query_controller.get_services()
+[04/Jun/2021 10:27:32,923] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:27:32,924] query_controller.get_services()
+[04/Jun/2021 10:27:43,166] query_controller.create_and_run_query()
+[04/Jun/2021 10:27:43,168] query_controller.run_query()
+[04/Jun/2021 10:27:43,769] query_controller.get_tables_fields('+access_url+')
+[04/Jun/2021 10:28:33,757] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:28:33,757] query_controller.get_services()
+[04/Jun/2021 10:29:18,721] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:29:18,721] query_controller.get_services()
+[04/Jun/2021 10:29:28,297] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:29:28,297] query_controller.get_services()
+[04/Jun/2021 10:29:41,617] query_controller.create_and_run_query()
+[04/Jun/2021 10:29:41,619] query_controller.run_query()
+[04/Jun/2021 10:29:42,609] query_controller.get_tables_fields('+access_url+')
+[04/Jun/2021 10:47:08,702] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:47:08,702] query_controller.get_services()
+[04/Jun/2021 10:47:14,885] query_controller.create_and_run_query()
+[04/Jun/2021 10:47:14,886] query_controller.run_query()
+[04/Jun/2021 10:47:15,497] query_controller.get_tables_fields('+access_url+')
+[04/Jun/2021 10:49:32,264] could not find 'waveband' in the query_params. Continuing...
+[04/Jun/2021 10:49:32,265] query_controller.get_services()
+[04/Jun/2021 10:49:47,995] query_controller.create_and_run_query()
+[04/Jun/2021 10:49:47,996] query_controller.run_query()
+[04/Jun/2021 10:49:50,212] query_controller.get_tables_fields('+access_url+')
+[04/Jun/2021 10:58:59,374] query_controller.create_and_run_query()
+[04/Jun/2021 10:58:59,375] query_controller.create_query()
+[04/Jun/2021 10:58:59,378] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'M'}, 'where': {}}}
+[04/Jun/2021 10:58:59,380] query_controller.run_query()
+[04/Jun/2021 10:58:59,380] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'M'}, 'where': {}}}
