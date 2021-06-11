@@ -59,6 +59,7 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
     serializer_class = EsapUserProfileSerializer
     permission_classes = [permissions.AllowAny]
 
+
     def get_queryset(self):
         # Returns nothing if no user_name supplied instead of all
         print("EsapUserProfileViewSet.get_queryset()")
