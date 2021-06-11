@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from ..models import *
-
+import json
 
 class EsapQuerySchemaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -58,7 +58,8 @@ class EsapUserProfileSerializer(serializers.HyperlinkedModelSerializer):
                     raise RuntimeError(f"WTF! {validated_data}")
                 field_instances = [
                     getattr(instance, m2m_field).model.objects.create(
-                        item_data=str(dict(field_datum))
+                        # item_data=str(dict(field_datum))
+                        item_data=json.dumps(dict(field_datum))
                     )
                     for field_datum in field_data
                 ]
