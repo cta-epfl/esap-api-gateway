@@ -63,6 +63,10 @@ class EsapUserProfileSerializer(serializers.HyperlinkedModelSerializer):
                     )
                     for field_datum in field_data
                 ]
+                print(field_instances)
+
+                # make sure that the old entries are removed first, because
+                getattr(instance, m2m_field).clear()
                 getattr(instance, m2m_field).add(*field_instances)
 
         for key, value in validated_data.items():
