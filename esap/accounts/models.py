@@ -53,9 +53,18 @@ class EsapSoftwareRepository(models.Model):
         verbose_name_plural = "Software Repositories"
         app_label = "accounts"
 
-
 class EsapShoppingItem(models.Model):
     item_data = models.JSONField("Item Data")
+
+    # user_profile = models.ForeignKey(
+    #     to=EsapUserProfile,
+    #     related_name="shopping_cart2",
+    #     on_delete=models.CASCADE,
+    #     verbose_name="Shopping Cart2",
+    #     null=True,
+    #     blank=True,
+    #     default=None
+    # )
 
     def __unicode__(self):
         return "ShoppingItem"
@@ -102,3 +111,6 @@ class EsapUserProfile(models.Model):
         verbose_name = "User Profile"
         verbose_name_plural = "User Profiles"
         app_label = "accounts"
+
+
+

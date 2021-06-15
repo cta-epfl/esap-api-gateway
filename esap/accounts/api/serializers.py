@@ -43,6 +43,20 @@ class EsapUserProfileSerializer(serializers.HyperlinkedModelSerializer):
         # queryset=EsapShoppingItem.objects.all(),
     )
 
+    # this adds a 'shopping_cart2' list to the EsapUserProfile API.
+    # note that 'shopping_cart2' is not defined in the EsapUserProfile model,
+    # but that shopping_cart2 is defined in the EsapShoppingItem model as foreignKey
+    # to get a 1-to-many relationship
+
+    # shopping_cart2 = EsapShoppingItemSerializer(
+    #     many=True,
+    #     # read_only=True,
+    #     queryset=EsapShoppingItem.objects.all(),
+    #     #view_name='process-detail-view',
+    #     required=False,
+    #     lookup_field='pk'
+    # )
+
     def update(self, instance, validated_data):
         # Do not allow the user name to be updated - it is the primary key
         _ = validated_data.pop("user_name", None)
@@ -96,4 +110,5 @@ class EsapUserProfileSerializer(serializers.HyperlinkedModelSerializer):
             "software_repositories",
             "compute_resources",
             "shopping_cart",
+            #"shopping_cart2",
         ]
