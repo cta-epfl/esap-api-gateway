@@ -59,6 +59,12 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
     serializer_class = EsapUserProfileSerializer
     permission_classes = [permissions.AllowAny]
 
+    # def update(self, request, *args, **kwargs):
+    #     # see patch/partial update solution: https://tech.serhatteker.com/post/2020-09/enable-partial-update-drf/
+    #     print("EsapUserProfileViewSet.update()")
+    #     kwargs['partial'] = True
+    #     return super().update(request, args, kwargs)
+
 
     def get_queryset(self):
         # Returns nothing if no user_name supplied instead of all
