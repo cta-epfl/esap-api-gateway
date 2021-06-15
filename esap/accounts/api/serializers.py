@@ -36,12 +36,6 @@ class EsapShoppingItemSerializer(serializers.ModelSerializer):
 
 
 class EsapUserProfileSerializer(serializers.HyperlinkedModelSerializer):
-    # shopping_cart = EsapShoppingItemSerializer(
-    #     many=True,
-    #     # view_name="shopping-items",
-    #     read_only=False,
-    #     # queryset=EsapShoppingItem.objects.all(),
-    # )
 
     # this adds a 'shopping_cart2' list to the EsapUserProfile API.
     # note that 'shopping_cart2' is not defined in the EsapUserProfile model,
@@ -50,11 +44,7 @@ class EsapUserProfileSerializer(serializers.HyperlinkedModelSerializer):
 
     shopping_cart = EsapShoppingItemSerializer(
         many=True,
-        # read_only=True,
-        #queryset=EsapShoppingItem.objects.all(),
-        #view_name='process-detail-view',
         required=False,
-        #lookup_field='pk'
     )
 
     def update(self, instance, validated_data):

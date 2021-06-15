@@ -73,6 +73,8 @@ class EsapUserProfile(models.Model):
     compute_resources = models.ManyToManyField(
         to=EsapComputeResource, verbose_name="Compute Resources", blank=True
     )
+
+    # nv:15jun2021, moved to EsapShoppingItem to reverse the relationship for 1-to-many
     # shopping_cart = models.ManyToManyField(
     #     to=EsapShoppingItem, verbose_name="Shopping Cart", blank=True,
     # )
