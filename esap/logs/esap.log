@@ -6027,3 +6027,20 @@
 [15/Jun/2021 13:08:14,382] project_fields=description__safe__amp__catalog=zooniverse_projects
 [15/Jun/2021 13:08:14,396] query_controller.run_query()
 [15/Jun/2021 13:08:14,397] query_controller.run_query()
+[15/Jun/2021 13:30:30,143] query_controller.create_and_run_query()
+[15/Jun/2021 13:30:30,144] query_controller.create_query()
+[15/Jun/2021 13:30:30,152] ERROR: could not translating key collection 'collection', using it raw.
+[15/Jun/2021 13:30:30,152] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[15/Jun/2021 13:30:30,153] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[15/Jun/2021 13:30:30,154] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[15/Jun/2021 13:30:30,159] query_controller.run_query()
+[15/Jun/2021 13:30:30,160] query_controller.create_and_run_query()
+[15/Jun/2021 13:30:30,161] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[15/Jun/2021 13:30:30,161] query_controller.create_query()
+[15/Jun/2021 13:30:30,167] ERROR: could not translating key collection 'collection', using it raw.
+[15/Jun/2021 13:30:30,167] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[15/Jun/2021 13:30:30,168] ERROR: could not translating key page 'page', using it raw.
+[15/Jun/2021 13:30:30,168] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[15/Jun/2021 13:30:30,169] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[15/Jun/2021 13:30:30,171] query_controller.run_query()
+[15/Jun/2021 13:30:30,171] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50

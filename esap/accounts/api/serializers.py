@@ -37,10 +37,9 @@ class EsapShoppingItemSerializer(serializers.ModelSerializer):
 
 class EsapUserProfileSerializer(serializers.HyperlinkedModelSerializer):
 
-    # this adds a 'shopping_cart2' list to the EsapUserProfile API.
-    # note that 'shopping_cart2' is not defined in the EsapUserProfile model,
-    # but that shopping_cart2 is defined in the EsapShoppingItem model as foreignKey
-    # to get a 1-to-many relationship
+    # this adds a 'shopping_cart' list to the EsapUserProfile API.
+    # note that 'shopping_cart' is not defined in the EsapUserProfile model,
+    # but in the EsapShoppingItem model as foreignKey to get a 1-to-many relationship
 
     shopping_cart = EsapShoppingItemSerializer(
         many=True,
@@ -100,6 +99,7 @@ class EsapUserProfileSerializer(serializers.HyperlinkedModelSerializer):
             setattr(instance, key, value)
         instance.save()
         return instance
+
 
     def to_internal_value(self, data):
         internal_value = super().to_internal_value(data)
