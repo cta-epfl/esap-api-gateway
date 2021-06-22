@@ -53,30 +53,6 @@ class EsapSoftwareRepository(models.Model):
         verbose_name_plural = "Software Repositories"
         app_label = "accounts"
 
-class EsapShoppingItem(models.Model):
-    item_data = models.JSONField("Item Data")
-
-    # user_profile = models.ForeignKey(
-    #     to=EsapUserProfile,
-    #     related_name="shopping_cart2",
-    #     on_delete=models.CASCADE,
-    #     verbose_name="Shopping Cart2",
-    #     null=True,
-    #     blank=True,
-    #     default=None
-    # )
-
-    def __unicode__(self):
-        return "ShoppingItem"
-
-    def __str__(self):
-        return str(self.item_data)
-
-    class Meta:
-        verbose_name = "Selected Item"
-        verbose_name_plural = "Selected Items"
-        app_label = "accounts"
-
 
 class EsapUserProfile(models.Model):
     user_name = models.CharField("Username", max_length=50, primary_key=True)
@@ -97,9 +73,11 @@ class EsapUserProfile(models.Model):
     compute_resources = models.ManyToManyField(
         to=EsapComputeResource, verbose_name="Compute Resources", blank=True
     )
-    shopping_cart = models.ManyToManyField(
-        to=EsapShoppingItem, verbose_name="Shopping Cart", blank=True,
-    )
+
+    # nv:15jun2021, moved to EsapShoppingItem to reverse the relationship for 1-to-many
+    # shopping_cart = models.ManyToManyField(
+    #     to=EsapShoppingItem, verbose_name="Shopping Cart", blank=True,
+    # )
 
     def __unicode__(self):
         return self.user_name
@@ -113,4 +91,27 @@ class EsapUserProfile(models.Model):
         app_label = "accounts"
 
 
+class EsapShoppingItem(models.Model):
+    item_data = models.JSONField("Item Data")
+
+    user_profile = models.ForeignKey(
+        to=EsapUserProfile,
+        related_name="shopping_cart",
+        on_delete=models.CASCADE,
+        verbose_name="User Profile",
+        null=True,
+        blank=True,
+        default=None
+    )
+
+    def __unicode__(self):
+        return "ShoppingItem"
+
+    def __str__(self):
+        return str(self.item_data)
+
+    class Meta:
+        verbose_name = "Selected Item"
+        verbose_name_plural = "Selected Items"
+        app_label = "accounts"
 
