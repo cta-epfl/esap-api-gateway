@@ -1,10 +1,8 @@
 import logging
-from django.contrib import auth
 from rest_framework import viewsets
 from rest_framework import permissions
 from .serializers import *
 from ..models import *
-from django.conf import settings
 import base64
 import json
 
@@ -62,8 +60,8 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         # Returns nothing if no user_name supplied instead of all
-        print("EsapUserProfileViewSet.get_queryset()")
 
+        user_profile = []
         try:
             try:
                 id_token = self.request.session["oidc_id_token"]
@@ -86,12 +84,7 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                     user_email = user.email
                     user_profile = EsapUserProfile.objects.filter(user_email=user_email)
                 except:
-                    # if that doesn't work either, and this is 'development'
-                    # then force feed my e-mail to be able to test downstream functionality
-                    # TODO: remove this when shopping basket is working properly
-                    if settings.IS_DEV:
-                        user_email = "vermaas@astron.nl"
-                        user_profile = EsapUserProfile.objects.filter(user_email=user_email)
+                    pass
 
             return user_profile
 
