@@ -70,7 +70,12 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 # a oidc_id_token has a header, payload and signature split by a '.'
                 token = id_token.split('.')
                 logger.info('token = ' + str(token))
-                decoded_payload = base64.urlsafe_b64decode(token[1])
+
+                data = token[1]
+                lenmax = len(data) - len(data) % 4
+                decoded_payload = base64.b64decode(data[0:lenmax]).decode()
+                # decoded_payload = base64.urlsafe_b64decode(token[1])
+
                 logger.info('decoded_payload = ' + str(decoded_payload))
                 decoded_token = json.loads(decoded_payload.decode("UTF-8"))
                 logger.info('decoded_token = ' + str(decoded_token))
