@@ -71,13 +71,15 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 token = id_token.split('.')
                 logger.info('token = ' + str(token))
                 decoded_payload = base64.urlsafe_b64decode(token[1])
+                logger.info('decoded_payload = ' + str(decoded_payload))
                 decoded_token = json.loads(decoded_payload.decode("UTF-8"))
                 logger.info('decoded_token = ' + str(decoded_token))
                 uid = decoded_token["iss"] + 'userinfo:' + decoded_token["sub"]
                 logger.info('uid = ' + uid)
                 user_profile = EsapUserProfile.objects.filter(uid=uid)
                 logger.info('user_profile = ' + user_profile)
-            except:
+            except Exception as error:
+                logger.error(str(error))
                 id_token = None
 
                 # no AAI token found, try basic authentication (dev only)
