@@ -72,9 +72,9 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 decoded_token = json.loads(decoded_payload.decode("UTF-8"))
 
                 uid = decoded_token["iss"] + 'userinfo:' + decoded_token["sub"]
-
+                logger.info('EsapUserProfileViewSet uid = ' + uid)
                 user_profile = EsapUserProfile.objects.filter(uid=uid)
-
+                logger.info('user_profile = ' + user_profile)
             except:
                 id_token = None
 

@@ -6430,3 +6430,44 @@
 [22/Jun/2021 14:10:40,469] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
 [22/Jun/2021 14:10:40,472] query_controller.run_query()
 [22/Jun/2021 14:10:40,472] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[25/Jun/2021 10:37:38,589] query_controller.create_and_run_query()
+[25/Jun/2021 10:37:38,599] query_controller.create_query()
+[25/Jun/2021 10:37:38,600] query_controller.create_and_run_query()
+[25/Jun/2021 10:37:38,604] query_controller.create_query()
+[25/Jun/2021 10:37:38,618] ERROR: could not translating key collection 'collection', using it raw.
+[25/Jun/2021 10:37:38,619] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[25/Jun/2021 10:37:38,620] ERROR: could not translating key collection 'collection', using it raw.
+[25/Jun/2021 10:37:38,621] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[25/Jun/2021 10:37:38,621] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[25/Jun/2021 10:37:38,622] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[25/Jun/2021 10:37:38,622] ERROR: could not translating key page 'page', using it raw.
+[25/Jun/2021 10:37:38,628] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[25/Jun/2021 10:37:38,628] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[25/Jun/2021 10:37:38,634] query_controller.run_query()
+[25/Jun/2021 10:37:38,635] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[25/Jun/2021 10:37:38,647] query_controller.run_query()
+[25/Jun/2021 10:37:38,647] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[25/Jun/2021 13:17:17,525] query_controller.create_and_run_query()
+[25/Jun/2021 13:17:17,526] query_controller.create_query()
+[25/Jun/2021 13:17:17,530] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-dr1'
+[25/Jun/2021 13:17:17,537] query_controller.run_query()
+[25/Jun/2021 13:17:17,542] query_controller.create_and_run_query()
+[25/Jun/2021 13:17:17,542] query_controller.create_query()
+[25/Jun/2021 13:17:17,549] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-dr1'
+[25/Jun/2021 13:17:17,552] query_controller.run_query()
+[25/Jun/2021 13:17:58,531] query_controller.create_and_run_query()
+[25/Jun/2021 13:17:58,532] query_controller.create_query()
+[25/Jun/2021 13:17:58,534] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-dr1'
+[25/Jun/2021 13:17:58,537] query_controller.run_query()
+[25/Jun/2021 13:17:58,550] query_controller.create_and_run_query()
+[25/Jun/2021 13:17:58,550] query_controller.create_query()
+[25/Jun/2021 13:17:58,554] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-dr1'
+[25/Jun/2021 13:17:58,557] query_controller.run_query()
+[25/Jun/2021 13:19:11,219] query_controller.create_and_run_query()
+[25/Jun/2021 13:19:11,220] query_controller.create_query()
+[25/Jun/2021 13:19:11,229] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-dr1'
+[25/Jun/2021 13:19:11,232] query_controller.run_query()
+[25/Jun/2021 13:19:11,237] query_controller.create_and_run_query()
+[25/Jun/2021 13:19:11,238] query_controller.create_query()
+[25/Jun/2021 13:19:11,240] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-dr1'
+[25/Jun/2021 13:19:11,242] query_controller.run_query()
