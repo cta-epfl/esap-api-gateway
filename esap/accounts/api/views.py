@@ -68,14 +68,18 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
 
                 # a oidc_id_token has a header, payload and signature split by a '.'
                 token = id_token.split('.')
-                decoded_payload = base64.urlsafe_b64decode(token[1])
+
+                # add the "===" to avoid an "Incorrect padding" exception
+                decoded_payload = base64.urlsafe_b64decode(token[1] + "===")
                 decoded_token = json.loads(decoded_payload.decode("UTF-8"))
 
                 uid = decoded_token["iss"] + 'userinfo:' + decoded_token["sub"]
+                logger.info('uid = ' + uid)
 
                 user_profile = EsapUserProfile.objects.filter(uid=uid)
-
-            except:
+                logger.info('user_profile = ' + str(user_profile))
+            except Exception as error:
+                logger.error(str(error))
                 id_token = None
 
                 # no AAI token found, try basic authentication (dev only)
