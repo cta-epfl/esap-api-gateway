@@ -72,7 +72,8 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 logger.info('token = ' + str(token))
 
                 ## nico
-                decoded_payload = base64.urlsafe_b64decode(token[1])
+                ## add the "===" to avoid an "Incorrect padding" exception
+                decoded_payload = base64.urlsafe_b64decode(token[1] + "===")
 
                 ## stelios
                 ## data = token[1]
