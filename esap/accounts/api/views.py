@@ -64,24 +64,20 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
         user_profile = []
         try:
             try:
-                logger.info('*** EsapUserProfileViewSet.get_queryset() ***')
                 id_token = self.request.session["oidc_id_token"]
 
                 # a oidc_id_token has a header, payload and signature split by a '.'
                 token = id_token.split('.')
-                logger.info('token = ' + str(token))
 
-                ## nico
-                ## add the "===" to avoid an "Incorrect padding" exception
+                # add the "===" to avoid an "Incorrect padding" exception
                 decoded_payload = base64.urlsafe_b64decode(token[1] + "===")
-
-                logger.info('decoded_payload = ' + str(decoded_payload))
                 decoded_token = json.loads(decoded_payload.decode("UTF-8"))
-                logger.info('decoded_token = ' + str(decoded_token))
+
                 uid = decoded_token["iss"] + 'userinfo:' + decoded_token["sub"]
                 logger.info('uid = ' + uid)
+
                 user_profile = EsapUserProfile.objects.filter(uid=uid)
-                logger.info('user_profile = ' + user_profile)
+                logger.info('user_profile = ' + str(user_profile))
             except Exception as error:
                 logger.error(str(error))
                 id_token = None
