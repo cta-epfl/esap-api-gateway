@@ -6574,3 +6574,122 @@
 [28/Jun/2021 10:34:26,104] decoded_token = {'sub': '2c49b469-d7ad-4e59-a503-cadbae9bd30a', 'kid': 'rsa1', 'iss': 'https://iam-escape.cloud.cnaf.infn.it/', 'groups': ['escape'], 'preferred_username': 'vermaas', 'organisation_name': 'escape', 'nonce': 'whJwktdecWwhmzJ5wPJcHNJaZRKAVm6P', 'aud': '669d7bef-32c0-4980-ae35-d8ede56bd5ef', 'auth_time': 1624869143, 'name': 'Nico Vermaas', 'exp': 1624869867, 'iat': 1624869267, 'jti': 'c5c7fa73-e3c8-4ba0-a165-18e7bfbc8d03', 'email': 'vermaas@astron.nl'}
 [28/Jun/2021 10:34:26,104] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
 [28/Jun/2021 10:34:26,108] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[28/Jun/2021 13:57:23,228] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[28/Jun/2021 13:57:24,135] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[28/Jun/2021 13:57:24,139] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[28/Jun/2021 13:57:24,363] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[28/Jun/2021 13:57:24,366] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[28/Jun/2021 13:57:24,413] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[28/Jun/2021 13:57:24,415] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[28/Jun/2021 14:28:32,096] query_controller.create_and_run_query()
+[28/Jun/2021 14:28:32,097] query_controller.create_query()
+[28/Jun/2021 14:28:32,104] ERROR: could not translating key collection 'collection', using it raw.
+[28/Jun/2021 14:28:32,105] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[28/Jun/2021 14:28:32,105] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:28:32,106] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:28:32,110] query_controller.run_query()
+[28/Jun/2021 14:28:32,110] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[28/Jun/2021 14:28:32,123] query_controller.create_and_run_query()
+[28/Jun/2021 14:28:32,123] query_controller.create_query()
+[28/Jun/2021 14:28:32,126] ERROR: could not translating key collection 'collection', using it raw.
+[28/Jun/2021 14:28:32,127] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[28/Jun/2021 14:28:32,127] ERROR: could not translating key page 'page', using it raw.
+[28/Jun/2021 14:28:32,128] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:28:32,128] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:28:32,131] query_controller.run_query()
+[28/Jun/2021 14:28:32,132] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[28/Jun/2021 14:34:44,895] query_controller.create_and_run_query()
+[28/Jun/2021 14:34:44,896] query_controller.create_query()
+[28/Jun/2021 14:34:44,903] ERROR: could not translating key collection 'collection', using it raw.
+[28/Jun/2021 14:34:44,904] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[28/Jun/2021 14:34:44,905] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:34:44,906] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:34:44,909] query_controller.run_query()
+[28/Jun/2021 14:34:44,909] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[28/Jun/2021 14:34:44,911] query_controller.create_and_run_query()
+[28/Jun/2021 14:34:44,913] query_controller.create_query()
+[28/Jun/2021 14:34:44,915] ERROR: could not translating key collection 'collection', using it raw.
+[28/Jun/2021 14:34:44,915] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[28/Jun/2021 14:34:44,916] ERROR: could not translating key page 'page', using it raw.
+[28/Jun/2021 14:34:44,916] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:34:44,916] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:34:44,919] query_controller.run_query()
+[28/Jun/2021 14:34:44,920] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[28/Jun/2021 14:43:30,904] query_controller.create_and_run_query()
+[28/Jun/2021 14:43:30,905] query_controller.create_query()
+[28/Jun/2021 14:43:30,908] query_controller.create_and_run_query()
+[28/Jun/2021 14:43:30,908] ERROR: could not translating key collection 'collection', using it raw.
+[28/Jun/2021 14:43:30,909] query_controller.create_query()
+[28/Jun/2021 14:43:30,909] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[28/Jun/2021 14:43:30,911] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:43:30,912] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:43:30,915] ERROR: could not translating key collection 'collection', using it raw.
+[28/Jun/2021 14:43:30,916] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[28/Jun/2021 14:43:30,916] query_controller.run_query()
+[28/Jun/2021 14:43:30,916] ERROR: could not translating key page 'page', using it raw.
+[28/Jun/2021 14:43:30,917] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[28/Jun/2021 14:43:30,917] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:43:30,918] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[28/Jun/2021 14:43:30,921] query_controller.run_query()
+[28/Jun/2021 14:43:30,921] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[28/Jun/2021 14:44:07,755] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[28/Jun/2021 14:44:08,866] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[28/Jun/2021 14:44:08,869] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[28/Jun/2021 14:44:08,920] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[28/Jun/2021 14:44:08,923] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[28/Jun/2021 14:44:09,005] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[28/Jun/2021 14:44:09,007] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[28/Jun/2021 14:45:10,397] query_controller.create_and_run_query()
+[28/Jun/2021 14:45:10,398] query_controller.create_query()
+[28/Jun/2021 14:45:10,401] ERROR: could not translating key collection 'collection', using it raw.
+[28/Jun/2021 14:45:10,401] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[28/Jun/2021 14:45:10,401] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType=pulsarTimingTimeSeries_and_page_size=50
+[28/Jun/2021 14:45:10,402] https://alta.astron.nl/altapi/dataproducts?collection=timedomain_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType=pulsarTimingTimeSeries_and_page_size=50
+[28/Jun/2021 14:45:10,409] query_controller.run_query()
+[28/Jun/2021 14:45:10,409] run-query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain&release__release_id=APERTIF_DR1_Imaging&dataProductSubType=pulsarTimingTimeSeries&page_size=50
+[28/Jun/2021 14:45:10,415] query_controller.create_and_run_query()
+[28/Jun/2021 14:45:10,415] query_controller.create_query()
+[28/Jun/2021 14:45:10,417] ERROR: could not translating key collection 'collection', using it raw.
+[28/Jun/2021 14:45:10,418] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[28/Jun/2021 14:45:10,418] ERROR: could not translating key page 'page', using it raw.
+[28/Jun/2021 14:45:10,419] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType=pulsarTimingTimeSeries_and_page_size=50
+[28/Jun/2021 14:45:10,420] https://alta.astron.nl/altapi/dataproducts?collection=timedomain_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType=pulsarTimingTimeSeries_and_page_size=50
+[28/Jun/2021 14:45:10,422] query_controller.run_query()
+[28/Jun/2021 14:45:10,422] run-query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType=pulsarTimingTimeSeries&page_size=50
+[28/Jun/2021 14:58:51,394] 'oidc_id_token'
+[28/Jun/2021 15:02:45,607] 'oidc_id_token'
+[29/Jun/2021 07:49:14,366] 'oidc_id_token'
+[29/Jun/2021 07:49:14,466] 'oidc_id_token'
+[29/Jun/2021 07:51:54,735] 'oidc_id_token'
+[29/Jun/2021 08:17:36,360] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:17:44,035] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:18:00,930] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:18:04,801] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[29/Jun/2021 08:18:19,312] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:18:19,314] 'oidc_id_token'
+[29/Jun/2021 08:18:19,335] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[29/Jun/2021 08:18:26,454] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:18:26,458] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[29/Jun/2021 08:18:41,815] 'oidc_id_token'
+[29/Jun/2021 08:30:55,715] 'oidc_id_token'
+[29/Jun/2021 08:31:09,801] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:31:09,804] no such column: accounts_esapuserprofile.oidc_id_token
+[29/Jun/2021 08:33:59,775] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:34:00,483] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:34:00,484] 'QuerySet' object has no attribute 'save'
+[29/Jun/2021 08:34:00,633] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:34:00,633] 'QuerySet' object has no attribute 'save'
+[29/Jun/2021 08:34:00,690] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:34:00,691] 'QuerySet' object has no attribute 'save'
+[29/Jun/2021 08:34:11,664] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:34:11,665] 'QuerySet' object has no attribute 'save'
+[29/Jun/2021 08:34:11,710] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:34:11,710] 'QuerySet' object has no attribute 'save'
+[29/Jun/2021 08:35:41,305] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:35:42,499] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:36:02,539] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:36:35,812] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:36:36,881] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:36:47,722] user_profile = vermaas
+[29/Jun/2021 08:36:48,032] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:36:49,797] user_profile = vermaas

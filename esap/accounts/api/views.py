@@ -77,6 +77,12 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 logger.info('uid = ' + uid)
 
                 user_profile = EsapUserProfile.objects.filter(uid=uid)
+
+                # save the current token to the user_profile (for transport and usage elsewhere)
+                for profile in user_profile:
+                    profile.oidc_id_token = id_token
+                    profile.save()
+
                 logger.info('user_profile = ' + str(user_profile))
             except Exception as error:
                 logger.error(str(error))
