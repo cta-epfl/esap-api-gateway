@@ -6693,3 +6693,14 @@
 [29/Jun/2021 08:36:47,722] user_profile = vermaas
 [29/Jun/2021 08:36:48,032] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
 [29/Jun/2021 08:36:49,797] user_profile = vermaas
+[29/Jun/2021 08:38:10,323] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:38:10,734] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:38:20,648] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[29/Jun/2021 08:38:20,714] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:38:22,251] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[29/Jun/2021 08:38:22,330] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:38:22,820] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[29/Jun/2021 08:38:29,359] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:38:34,879] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[29/Jun/2021 08:38:34,984] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[29/Jun/2021 08:38:35,460] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
