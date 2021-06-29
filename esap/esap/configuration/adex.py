@@ -1,4 +1,4 @@
-logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo.png"
+logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo_clear.png"
 
 
 # definition of the query
