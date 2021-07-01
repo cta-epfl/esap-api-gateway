@@ -7,23 +7,30 @@ ID_TOKEN_KEY = "oidc_id_token"
 ACCESS_TOKEN_KEY = "oidc_access_token"
 
 def validate(token):
-    url = urllib.parse.urljoin(f"{settings.RUCIO_HOST}:{settings.RUCIO_AUTH_PORT}", "auth/validate")
+    url = urllib.parse.urljoin(f"{settings.RUCIO_HOST}", "rses/")
     response = requests.get(
         url, headers={"X-Rucio-Auth-Token": token}, verify=False
     )
     if response.ok:
         return True
     else:
+        # remove
         return False
 
 
 def get_scope_names(session):
     token = session.get(ACCESS_TOKEN_KEY, None)
-    if token is None:
-        return [f"Not logged in {session}, {session.keys()}."]
+    id_token = session.get(ID_TOKEN_KEY, None)
+
+    # if token is None:
+    #    return [f"Not logged in {session}, {session.keys()}."]
+
+    # todo: remove the next line when it becomes possible to get tokens from the session
+    token = settings.RUCIO_AUTH_TOKEN
+
     validated = validate(token)
     if validated:
-        url = urllib.parse.urljoin(f"{settings.RUCIO_HOST}:{settings.RUCIO_PORT}", "scopes")
+        url = urllib.parse.urljoin(f"{settings.RUCIO_HOST}", "scopes")
         response = requests.get(
             url + "/", headers={"X-Rucio-Auth-Token": token}, verify=False
         )
