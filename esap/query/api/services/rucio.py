@@ -82,7 +82,7 @@ class rucio_connector(query_base):
         """ use Rucio REST API to query the data lake """
         query_info = query["query_info"]
         url = query_info["url_pattern"].format(
-            host=f"{self.url}:{settings.RUCIO_PORT}", **query_info["url_params"]
+            host=f"{self.url}", **query_info["url_params"]
         )
         response = requests.get(
             url,

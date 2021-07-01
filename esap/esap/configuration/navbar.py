@@ -8,4 +8,4 @@ nav2 = {'title': 'Query', 'route': '/vo-query'}
 nav3 = {'title': 'Rucio', 'route': '/rucio'}
 nav4 = {'title': 'Interactive Analysis', 'route': '/interactive'}
 nav5 = {'title': 'VO-SAMP', 'route': '/samp'}
-navbar = [nav1, nav2, nav3, nav4, nav5]
+navbar = [nav1, nav2, nav4, nav5]
