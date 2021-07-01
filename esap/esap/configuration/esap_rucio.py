@@ -25,7 +25,7 @@ def get_scope_names(session):
     # if token is None:
     #    return [f"Not logged in {session}, {session.keys()}."]
 
-    # todo: remove the next line when it becomes possible to get tokens from the session
+    # nv: todo: remove the next line, and uncomment lines above, when it becomes possible to get tokens from the session
     token = settings.RUCIO_AUTH_TOKEN
 
     validated = validate(token)

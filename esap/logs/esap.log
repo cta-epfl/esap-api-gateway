@@ -6916,3 +6916,45 @@
 [01/Jul/2021 12:20:13,072] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
 [01/Jul/2021 12:20:13,086] query_controller.run_query()
 [01/Jul/2021 12:20:13,087] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[01/Jul/2021 13:08:09,870] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:08:11,005] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:08:11,022] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:08:11,074] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:08:11,094] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:08:11,206] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:08:11,223] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:08:49,854] query_controller.create_and_run_query()
+[01/Jul/2021 13:08:49,855] query_controller.create_query()
+[01/Jul/2021 13:08:55,469] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[01/Jul/2021 13:08:55,478] query_controller.run_query()
+[01/Jul/2021 13:08:55,478] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[01/Jul/2021 13:10:22,720] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:10:22,735] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:10:22,789] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:10:22,803] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:10:27,102] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:10:27,119] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:10:36,331] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:10:36,699] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:10:36,716] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:10:36,755] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:10:36,770] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:10:36,861] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:10:36,876] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:19:39,592] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:19:40,708] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:19:40,727] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:19:40,814] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:19:40,831] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:19:40,931] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[01/Jul/2021 13:19:40,944] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[01/Jul/2021 13:20:05,894] query_controller.create_and_run_query()
+[01/Jul/2021 13:20:05,894] query_controller.create_query()
+[01/Jul/2021 13:20:05,902] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFARIT_INAF_BERTOCCO'}, 'where': {}}}
+[01/Jul/2021 13:20:05,905] query_controller.run_query()
+[01/Jul/2021 13:20:05,905] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFARIT_INAF_BERTOCCO'}, 'where': {}}}
+[01/Jul/2021 13:20:10,878] query_controller.create_and_run_query()
+[01/Jul/2021 13:20:10,879] query_controller.create_query()
+[01/Jul/2021 13:20:10,885] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[01/Jul/2021 13:20:10,889] query_controller.run_query()
+[01/Jul/2021 13:20:10,889] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
