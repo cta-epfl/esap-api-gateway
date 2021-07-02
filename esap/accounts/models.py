@@ -60,6 +60,7 @@ class EsapUserProfile(models.Model):
     user_email = models.EmailField("User Email")
     uid = models.CharField("uid", default="uid", max_length=255, null=True)
     oidc_id_token = models.TextField(null=True, blank=True)
+    oidc_access_token = models.TextField(null=True, blank=True)
 
     query_schema = models.ForeignKey(
         to=EsapQuerySchema,

@@ -65,6 +65,7 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
         try:
             try:
                 id_token = self.request.session["oidc_id_token"]
+                access_token = self.request.session["oidc_access_token"]
 
                 # a oidc_id_token has a header, payload and signature split by a '.'
                 token = id_token.split('.')
@@ -81,9 +82,11 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 # save the current token to the user_profile (for transport and usage elsewhere)
                 for profile in user_profile:
                     profile.oidc_id_token = id_token
+                    profile.oidc_access_token = access_token
                     profile.save()
 
                 logger.info('user_profile = ' + str(user_profile))
+
             except Exception as error:
                 logger.error(str(error))
                 id_token = None
