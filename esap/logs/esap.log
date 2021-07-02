@@ -7044,3 +7044,491 @@
 [02/Jul/2021 08:33:45,217] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
 [02/Jul/2021 08:33:45,226] user_name (from claims[preferred_username]) = vermaas
 [02/Jul/2021 08:33:45,227] full_name (from claims[name]) = Nico Vermaas
+[02/Jul/2021 08:36:14,005] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:36:20,246] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:36:33,729] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:36:33,835] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:36:33,859] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:36:38,629] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:36:38,647] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:36:43,639] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:36:43,655] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:36:43,784] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:36:43,799] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:48:21,774] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:48:22,766] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:48:22,788] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:48:22,875] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:48:22,893] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:49:32,340] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:49:32,360] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:49:42,098] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:49:42,646] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:49:42,665] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:49:42,712] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:49:42,724] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:51:47,012] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:51:47,452] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:51:47,468] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:51:47,511] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:51:47,526] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:52:13,899] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:52:14,295] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:52:14,320] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:52:14,470] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:52:14,488] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:52:55,276] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:52:55,684] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:52:55,707] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 08:52:55,797] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 08:52:55,812] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:04:22,585] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:04:23,075] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:04:23,091] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:04:23,142] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:04:23,158] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:04:23,235] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:04:23,249] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:06:27,498] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:06:28,028] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:06:28,051] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:06:28,096] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:06:28,112] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:06:28,223] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:06:28,241] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:08:49,070] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:08:49,570] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:08:49,590] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:08:49,653] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:08:49,667] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:08:49,751] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:08:49,766] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:09:42,010] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:09:42,654] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:09:42,671] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:09:42,728] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:09:42,746] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:09:42,851] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:09:42,869] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:11:00,059] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:11:00,472] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:11:00,495] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:11:00,578] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:11:00,593] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:11:00,649] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:11:00,664] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:13:40,467] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:13:41,214] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:13:41,239] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:13:41,295] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:13:41,312] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:13:41,381] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:13:41,397] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:15:51,566] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:15:52,078] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:15:52,097] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:15:52,164] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:15:52,178] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:15:52,255] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:15:52,269] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:16:20,584] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:16:21,007] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:16:21,023] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:16:21,062] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:16:21,076] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:16:21,174] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:16:21,193] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:17:13,926] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:17:14,384] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:17:14,405] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:17:14,458] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:17:14,473] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:17:14,569] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:17:14,589] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:17:47,984] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:17:48,457] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:17:48,476] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:17:48,519] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:17:48,532] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:17:48,605] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:17:48,623] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:18:17,266] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:18:17,923] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:18:17,938] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:18:18,023] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:18:18,039] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:18:18,119] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:18:18,132] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:18:47,829] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:18:48,781] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:18:48,796] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:18:48,871] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:18:48,887] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:18:48,957] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:18:48,972] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:34:21,484] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:34:21,929] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:34:21,946] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:34:21,989] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:34:22,002] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 09:34:22,059] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 09:34:22,075] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:04:36,607] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:04:40,230] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:04:40,246] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:04:40,311] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:04:40,325] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:04:44,133] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:04:44,160] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:04:56,312] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:04:58,637] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:04:58,659] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:05:01,188] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:05:01,206] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:05:04,631] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:05:04,648] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:26:32,533] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:26:32,997] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:26:33,021] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:26:33,068] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:26:33,085] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:26:33,170] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:26:33,185] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:26:37,164] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:26:37,184] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:26:37,260] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:26:37,275] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:26:37,334] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:26:37,351] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:26:45,682] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:26:45,697] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:26:45,765] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:26:45,778] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:26:45,902] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:26:45,914] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:27:03,297] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:27:03,668] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:27:03,689] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:27:03,727] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:27:03,742] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:27:03,835] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:27:03,850] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:27:49,523] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:27:49,541] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:27:49,603] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:27:49,616] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:27:49,694] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:27:49,712] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:28:45,082] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:28:45,098] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:28:45,166] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:28:45,183] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:28:45,283] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:28:45,299] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:30:06,595] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:30:06,610] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:30:06,679] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:30:06,694] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:30:06,818] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:30:06,835] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:30:15,760] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:30:15,781] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:30:15,849] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:30:15,867] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:30:15,998] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:30:16,012] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:30:33,735] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:30:33,758] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:30:33,815] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:30:33,829] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:30:33,893] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:30:33,917] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:32:07,108] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:32:07,125] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:32:07,167] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:32:07,184] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:32:07,308] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:32:07,325] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:38:36,633] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:38:36,653] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:38:36,720] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:38:36,734] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:38:36,793] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 10:38:36,807] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 10:56:26,192] query_controller.create_and_run_query()
+[02/Jul/2021 10:56:26,194] query_controller.create_query()
+[02/Jul/2021 10:56:26,208] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 10:56:26,215] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 10:56:26,216] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 10:56:26,217] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 10:56:26,219] query_controller.create_and_run_query()
+[02/Jul/2021 10:56:26,223] query_controller.create_query()
+[02/Jul/2021 10:56:26,230] query_controller.run_query()
+[02/Jul/2021 10:56:26,231] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 10:56:26,234] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 10:56:26,234] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 10:56:26,235] ERROR: could not translating key page 'page', using it raw.
+[02/Jul/2021 10:56:26,235] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 10:56:26,235] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 10:56:26,245] query_controller.run_query()
+[02/Jul/2021 10:56:26,245] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 11:28:07,536] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:08,206] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:08,239] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:08,282] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:08,295] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:08,417] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:08,434] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:12,610] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:12,627] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:12,695] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:12,710] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:12,793] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:12,805] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:31,516] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:31,537] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:31,614] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:31,628] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:31,685] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:31,697] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:37,761] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:37,781] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:37,845] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:37,859] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 11:28:37,987] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 11:28:38,005] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 12:14:16,358] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 12:14:17,206] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 12:14:17,226] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 12:14:17,311] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 12:14:17,330] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 12:14:17,487] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 12:14:17,511] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 12:23:45,380] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 12:23:45,406] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 12:23:45,451] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 12:23:45,467] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 12:23:45,552] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 12:23:45,567] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:50:21,718] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:50:22,898] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:50:22,918] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:50:23,020] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:50:23,038] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:50:23,163] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:50:23,177] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:50:59,203] query_controller.create_and_run_query()
+[02/Jul/2021 13:50:59,203] query_controller.create_query()
+[02/Jul/2021 13:50:59,209] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 13:50:59,209] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 13:50:59,210] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 13:50:59,210] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 13:50:59,217] query_controller.create_and_run_query()
+[02/Jul/2021 13:50:59,218] query_controller.create_query()
+[02/Jul/2021 13:50:59,221] query_controller.run_query()
+[02/Jul/2021 13:50:59,221] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 13:50:59,231] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 13:50:59,232] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 13:50:59,233] ERROR: could not translating key page 'page', using it raw.
+[02/Jul/2021 13:50:59,233] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 13:50:59,234] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 13:50:59,237] query_controller.run_query()
+[02/Jul/2021 13:50:59,237] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 13:51:28,745] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:51:28,765] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:51:28,825] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:51:28,845] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:51:28,950] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:51:28,964] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:52:12,076] query_controller.create_and_run_query()
+[02/Jul/2021 13:52:12,076] query_controller.create_query()
+[02/Jul/2021 13:52:12,085] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 13:52:12,088] query_controller.create_and_run_query()
+[02/Jul/2021 13:52:12,089] query_controller.create_query()
+[02/Jul/2021 13:52:12,094] query_controller.run_query()
+[02/Jul/2021 13:52:12,095] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 13:52:12,104] query_controller.run_query()
+[02/Jul/2021 13:52:20,480] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:52:20,501] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:52:20,578] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:52:20,592] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:52:31,693] query_controller.create_and_run_query()
+[02/Jul/2021 13:52:31,694] query_controller.create_query()
+[02/Jul/2021 13:52:31,699] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 13:52:31,710] query_controller.run_query()
+[02/Jul/2021 13:57:16,721] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:57:16,736] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:57:16,783] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:57:16,802] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:57:16,887] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:57:16,902] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:59:32,771] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:59:32,788] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:59:32,819] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:59:32,833] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 13:59:32,902] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 13:59:32,916] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:01:43,495] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:01:43,518] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:01:43,557] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:01:43,573] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:01:43,634] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:01:43,649] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:02:05,993] query_controller.create_and_run_query()
+[02/Jul/2021 14:02:05,993] query_controller.create_query()
+[02/Jul/2021 14:02:05,996] query_controller.create_and_run_query()
+[02/Jul/2021 14:02:05,997] query_controller.create_query()
+[02/Jul/2021 14:02:06,006] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 14:02:06,009] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 14:02:06,013] query_controller.run_query()
+[02/Jul/2021 14:02:06,014] query_controller.run_query()
+[02/Jul/2021 14:02:18,059] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:02:18,076] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:02:18,136] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:02:18,152] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:02:20,706] query_controller.create_and_run_query()
+[02/Jul/2021 14:02:20,706] query_controller.create_query()
+[02/Jul/2021 14:02:20,711] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 14:02:20,714] query_controller.run_query()
+[02/Jul/2021 14:02:20,724] query_controller.create_and_run_query()
+[02/Jul/2021 14:02:20,724] query_controller.create_query()
+[02/Jul/2021 14:02:20,729] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 14:02:20,734] query_controller.run_query()
+[02/Jul/2021 14:02:33,772] query_controller.create_and_run_query()
+[02/Jul/2021 14:02:33,773] query_controller.create_query()
+[02/Jul/2021 14:02:33,780] query_controller.create_and_run_query()
+[02/Jul/2021 14:02:33,781] query_controller.create_query()
+[02/Jul/2021 14:02:33,787] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 14:02:33,796] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 14:02:33,800] query_controller.run_query()
+[02/Jul/2021 14:02:33,802] query_controller.run_query()
+[02/Jul/2021 14:02:46,294] query_controller.create_and_run_query()
+[02/Jul/2021 14:02:46,294] query_controller.create_query()
+[02/Jul/2021 14:02:46,305] query_controller.create_and_run_query()
+[02/Jul/2021 14:02:46,306] query_controller.create_query()
+[02/Jul/2021 14:02:46,307] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 14:02:46,314] query_controller.run_query()
+[02/Jul/2021 14:02:46,315] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 14:02:46,326] query_controller.run_query()
+[02/Jul/2021 14:03:29,592] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:03:29,614] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:03:29,652] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:03:29,670] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:03:29,756] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:03:29,781] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:04:01,218] query_controller.create_and_run_query()
+[02/Jul/2021 14:04:01,219] query_controller.create_query()
+[02/Jul/2021 14:04:01,228] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 14:04:01,228] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 14:04:01,229] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:04:01,229] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:04:01,232] query_controller.run_query()
+[02/Jul/2021 14:04:01,232] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 14:04:01,233] query_controller.create_and_run_query()
+[02/Jul/2021 14:04:01,233] query_controller.create_query()
+[02/Jul/2021 14:04:01,247] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 14:04:01,248] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 14:04:01,248] ERROR: could not translating key page 'page', using it raw.
+[02/Jul/2021 14:04:01,249] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:04:01,249] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:04:01,252] query_controller.run_query()
+[02/Jul/2021 14:04:01,253] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 14:24:00,672] query_controller.create_and_run_query()
+[02/Jul/2021 14:24:00,672] query_controller.create_query()
+[02/Jul/2021 14:24:00,681] query_controller.create_and_run_query()
+[02/Jul/2021 14:24:00,683] query_controller.create_query()
+[02/Jul/2021 14:24:00,686] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 14:24:00,693] query_controller.run_query()
+[02/Jul/2021 14:24:00,693] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[02/Jul/2021 14:24:00,702] query_controller.run_query()
+[02/Jul/2021 14:24:16,322] query_controller.create_and_run_query()
+[02/Jul/2021 14:24:16,322] query_controller.create_query()
+[02/Jul/2021 14:24:16,330] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 14:24:16,331] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 14:24:16,331] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:24:16,332] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:24:16,335] query_controller.create_and_run_query()
+[02/Jul/2021 14:24:16,335] query_controller.create_query()
+[02/Jul/2021 14:24:16,339] query_controller.run_query()
+[02/Jul/2021 14:24:16,339] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 14:24:16,349] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 14:24:16,349] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 14:24:16,349] ERROR: could not translating key page 'page', using it raw.
+[02/Jul/2021 14:24:16,349] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:24:16,350] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:24:16,354] query_controller.run_query()
+[02/Jul/2021 14:24:16,354] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 14:25:12,652] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:25:13,403] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:25:13,425] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:25:13,507] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:25:13,527] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:25:13,625] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:25:13,643] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:25:24,041] query_controller.create_and_run_query()
+[02/Jul/2021 14:25:24,041] query_controller.create_query()
+[02/Jul/2021 14:25:24,047] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 14:25:24,048] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 14:25:24,048] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType=pulsarTimingTimeSeries_and_page_size=50
+[02/Jul/2021 14:25:24,049] https://alta.astron.nl/altapi/dataproducts?collection=timedomain_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType=pulsarTimingTimeSeries_and_page_size=50
+[02/Jul/2021 14:25:24,058] query_controller.run_query()
+[02/Jul/2021 14:25:24,058] run-query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain&release__release_id=APERTIF_DR1_Imaging&dataProductSubType=pulsarTimingTimeSeries&page_size=50
+[02/Jul/2021 14:25:24,060] query_controller.create_and_run_query()
+[02/Jul/2021 14:25:24,060] query_controller.create_query()
+[02/Jul/2021 14:25:24,072] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 14:25:24,072] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 14:25:24,072] ERROR: could not translating key page 'page', using it raw.
+[02/Jul/2021 14:25:24,073] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType=pulsarTimingTimeSeries_and_page_size=50
+[02/Jul/2021 14:25:24,073] https://alta.astron.nl/altapi/dataproducts?collection=timedomain_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType=pulsarTimingTimeSeries_and_page_size=50
+[02/Jul/2021 14:25:24,076] query_controller.run_query()
+[02/Jul/2021 14:25:24,077] run-query: https://alta.astron.nl/altapi/dataproducts?collection=timedomain&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType=pulsarTimingTimeSeries&page_size=50
+[02/Jul/2021 14:25:34,303] query_controller.create_and_run_query()
+[02/Jul/2021 14:25:34,303] query_controller.create_query()
+[02/Jul/2021 14:25:34,312] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 14:25:34,312] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 14:25:34,313] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:25:34,313] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:25:34,321] query_controller.run_query()
+[02/Jul/2021 14:25:34,321] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 14:25:34,322] query_controller.create_and_run_query()
+[02/Jul/2021 14:25:34,323] query_controller.create_query()
+[02/Jul/2021 14:25:34,334] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 14:25:34,334] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 14:25:34,335] ERROR: could not translating key page 'page', using it raw.
+[02/Jul/2021 14:25:34,335] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:25:34,335] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:25:34,339] query_controller.run_query()
+[02/Jul/2021 14:25:34,339] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 14:26:11,437] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:26:11,459] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:26:11,506] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:26:11,522] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:32:04,690] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:32:04,712] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:32:04,798] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:32:04,814] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:32:04,906] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:32:04,921] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:33:25,519] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:33:25,542] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:33:25,623] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:33:25,638] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:33:25,696] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[02/Jul/2021 14:33:25,708] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[02/Jul/2021 14:33:50,725] query_controller.create_and_run_query()
+[02/Jul/2021 14:33:50,726] query_controller.create_query()
+[02/Jul/2021 14:33:50,736] query_controller.create_and_run_query()
+[02/Jul/2021 14:33:50,737] query_controller.create_query()
+[02/Jul/2021 14:33:50,737] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 14:33:50,740] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 14:33:50,740] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:33:50,740] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:33:50,747] ERROR: could not translating key collection 'collection', using it raw.
+[02/Jul/2021 14:33:50,748] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[02/Jul/2021 14:33:50,748] ERROR: could not translating key page 'page', using it raw.
+[02/Jul/2021 14:33:50,748] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:33:50,748] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[02/Jul/2021 14:33:50,751] query_controller.run_query()
+[02/Jul/2021 14:33:50,751] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[02/Jul/2021 14:33:50,753] query_controller.run_query()
+[02/Jul/2021 14:33:50,753] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
