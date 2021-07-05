@@ -54,26 +54,13 @@ class EsapSoftwareRepository(models.Model):
         app_label = "accounts"
 
 
-class EsapShoppingItem(models.Model):
-    item_data = models.JSONField("Item Data")
-
-    def __unicode__(self):
-        return "ShoppingItem"
-
-    def __str__(self):
-        return str(self.item_data)
-
-    class Meta:
-        verbose_name = "Selected Item"
-        verbose_name_plural = "Selected Items"
-        app_label = "accounts"
-
-
 class EsapUserProfile(models.Model):
     user_name = models.CharField("Username", max_length=50, primary_key=True)
     full_name = models.CharField("Full Name", max_length=100, null=True)
     user_email = models.EmailField("User Email")
     uid = models.CharField("uid", default="uid", max_length=255, null=True)
+    oidc_id_token = models.TextField(null=True, blank=True)
+    oidc_access_token = models.TextField(null=True, blank=True)
 
     query_schema = models.ForeignKey(
         to=EsapQuerySchema,
@@ -88,9 +75,11 @@ class EsapUserProfile(models.Model):
     compute_resources = models.ManyToManyField(
         to=EsapComputeResource, verbose_name="Compute Resources", blank=True
     )
-    shopping_cart = models.ManyToManyField(
-        to=EsapShoppingItem, verbose_name="Shopping Cart", blank=True,
-    )
+
+    # nv:15jun2021, moved to EsapShoppingItem to reverse the relationship for 1-to-many
+    # shopping_cart = models.ManyToManyField(
+    #     to=EsapShoppingItem, verbose_name="Shopping Cart", blank=True,
+    # )
 
     def __unicode__(self):
         return self.user_name
@@ -102,3 +91,29 @@ class EsapUserProfile(models.Model):
         verbose_name = "User Profile"
         verbose_name_plural = "User Profiles"
         app_label = "accounts"
+
+
+class EsapShoppingItem(models.Model):
+    item_data = models.JSONField("Item Data")
+
+    user_profile = models.ForeignKey(
+        to=EsapUserProfile,
+        related_name="shopping_cart",
+        on_delete=models.CASCADE,
+        verbose_name="User Profile",
+        null=True,
+        blank=True,
+        default=None
+    )
+
+    def __unicode__(self):
+        return "ShoppingItem"
+
+    def __str__(self):
+        return str(self.item_data)
+
+    class Meta:
+        verbose_name = "Selected Item"
+        verbose_name_plural = "Selected Items"
+        app_label = "accounts"
+

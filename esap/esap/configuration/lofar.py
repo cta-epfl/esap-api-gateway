@@ -1,6 +1,6 @@
 
 # title = "ADEX"
-logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo.png"
+logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo_clear.png"
 
 # title = "ESFRI Science Analysis Platform"
 # logo = "http://uilennest.net/static/media/tree9.da598501.png"

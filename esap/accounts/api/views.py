@@ -1,10 +1,8 @@
 import logging
-from django.contrib import auth
 from rest_framework import viewsets
 from rest_framework import permissions
 from .serializers import *
 from ..models import *
-from django.conf import settings
 import base64
 import json
 
@@ -59,24 +57,38 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
     serializer_class = EsapUserProfileSerializer
     permission_classes = [permissions.AllowAny]
 
+
     def get_queryset(self):
         # Returns nothing if no user_name supplied instead of all
-        print("EsapUserProfileViewSet.get_queryset()")
 
+        user_profile = []
         try:
             try:
                 id_token = self.request.session["oidc_id_token"]
+                access_token = self.request.session["oidc_access_token"]
 
                 # a oidc_id_token has a header, payload and signature split by a '.'
                 token = id_token.split('.')
-                decoded_payload = base64.urlsafe_b64decode(token[1])
+
+                # add the "===" to avoid an "Incorrect padding" exception
+                decoded_payload = base64.urlsafe_b64decode(token[1] + "===")
                 decoded_token = json.loads(decoded_payload.decode("UTF-8"))
 
                 uid = decoded_token["iss"] + 'userinfo:' + decoded_token["sub"]
+                logger.info('uid = ' + uid)
 
                 user_profile = EsapUserProfile.objects.filter(uid=uid)
 
-            except:
+                # save the current token to the user_profile (for transport and usage elsewhere)
+                for profile in user_profile:
+                    profile.oidc_id_token = id_token
+                    profile.oidc_access_token = access_token
+                    profile.save()
+
+                logger.info('user_profile = ' + str(user_profile))
+
+            except Exception as error:
+                logger.error(str(error))
                 id_token = None
 
                 # no AAI token found, try basic authentication (dev only)
@@ -85,12 +97,7 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                     user_email = user.email
                     user_profile = EsapUserProfile.objects.filter(user_email=user_email)
                 except:
-                    # if that doesn't work either, and this is 'development'
-                    # then force feed my e-mail to be able to test downstream functionality
-                    # TODO: remove this when shopping basket is working properly
-                    if settings.IS_DEV:
-                        user_email = "vermaas@astron.nl"
-                        user_profile = EsapUserProfile.objects.filter(user_email=user_email)
+                    pass
 
             return user_profile
 
