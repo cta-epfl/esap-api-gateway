@@ -10,7 +10,7 @@ networks:
 
 services:
   esap_api:
-    container_name: esap_api_query
+    container_name: esap_api
     image: git.astron.nl:5000/astron-sdc/esap-api-gateway:esap-gateway-query
     expose:
       - 8000
@@ -19,21 +19,24 @@ services:
       - esap_network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.esap-api.entryPoints=esap-api-query"
+      # uncomment when the frontend connects to ':5555/esap-api' instead of to ':/esap-api'
+      #- "traefik.http.routers.esap-api.entryPoints=esap-api-query"
+      #- "traefik.http.routers.esap-api.service=esap-api"
+      #- "traefik.http.routers.esap-api.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-api`)"
+      #- "traefik.http.services.esap-api.loadbalancer.server.port=8000"
+
+      # uncomment when the frontend connects to '/esap-api' instead of to ':5555/esap-api'
+      - "traefik.http.routers.esap-api.entryPoints=websecure"
       - "traefik.http.routers.esap-api.service=esap-api"
       - "traefik.http.routers.esap-api.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-api`)"
       - "traefik.http.services.esap-api.loadbalancer.server.port=8000"
-      - "traefik.http.routers.esap-qstatic.entryPoints=esap-api-query"
-      - "traefik.http.routers.esap-qstatic.service=esap-qstatic"
-      - "traefik.http.routers.esap-qstatic.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static`)"
-      - "traefik.http.services.esap-qstatic.loadbalancer.server.port=8000"
     env_file:
       - $HOME/shared/oidc.env
       - $HOME/shared/esap.env
     restart: always
     volumes:
       - $HOME/shared/esap-gateway-query/:/shared
-      
+
 # uncomment the following section if the esap-gui frontend has to run in a container.
 # in that case, also adjust the /static/ proxy section in the esap_nginx.conf file
 #  esap_gui:
@@ -48,8 +51,8 @@ services:
 #    networks:
 #      - esap_network
 #    restart: always
-    
-   
+
+
   esap_nginx:
     build:
         context: $HOME/shared
@@ -61,13 +64,13 @@ services:
       - esap_network
     labels:
       - "traefik.enable=true"
-      
+
       # route to esap-gui
       - "traefik.http.routers.esap-gui.entryPoints=websecure"
       - "traefik.http.routers.esap-gui.service=esap-gui"
       - "traefik.http.routers.esap-gui.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-gui`)"
       - "traefik.http.services.esap-gui.loadbalancer.server.port=80"
- 
+
       # route to adex-gui
       - "traefik.http.routers.adex-gui.entryPoints=websecure"
       - "traefik.http.routers.adex-gui.service=adex-gui"
@@ -80,22 +83,29 @@ services:
       - "traefik.http.routers.astron-hips.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/astron-hips`)"
       - "traefik.http.services.astron-hips.loadbalancer.server.port=80"
 
+      # route to react-aladin (demo project)
+      - "traefik.http.routers.react-aladin.entryPoints=websecure"
+      - "traefik.http.routers.react-aladin.service=react-aladin"
+      - "traefik.http.routers.react-aladin.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/react-aladin`)"
+      - "traefik.http.services.react-aladin.loadbalancer.server.port=80"
+
+      # route to exoplanets (demo project)
+      - "traefik.http.routers.exoplanets.entryPoints=websecure"
+      - "traefik.http.routers.exoplanets.service=exoplanets"
+      - "traefik.http.routers.exoplanets.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/exoplanets`)"
+      - "traefik.http.services.exoplanets.loadbalancer.server.port=80"
+
       # route the '/static' calls for the esap-gui frontend
       - "traefik.http.routers.esap-static.entryPoints=websecure"
       - "traefik.http.routers.esap-static.service=esap-static"
       - "traefik.http.routers.esap-static.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static`)"
       - "traefik.http.services.esap-static.loadbalancer.server.port=80"
-      
+
       - "traefik.http.routers.esap-static_esap.entryPoints=websecure"
       - "traefik.http.routers.esap-static_esap.service=esap-static_esap"
       - "traefik.http.routers.esap-static_esap.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static_esap`)"
       - "traefik.http.services.esap-static_esap.loadbalancer.server.port=80"
-      
-      # uncomment when the frontend connects to '/esap-api' instead of to 'https://sdc-dev.astron.nl:5555/esap-api'
-#      - "traefik.http.routers.esap-api-default.entryPoints=websecure"
-#      - "traefik.http.routers.esap-api-default.service=esap-api-default"
-#      - "traefik.http.routers.esap-api-default.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-api`)"
-#      - "traefik.http.services.esap-api-default.loadbalancer.server.port=80"
+
       
       # route to the '/oidc' authentication
       - "traefik.http.routers.esap-oidc.entryPoints=websecure"
