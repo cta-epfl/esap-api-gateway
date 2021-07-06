@@ -19,10 +19,18 @@ services:
       - esap_network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.esap-api.entryPoints=esap-api-query"
+      # uncomment when the frontend connects to ':5555/esap-api' instead of to ':/esap-api'
+      #- "traefik.http.routers.esap-api.entryPoints=esap-api-query"
+      #- "traefik.http.routers.esap-api.service=esap-api"
+      #- "traefik.http.routers.esap-api.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-api`)"
+      #- "traefik.http.services.esap-api.loadbalancer.server.port=8000"
+
+      # uncomment when the frontend connects to '/esap-api' instead of to ':5555/esap-api'
+      - "traefik.http.routers.esap-api.entryPoints=websecure"
       - "traefik.http.routers.esap-api.service=esap-api"
       - "traefik.http.routers.esap-api.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-api`)"
       - "traefik.http.services.esap-api.loadbalancer.server.port=8000"
+
       - "traefik.http.routers.esap-qstatic.entryPoints=esap-api-query"
       - "traefik.http.routers.esap-qstatic.service=esap-qstatic"
       - "traefik.http.routers.esap-qstatic.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static`)"
