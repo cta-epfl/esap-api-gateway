@@ -26,6 +26,10 @@ def get_scope_names(session):
     #    return [f"Not logged in {session}, {session.keys()}."]
 
     # nv: todo: remove the next line, and uncomment lines above, when it becomes possible to get tokens from the session
+    # paul: 2 july 2021
+    # I've checked with the Rucio developers and the client should be able to use the OIDC access token (i.e., not the Rucio-issued token) directly in the Rucio API.
+    #  This currently doesn't work (see ticket EDLK-158 ), but once that's fixed you should be able to use Rucio API without having to fetch a Rucio-issued token.
+
     token = settings.RUCIO_AUTH_TOKEN
 
     validated = validate(token)
