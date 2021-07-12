@@ -121,6 +121,7 @@ class EsapUserProfileSerializer(serializers.HyperlinkedModelSerializer):
             "user_email",
             "oidc_id_token",
             "oidc_access_token",
+            "id_token_expiration",
             "query_schema",
             "software_repositories",
             "compute_resources",
