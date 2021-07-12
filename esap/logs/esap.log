@@ -9377,3 +9377,39 @@
 [12/Jul/2021 14:11:57,631] id_token expires in 19 seconds
 [12/Jul/2021 14:11:57,631] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
 [12/Jul/2021 14:11:57,648] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 14:19:31,220] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 14:19:45,807] id_token expires in 30 seconds
+[12/Jul/2021 14:19:46,456] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 14:19:46,499] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 14:19:46,580] id_token expires in 15 seconds
+[12/Jul/2021 14:19:46,581] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 14:19:46,596] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 14:19:46,685] id_token expires in 15 seconds
+[12/Jul/2021 14:19:46,686] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 14:19:46,704] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 14:19:50,569] id_token expires in 11 seconds
+[12/Jul/2021 14:19:50,570] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 14:19:50,586] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 14:19:50,707] id_token expires in 11 seconds
+[12/Jul/2021 14:19:50,708] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 14:19:50,725] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 16:43:57,260] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 16:43:57,657] id_token expires in 60 seconds
+[12/Jul/2021 16:43:57,657] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 16:43:57,675] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 16:43:57,843] id_token expires in 59 seconds
+[12/Jul/2021 16:43:57,844] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 16:43:57,856] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 16:43:57,938] id_token expires in 59 seconds
+[12/Jul/2021 16:43:57,938] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 16:43:57,950] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 16:44:17,387] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 16:44:18,069] id_token expires in 59 seconds
+[12/Jul/2021 16:44:18,070] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 16:44:18,091] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 16:44:18,129] id_token expires in 59 seconds
+[12/Jul/2021 16:44:18,129] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 16:44:18,147] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[12/Jul/2021 16:44:18,236] id_token expires in 59 seconds
+[12/Jul/2021 16:44:18,236] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[12/Jul/2021 16:44:18,250] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
