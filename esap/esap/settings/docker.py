@@ -19,9 +19,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ALLOWED_ORIGINS = [
-    "https://sdc-dev.astron.nl","https://sdc.astron.nl","http://dop457.astron.nl",
-]
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 

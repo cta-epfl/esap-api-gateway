@@ -5,6 +5,8 @@ from .serializers import *
 from ..models import *
 import base64
 import json
+import time
+import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -66,9 +68,17 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
             try:
                 id_token = self.request.session["oidc_id_token"]
                 access_token = self.request.session["oidc_access_token"]
-
-                # a oidc_id_token has a header, payload and signature split by a '.'
                 token = id_token.split('.')
+
+                # when does the id_token expire according to the session?
+                oidc_id_token_expiration = self.request.session["oidc_id_token_expiration"]
+                now = time.time()
+                time_to_expire = round(oidc_id_token_expiration - now)
+                id_token_expiration = datetime.datetime.fromtimestamp(oidc_id_token_expiration).strftime('%Y-%m-%d %H:%M:%S')
+
+                logger.info('id_token expires in ' + str(time_to_expire) + " seconds")
+                # a oidc_id_token has a header, payload and signature split by a '.'
+
 
                 # add the "===" to avoid an "Incorrect padding" exception
                 decoded_payload = base64.urlsafe_b64decode(token[1] + "===")
@@ -83,6 +93,7 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 for profile in user_profile:
                     profile.oidc_id_token = id_token
                     profile.oidc_access_token = access_token
+                    profile.id_token_expiration = id_token_expiration
                     profile.save()
 
                 logger.info('user_profile = ' + str(user_profile))

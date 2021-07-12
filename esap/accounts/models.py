@@ -61,6 +61,8 @@ class EsapUserProfile(models.Model):
     uid = models.CharField("uid", default="uid", max_length=255, null=True)
     oidc_id_token = models.TextField(null=True, blank=True)
     oidc_access_token = models.TextField(null=True, blank=True)
+    oidc_access_token = models.TextField(null=True, blank=True)
+    id_token_expiration =  models.DateTimeField(null=True)
 
     query_schema = models.ForeignKey(
         to=EsapQuerySchema,
