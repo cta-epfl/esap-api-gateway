@@ -15,13 +15,7 @@ DEBUG = True
 IS_DEV = True
 # USE_DOP457 = False
 
-CORS_ALLOWED_ORIGINS = [
-    "https://iam-escape.cloud.cnaf.infn.it",
-    "http://localhost:3000",
-    "http://127.0.0.1:5555",
-    "http://127.0.0.1:3000",
-]
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
 # Database
@@ -73,4 +67,5 @@ LOGOUT_REDIRECT_URL = "http://localhost:3000/esap-gui/logout"
 LOGIN_REDIRECT_URL_FAILURE = "http://localhost:3000/esap-gui/error"
 
 # to test refresh
+#OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 3600
 OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 30
