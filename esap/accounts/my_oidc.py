@@ -19,6 +19,7 @@ def update_userprofile(claims):
         user_name = claims['preferred_username']
         logger.info('user_name (from claims[preferred_username]) = ' + user_name)
         full_name= claims['name']
+
         logger.info('full_name (from claims[name]) = ' + full_name)
         new_user = EsapUserProfile(user_name=user_name, full_name=full_name, user_email=user_email, uid=uid)
         new_user.save()

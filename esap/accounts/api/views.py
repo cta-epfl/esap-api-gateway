@@ -68,6 +68,8 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
             try:
                 id_token = self.request.session["oidc_id_token"]
                 access_token = self.request.session["oidc_access_token"]
+
+                # a oidc_id_token has a header, payload and signature split by a '.'
                 token = id_token.split('.')
 
                 # when does the id_token expire according to the session?
@@ -77,8 +79,6 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 id_token_expiration = datetime.datetime.utcfromtimestamp(oidc_id_token_expiration).strftime('%Y-%m-%d %H:%M:%S')
 
                 logger.info('id_token expires in ' + str(time_to_expire) + " seconds")
-                # a oidc_id_token has a header, payload and signature split by a '.'
-
 
                 # add the "===" to avoid an "Incorrect padding" exception
                 decoded_payload = base64.urlsafe_b64decode(token[1] + "===")
@@ -86,6 +86,8 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
 
                 uid = decoded_token["iss"] + 'userinfo:' + decoded_token["sub"]
                 logger.info('uid = ' + uid)
+
+                # client_id = decoded_token["aud"]
 
                 user_profile = EsapUserProfile.objects.filter(uid=uid)
 

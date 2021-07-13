@@ -11,11 +11,10 @@ urlpatterns = router.urls
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index-view'),
-    path('my_ida', views.StagingListViewAPI.as_view(), name='ida-view'),
     # example: /esap-api/get-services?dataset=ivoa?keyword=ukidss
-    path('facilities/search', views.SearchFacilities.as_view()),
-    path('workflows/search', views.SearchWorkflows.as_view()),
-    path('deploy', views.Deploy.deploy)
+    path('facilities/search', views.SearchFacilities.as_view(), name='facility-search'),
+    path('workflows/search', views.SearchWorkflows.as_view(), name='workflows-search'),
+    path('deploy', views.Deploy.deploy, name='deploy')
     
 ]
 
