@@ -36,19 +36,6 @@ class IndexView(ListView):
     context_object_name = 'my_ida'
 
 
-# example: /esap-api/ida/my_ida/
-class StagingListViewAPI(generics.ListCreateAPIView):
-
-    model = Ida
-    queryset = Ida.objects.all()
-    serializer_class = IdaSerializer
-
-    # using the Django Filter Backend - https://django-filter.readthedocs.io/en/latest/index.html
-    # filter_backends = (filters.DjangoFilterBackend,)
-    # filter_
-
-
-
 # example: /esap-api/facilities/search
 class SearchFacilities(generics.ListAPIView):
     """

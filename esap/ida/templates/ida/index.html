@@ -22,10 +22,19 @@
                     <div class="row">
                         <tr>
                             <td>
-                                Interactive Analyses
+                                Facilities
                             </td>
                             <td>
-                                <a href="{% url 'ida-view' %}">{% url 'ida-view' %}</a>
+                                <a href="{% url 'facility-search' %}">{% url 'facility-search' %}</a>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Workflows
+                            </td>
+                            <td>
+                                <a href="{% url 'workflows-search' %}">{% url 'workflows-search' %}</a>
                             </td>
 
                         </tr>
@@ -44,7 +53,7 @@
 </div>
 
 
-<p class="footer" small>Version 24 july 2020</p>
+<p class="footer" small>Version 13 july 2021</p>
 
 {% endblock %}
 
