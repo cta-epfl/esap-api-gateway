@@ -1,27 +1,4 @@
-
-# title = "ESFRI Science Analysis Platform"
-# logo = "http://uilennest.net/static/media/tree9.da598501.png"
-
-# the url location of the frontend application,
-# this makes it possible to install multiple instances in different directories on the webserver
-# that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
-frontend_basename = "esap-gui"
-
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
-
-# definition of the navigation bar
-nav1 = {'title': 'Archives', 'route': '/archives'}
-nav2 = {'title': 'Query', 'route': '/vo-query'}
-nav3 = {'title': 'Rucio', 'route': '/rucio'}
-nav4 = {'title': 'Interactive Analysis', 'route': '/interactive'}
-navbar = [nav1, nav2, nav3, nav4]
-
-# if datasets_enabled is set, then only these datasets are visible to the GUI
-# datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
-
-# if datasets_disabled is set, then all datasets except these are returned to the GUI
-datasets_disabled = ['nancay.ivoa.obscore']
-
 
 # definition of the query
 query_schema = {
@@ -39,7 +16,7 @@ query_schema = {
         "keyword": {
             "type": "string",
                     "title": "Keyword",
-                    "default": ""
+                    "default": "apertif"
         },
         "service_type": {
             "type": "string",
@@ -65,9 +42,10 @@ query_schema = {
                     {
                         "properties": {
                             "service_type": {"enum": ["tap"]},
-                            "query": {
+                            "adql_query": {
                                 "type": "string",
                                 "title": "ADQL Query",
+                                "default": "SELECT TOP 100 * from ivoa.obscore WHERE obs_collection='apertif-dr1' and dataproduct_subtype='continuum'",
                             },
                             "tap_schema": {
                                 "type": "string",
@@ -105,7 +83,7 @@ query_schema = {
 }
 
 ui_schema = {
-    "query": {"ui:widget": "hidden"},
+    "adql_query": {"ui:widget": "hidden"},
     "tap_schema": {"ui:widget": "hidden"},
     "ra": {"ui:widget": "hidden"},
     "dec": {"ui:widget": "hidden"},

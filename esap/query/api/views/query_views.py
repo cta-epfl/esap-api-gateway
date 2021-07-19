@@ -1,10 +1,12 @@
 import logging
 
-from django.http import QueryDict
-from rest_framework import generics, pagination
+from rest_framework import generics, viewsets
 from rest_framework.response import Response
+from rest_framework.decorators import api_view, renderer_classes
+from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
 
 from ..services import query_controller
+from .. import utils
 from query.models import DataSet
 
 from ..query_serializers import (
@@ -152,6 +154,10 @@ class CreateAndRunQueryView(generics.ListAPIView):
         query_params, archive_uri = extract_and_remove(query_params, "archive_uri")
         if archive_uri:
             datasets = datasets.filter(dataset_archive__uri=archive_uri)
+            if len(datasets)==0:
+                error = "ERROR: No datasets found for this archive_uri: "+archive_uri+\
+                        ". Check your 'dataset' configurations in the esap_config database"
+                return Response({error})
 
         # ...unless a dataset_uri is given, then it will only use that dataset
         query_params, dataset_uri = extract_and_remove(query_params, "dataset_uri")
@@ -183,6 +189,12 @@ class CreateAndRunQueryView(generics.ListAPIView):
         query_params, adql_query = extract_and_remove(query_params, "adql_query")
         query_params, auto_pagination = extract_and_remove(query_params, "pagination")
         query_params, resource = extract_and_remove(query_params, "resource")
+
+        # there should be some datasets in the 'datasets' parameter by now
+        if len(datasets)==0:
+            error = "ERROR: No datasets for this query. Check if your 'dataset' configurations for "\
+                    +archive_uri+" fits the query parameters: "+str(query_params)
+            return Response({error})
 
         query_results, connector, custom_serializer = query_controller.create_and_run_query(
             datasets=datasets,
@@ -344,3 +356,37 @@ class GetTablesFields(generics.ListAPIView):
         serializer = TablesFieldSerializer(instance=page, many=True)
 
         return self.get_paginated_response(serializer.data)
+
+
+class GetSkyCoordinates(generics.ListAPIView):
+    """
+    Retrieve a list of fields from the access_url
+    examples: /esap-api/query/get-sky-coordinates/?target_name=M31
+    """
+
+    model = DataSet
+    queryset = DataSet.objects.all()
+
+    # override list and generate a custom response
+    def list(self, request, *args, **kwargs):
+
+        try:
+            target_name = self.request.query_params["target_name"]
+        except:
+            return Response(
+                {"error": "no target_name given"}
+            )
+
+        logger.info('GetSkyCoordinates(' + target_name + ')')
+        target_coords = utils.get_sky_coords(target_name)
+        print(target_coords)
+        ra = target_coords.ra.deg
+        dec = target_coords.dec.deg
+        content = {
+            'description' : 'ICRS (ra, dec) in deg',
+            'target_name' : target_name,
+            'ra': str(ra),
+            'dec': str(dec)
+        }
+
+        return Response(content)

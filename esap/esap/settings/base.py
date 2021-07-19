@@ -16,9 +16,19 @@ SECRET_KEY = 'cie-((m#n$br$6l53yash45*2^mwuux*2u)bad5(0flx@krnj9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+IS_DEV = False
 
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+# Setup support for proxy headers,
+# this should only be used if an nginx proxy is used that forwards the headers
+# https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/
+# https://docs.djangoproject.com/en/3.2/ref/settings/#use-x-forwarded-host
+USE_X_FORWARDED_HOST = True
+
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
@@ -41,14 +51,14 @@ INSTALLED_APPS = [
     'django_filters',
 ]
 
-DATABASES = {
-    'awlofar': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'awlofar',
-        'USER': 'AWWORLD',
-        'PASSWORD': 'WORLD',
-    }
-}
+#DATABASES = {
+#    'awlofar': {
+#        'ENGINE': 'django.db.backends.oracle',
+#        'NAME': 'awlofar',
+#        'USER': 'AWWORLD',
+#        'PASSWORD': 'WORLD',
+#    }
+#}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -92,6 +102,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'knox.auth.TokenAuthentication',
         'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
@@ -179,6 +190,10 @@ LOGGING = {
             'handlers': ['my_handler', 'my_file_handler', 'mail_admins'],
             'level': 'INFO',
         },
+        'accounts': {
+            'handlers': ['my_handler', 'my_file_handler', 'mail_admins'],
+            'level': 'INFO',
+        },
         'django': {
             'handlers': ['console', 'mail_admins'],
             'level': 'INFO',
@@ -203,23 +218,44 @@ LOGGING = {
 # use 'mozilla_django_oidc' authentication backend
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
+    #'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
+    'accounts.my_oidc.MyOIDCAB'
 )
 OIDC_DRF_AUTH_BACKEND = 'mozilla_django_oidc.auth.OIDCAuthenticationBackend'
 
+# OIDC environment variables
 OIDC_RP_CLIENT_ID = os.environ['OIDC_RP_CLIENT_ID']
 OIDC_RP_CLIENT_SECRET = os.environ['OIDC_RP_CLIENT_SECRET']
+OIDC_RP_SCOPES = "openid email profile"
 OIDC_RP_SIGN_ALGO = "RS256"
-OIDC_OP_JWKS_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/jwk"
-OIDC_OP_AUTHORIZATION_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/authorize"
-OIDC_OP_TOKEN_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/token"
-OIDC_OP_USER_ENDPOINT = "https://iam-escape.cloud.cnaf.infn.it/userinfo"
+OIDC_OP_JWKS_ENDPOINT = os.environ['OIDC_OP_JWKS_ENDPOINT']
+OIDC_OP_AUTHORIZATION_ENDPOINT = os.environ['OIDC_OP_AUTHORIZATION_ENDPOINT']
+OIDC_OP_TOKEN_ENDPOINT = os.environ['OIDC_OP_TOKEN_ENDPOINT']
+OIDC_OP_USER_ENDPOINT = os.environ['OIDC_OP_USER_ENDPOINT']
 
 OIDC_STORE_ACCESS_TOKEN = True
 OIDC_STORE_ID_TOKEN = True
 
-LOGIN_REDIRECT_URL = "http://127.0.0.1:3000/login"
-LOGOUT_REDIRECT_URL = "http://127.0.0.1:3000/logout"
+#try:
+#    OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = float(os.environ['OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS'])
+#except:
+OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 3600
+
+LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
+LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
+LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
+
+# Rucio environment variables
+try:
+    RUCIO_AUTH_TOKEN = os.environ['RUCIO_AUTH_TOKEN']
+    RUCIO_AUTH_HOST = os.environ['RUCIO_AUTH_HOST']
+    RUCIO_HOST = os.environ['RUCIO_HOST']
+
+except:
+    RUCIO_AUTH_TOKEN = None
+    RUCIO_AUTH_HOST = os.environ['RUCIO_AUTH_HOST']
+    RUCIO_HOST = None
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
@@ -228,6 +264,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ASTRON - version 19 oct 2020"
+VERSION = "ESAP-API version 29 april 2021"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'
+

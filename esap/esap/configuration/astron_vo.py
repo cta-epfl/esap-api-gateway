@@ -1,26 +1,4 @@
-
-# title = "ADEX"
-logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo.png"
-
-# title = "ESFRI Science Analysis Platform"
-#logo = "http://uilennest.net/static/media/tree9.da598501.png"
-
-# the url location of the frontend application,
-# this makes it possible to install multiple instances in different directories on the webserver
-# that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
-frontend_basename = "adex-gui"
-
-# definition of the navigation bar
-nav1 = {'title': 'Archives', 'route': '/archives'}
-nav2 = {'title': 'Query', 'route': '/query'}
-navbar = [nav1, nav2]
-
-# if datasets_enabled is set, then only these datasets are visible to the GUI
-#datasets_enabled = ['apertif-observations','astron.ivoa.obscore']
-
-# if datasets_disabled is set, then all datasets except these are returned to the GUI
-datasets_disabled = ['nancay.ivoa.obscore']
-
+logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo_clear.png"
 
 # definition of the query
 query_schema = {
@@ -59,13 +37,11 @@ query_schema = {
             "enumNames": ["Processed"]
         },
         "collection": {
-            "type": "array",
+            "type": "string",
             "title": "Astron-VO Collections",
-            "items": {
-                "type": "string",
-                "enum": ["hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
-            },
-            "uniqueItems": True,
+            "default": "apertif-dr1",
+            "enum": ["apertif-dr1", "hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
+            "enumNames": ["apertif-dr1", "hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
         },
     },
 }

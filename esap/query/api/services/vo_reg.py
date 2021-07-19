@@ -6,8 +6,7 @@
 """
 
 from .query_base import query_base
-import pyvo as vo
-from pyvo.registry import search as regsearch
+import pyvo
 import urllib.parse
 
 # available service types for VO
@@ -65,28 +64,36 @@ class vo_registry_connector(query_base):
             service_type="TAP"
 
         if 'SCS' in service_type.upper():
-            service = vo.dal.SCSService(access_url)
+            service = pyvo.dal.SCSService(access_url)
         elif 'SIA' in service_type.upper():
-            service = vo.dal.SIAService(access_url)
+            service = pyvo.dal.SIAService(access_url)
         elif 'SSA' in service_type.upper():
-            service = vo.dal.SSAService(access_url)
+            service = pyvo.dal.SSAService(access_url)
         elif 'TAP' in service_type.upper():
-            service = vo.dal.TAPService(access_url)
+            service = pyvo.dal.TAPService(access_url)
         return service
 
 
     # Search for a keyword
-    def search(self, keywords=None, service_type=None, datamodel=None, waveband=None, **kwargs):
+    def search(self, keyword=None, service_type=None, datamodel=None, waveband=None, **kwargs):
         """
         # Use pyvo to do a Registry search by keyword
         :param keyword: The keyword to search for
         :param servicetype: The service type that we are searching for (e.g. tap)
         """
 
+        try:
+            keywords = keyword.split(',')
+        except:
+            keywords = None
+
         if datamodel:
-            services = regsearch(datamodel=datamodel)
+            services = pyvo.registry.search(datamodel=datamodel)
         else:
-            services = regsearch(keywords=keywords, servicetype=service_type, waveband=waveband) if waveband  else regsearch(keywords=keywords, servicetype=service_type)
+            if waveband:
+                services = pyvo.registry.search(keywords=keywords, servicetype=service_type, waveband=waveband)
+            else:
+                services = pyvo.registry.search(keywords=keywords, servicetype=service_type)
 
         return services
 
@@ -261,14 +268,15 @@ class vo_registry_connector(query_base):
             try:
                 record['thumbnail'] = row[dataset.thumbnail_field].decode('utf-8')
             except:
-                pass
+                record['thumbnail'] = ''
 
             try:
                 record['url'] = row[dataset.url_field].decode('utf-8')
             except:
                 pass
 
-
+            # record['fieldnames'] = str(resultset.fieldnames)
+            # record['row'] = str(row)
             results.append(record)
 
         return results
@@ -280,7 +288,7 @@ class vo_registry_connector(query_base):
         # get all available services from the VO registry based on the keyword and possible a service_type
         :param service_type
         :param waveband
-        :param keyword
+        :param keyword single keyword or comma separated list of keywords
         """
 
         results = []

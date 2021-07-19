@@ -61,6 +61,7 @@ class alta_connector(query_base):
         where = ''
         errors = []
 
+
         # translate the esap_parameters to specific catalog parameters
         for esap_param in esap_query_params:
             esap_key = esap_param
@@ -129,6 +130,33 @@ class alta_connector(query_base):
         &query='https://alta.astron.nl/altapi/dataproducts?view_ra=342.16_and_view_dec=33.94_and_view_fov=10_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube
         """
 
+        def construct_vo_thumbnail(dataproduct):
+            vo_host = "https://vo.astron.nl/getproduct/"
+
+            # extract the path from storageref
+            # 'cold:190809042_AP_B034/HI_image_cube1.fits => 190809042_AP_B034/HI_image_cube1.fits
+            name = dataproduct['name']
+            storageRef = dataproduct['storageRef']
+            pos = storageRef.find(name)
+            path = storageRef[0:pos-1]
+
+            # if there is a , or : still in a prefix, then remove all that
+            pos = path.find(':')+1
+            if pos > 0:
+               path = path[pos:]
+
+            # if there is a , or : still in a prefix, then remove all that
+            pos = path.find(',')+1
+            if pos > 0:
+               path = path[pos:]
+
+            postfix = "?preview=True&width=null"
+            vo_url = vo_host + dataproduct['derived_release_id'] + '/' + path + '/' + name + postfix
+
+            # stupid hack to overcome the difference between release_id and the path used in VO
+            vo_url = vo_url.replace('APERTIF_DR1_Imaging', 'APERTIF_DR1')
+            return vo_url
+
         results = []
         pagination_record = {}
         # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
@@ -162,10 +190,21 @@ class alta_connector(query_base):
                 record['fov'] = dataproduct['fov']
                 record['release'] = dataproduct['derived_release_id']
 
-                # only send back thumbnails that are not static placeholders.
-                if record['dataProductSubType']=='continuumMF':
-                    record['thumbnail'] = dataproduct['thumbnail']
 
+#                if record['dataProductSubType']=='continuumMF':
+#                    record['thumbnail'] = dataproduct['thumbnail']
+
+#                # add thumbnails for Apertif DR1
+#                if record['release']=='APERTIF_DR1_Imaging':
+#                    if (record['dataProductSubType']=='imageCube') or \
+#                            (record['dataProductSubType'] == 'continuumMF') or \
+#                            (record['dataProductSubType']=='polarisationImage') or \
+#                            (record['dataProductSubType']=='polarisationCube') :
+#                        record['thumbnail'] = construct_vo_thumbnail(dataproduct)
+
+                # only send back thumbnails that are not static placeholders.
+                if not 'static' in dataproduct['thumbnail']:
+                    record['thumbnail'] = dataproduct['thumbnail']
                 record['storageRef'] = dataproduct['storageRef']
 
                 # construct the url to the data based on the storageRef

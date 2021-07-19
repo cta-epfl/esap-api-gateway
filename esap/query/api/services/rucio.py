@@ -3,7 +3,7 @@
     Date created: 2020-10-15
     Description:  Rucio Service Connector for ESAP.
 """
-
+from django.conf import settings
 from rest_framework import serializers
 from .query_base import query_base
 import requests
@@ -14,17 +14,6 @@ import string
 logger = logging.getLogger(__name__)
 
 AMP_REPLACEMENT = "_and_"
-
-# The request header
-RUCIO_HOST = "https://escape-rucio.cern.ch"
-RUCIO_PORT = 32300
-RUCIO_AUTH_TOKEN_PATH = "/shared/rucio-token"
-
-ID_TOKEN_KEY = "oidc_id_token"
-ACCESS_TOKEN_KEY = "oidc_access_token"
-
-with open(RUCIO_AUTH_TOKEN_PATH, mode="r") as tokenFile:
-    RUCIO_AUTH_TOKEN = tokenFile.read().strip()
 
 URLPATTERNS = dict(
     scope="{host}/scopes/",
@@ -93,12 +82,12 @@ class rucio_connector(query_base):
         """ use Rucio REST API to query the data lake """
         query_info = query["query_info"]
         url = query_info["url_pattern"].format(
-            host=f"{self.url}:{RUCIO_PORT}", **query_info["url_params"]
+            host=f"{self.url}", **query_info["url_params"]
         )
         response = requests.get(
             url,
             query_info["where"],
-            headers={"X-Rucio-Auth-Token": RUCIO_AUTH_TOKEN},
+            headers={"X-Rucio-Auth-Token": settings.RUCIO_AUTH_TOKEN},
             verify=False,
         )
         results = []

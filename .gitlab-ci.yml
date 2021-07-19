@@ -1,0 +1,93 @@
+stages:
+  - build
+  - deploy
+
+docker-build-master:
+  # Official docker image.
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" esap
+    - docker push "$CI_REGISTRY_IMAGE"
+  only:
+    - master
+    - acceptance
+    - release
+
+docker-build-branch-query:
+  # Official docker image.
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" esap
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+  # except:
+  only:
+    - esap-gateway-query
+
+docker-deploy-branch-query:
+  image: docker:latest
+  stage: deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan dop814.astron.nl >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh -o StrictHostKeyChecking=no vermaas@dop814.astron.nl "docker pull "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG""
+    - ssh -o StrictHostKeyChecking=no vermaas@dop814.astron.nl "docker-compose -p esap -f /docker_compose/esap-api-gateway/docker-compose-query-dev-cd.yml up -d"
+  when: manual
+  only:
+    - esap-gateway-query
+
+
+# this deploys the 'esap-gateway-query' branch (a dev/test branch) as 'vermaas'
+# by running /docker_compose/esap-api-gateway/docker-compose-query-cd.yml
+docker-deploy-master:
+  image: docker:latest
+  stage: deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan dop814.astron.nl >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh -o StrictHostKeyChecking=no vermaas@dop814.astron.nl "docker pull "$CI_REGISTRY_IMAGE""
+    - ssh -o StrictHostKeyChecking=no vermaas@dop814.astron.nl "docker-compose -p esap -f /docker_compose/esap-api-gateway/docker-compose-dev-cd.yml up -d"
+  when: manual
+  only:
+    - master
+
+
+# deploy acceptance version on 'dop457.astron.nl'
+docker-deploy-acceptance:
+  image: docker:latest
+  stage: deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan dop457.astron.nl >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh -o StrictHostKeyChecking=no vermaas@dop457.astron.nl "docker pull "$CI_REGISTRY_IMAGE""
+    - ssh -o StrictHostKeyChecking=no vermaas@dop457.astron.nl "docker-compose -p esap -f /data/docker_compose/docker-compose-esap-acc-cd.yml up -d"
+  when: manual
+  only:
+    - acceptance

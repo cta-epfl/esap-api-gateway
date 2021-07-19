@@ -1,40 +1,40 @@
 import requests
 import urllib.parse
 import json
-
-rucio_url = "https://escape-rucio.cern.ch"
-
-AUTH_PORT = 32301
-STANDARD_PORT = 32300
-
+from django.conf import settings
 
 ID_TOKEN_KEY = "oidc_id_token"
 ACCESS_TOKEN_KEY = "oidc_access_token"
 
-# RUCIO_AUTH_TOKEN_PATH = "/shared/rucio-token"
-#
-# with open(RUCIO_AUTH_TOKEN_PATH, mode="r") as tokenFile:
-#     RUCIO_AUTH_TOKEN = tokenFile.read().strip()
-
-
 def validate(token):
-    url = urllib.parse.urljoin(f"{rucio_url}:{AUTH_PORT}", "auth/validate")
+    url = urllib.parse.urljoin(f"{settings.RUCIO_HOST}", "rses/")
     response = requests.get(
         url, headers={"X-Rucio-Auth-Token": token}, verify=False
     )
     if response.ok:
         return True
     else:
+        # remove
         return False
 
 
 def get_scope_names(session):
     token = session.get(ACCESS_TOKEN_KEY, None)
-    if token is None:
-        return [f"Not logged in {session}, {session.keys()}."]
+    id_token = session.get(ID_TOKEN_KEY, None)
+
+    # if token is None:
+    #    return [f"Not logged in {session}, {session.keys()}."]
+
+    # nv: todo: remove the next line, and uncomment lines above, when it becomes possible to get tokens from the session
+    # paul: 2 july 2021
+    # I've checked with the Rucio developers and the client should be able to use the OIDC access token (i.e., not the Rucio-issued token) directly in the Rucio API.
+    #  This currently doesn't work (see ticket EDLK-158 ), but once that's fixed you should be able to use Rucio API without having to fetch a Rucio-issued token.
+
+    token = settings.RUCIO_AUTH_TOKEN
+
     validated = validate(token)
     if validated:
-        url = urllib.parse.urljoin(f"{rucio_url}:{STANDARD_PORT}", "scopes")
+        url = urllib.parse.urljoin(f"{settings.RUCIO_HOST}", "scopes")
         response = requests.get(
             url + "/", headers={"X-Rucio-Auth-Token": token}, verify=False
         )
