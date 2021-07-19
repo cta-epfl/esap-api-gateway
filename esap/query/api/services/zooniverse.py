@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .query_base import query_base
-from panoptes_client import Panoptes, Project
+from panoptes_client import Panoptes, Project, User
 from panoptes_client.panoptes import PanoptesAPIException
 import logging
 
@@ -25,7 +25,7 @@ class panoptes_connector(query_base):
             type(int): serializers.IntegerField(),
             type(str): serializers.CharField(),
             type(dict): serializers.DictField(),
-            type(list) : serializers.ListField()
+            type(list): serializers.ListField(),
         }
 
         @classmethod
@@ -47,9 +47,7 @@ class panoptes_connector(query_base):
 
             self.fields.update(
                 {
-                    key: panoptes_connector.TypeToSerializerMap.getFieldForType(
-                        value
-                    )
+                    key: panoptes_connector.TypeToSerializerMap.getFieldForType(value)
                     for key, value in self.example_result.items()
                 }
             )
@@ -59,6 +57,7 @@ class panoptes_connector(query_base):
         self.url = url
         self.panoptes = None
         self.panoptes_user = None
+        self.projects = None
         self.pagination = "FALSE"
 
     # construct a query for this type of service
@@ -125,15 +124,23 @@ class panoptes_connector(query_base):
                 )
 
                 # Delegate retrieval to Panoptes API
-                itemCount = Project.where(
-                    owner=self.panoptes_user, page_size=1
-                ).page_count
+                if self.projects is not None or self._get_projects_for_user():
+                    itemCount = len(self.projects)
+                else:
+                    itemCount = Project.where(
+                        owner=self.panoptes_user, page_size=1
+                    ).page_count
                 pageSize = tokens.get("page_size", 5)
                 numPages = itemCount // pageSize
                 resultPage = min(int(tokens.get("page", 1)), numPages)
-                projects = Project.where(
-                    owner=self.panoptes_user, page=resultPage, page_size=pageSize
-                )
+                if self.projects is not None:
+                    projects = self.projects[
+                        (resultPage-1) * pageSize : pageSize * (resultPage)
+                    ]
+                else:
+                    projects = Project.where(
+                        owner=self.panoptes_user, page=resultPage, page_size=pageSize
+                    )
 
                 if "project" in query_type:
                     if have_query_fields_key:
@@ -219,3 +226,21 @@ class panoptes_connector(query_base):
             record["error"] = str(error)
             results = [record]
             return results
+
+    def _get_projects_for_user(self):
+        if self.panoptes_user is None:
+            return None
+
+        try:
+            panoptes_user_obj = next(User(login=self.panoptes_user))
+            project_role_response = self.panoptes.get(
+                "/project_roles", params={"user_id": panoptes_user_obj.id}
+            )
+            if not project_role_response.ok:
+                return None
+            self.projects = [
+                Project.find(project_role_data["id"])
+                for project_role_data in project_role_response[0]["project_roles"]
+            ]
+        except StopIteration:
+            return None
