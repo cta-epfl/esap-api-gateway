@@ -7,6 +7,7 @@ import base64
 import json
 import time
 import datetime
+from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
@@ -79,6 +80,7 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 id_token_expiration = datetime.datetime.utcfromtimestamp(oidc_id_token_expiration).strftime('%Y-%m-%dT%H:%M:%SZ')
 
                 logger.info('id_token expires in ' + str(time_to_expire) + " seconds")
+                logger.info('OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: ' + str(settings.OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS))
 
                 # add the "===" to avoid an "Incorrect padding" exception
                 decoded_payload = base64.urlsafe_b64decode(token[1] + "===")
