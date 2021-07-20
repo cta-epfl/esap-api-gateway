@@ -27,6 +27,7 @@ CORS_ALLOW_CREDENTIALS = True
 # https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/
 # https://docs.djangoproject.com/en/3.2/ref/settings/#use-x-forwarded-host
 USE_X_FORWARDED_HOST = True
+#SECURE_SSL_REDIRECT = True
 
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 

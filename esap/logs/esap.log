@@ -10562,3 +10562,16 @@
 [20/Jul/2021 09:39:06,921] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
 [20/Jul/2021 09:46:24,972] 'oidc_id_token'
 [20/Jul/2021 09:46:25,010] 'oidc_id_token'
+[20/Jul/2021 11:40:04,178] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Jul/2021 11:40:05,002] id_token expires in 59 seconds
+[20/Jul/2021 11:40:05,002] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[20/Jul/2021 11:40:05,002] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Jul/2021 11:40:05,019] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Jul/2021 11:40:05,052] id_token expires in 59 seconds
+[20/Jul/2021 11:40:05,053] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[20/Jul/2021 11:40:05,053] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Jul/2021 11:40:05,073] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Jul/2021 11:40:05,214] id_token expires in 59 seconds
+[20/Jul/2021 11:40:05,215] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[20/Jul/2021 11:40:05,216] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Jul/2021 11:40:05,229] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
