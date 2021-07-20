@@ -233,7 +233,7 @@ OIDC_OP_JWKS_ENDPOINT = os.environ['OIDC_OP_JWKS_ENDPOINT']
 OIDC_OP_AUTHORIZATION_ENDPOINT = os.environ['OIDC_OP_AUTHORIZATION_ENDPOINT']
 OIDC_OP_TOKEN_ENDPOINT = os.environ['OIDC_OP_TOKEN_ENDPOINT']
 OIDC_OP_USER_ENDPOINT = os.environ['OIDC_OP_USER_ENDPOINT']
-OIDC_AUTHENTICATION_CALLBACK_URL = "https://sdc-dev.astron.nl/esap-api/oidc/callback/"
+# OIDC_AUTHENTICATION_CALLBACK_URL = "https://sdc-dev.astron.nl/esap-api/oidc/callback/"
 
 OIDC_STORE_ACCESS_TOKEN = True
 OIDC_STORE_ID_TOKEN = True
@@ -266,7 +266,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ESAP-API version 29 april 2021"
+VERSION = "ESAP-API version 20 juli 2021"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'
 
