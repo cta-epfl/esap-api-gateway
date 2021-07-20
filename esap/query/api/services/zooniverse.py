@@ -230,6 +230,12 @@ class panoptes_connector(query_base):
             results = [record]
             return results
 
+    def _get_project_by_id(self, pid):
+        try:
+            return Project.find(pid)
+        except PanoptesAPIException as e:
+            return None
+
     def _get_projects_for_user(self):
         if self.panoptes_user is None:
             return None
@@ -237,13 +243,21 @@ class panoptes_connector(query_base):
         try:
             panoptes_user_obj = next(User.where(login=self.panoptes_user))
             project_role_response = self.panoptes.get(
-                "/project_roles", params={"user_id": panoptes_user_obj.id}
+                "/project_roles",
+                params={"user_id": panoptes_user_obj.id, "page_size": 1000},
             )
-            if not project_role_response.ok:
+            if not project_role_response:
                 return None
             self.projects = [
-                Project.find(project_role_data["id"])
-                for project_role_data in project_role_response[0]["project_roles"]
+                project
+                for project in [
+                    self._get_project_by_id(project_role_data["links"]["project"])
+                    for project_role_data in project_role_response[0]["project_roles"]
+                ]
+                if project is not None
             ]
+            return self.projects
         except StopIteration:
+            return None
+        except PanoptesAPIException:
             return None
