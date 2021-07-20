@@ -20,7 +20,7 @@ def my_absolutify(request, path):
     logger.info('callback_url = ' + callback_url)
     return callback_url
 
-mozilla_django_oidc.utils.absolutify = my_absolutify
+# mozilla_django_oidc.utils.absolutify = my_absolutify
 
 
 class EsapQuerySchemaViewSet(viewsets.ModelViewSet):
