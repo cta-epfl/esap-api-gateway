@@ -235,7 +235,7 @@ class panoptes_connector(query_base):
             return None
 
         try:
-            panoptes_user_obj = next(User(login=self.panoptes_user))
+            panoptes_user_obj = next(User.where(login=self.panoptes_user))
             project_role_response = self.panoptes.get(
                 "/project_roles", params={"user_id": panoptes_user_obj.id}
             )
