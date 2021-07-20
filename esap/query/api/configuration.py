@@ -41,7 +41,7 @@ def get_configuration(name=None, session=None):
             pass
 
     except Exception as error:
-        return {"configuration error in ": name+ ".py : " + str(error)}
+        return {"configuration error in ": name+ ".py : " + str(error) + " session => " + str(session.keys())}
 
     try:
         result['frontend_basename'] = my_config.frontend_basename
