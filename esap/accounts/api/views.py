@@ -76,7 +76,7 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 oidc_id_token_expiration = self.request.session["oidc_id_token_expiration"]
                 now = time.time()
                 time_to_expire = round(oidc_id_token_expiration - now)
-                id_token_expiration = datetime.datetime.utcfromtimestamp(oidc_id_token_expiration).strftime('%Y-%m-%d %H:%M:%S')
+                id_token_expiration = datetime.datetime.utcfromtimestamp(oidc_id_token_expiration).strftime('%Y-%m-%dT%H:%M:%SZ')
 
                 logger.info('id_token expires in ' + str(time_to_expire) + " seconds")
 
