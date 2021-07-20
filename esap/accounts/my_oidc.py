@@ -1,6 +1,8 @@
 import logging
 from mozilla_django_oidc.auth import OIDCAuthenticationBackend
+
 from django.conf import settings
+
 from .models import EsapUserProfile
 logger = logging.getLogger(__name__)
 
@@ -38,3 +40,5 @@ class MyOIDCAB(OIDCAuthenticationBackend):
         is_admin = 'admin' in claims.get('group', [])
         return verified
         # return verified and is_admin
+
+

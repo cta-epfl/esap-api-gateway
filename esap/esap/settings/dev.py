@@ -67,5 +67,6 @@ LOGOUT_REDIRECT_URL = "http://localhost:3000/esap-gui/logout"
 LOGIN_REDIRECT_URL_FAILURE = "http://localhost:3000/esap-gui/error"
 
 # to test refresh
+#OIDC_AUTHENTICATION_CALLBACK_URL = "https://sdc-dev.astron.nl/esap-api/oidc/callback/"
 OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 60
 #OIDC_EXEMPT_URLS = ['/esap-api/accounts/user-profiles']
