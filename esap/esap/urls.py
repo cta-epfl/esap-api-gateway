@@ -24,4 +24,5 @@ urlpatterns = [
     path('esap-api/ida/', include('ida.api.urls')),
     path('esap-api/admin/', admin.site.urls, name='admin-view'),
     re_path('^esap-api/oidc/', include('mozilla_django_oidc.urls'), namespace='https'),
+
 ]
