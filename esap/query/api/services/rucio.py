@@ -31,7 +31,7 @@ class rucio_connector(query_base):
     """
 
     # Initializer
-    def __init__(self, url = RUCIO_HOST):
+    def __init__(self, url):
         self.url = url
 
     # construct a query for the Rucio REST API
