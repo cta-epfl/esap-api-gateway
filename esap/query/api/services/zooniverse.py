@@ -124,7 +124,10 @@ class panoptes_connector(query_base):
                 )
 
                 # Delegate retrieval to Panoptes API
-                if self.projects is not None or self._get_projects_for_user():
+                if (
+                    self.projects is not None
+                    or self._get_projects_for_user() is not None
+                ):
                     itemCount = len(self.projects)
                 else:
                     itemCount = Project.where(
@@ -135,7 +138,7 @@ class panoptes_connector(query_base):
                 resultPage = min(int(tokens.get("page", 1)), numPages)
                 if self.projects is not None:
                     projects = self.projects[
-                        (resultPage-1) * pageSize : pageSize * (resultPage)
+                        (resultPage - 1) * pageSize : pageSize * (resultPage)
                     ]
                 else:
                     projects = Project.where(
