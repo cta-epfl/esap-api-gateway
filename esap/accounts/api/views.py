@@ -7,8 +7,23 @@ import base64
 import json
 import time
 import datetime
+from django.urls import reverse
+from django.conf import settings
 
 logger = logging.getLogger(__name__)
+
+import mozilla_django_oidc.utils
+
+# overriding 'absolutify' to be able to log the callback_url.
+# TODO: remove this when we get rid of the IAM cors errors
+def my_absolutify(request, path):
+    callback_url = request.build_absolute_uri(path)
+    #callback_url = request.build_absolute_uri(reverse('oidc_authentication_callback')).replace('http:','https:')
+    logger.info('callback_url = ' + callback_url)
+    return callback_url
+
+mozilla_django_oidc.utils.absolutify = my_absolutify
+
 
 class EsapQuerySchemaViewSet(viewsets.ModelViewSet):
     """
@@ -76,9 +91,10 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 oidc_id_token_expiration = self.request.session["oidc_id_token_expiration"]
                 now = time.time()
                 time_to_expire = round(oidc_id_token_expiration - now)
-                id_token_expiration = datetime.datetime.utcfromtimestamp(oidc_id_token_expiration).strftime('%Y-%m-%d %H:%M:%S')
+                id_token_expiration = datetime.datetime.utcfromtimestamp(oidc_id_token_expiration).strftime('%Y-%m-%dT%H:%M:%SZ')
 
                 logger.info('id_token expires in ' + str(time_to_expire) + " seconds")
+                logger.info('OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: ' + str(settings.OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS))
 
                 # add the "===" to avoid an "Incorrect padding" exception
                 decoded_payload = base64.urlsafe_b64decode(token[1] + "===")

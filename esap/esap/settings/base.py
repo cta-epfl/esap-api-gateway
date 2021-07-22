@@ -27,6 +27,7 @@ CORS_ALLOW_CREDENTIALS = True
 # https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/
 # https://docs.djangoproject.com/en/3.2/ref/settings/#use-x-forwarded-host
 USE_X_FORWARDED_HOST = True
+#SECURE_SSL_REDIRECT = True
 
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -232,14 +233,15 @@ OIDC_OP_JWKS_ENDPOINT = os.environ['OIDC_OP_JWKS_ENDPOINT']
 OIDC_OP_AUTHORIZATION_ENDPOINT = os.environ['OIDC_OP_AUTHORIZATION_ENDPOINT']
 OIDC_OP_TOKEN_ENDPOINT = os.environ['OIDC_OP_TOKEN_ENDPOINT']
 OIDC_OP_USER_ENDPOINT = os.environ['OIDC_OP_USER_ENDPOINT']
+# OIDC_AUTHENTICATION_CALLBACK_URL = "https://sdc-dev.astron.nl/esap-api/oidc/callback/"
 
 OIDC_STORE_ACCESS_TOKEN = True
 OIDC_STORE_ID_TOKEN = True
 
-#try:
-#    OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = float(os.environ['OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS'])
-#except:
-OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 3600
+try:
+   OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = float(os.environ['OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS'])
+except:
+   OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 3600
 
 LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
 LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
@@ -264,7 +266,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ESAP-API version 29 april 2021"
+VERSION = "ESAP-API version 20 juli 2021"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'
 
