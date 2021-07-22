@@ -134,7 +134,7 @@ class panoptes_connector(query_base):
                         owner=self.panoptes_user, page_size=1
                     ).page_count
                 pageSize = tokens.get("page_size", 5)
-                numPages = itemCount // pageSize
+                numPages = int(np.ceil(itemCount / pageSize))
                 resultPage = min(int(tokens.get("page", 1)), numPages)
                 if self.projects is not None:
                     projects = self.projects[
