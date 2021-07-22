@@ -13,7 +13,9 @@ from django.conf import settings
 logger = logging.getLogger(__name__)
 
 import mozilla_django_oidc.utils
-# nv: monkey patching absolutify to force https callback... (joern put me up to it!)
+
+# overriding 'absolutify' to be able to log the callback_url.
+# TODO: remove this when we get rid of the IAM cors errors
 def my_absolutify(request, path):
     callback_url = request.build_absolute_uri(path)
     #callback_url = request.build_absolute_uri(reverse('oidc_authentication_callback')).replace('http:','https:')
