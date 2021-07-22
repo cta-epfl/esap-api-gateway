@@ -15,12 +15,12 @@ logger = logging.getLogger(__name__)
 import mozilla_django_oidc.utils
 # nv: monkey patching absolutify to force https callback... (joern put me up to it!)
 def my_absolutify(request, path):
-    #return request.build_absolute_uri(path)
-    callback_url = request.build_absolute_uri(reverse('oidc_authentication_callback')).replace('http:','https:')
+    callback_url = request.build_absolute_uri(path)
+    #callback_url = request.build_absolute_uri(reverse('oidc_authentication_callback')).replace('http:','https:')
     logger.info('callback_url = ' + callback_url)
     return callback_url
 
-# mozilla_django_oidc.utils.absolutify = my_absolutify
+mozilla_django_oidc.utils.absolutify = my_absolutify
 
 
 class EsapQuerySchemaViewSet(viewsets.ModelViewSet):

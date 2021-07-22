@@ -18,6 +18,8 @@ IS_DEV = True
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 # Database
 DATABASE_ROUTERS = [
     'query.database_router.QueryRouter',

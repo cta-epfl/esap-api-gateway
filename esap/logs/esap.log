@@ -10609,3 +10609,41 @@
 [20/Jul/2021 17:21:10,376] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
 [20/Jul/2021 17:21:10,377] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
 [20/Jul/2021 17:21:10,392] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[22/Jul/2021 09:41:18,963] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[22/Jul/2021 09:41:38,596] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[22/Jul/2021 09:42:36,304] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[22/Jul/2021 09:43:26,054] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[22/Jul/2021 09:43:27,109] id_token expires in 59 seconds
+[22/Jul/2021 09:43:27,109] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[22/Jul/2021 09:43:27,110] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[22/Jul/2021 09:43:27,129] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[22/Jul/2021 09:43:27,192] id_token expires in 59 seconds
+[22/Jul/2021 09:43:27,192] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[22/Jul/2021 09:43:27,193] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[22/Jul/2021 09:43:27,214] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[22/Jul/2021 09:43:27,354] id_token expires in 59 seconds
+[22/Jul/2021 09:43:27,354] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[22/Jul/2021 09:43:27,355] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[22/Jul/2021 09:43:27,374] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[22/Jul/2021 09:59:11,565] 'oidc_id_token'
+[22/Jul/2021 09:59:42,398] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[22/Jul/2021 10:00:13,313] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[22/Jul/2021 10:00:14,641] id_token expires in 59 seconds
+[22/Jul/2021 10:00:14,641] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[22/Jul/2021 10:00:14,641] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[22/Jul/2021 10:00:14,664] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[22/Jul/2021 10:00:14,744] id_token expires in 59 seconds
+[22/Jul/2021 10:00:14,745] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[22/Jul/2021 10:00:14,745] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[22/Jul/2021 10:00:14,761] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[22/Jul/2021 10:00:14,854] id_token expires in 59 seconds
+[22/Jul/2021 10:00:14,854] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[22/Jul/2021 10:00:14,855] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[22/Jul/2021 10:00:14,869] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[22/Jul/2021 10:00:33,197] 'oidc_id_token'
+[22/Jul/2021 10:01:30,951] 'oidc_id_token'
+[22/Jul/2021 10:02:40,371] 'oidc_id_token'
+[22/Jul/2021 10:05:15,084] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[22/Jul/2021 10:05:34,612] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[22/Jul/2021 10:06:59,837] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[22/Jul/2021 10:10:16,096] callback_url = http://localhost:5555/esap-api/oidc/callback/
