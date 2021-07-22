@@ -10,7 +10,7 @@ networks:
 
 services:
   esap_api:
-    container_name: esap_api_query
+    container_name: esap_api
     image: git.astron.nl:5000/astron-sdc/esap-api-gateway
     expose:
       - 8000
@@ -19,29 +19,67 @@ services:
       - esap_network
     labels:
       - "traefik.enable=true"
-      # uncomment when the frontend connects to ':5555/esap-api' instead of to ':/esap-api'
-      #- "traefik.http.routers.esap-api.entryPoints=esap-api-query"
-      #- "traefik.http.routers.esap-api.service=esap-api"
-      #- "traefik.http.routers.esap-api.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-api`)"
-      #- "traefik.http.services.esap-api.loadbalancer.server.port=8000"
 
-      # uncomment when the frontend connects to '/esap-api' instead of to ':5555/esap-api'
       - "traefik.http.routers.esap-api.entryPoints=websecure"
       - "traefik.http.routers.esap-api.service=esap-api"
       - "traefik.http.routers.esap-api.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-api`)"
       - "traefik.http.services.esap-api.loadbalancer.server.port=8000"
+      - "traefik.http.middlewares.esap-api.headers.customrequestheaders.X-Forwarded-Proto=https"
 
-      - "traefik.http.routers.esap-qstatic.entryPoints=esap-api-query"
-      - "traefik.http.routers.esap-qstatic.service=esap-qstatic"
-      - "traefik.http.routers.esap-qstatic.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static`)"
-      - "traefik.http.services.esap-qstatic.loadbalancer.server.port=8000"
+      - "traefik.http.routers.esap-static_esap.entryPoints=websecure"
+      - "traefik.http.routers.esap-static_esap.service=esap-static_esap"
+      - "traefik.http.routers.esap-static_esap.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static_esap`)"
+      - "traefik.http.services.esap-static_esap.loadbalancer.server.port=8000"
+
+      # route to the '/oidc' authentication
+      - "traefik.http.routers.esap-oidc.entryPoints=websecure"
+      - "traefik.http.routers.esap-oidc.service=esap-oidc"
+      - "traefik.http.routers.esap-oidc.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/oidc`)"
+      - "traefik.http.services.esap-oidc.loadbalancer.server.port=8000"
+
     env_file:
       - $HOME/shared/oidc.env
       - $HOME/shared/esap.env
     restart: always
     volumes:
       - $HOME/shared/esap-gateway-query/:/shared
-      
+
+
+  # this is an extra instance of esap-api on port 5555
+  esap_api_5555:
+    container_name: esap_api_5555
+    image: git.astron.nl:5000/astron-sdc/esap-api-gateway
+    expose:
+      - 8000
+    networks:
+      - traefik_proxy
+      - esap_network
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.esap-api-5555.entryPoints=esap-api-query"
+      - "traefik.http.routers.esap-api-5555.service=esap-api-5555"
+      - "traefik.http.routers.esap-api-5555.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-api`)"
+      - "traefik.http.services.esap-api-5555.loadbalancer.server.port=8000"
+
+      - "traefik.http.services.esap-static-5555.loadbalancer.server.port=8000"
+      - "traefik.http.routers.esap-static-5555.entryPoints=esap-api-query"
+      - "traefik.http.routers.esap-static-5555.service=esap-static-5555"
+      - "traefik.http.routers.esap-static-5555.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static_esap`)"
+
+      # route to the '/oidc' authentication
+      - "traefik.http.routers.esap-oidc.entryPoints=websecure"
+      - "traefik.http.routers.esap-oidc.service=esap-oidc"
+      - "traefik.http.routers.esap-oidc.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/oidc`)"
+      - "traefik.http.services.esap-oidc.loadbalancer.server.port=8000"
+
+    env_file:
+      - $HOME/shared/oidc.env
+      - $HOME/shared/esap.env
+    restart: always
+    volumes:
+      - $HOME/shared/esap-gateway-query/:/shared
+
 # uncomment the following section if the esap-gui frontend has to run in a container.
 # in that case, also adjust the /static/ proxy section in the esap_nginx.conf file
 #  esap_gui:
@@ -56,8 +94,8 @@ services:
 #    networks:
 #      - esap_network
 #    restart: always
-    
-   
+
+
   esap_nginx:
     build:
         context: $HOME/shared
@@ -69,13 +107,13 @@ services:
       - esap_network
     labels:
       - "traefik.enable=true"
-      
+
       # route to esap-gui
       - "traefik.http.routers.esap-gui.entryPoints=websecure"
       - "traefik.http.routers.esap-gui.service=esap-gui"
       - "traefik.http.routers.esap-gui.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-gui`)"
       - "traefik.http.services.esap-gui.loadbalancer.server.port=80"
- 
+
       # route to adex-gui
       - "traefik.http.routers.adex-gui.entryPoints=websecure"
       - "traefik.http.routers.adex-gui.service=adex-gui"
@@ -105,25 +143,8 @@ services:
       - "traefik.http.routers.esap-static.service=esap-static"
       - "traefik.http.routers.esap-static.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static`)"
       - "traefik.http.services.esap-static.loadbalancer.server.port=80"
-      
-      - "traefik.http.routers.esap-static_esap.entryPoints=websecure"
-      - "traefik.http.routers.esap-static_esap.service=esap-static_esap"
-      - "traefik.http.routers.esap-static_esap.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static_esap`)"
-      - "traefik.http.services.esap-static_esap.loadbalancer.server.port=80"
-      
-      # uncomment when the frontend connects to '/esap-api' instead of to 'https://sdc-dev.astron.nl:5555/esap-api'
-#      - "traefik.http.routers.esap-api-default.entryPoints=websecure"
-#      - "traefik.http.routers.esap-api-default.service=esap-api-default"
-#      - "traefik.http.routers.esap-api-default.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/esap-api`)"
-#      - "traefik.http.services.esap-api-default.loadbalancer.server.port=80"
-      
-      # route to the '/oidc' authentication
-      - "traefik.http.routers.esap-oidc.entryPoints=websecure"
-      - "traefik.http.routers.esap-oidc.service=esap-oidc"
-      - "traefik.http.routers.esap-oidc.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/oidc`)"
-      - "traefik.http.services.esap-oidc.loadbalancer.server.port=80"
-#    ports:
-#      - 80:80
+
+
     volumes:
       - $HOME/shared:/shared
       - $HOME/shared:/etc/nginx/conf.d
