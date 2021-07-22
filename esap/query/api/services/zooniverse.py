@@ -3,6 +3,7 @@ from .query_base import query_base
 from panoptes_client import Panoptes, Project, User
 from panoptes_client.panoptes import PanoptesAPIException
 import logging
+import numpy as np
 
 from esap.configuration.zooniverse_fields import workflow_fields, project_fields
 
