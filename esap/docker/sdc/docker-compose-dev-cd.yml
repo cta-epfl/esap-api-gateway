@@ -27,7 +27,7 @@ services:
       - "traefik.http.middlewares.esap-api.headers.customrequestheaders.X-Forwarded-Proto=https"
       - "traefik.http.middlewares.esap-api.headers.customrequestheaders.Access-Control-Allow-Origin=*"
       - "traefik.http.middlewares.esap-api.headers.customrequestheaders.Access-Control-Max-Age=3600"
-      -
+
       - "traefik.http.routers.esap-static_esap.entryPoints=websecure"
       - "traefik.http.routers.esap-static_esap.service=esap-static_esap"
       - "traefik.http.routers.esap-static_esap.rule=Host(`sdc-dev.astron.nl`) && PathPrefix(`/static_esap`)"
