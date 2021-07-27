@@ -15,14 +15,10 @@ DEBUG = True
 IS_DEV = True
 # USE_DOP457 = False
 
-CORS_ALLOWED_ORIGINS = [
-    "https://iam-escape.cloud.cnaf.infn.it",
-    "http://localhost:3000",
-    "http://127.0.0.1:5555",
-    "http://127.0.0.1:3000",
-]
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Database
 DATABASE_ROUTERS = [
@@ -71,3 +67,8 @@ CONFIGURATION_FILE = 'adex'
 LOGIN_REDIRECT_URL = "http://localhost:3000/esap-gui/login"
 LOGOUT_REDIRECT_URL = "http://localhost:3000/esap-gui/logout"
 LOGIN_REDIRECT_URL_FAILURE = "http://localhost:3000/esap-gui/error"
+
+# to test refresh
+#OIDC_AUTHENTICATION_CALLBACK_URL = "https://sdc-dev.astron.nl/esap-api/oidc/callback/"
+OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 60
+#OIDC_EXEMPT_URLS = ['/esap-api/accounts/user-profiles']

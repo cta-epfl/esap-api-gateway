@@ -1,8 +1,9 @@
 from rest_framework import serializers
 from .query_base import query_base
-from panoptes_client import Panoptes, Project
+from panoptes_client import Panoptes, Project, User
 from panoptes_client.panoptes import PanoptesAPIException
 import logging
+import numpy as np
 
 from esap.configuration.zooniverse_fields import workflow_fields, project_fields
 
@@ -25,7 +26,7 @@ class panoptes_connector(query_base):
             type(int): serializers.IntegerField(),
             type(str): serializers.CharField(),
             type(dict): serializers.DictField(),
-            type(list) : serializers.ListField()
+            type(list): serializers.ListField(),
         }
 
         @classmethod
@@ -47,9 +48,7 @@ class panoptes_connector(query_base):
 
             self.fields.update(
                 {
-                    key: panoptes_connector.TypeToSerializerMap.getFieldForType(
-                        value
-                    )
+                    key: panoptes_connector.TypeToSerializerMap.getFieldForType(value)
                     for key, value in self.example_result.items()
                 }
             )
@@ -59,6 +58,7 @@ class panoptes_connector(query_base):
         self.url = url
         self.panoptes = None
         self.panoptes_user = None
+        self.projects = None
         self.pagination = "FALSE"
 
     # construct a query for this type of service
@@ -125,15 +125,26 @@ class panoptes_connector(query_base):
                 )
 
                 # Delegate retrieval to Panoptes API
-                itemCount = Project.where(
-                    owner=self.panoptes_user, page_size=1
-                ).page_count
+                if (
+                    self.projects is not None
+                    or self._get_projects_for_user() is not None
+                ):
+                    itemCount = len(self.projects)
+                else:
+                    itemCount = Project.where(
+                        owner=self.panoptes_user, page_size=1
+                    ).page_count
                 pageSize = tokens.get("page_size", 5)
-                numPages = itemCount // pageSize
+                numPages = int(np.ceil(itemCount / pageSize))
                 resultPage = min(int(tokens.get("page", 1)), numPages)
-                projects = Project.where(
-                    owner=self.panoptes_user, page=resultPage, page_size=pageSize
-                )
+                if self.projects is not None:
+                    projects = self.projects[
+                        (resultPage - 1) * pageSize : pageSize * (resultPage)
+                    ]
+                else:
+                    projects = Project.where(
+                        owner=self.panoptes_user, page=resultPage, page_size=pageSize
+                    )
 
                 if "project" in query_type:
                     if have_query_fields_key:
@@ -219,3 +230,35 @@ class panoptes_connector(query_base):
             record["error"] = str(error)
             results = [record]
             return results
+
+    def _get_project_by_id(self, pid):
+        try:
+            return Project.find(pid)
+        except PanoptesAPIException as e:
+            return None
+
+    def _get_projects_for_user(self):
+        if self.panoptes_user is None:
+            return None
+
+        try:
+            panoptes_user_obj = next(User.where(login=self.panoptes_user))
+            project_role_response = self.panoptes.get(
+                "/project_roles",
+                params={"user_id": panoptes_user_obj.id, "page_size": 1000},
+            )
+            if not project_role_response:
+                return None
+            self.projects = [
+                project
+                for project in [
+                    self._get_project_by_id(project_role_data["links"]["project"])
+                    for project_role_data in project_role_response[0]["project_roles"]
+                ]
+                if project is not None
+            ]
+            return self.projects
+        except StopIteration:
+            return None
+        except PanoptesAPIException:
+            return None

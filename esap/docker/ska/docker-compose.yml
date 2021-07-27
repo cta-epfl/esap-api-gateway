@@ -19,6 +19,8 @@ services:
       LOGIN_REDIRECT_URL: ""
       LOGOUT_REDIRECT_URL: ""
       LOGIN_REDIRECT_URL_FAILURE: ""
+      RUCIO_HOST: https://escape-rucio.cern.ch
+      RUCIO_AUTH_HOST: https://escape-rucio-auth.cern.ch/
     restart: always
     command: "python manage.py runserver 0.0.0.0:8000 --settings=esap.settings.dev"
 

@@ -1,10 +1,15 @@
+import logging
 from mozilla_django_oidc.auth import OIDCAuthenticationBackend
+
 from django.conf import settings
+
 from .models import EsapUserProfile
+logger = logging.getLogger(__name__)
 
 def update_userprofile(claims):
     # check if a user already has a userprofile (by unique id)
     uid = settings.OIDC_OP_USER_ENDPOINT + ":" + claims['sub']
+    logger.info('update_userprofile uid = ' + uid)
     try:
         user = EsapUserProfile.objects.get(uid=uid)
     except:
@@ -14,7 +19,10 @@ def update_userprofile(claims):
         uid = settings.OIDC_OP_USER_ENDPOINT + ":" + claims['sub']
         user_email = claims['email']
         user_name = claims['preferred_username']
+        logger.info('user_name (from claims[preferred_username]) = ' + user_name)
         full_name= claims['name']
+
+        logger.info('full_name (from claims[name]) = ' + full_name)
         new_user = EsapUserProfile(user_name=user_name, full_name=full_name, user_email=user_email, uid=uid)
         new_user.save()
 
@@ -32,3 +40,5 @@ class MyOIDCAB(OIDCAuthenticationBackend):
         is_admin = 'admin' in claims.get('group', [])
         return verified
         # return verified and is_admin
+
+

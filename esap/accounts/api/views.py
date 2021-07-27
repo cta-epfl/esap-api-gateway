@@ -1,14 +1,29 @@
 import logging
-from django.contrib import auth
 from rest_framework import viewsets
 from rest_framework import permissions
 from .serializers import *
 from ..models import *
-from django.conf import settings
 import base64
 import json
+import time
+import datetime
+from django.urls import reverse
+from django.conf import settings
 
 logger = logging.getLogger(__name__)
+
+import mozilla_django_oidc.utils
+
+# overriding 'absolutify' to be able to log the callback_url.
+# TODO: remove this when we get rid of the IAM cors errors
+def my_absolutify(request, path):
+    callback_url = request.build_absolute_uri(path)
+    #callback_url = request.build_absolute_uri(reverse('oidc_authentication_callback')).replace('http:','https:')
+    logger.info('callback_url = ' + callback_url)
+    return callback_url
+
+mozilla_django_oidc.utils.absolutify = my_absolutify
+
 
 class EsapQuerySchemaViewSet(viewsets.ModelViewSet):
     """
@@ -62,22 +77,47 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         # Returns nothing if no user_name supplied instead of all
-        print("EsapUserProfileViewSet.get_queryset()")
 
+        user_profile = []
         try:
             try:
                 id_token = self.request.session["oidc_id_token"]
+                access_token = self.request.session["oidc_access_token"]
 
                 # a oidc_id_token has a header, payload and signature split by a '.'
                 token = id_token.split('.')
-                decoded_payload = base64.urlsafe_b64decode(token[1])
+
+                # when does the id_token expire according to the session?
+                oidc_id_token_expiration = self.request.session["oidc_id_token_expiration"]
+                now = time.time()
+                time_to_expire = round(oidc_id_token_expiration - now)
+                id_token_expiration = datetime.datetime.utcfromtimestamp(oidc_id_token_expiration).strftime('%Y-%m-%dT%H:%M:%SZ')
+
+                logger.info('id_token expires in ' + str(time_to_expire) + " seconds")
+                logger.info('OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: ' + str(settings.OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS))
+
+                # add the "===" to avoid an "Incorrect padding" exception
+                decoded_payload = base64.urlsafe_b64decode(token[1] + "===")
                 decoded_token = json.loads(decoded_payload.decode("UTF-8"))
 
                 uid = decoded_token["iss"] + 'userinfo:' + decoded_token["sub"]
+                logger.info('uid = ' + uid)
+
+                # client_id = decoded_token["aud"]
 
                 user_profile = EsapUserProfile.objects.filter(uid=uid)
 
-            except:
+                # save the current token to the user_profile (for transport and usage elsewhere)
+                for profile in user_profile:
+                    profile.oidc_id_token = id_token
+                    profile.oidc_access_token = access_token
+                    profile.id_token_expiration = id_token_expiration
+                    profile.save()
+
+                logger.info('user_profile = ' + str(user_profile))
+
+            except Exception as error:
+                logger.error(str(error))
                 id_token = None
 
                 # no AAI token found, try basic authentication (dev only)
@@ -86,12 +126,7 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                     user_email = user.email
                     user_profile = EsapUserProfile.objects.filter(user_email=user_email)
                 except:
-                    # if that doesn't work either, and this is 'development'
-                    # then force feed my e-mail to be able to test downstream functionality
-                    # TODO: remove this when shopping basket is working properly
-                    if settings.IS_DEV:
-                        user_email = "vermaas@astron.nl"
-                        user_profile = EsapUserProfile.objects.filter(user_email=user_email)
+                    pass
 
             return user_profile
 

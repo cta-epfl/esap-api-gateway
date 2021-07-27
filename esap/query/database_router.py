@@ -4,7 +4,7 @@ class QueryRouter:
     custom_router_app_labels = {'ida', 'rucio', 'accounts', 'staging'}
 
     def db_for_read(self, model, **hints):
-
+        
         if model._meta.app_label not in self.custom_router_app_labels:
             return 'default'
         else:
