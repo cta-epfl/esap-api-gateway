@@ -6315,6 +6315,23 @@
 [21/Jun/2021 10:20:39,224] query_controller.run_query()
 [21/Jun/2021 10:20:39,415] catalog=zooniverse_projects__safe__amp__page=1__safe__amp__project_fields=private
 [21/Jun/2021 10:20:39,421] query_controller.run_query()
+[27/Jul/2021 08:29:10,466] id_token expires in 151 seconds
+[27/Jul/2021 08:29:10,466] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[27/Jul/2021 08:29:10,467] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[27/Jul/2021 08:29:10,481] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[27/Jul/2021 08:29:10,507] id_token expires in 151 seconds
+[27/Jul/2021 08:29:10,507] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[27/Jul/2021 08:29:10,507] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[27/Jul/2021 08:29:10,520] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[27/Jul/2021 08:29:10,601] id_token expires in 150 seconds
+[27/Jul/2021 08:29:10,602] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 60
+[27/Jul/2021 08:29:10,602] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[27/Jul/2021 08:29:10,614] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[27/Jul/2021 08:29:47,261] query_controller.create_and_run_query()
+[27/Jul/2021 08:29:47,261] query_controller.create_query()
+[27/Jul/2021 08:29:47,264] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': "not validated, 115, <class 'str'>, 'grange-/DC=org/DC=terena/DC=tcs/C=NL/O=ASTRON/CN=Yan Grange 1086@astron.nl-unknown-a4e2f4886b4449d68f3f79837580477c'."}, 'where': {}}}
+[27/Jul/2021 08:29:47,265] query_controller.run_query()
+[27/Jul/2021 08:29:47,265] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': "not validated, 115, <class 'str'>, 'grange-/DC=org/DC=terena/DC=tcs/C=NL/O=ASTRON/CN=Yan Grange 1086@astron.nl-unknown-a4e2f4886b4449d68f3f79837580477c'."}, 'where': {}}}
 [22/Jun/2021 11:42:23,365] query_controller.create_and_run_query()
 [22/Jun/2021 11:42:23,366] query_controller.create_query()
 [22/Jun/2021 11:42:23,369] ERROR: could not translating key collection 'collection', using it raw.
