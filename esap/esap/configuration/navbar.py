@@ -12,4 +12,4 @@ nav6 = {'title': 'Asteroids', 'route': '/aladin_simple'}
 nav7 = {'title': 'Exoplanets', 'route': '/aladin_advanced'}
 navbar = [nav1, nav4, nav5]
 # enable aladin demo
-navbar = [nav1, nav4, nav5, nav6, nav7]
+# navbar = [nav1, nav4, nav5, nav6, nav7]
