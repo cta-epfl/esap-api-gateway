@@ -34,6 +34,7 @@ class Workflow(models.Model):
     description = models.CharField(max_length=240)
     url = models.CharField(max_length=240)
     ref = models.CharField(max_length=240, default="HEAD")
+    filepath = models.CharField(max_length=240, blank=True)
     workflowtype = models.CharField(max_length=240)
     
     def __str__(self):

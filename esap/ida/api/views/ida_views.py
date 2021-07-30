@@ -131,14 +131,17 @@ class Deploy():
             BINDER_REPO_TYPE = "git"
             BINDER_REPO_URL = quote_url(workflow.url)
             BINDER_REPO_REF = workflow.ref
+            BINDER_REPO_FILE = quote_url(workflow.filepath)
 
             # By default, launch into the JupyterLab environment
-            BINDER_INTERFACE = "urlpath=lab"
+            BINDER_INTERFACE = f"urlpath=lab{'/tree/' + BINDER_REPO_FILE if BINDER_REPO_FILE else ''}"
 
-            return redirect(f"{BINDER_API_ROOT}/{BINDER_REPO_TYPE}/{BINDER_REPO_URL}/{BINDER_REPO_REF}?{BINDER_INTERFACE}")
+            target = f"{BINDER_API_ROOT}/{BINDER_REPO_TYPE}/{BINDER_REPO_URL}/{BINDER_REPO_REF}?{BINDER_INTERFACE}"
 
         else:
             # Note that we're not actually using the workflow at all here --
             # it's just ignored as we redirect to the facility only.
-            return redirect(facility.url)
+            target = facility.url
+
+        return redirect(target)
 
