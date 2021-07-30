@@ -1,4 +1,5 @@
 import logging
+from urllib.parse import quote_plus as quote_url
 from rest_framework import generics, pagination
 from rest_framework.response import Response
 from ida.api.services import ida_controller
@@ -113,12 +114,31 @@ class Deploy():
     """
 
     def deploy(request, workflow=None, facility=None):
-        facility = request.GET["facility"]
-        workflow = request.GET["workflow"]
-        workflowpath = workflow.replace("https://github.com/", "") + "/master"
+        """Deploy the specified workflow on the given facility.
 
-        if facility.lower()=="https://mybinder.org/":
-            return redirect("https://mybinder.org/v2/gh/" + workflowpath)
+        Note that the workflow is ignored unless the facility is MyBinder.
+
+        Note also that workflow and facility paramters to this function appear
+        to be entirely ignored in favour of looking at the request.
+        """
+
+        facility = Facility.objects.get(url=request.GET['facility'])
+        workflow = Workflow.objects.get(url=request.GET['workflow'])
+
+        if facility.name == "MyBinder":
+
+            BINDER_API_ROOT = "https://mybinder.org/v2"
+            BINDER_REPO_TYPE = "git"
+            BINDER_REPO_URL = quote_url(workflow.url)
+            BINDER_REPO_REF = workflow.ref
+
+            # By default, launch into the JupyterLab environment
+            BINDER_INTERFACE = "urlpath=lab"
+
+            return redirect(f"{BINDER_API_ROOT}/{BINDER_REPO_TYPE}/{BINDER_REPO_URL}/{BINDER_REPO_REF}?{BINDER_INTERFACE}")
+
         else:
-            return redirect(facility)
+            # Note that we're not actually using the workflow at all here --
+            # it's just ignored as we redirect to the facility only.
+            return redirect(facility.url)
 
