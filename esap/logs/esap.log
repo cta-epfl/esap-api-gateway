@@ -10907,3 +10907,5 @@
 [23/Jul/2021 17:43:20,017] callback_url = http://localhost:5555/esap-api/oidc/callback/
 [23/Jul/2021 17:43:24,797] callback_url = http://localhost:5555/esap-api/oidc/callback/
 [23/Jul/2021 17:43:24,801] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[02/Aug/2021 11:41:40,716] 'oidc_id_token'
+[02/Aug/2021 11:41:40,761] 'oidc_id_token'
