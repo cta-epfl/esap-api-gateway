@@ -1,3 +1,6 @@
+include:
+  - template: Dependency-Scanning.gitlab-ci.yml
+
 stages:
   - build
   - deploy
@@ -92,5 +95,3 @@ docker-deploy-acceptance:
   only:
     - acceptance
 
-include:
-  - template: Dependency-Scanning.gitlab-ci.yml
