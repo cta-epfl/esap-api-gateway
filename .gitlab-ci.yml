@@ -91,3 +91,6 @@ docker-deploy-acceptance:
   when: manual
   only:
     - acceptance
+
+include:
+  - template: Dependency-Scanning.gitlab-ci.yml
