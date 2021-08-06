@@ -3,6 +3,7 @@ from .query_base import query_base
 from panoptes_client import Panoptes, Project, User
 from panoptes_client.panoptes import PanoptesAPIException
 import logging
+import numpy as np
 
 from esap.configuration.zooniverse_fields import workflow_fields, project_fields
 
@@ -134,7 +135,7 @@ class panoptes_connector(query_base):
                         owner=self.panoptes_user, page_size=1
                     ).page_count
                 pageSize = tokens.get("page_size", 5)
-                numPages = itemCount // pageSize
+                numPages = int(np.ceil(itemCount / pageSize))
                 resultPage = min(int(tokens.get("page", 1)), numPages)
                 if self.projects is not None:
                     projects = self.projects[
