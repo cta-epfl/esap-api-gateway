@@ -27,7 +27,7 @@ services:
   esap_gui:
     build:
       context: ${ESAP_ROOT}/esap-gui
-      dockerfile: ${ESAP_ROOT}/esap-api-gateway/esap/docker/sdc/Dockerfile
+      dockerfile: $ESAP_SHARED/Dockerfile
     container_name: esap_gui
     image: esap_gui:latest
     networks:
