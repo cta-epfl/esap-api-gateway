@@ -6,10 +6,11 @@ networks:
     driver: bridge
 
 services:
-  build:
-    context: ${ESAP_ROOT}/esap-api-gateway/esap
-    dockerfile: Dockerfile
+
   esap_api:
+    build:
+      context: $ESAP_ROOT/esap-api-gateway/esap
+      dockerfile: Dockerfile
     container_name: esap_api_gateway
     image: esap_api_gateway:latest
     expose:
@@ -17,16 +18,16 @@ services:
     networks:
       - esap_network
     env_file:
-      - $(ESAP_SHARED)/oidc.env
-      - $(ESAP_SHARED)/esap.env
+      - $ESAP_SHARED/oidc.env
+      - $ESAP_SHARED/esap.env
     restart: always
     volumes:
-      - $(ESAP_SHARED)/:/shared
+      - $ESAP_SHARED/:/shared
 
   esap_gui:
     build:
-      context: ${ESAP_ROOT}/esap-gui
-      dockerfile: ${ESAP_ROOT}/esap-api-gateway/esap/docker/sdc/Dockerfile
+      context: $ESAP_SHARED
+      dockerfile: Dockerfile
     container_name: esap_gui
     image: esap_gui:latest
     networks:
@@ -34,8 +35,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - $(ESAP_SHARED):/shared
-      - $(ESAP_SHARED):/etc/nginx/conf.d
-      - $(ESAP_SHARED)/static:/static
+      - $ESAP_SHARED:/shared
+      - $ESAP_SHARED:/etc/nginx/conf.d
+      - $ESAP_SHARED/static:/static
     restart: always
-
