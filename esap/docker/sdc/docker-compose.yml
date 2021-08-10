@@ -15,6 +15,8 @@ services:
     image: esap_api_gateway:latest
     expose:
       - 8000
+    ports:
+      - 8000:8000
     networks:
       - esap_network
     env_file:
