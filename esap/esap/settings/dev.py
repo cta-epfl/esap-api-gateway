@@ -37,10 +37,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_accounts_config.sqlite3'),
     },
-    'staging': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'esap_staging_config.sqlite3'),
-    },
     'ida': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'esap_ida_config.sqlite3'),

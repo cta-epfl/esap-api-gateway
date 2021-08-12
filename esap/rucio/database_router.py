@@ -4,20 +4,20 @@ class RucioRouter:
 
     def db_for_read(self, model, **hints):
         """
-        Attempts to read staging models go to staging database.
+        Attempts to read rucio models go to rucio database.
         """
         if model._meta.app_label in self.route_app_labels:
             return 'rucio'
 
     def db_for_write(self, model, **hints):
         """
-        Writes always go to staging.
+        Writes always go to rucio.
         """
         return 'rucio'
 
     def allow_relation(self, obj1, obj2, **hints):
         """
-        Allow relations if a model in the staging apps is
+        Allow relations if a model in the rucio apps is
         involved.
         """
         if (
@@ -29,8 +29,8 @@ class RucioRouter:
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         """
-        Make sure the staging apps only appear in the
-        'staging' database.
+        Make sure the rucio apps only appear in the
+        'rucio' database.
         """
         if app_label in self.route_app_labels:
             return db == 'rucio'

@@ -35,7 +35,6 @@ USE_X_FORWARDED_HOST = True
 
 INSTALLED_APPS = [
     'query.apps.MyAppConfig',
-    'staging',
     'accounts',
     'rucio',
     'ida',
