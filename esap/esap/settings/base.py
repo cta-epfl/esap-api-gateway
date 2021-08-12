@@ -233,6 +233,10 @@ try:
     OIDC_OP_AUTHORIZATION_ENDPOINT = os.environ['OIDC_OP_AUTHORIZATION_ENDPOINT']
     OIDC_OP_TOKEN_ENDPOINT = os.environ['OIDC_OP_TOKEN_ENDPOINT']
     OIDC_OP_USER_ENDPOINT = os.environ['OIDC_OP_USER_ENDPOINT']
+
+    LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
+    LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
+    LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
 except:
     # OIDC settings are not configured. ESAP will work in anonymous mode
     pass
@@ -249,9 +253,6 @@ try:
 except:
    OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 3600
 
-LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
-LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
-LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
 
 # Rucio environment variables
 try:
