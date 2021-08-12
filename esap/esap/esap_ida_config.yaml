@@ -1,31 +1,31 @@
 - model: ida.facility
+  pk: 1
   fields:
-    id: 1
     name: MyBinder
     description: MyBinder
     url: https://mybinder.org/
     facilitytype: jupyterhub
 - model: ida.workflow
+  pk: 1
   fields:
-    id: 1
     name: CSIC-IAA HCG-16 workflow
     description: Analysis of Hickson Compact Group 16
     url: https://github.com/AMIGA-IAA/hcg-16
     ref: HEAD,
-    filepath:
+    filepath: None
     workflowtype: notebook
 - model: ida.workflow
+  pk: 2
   fields:
-    id: 2
     name: CDS MOCPy
     description: Experiment with Multi-Order Coverage maps
     url: https://github.com/cds-astro/mocpy/master
     ref: HEAD,
-    filepath:
+    filepath: None
     workflowtype: notebook
 - model: ida.workflow
+  pk: 3
   fields:
-    id: 3
     name: ASTRON VO Apertif
     description: ASTRON VO Apertif
     url: https://git.astron.nl/astron-sdc/escape-wp5/workflows/apertif-vo-example
@@ -33,8 +33,8 @@
     filepath: PyVO.ipynb
     workflowtype: notebook
 - model: ida.workflow
+  pk: 4
   fields:
-    id: 5
     name: Apertif  Visualization
     description: Shopping Basket and Apertif Visualization Example
     url: https://git.astron.nl/astron-sdc/escape-wp5/workflows/apertif-vis-example
@@ -42,8 +42,8 @@
     filepath: ApertifVisualization.ipynb
     workflowtype: notebook
 - model: ida.workflow
+  pk: 5
   fields:
-    id: 6
     name: Zooniverse Muon Hunters
     description: Shopping Cart and Zooniverse Example
     url: https://git.astron.nl/astron-sdc/escape-wp5/workflows/muon-hunters-example
