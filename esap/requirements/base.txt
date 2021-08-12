@@ -5,8 +5,8 @@ django-cors-headers==3.7.0
 whitenoise==5.0.1
 numpy==1.18.1
 astropy==4.0
-cryptography
 cython==0.29.14
+cryptography
 PyYAML==5.4.1
 pyvo==1.0
 requests==2.22.0
