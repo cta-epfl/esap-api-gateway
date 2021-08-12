@@ -266,7 +266,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ESAP-API version 20 juli 2021"
+API_VERSION = "ESAP-API version 12 aug 2021"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'
 
+# location of the YAML configuration files.
+# currently next to the (default) 'sqlite3' files, but can be moved later.
+CONFIGURATION_DATA_DIR = os.path.join(BASE_DIR)

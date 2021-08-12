@@ -72,7 +72,6 @@ class Catalog(EsapBaseObject):
         (NA, NA),
     ]
 
-
     # query_base determines which algorithm is used to create and run queries.
     # esap_service = models.CharField(default='vo',max_length=15) # vo, alta, vso
 

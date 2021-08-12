@@ -22,7 +22,7 @@ def get_datasets_disabled():
 # return expanded configuration
 def get_configuration(name=None, session=None):
     result = {}
-    result['version'] = settings.VERSION
+    result['version'] = settings.API_VERSION
 
     # default the configuration from settings.CONFIGURATION_FILE is used,
     # but it can be overridden with the 'name' parameter like this

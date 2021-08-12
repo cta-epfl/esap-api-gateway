@@ -49,7 +49,7 @@ class alta_connector(query_base):
             page = 1
 
         record['description'] = "ESAP API Gateway - ALTA"
-        record['version'] = settings.VERSION,
+        record['version'] = settings.API_VERSION,
         record['count'] = int(json_response["count"])
         record['requested_page'] = page
         record['pages'] = int(json_response["pages"])
