@@ -262,7 +262,7 @@ try:
 
 except:
     RUCIO_AUTH_TOKEN = None
-    RUCIO_AUTH_HOST = os.environ['RUCIO_AUTH_HOST']
+    RUCIO_AUTH_HOST = None
     RUCIO_HOST = None
 
 
