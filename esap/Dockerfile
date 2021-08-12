@@ -5,8 +5,8 @@ RUN mkdir /src
 WORKDIR /src
 COPY . /src/
 
-#RUN pip install --upgrade pip  "cython==0.29.14"
-#RUN pip install cryptography
+RUN pip install --upgrade pip  "cython==0.29.14"
+RUN pip install cryptography
 RUN pip install -r requirements/prod.txt
 RUN python manage.py collectstatic --settings=esap.settings.statics --no-input
 
