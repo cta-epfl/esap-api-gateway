@@ -1,7 +1,7 @@
 class QueryRouter:
 
     route_app_labels = {'query', 'auth', 'contenttypes', 'sessions', 'admin'}
-    custom_router_app_labels = {'ida', 'rucio', 'accounts', 'staging'}
+    custom_router_app_labels = {'ida', 'rucio', 'accounts'}
 
     def db_for_read(self, model, **hints):
         

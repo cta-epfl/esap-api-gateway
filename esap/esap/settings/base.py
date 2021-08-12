@@ -35,7 +35,6 @@ USE_X_FORWARDED_HOST = True
 
 INSTALLED_APPS = [
     'query.apps.MyAppConfig',
-    'staging',
     'accounts',
     'rucio',
     'ida',
@@ -225,16 +224,26 @@ AUTHENTICATION_BACKENDS = (
 OIDC_DRF_AUTH_BACKEND = 'mozilla_django_oidc.auth.OIDCAuthenticationBackend'
 
 # OIDC environment variables
-OIDC_RP_CLIENT_ID = os.environ['OIDC_RP_CLIENT_ID']
-OIDC_RP_CLIENT_SECRET = os.environ['OIDC_RP_CLIENT_SECRET']
-OIDC_RP_SCOPES = "openid email profile"
-OIDC_RP_SIGN_ALGO = "RS256"
-OIDC_OP_JWKS_ENDPOINT = os.environ['OIDC_OP_JWKS_ENDPOINT']
-OIDC_OP_AUTHORIZATION_ENDPOINT = os.environ['OIDC_OP_AUTHORIZATION_ENDPOINT']
-OIDC_OP_TOKEN_ENDPOINT = os.environ['OIDC_OP_TOKEN_ENDPOINT']
-OIDC_OP_USER_ENDPOINT = os.environ['OIDC_OP_USER_ENDPOINT']
+
+try:
+    OIDC_RP_CLIENT_ID = os.environ['OIDC_RP_CLIENT_ID']
+    OIDC_RP_CLIENT_SECRET = os.environ['OIDC_RP_CLIENT_SECRET']
+    OIDC_OP_JWKS_ENDPOINT = os.environ['OIDC_OP_JWKS_ENDPOINT']
+    OIDC_OP_AUTHORIZATION_ENDPOINT = os.environ['OIDC_OP_AUTHORIZATION_ENDPOINT']
+    OIDC_OP_TOKEN_ENDPOINT = os.environ['OIDC_OP_TOKEN_ENDPOINT']
+    OIDC_OP_USER_ENDPOINT = os.environ['OIDC_OP_USER_ENDPOINT']
+
+    LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
+    LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
+    LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
+except:
+    # OIDC settings are not configured. ESAP will work in anonymous mode
+    pass
+
 # OIDC_AUTHENTICATION_CALLBACK_URL = "https://sdc-dev.astron.nl/esap-api/oidc/callback/"
 
+OIDC_RP_SCOPES = "openid email profile"
+OIDC_RP_SIGN_ALGO = "RS256"
 OIDC_STORE_ACCESS_TOKEN = True
 OIDC_STORE_ID_TOKEN = True
 
@@ -243,9 +252,6 @@ try:
 except:
    OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 3600
 
-LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
-LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
-LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
 
 # Rucio environment variables
 try:
@@ -255,7 +261,7 @@ try:
 
 except:
     RUCIO_AUTH_TOKEN = None
-    RUCIO_AUTH_HOST = os.environ['RUCIO_AUTH_HOST']
+    RUCIO_AUTH_HOST = None
     RUCIO_HOST = None
 
 
@@ -266,7 +272,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # configuration settings that can be requested through the REST API
-VERSION = "ESAP-API version 20 juli 2021"
+API_VERSION = "ESAP-API version 12 aug 2021"
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'esap_default'
 
+# location of the YAML configuration files.
+# currently next to the (default) 'sqlite3' files, but can be moved later.
+CONFIGURATION_DATA_DIR = os.path.join(BASE_DIR)

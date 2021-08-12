@@ -28,7 +28,7 @@ class CustomPagination(pagination.PageNumberPagination):
 
         return Response({
             'description': 'ESAP API Gateway',
-            'version': settings.VERSION,
+            'version': settings.API_VERSION,
             'requested_page': self.request.query_params.get('page', '1'),
             'requested_page_size': self.request.query_params.get('page_size'),
             'default_page_size': self.page_size,
