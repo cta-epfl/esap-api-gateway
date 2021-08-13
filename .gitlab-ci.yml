@@ -49,7 +49,7 @@ docker-deploy-branch-query:
     - chmod 644 ~/.ssh/known_hosts
   script:
     - ssh -o StrictHostKeyChecking=no sdc@dop814.astron.nl "docker pull "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG""
-    - ssh -o StrictHostKeyChecking=no sec@dop814.astron.nl "docker-compose -p esap -f /docker_compose/esap/docker-compose-query-dev-cd.yml up -d"
+    - ssh -o StrictHostKeyChecking=no sdc@dop814.astron.nl "docker-compose -p esap -f /docker_compose/esap/docker-compose-query-dev-cd.yml up -d"
   when: manual
   only:
     - esap-gateway-query
