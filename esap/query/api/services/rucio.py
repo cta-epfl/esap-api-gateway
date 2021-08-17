@@ -79,6 +79,8 @@ class rucio_connector(query_base):
         return query, where, errors
 
     def _get_data_from_rucio(self, query):
+
+        session = self.session
         """ use Rucio REST API to query the data lake """
         query_info = query["query_info"]
         url = query_info["url_pattern"].format(

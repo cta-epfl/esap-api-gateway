@@ -256,8 +256,7 @@ def ConfigurationView(request):
     CONFIGURATION_FILE variable in the settings.py
     """
 
-    # optional parameters
-    #logger.info("ConfigurationView")
+
     try:
         name = request.GET.get('name')
     except:
