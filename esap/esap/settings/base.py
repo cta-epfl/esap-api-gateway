@@ -241,7 +241,7 @@ except:
     pass
 
 # OIDC_AUTHENTICATION_CALLBACK_URL = "https://sdc-dev.astron.nl/esap-api/oidc/callback/"
-
+OIDC_AUTH_REQUEST_EXTRA_PARAMS = {'audience':'rucio'}
 OIDC_RP_SCOPES = "openid email profile"
 OIDC_RP_SIGN_ALGO = "RS256"
 OIDC_STORE_ACCESS_TOKEN = True

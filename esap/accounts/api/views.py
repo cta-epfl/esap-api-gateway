@@ -103,7 +103,7 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 uid = decoded_token["iss"] + 'userinfo:' + decoded_token["sub"]
                 logger.info('uid = ' + uid)
 
-                # client_id = decoded_token["aud"]
+                aud = decoded_token["aud"]
 
                 user_profile = EsapUserProfile.objects.filter(uid=uid)
 
