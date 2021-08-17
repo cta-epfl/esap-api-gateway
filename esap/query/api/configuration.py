@@ -24,6 +24,7 @@ def get_configuration(name=None, session=None):
     result = {}
     result['version'] = settings.API_VERSION
 
+
     # default the configuration from settings.CONFIGURATION_FILE is used,
     # but it can be overridden with the 'name' parameter like this
     # /esap-api/query/configuration?name=adex
