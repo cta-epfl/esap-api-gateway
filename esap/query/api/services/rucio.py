@@ -78,10 +78,12 @@ class rucio_connector(query_base):
 
         return query, where, errors
 
-    def _get_data_from_rucio(self, query):
-
-        session = self.session
+    def _get_data_from_rucio(self, query, session):
         """ use Rucio REST API to query the data lake """
+
+        access_token = session.get("oidc_access_token", None)
+
+
         query_info = query["query_info"]
         url = query_info["url_pattern"].format(
             host=f"{self.url}", **query_info["url_params"]
@@ -89,7 +91,7 @@ class rucio_connector(query_base):
         response = requests.get(
             url,
             query_info["where"],
-            headers={"X-Rucio-Auth-Token": settings.RUCIO_AUTH_TOKEN},
+            headers={"X-Rucio-Auth-Token": access_token},
             verify=False,
         )
         results = []
@@ -106,8 +108,10 @@ class rucio_connector(query_base):
         dataset,
         dataset_name,
         query,
+        session,
         override_access_url=None,
         override_service_type=None,
+
     ):
         """
         :param dataset: the dataset object that must be queried
@@ -118,7 +122,7 @@ class rucio_connector(query_base):
         results = []
 
         # create a function that reads the data from lofar
-        rucio_results = self._get_data_from_rucio(query)
+        rucio_results = self._get_data_from_rucio(query, session)
 
         return rucio_results
 

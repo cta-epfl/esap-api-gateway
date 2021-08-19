@@ -118,7 +118,8 @@ class alta_connector(query_base):
         return query, where, errors
 
 
-    def run_query(self, dataset, dataset_name, query, override_access_url=None, override_service_type=None):
+    def run_query(self, dataset, dataset_name, query, session=None,
+                  override_access_url=None, override_service_type=None):
         """
         # use the ALTA REST API to do a query
         :param dataset: the dataset object that must be queried

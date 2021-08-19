@@ -147,6 +147,9 @@ class CreateAndRunQueryView(generics.ListAPIView):
     # override list and generate a custom response
     def list(self, request, *args, **kwargs):
 
+        session = request.session
+        # token = session.get("oidc_access_token", None)
+
         datasets = common_views.get_datasets()
         query_params = dict(self.request.query_params)
 
@@ -203,7 +206,8 @@ class CreateAndRunQueryView(generics.ListAPIView):
             override_access_url=access_url,
             override_service_type=service_type,
             override_adql_query=adql_query,
-            return_connector=True,
+            session=session,
+            return_connector=True
         )
 
         if "ERROR:" in query_results:

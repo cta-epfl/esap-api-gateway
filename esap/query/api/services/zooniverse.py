@@ -107,6 +107,7 @@ class panoptes_connector(query_base):
         dataset,
         dataset_name,
         query,
+        session=None,
         override_access_url=None,
         override_service_type=None,
     ):
