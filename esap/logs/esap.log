@@ -11491,3 +11491,688 @@
 [17/Aug/2021 16:43:23,497] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
 [17/Aug/2021 16:43:23,497] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
 [17/Aug/2021 16:43:23,514] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 16:52:13,880] id_token expires in 813 seconds
+[17/Aug/2021 16:52:13,881] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 16:52:13,881] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 16:52:14,294] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 16:52:14,394] id_token expires in 812 seconds
+[17/Aug/2021 16:52:14,395] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 16:52:14,395] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 16:52:14,411] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 16:52:14,517] id_token expires in 812 seconds
+[17/Aug/2021 16:52:14,518] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 16:52:14,518] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 16:52:14,535] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:07:41,452] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:08:25,513] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:09:02,149] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:09:12,139] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:09:40,647] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:10:37,670] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:11:58,389] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:12:12,693] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:12:46,540] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:12:51,878] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:12:52,898] 'oidc_id_token'
+[17/Aug/2021 17:12:52,911] 'oidc_id_token'
+[17/Aug/2021 17:13:07,428] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[17/Aug/2021 17:13:13,828] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:13:14,645] id_token expires in 3599 seconds
+[17/Aug/2021 17:13:14,646] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:13:14,646] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:13:14,664] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:13:14,795] id_token expires in 3599 seconds
+[17/Aug/2021 17:13:14,795] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:13:14,796] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:13:14,812] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:13:14,858] id_token expires in 3599 seconds
+[17/Aug/2021 17:13:14,859] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:13:14,859] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:13:14,877] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:13:25,192] id_token expires in 3589 seconds
+[17/Aug/2021 17:13:25,193] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:13:25,194] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:13:25,219] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:13:25,251] id_token expires in 3589 seconds
+[17/Aug/2021 17:13:25,252] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:13:25,252] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:13:25,271] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:13:25,507] id_token expires in 3588 seconds
+[17/Aug/2021 17:13:25,508] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:13:25,509] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:13:25,531] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:13:25,580] id_token expires in 3588 seconds
+[17/Aug/2021 17:13:25,580] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:13:25,580] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:13:25,593] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:13:25,659] id_token expires in 3588 seconds
+[17/Aug/2021 17:13:25,660] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:13:25,661] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:13:25,677] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:13:25,771] id_token expires in 3588 seconds
+[17/Aug/2021 17:13:25,772] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:13:25,772] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:13:25,784] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:21:46,890] id_token expires in 3087 seconds
+[17/Aug/2021 17:21:46,891] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:21:46,891] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:21:46,906] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:21:46,970] id_token expires in 3087 seconds
+[17/Aug/2021 17:21:46,971] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:21:46,971] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:21:46,989] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:21:47,098] id_token expires in 3087 seconds
+[17/Aug/2021 17:21:47,101] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:21:47,101] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:21:47,114] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:22:00,412] query_controller.create_and_run_query()
+[17/Aug/2021 17:22:00,412] query_controller.create_query()
+[17/Aug/2021 17:22:00,416] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:22:00,418] query_controller.run_query()
+[17/Aug/2021 17:22:00,418] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:24:00,006] query_controller.create_and_run_query()
+[17/Aug/2021 17:24:00,007] query_controller.create_query()
+[17/Aug/2021 17:24:00,010] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:24:00,013] query_controller.run_query()
+[17/Aug/2021 17:24:00,013] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:24:26,977] id_token expires in 2927 seconds
+[17/Aug/2021 17:24:26,977] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:24:26,978] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:24:26,997] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:24:27,380] id_token expires in 2927 seconds
+[17/Aug/2021 17:24:27,380] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:24:27,382] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:24:27,404] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:28:24,934] id_token expires in 2689 seconds
+[17/Aug/2021 17:28:24,934] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:28:24,935] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:28:24,952] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:28:25,015] id_token expires in 2689 seconds
+[17/Aug/2021 17:28:25,016] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:28:25,016] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:28:25,030] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:28:25,157] id_token expires in 2689 seconds
+[17/Aug/2021 17:28:25,158] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:28:25,158] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:28:25,171] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:28:34,570] query_controller.create_and_run_query()
+[17/Aug/2021 17:28:34,570] query_controller.create_query()
+[17/Aug/2021 17:28:34,574] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:31:38,836] id_token expires in 2495 seconds
+[17/Aug/2021 17:31:38,837] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:31:38,837] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:31:38,858] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:31:38,922] id_token expires in 2495 seconds
+[17/Aug/2021 17:31:38,923] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:31:38,923] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:31:38,939] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:31:39,093] id_token expires in 2495 seconds
+[17/Aug/2021 17:31:39,093] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[17/Aug/2021 17:31:39,094] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[17/Aug/2021 17:31:39,119] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[17/Aug/2021 17:31:49,129] query_controller.create_and_run_query()
+[17/Aug/2021 17:31:49,129] query_controller.create_query()
+[17/Aug/2021 17:31:49,131] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:31:49,133] query_controller.run_query()
+[17/Aug/2021 17:31:49,134] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:32:35,041] query_controller.create_and_run_query()
+[17/Aug/2021 17:32:35,042] query_controller.create_query()
+[17/Aug/2021 17:32:35,044] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:32:35,046] query_controller.run_query()
+[17/Aug/2021 17:32:35,046] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:32:37,840] query_controller.create_and_run_query()
+[17/Aug/2021 17:32:37,840] query_controller.create_query()
+[17/Aug/2021 17:32:37,842] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:32:37,843] query_controller.run_query()
+[17/Aug/2021 17:32:37,844] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:33:25,830] query_controller.create_and_run_query()
+[17/Aug/2021 17:33:25,830] query_controller.create_query()
+[17/Aug/2021 17:33:25,834] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:33:25,835] query_controller.run_query()
+[17/Aug/2021 17:33:25,835] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:33:59,056] query_controller.create_and_run_query()
+[17/Aug/2021 17:33:59,056] query_controller.create_query()
+[17/Aug/2021 17:33:59,060] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[17/Aug/2021 17:33:59,062] query_controller.run_query()
+[17/Aug/2021 17:33:59,062] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 07:02:21,268] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 07:07:36,775] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 07:08:49,326] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 07:10:49,299] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 07:12:01,665] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 07:12:57,476] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 07:14:17,245] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 07:14:25,633] 'oidc_id_token'
+[18/Aug/2021 07:14:25,696] 'oidc_id_token'
+[18/Aug/2021 07:16:41,451] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 07:16:47,456] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:16:48,555] id_token expires in 3599 seconds
+[18/Aug/2021 07:16:48,556] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:16:48,557] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:16:48,581] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:16:48,640] id_token expires in 3599 seconds
+[18/Aug/2021 07:16:48,640] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:16:48,640] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:16:48,658] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:16:48,743] id_token expires in 3599 seconds
+[18/Aug/2021 07:16:48,743] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:16:48,743] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:16:48,757] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:17:17,471] query_controller.create_and_run_query()
+[18/Aug/2021 07:17:17,472] query_controller.create_query()
+[18/Aug/2021 07:17:17,484] query_controller.create_and_run_query()
+[18/Aug/2021 07:17:17,485] query_controller.create_query()
+[18/Aug/2021 07:17:17,490] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:17:17,490] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:17:17,491] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:17:17,494] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:17:17,498] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:17:17,498] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:17:17,499] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 07:17:17,499] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:17:17,500] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:17:37,531] query_controller.create_and_run_query()
+[18/Aug/2021 07:17:37,532] query_controller.create_query()
+[18/Aug/2021 07:17:37,542] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:17:37,542] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:17:37,543] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:17:37,543] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:19:09,243] query_controller.create_and_run_query()
+[18/Aug/2021 07:19:09,244] query_controller.create_query()
+[18/Aug/2021 07:19:09,255] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:19:09,255] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:19:09,256] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:19:09,256] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:19:39,939] id_token expires in 3428 seconds
+[18/Aug/2021 07:19:39,940] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:19:39,940] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:19:39,965] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:19:40,055] id_token expires in 3427 seconds
+[18/Aug/2021 07:19:40,055] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:19:40,056] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:19:40,072] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:19:40,150] id_token expires in 3427 seconds
+[18/Aug/2021 07:19:40,150] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:19:40,150] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:19:40,163] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:20:02,592] query_controller.create_and_run_query()
+[18/Aug/2021 07:20:02,592] query_controller.create_query()
+[18/Aug/2021 07:20:02,598] query_controller.create_and_run_query()
+[18/Aug/2021 07:20:02,599] query_controller.create_query()
+[18/Aug/2021 07:20:02,602] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:20:02,602] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:20:02,602] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 07:20:02,603] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:20:02,603] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:20:02,610] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:20:02,610] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:20:02,611] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:20:02,611] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:21:54,689] id_token expires in 3293 seconds
+[18/Aug/2021 07:21:54,690] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:21:54,691] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:21:54,723] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:21:54,816] id_token expires in 3293 seconds
+[18/Aug/2021 07:21:54,817] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:21:54,818] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:21:54,834] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:21:54,916] id_token expires in 3293 seconds
+[18/Aug/2021 07:21:54,916] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:21:54,916] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:21:54,929] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:22:48,507] query_controller.create_and_run_query()
+[18/Aug/2021 07:22:56,517] query_controller.create_query()
+[18/Aug/2021 07:22:56,533] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:22:56,534] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:22:56,534] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 07:22:56,535] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:22:56,535] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:23:15,745] query_controller.create_and_run_query()
+[18/Aug/2021 07:23:15,746] query_controller.create_query()
+[18/Aug/2021 07:23:15,753] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:23:15,753] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:23:15,754] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:23:15,754] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:23:51,409] id_token expires in 3176 seconds
+[18/Aug/2021 07:23:51,410] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:23:51,411] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:23:51,439] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:23:51,512] id_token expires in 3176 seconds
+[18/Aug/2021 07:23:51,512] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:23:51,513] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:23:51,538] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:23:51,648] id_token expires in 3176 seconds
+[18/Aug/2021 07:23:51,648] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:23:51,649] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:23:51,661] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:24:53,807] query_controller.create_and_run_query()
+[18/Aug/2021 07:24:53,810] query_controller.create_and_run_query()
+[18/Aug/2021 07:24:53,812] query_controller.create_query()
+[18/Aug/2021 07:24:53,813] query_controller.create_query()
+[18/Aug/2021 07:24:53,842] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:24:53,842] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:24:53,843] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 07:24:53,843] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:24:53,844] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:24:53,850] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:24:53,851] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:24:53,853] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:24:53,853] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:29:24,371] query_controller.create_and_run_query()
+[18/Aug/2021 07:29:24,372] query_controller.create_query()
+[18/Aug/2021 07:29:24,378] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:29:24,378] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:29:24,378] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:29:24,379] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:30:09,287] query_controller.create_and_run_query()
+[18/Aug/2021 07:30:09,288] query_controller.create_query()
+[18/Aug/2021 07:30:09,298] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:30:09,299] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:30:09,299] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:30:09,300] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:30:40,202] id_token expires in 2767 seconds
+[18/Aug/2021 07:30:40,202] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:30:40,203] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:30:40,226] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:30:40,293] id_token expires in 2767 seconds
+[18/Aug/2021 07:30:40,294] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:30:40,295] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:30:40,321] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:30:40,414] id_token expires in 2767 seconds
+[18/Aug/2021 07:30:40,414] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:30:40,415] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:30:40,432] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:31:04,460] query_controller.create_and_run_query()
+[18/Aug/2021 07:31:08,721] query_controller.create_query()
+[18/Aug/2021 07:31:08,726] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:31:08,726] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:31:08,727] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 07:31:08,727] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:31:08,727] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:34:07,652] id_token expires in 2560 seconds
+[18/Aug/2021 07:34:07,653] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:34:07,653] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:34:07,675] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:34:07,745] id_token expires in 2560 seconds
+[18/Aug/2021 07:34:07,746] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:34:07,747] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:34:07,763] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:34:07,854] id_token expires in 2560 seconds
+[18/Aug/2021 07:34:07,855] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:34:07,855] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:34:07,878] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:34:18,698] query_controller.create_and_run_query()
+[18/Aug/2021 07:34:18,699] query_controller.create_and_run_query()
+[18/Aug/2021 07:34:18,699] query_controller.create_query()
+[18/Aug/2021 07:34:18,700] query_controller.create_query()
+[18/Aug/2021 07:34:18,713] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:34:18,714] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:34:18,714] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 07:34:18,714] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:34:18,714] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:34:18,718] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:34:18,718] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:34:18,718] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:34:18,719] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:36:41,348] id_token expires in 2406 seconds
+[18/Aug/2021 07:36:41,349] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:36:41,350] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:36:41,381] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:36:41,465] id_token expires in 2406 seconds
+[18/Aug/2021 07:36:41,466] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:36:41,467] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:36:41,485] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:36:41,565] id_token expires in 2406 seconds
+[18/Aug/2021 07:36:41,565] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:36:41,565] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:36:41,579] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:36:51,765] query_controller.create_and_run_query()
+[18/Aug/2021 07:36:51,769] query_controller.create_and_run_query()
+[18/Aug/2021 07:36:51,770] query_controller.create_query()
+[18/Aug/2021 07:36:51,772] query_controller.create_query()
+[18/Aug/2021 07:36:51,807] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:36:51,809] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:36:51,810] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:36:51,813] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:36:51,813] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:36:51,814] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:36:51,826] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 07:36:51,827] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:36:51,828] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:37:44,902] id_token expires in 2343 seconds
+[18/Aug/2021 07:37:44,903] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:37:44,903] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:37:44,926] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:37:45,001] id_token expires in 2343 seconds
+[18/Aug/2021 07:37:45,002] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:37:45,002] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:37:45,020] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:37:45,108] id_token expires in 2342 seconds
+[18/Aug/2021 07:37:45,108] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:37:45,109] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:37:45,127] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:38:01,567] query_controller.create_and_run_query()
+[18/Aug/2021 07:38:01,569] query_controller.create_query()
+[18/Aug/2021 07:38:01,571] query_controller.create_and_run_query()
+[18/Aug/2021 07:38:01,578] query_controller.create_query()
+[18/Aug/2021 07:38:01,602] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:38:01,602] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:38:01,603] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 07:38:01,603] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:38:01,607] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:38:01,612] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 07:38:01,613] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 07:38:01,613] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:38:01,614] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 07:40:30,170] id_token expires in 2177 seconds
+[18/Aug/2021 07:40:30,170] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:40:30,171] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:40:30,195] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:40:30,260] id_token expires in 2177 seconds
+[18/Aug/2021 07:40:30,260] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:40:30,261] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:40:30,277] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 07:40:30,369] id_token expires in 2177 seconds
+[18/Aug/2021 07:40:30,369] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 07:40:30,370] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 07:40:30,389] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 08:00:58,841] query_controller.create_and_run_query()
+[18/Aug/2021 08:00:58,842] query_controller.create_query()
+[18/Aug/2021 08:00:58,848] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:00:58,848] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:00:58,848] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:00:58,848] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:02:10,843] id_token expires in 877 seconds
+[18/Aug/2021 08:02:10,844] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 08:02:10,845] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 08:02:10,868] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 08:02:10,937] id_token expires in 877 seconds
+[18/Aug/2021 08:02:10,938] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 08:02:10,939] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 08:02:10,955] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 08:02:11,087] id_token expires in 876 seconds
+[18/Aug/2021 08:02:11,087] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 08:02:11,087] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 08:02:11,103] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 08:02:34,960] query_controller.create_and_run_query()
+[18/Aug/2021 08:02:34,961] query_controller.create_query()
+[18/Aug/2021 08:02:34,962] query_controller.create_and_run_query()
+[18/Aug/2021 08:02:34,967] query_controller.create_query()
+[18/Aug/2021 08:02:34,982] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:02:34,982] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:02:34,983] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 08:02:34,983] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:02:34,984] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:02:34,985] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:02:34,991] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:02:34,991] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:02:34,992] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:02:48,611] query_controller.run_query()
+[18/Aug/2021 08:02:48,612] query_controller.run_query()
+[18/Aug/2021 08:02:57,874] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[18/Aug/2021 08:02:57,875] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[18/Aug/2021 08:03:34,348] query_controller.create_and_run_query()
+[18/Aug/2021 08:03:34,349] query_controller.create_query()
+[18/Aug/2021 08:03:34,354] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:03:34,355] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:03:34,355] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:03:34,355] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:03:36,359] query_controller.run_query()
+[18/Aug/2021 08:03:39,919] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[18/Aug/2021 08:04:32,100] query_controller.create_and_run_query()
+[18/Aug/2021 08:04:32,100] query_controller.create_query()
+[18/Aug/2021 08:04:32,105] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:04:32,108] query_controller.run_query()
+[18/Aug/2021 08:04:32,108] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:05:24,512] query_controller.create_and_run_query()
+[18/Aug/2021 08:05:24,512] query_controller.create_query()
+[18/Aug/2021 08:05:24,517] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:05:24,520] query_controller.run_query()
+[18/Aug/2021 08:05:24,521] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:06:12,112] query_controller.create_and_run_query()
+[18/Aug/2021 08:06:17,375] query_controller.create_query()
+[18/Aug/2021 08:06:17,384] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:07:03,674] query_controller.run_query()
+[18/Aug/2021 08:08:58,141] query_controller.create_and_run_query()
+[18/Aug/2021 08:08:58,142] query_controller.create_query()
+[18/Aug/2021 08:08:58,149] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:09:07,922] query_controller.run_query()
+[18/Aug/2021 08:10:43,505] query_controller.create_and_run_query()
+[18/Aug/2021 08:10:43,505] query_controller.create_query()
+[18/Aug/2021 08:10:43,511] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:10:43,514] query_controller.run_query()
+[18/Aug/2021 08:10:55,780] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:11:04,597] query_controller.create_and_run_query()
+[18/Aug/2021 08:11:04,597] query_controller.create_query()
+[18/Aug/2021 08:11:04,603] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:11:04,606] query_controller.run_query()
+[18/Aug/2021 08:11:57,379] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:11:59,241] query_controller.create_and_run_query()
+[18/Aug/2021 08:11:59,243] query_controller.create_query()
+[18/Aug/2021 08:11:59,260] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:12:00,235] query_controller.run_query()
+[18/Aug/2021 08:12:01,333] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:12:25,804] query_controller.create_and_run_query()
+[18/Aug/2021 08:12:25,805] query_controller.create_query()
+[18/Aug/2021 08:12:25,826] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:13:11,167] query_controller.create_and_run_query()
+[18/Aug/2021 08:13:12,926] query_controller.create_query()
+[18/Aug/2021 08:13:12,949] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:13:16,636] query_controller.run_query()
+[18/Aug/2021 08:13:27,552] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:14:34,361] query_controller.create_and_run_query()
+[18/Aug/2021 08:14:34,362] query_controller.create_query()
+[18/Aug/2021 08:14:34,367] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:14:35,868] query_controller.run_query()
+[18/Aug/2021 08:14:40,781] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:15:08,055] query_controller.create_and_run_query()
+[18/Aug/2021 08:15:08,056] query_controller.create_query()
+[18/Aug/2021 08:15:08,063] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:15:08,064] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:15:08,064] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 08:15:08,065] query_controller.create_and_run_query()
+[18/Aug/2021 08:15:08,066] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:15:08,068] query_controller.create_query()
+[18/Aug/2021 08:15:08,069] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:15:08,081] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:15:08,082] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:15:08,082] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:15:08,082] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:15:08,907] query_controller.run_query()
+[18/Aug/2021 08:15:08,913] query_controller.run_query()
+[18/Aug/2021 08:15:23,868] query_controller.create_and_run_query()
+[18/Aug/2021 08:15:23,869] query_controller.create_query()
+[18/Aug/2021 08:15:23,884] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:15:23,885] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:15:23,885] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:15:23,885] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:15:30,147] query_controller.run_query()
+[18/Aug/2021 08:17:14,294] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 08:17:18,180] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 08:17:27,474] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 08:17:28,488] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[18/Aug/2021 08:19:16,380] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 08:19:17,820] id_token expires in 3599 seconds
+[18/Aug/2021 08:19:17,821] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 08:19:17,821] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 08:19:17,837] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 08:19:17,933] id_token expires in 3598 seconds
+[18/Aug/2021 08:19:17,934] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 08:19:17,934] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 08:19:17,958] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 08:19:18,079] id_token expires in 3598 seconds
+[18/Aug/2021 08:19:18,079] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[18/Aug/2021 08:19:18,080] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[18/Aug/2021 08:19:18,094] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[18/Aug/2021 08:19:27,968] query_controller.create_and_run_query()
+[18/Aug/2021 08:19:27,968] query_controller.create_query()
+[18/Aug/2021 08:19:27,971] query_controller.create_and_run_query()
+[18/Aug/2021 08:19:27,972] query_controller.create_query()
+[18/Aug/2021 08:19:27,980] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:19:27,980] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:19:27,981] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:19:27,981] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:19:27,981] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:19:27,985] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:19:27,985] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 08:19:27,985] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:19:27,985] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:19:33,584] query_controller.run_query()
+[18/Aug/2021 08:19:33,595] query_controller.run_query()
+[18/Aug/2021 08:20:37,461] query_controller.create_and_run_query()
+[18/Aug/2021 08:20:37,463] query_controller.create_query()
+[18/Aug/2021 08:20:37,482] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:20:41,132] query_controller.run_query()
+[18/Aug/2021 08:20:47,116] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:21:53,358] query_controller.create_and_run_query()
+[18/Aug/2021 08:21:53,359] query_controller.create_query()
+[18/Aug/2021 08:21:53,365] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:21:53,365] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:21:53,365] ERROR: could not translating key page 'page', using it raw.
+[18/Aug/2021 08:21:53,365] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:21:53,366] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:21:53,369] query_controller.create_and_run_query()
+[18/Aug/2021 08:21:53,370] query_controller.create_query()
+[18/Aug/2021 08:21:53,377] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:21:53,377] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:21:53,378] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:21:53,378] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:22:01,528] query_controller.run_query()
+[18/Aug/2021 08:22:01,534] query_controller.run_query()
+[18/Aug/2021 08:22:03,293] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[18/Aug/2021 08:22:03,294] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[18/Aug/2021 08:23:56,398] query_controller.create_and_run_query()
+[18/Aug/2021 08:23:56,399] query_controller.create_query()
+[18/Aug/2021 08:23:56,404] ERROR: could not translating key collection 'collection', using it raw.
+[18/Aug/2021 08:23:56,404] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[18/Aug/2021 08:23:56,404] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:23:56,405] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[18/Aug/2021 08:24:00,742] query_controller.run_query()
+[18/Aug/2021 08:24:03,791] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[18/Aug/2021 08:24:23,165] query_controller.create_and_run_query()
+[18/Aug/2021 08:24:23,166] query_controller.create_query()
+[18/Aug/2021 08:24:23,175] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[18/Aug/2021 08:24:23,183] query_controller.run_query()
+[18/Aug/2021 08:24:23,185] query_controller.create_and_run_query()
+[18/Aug/2021 08:24:23,186] query_controller.create_query()
+[18/Aug/2021 08:24:23,190] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='apertif-dr1'
+[18/Aug/2021 08:24:23,198] query_controller.run_query()
+[18/Aug/2021 08:24:50,768] query_controller.create_and_run_query()
+[18/Aug/2021 08:24:50,768] query_controller.create_query()
+[18/Aug/2021 08:24:50,773] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[18/Aug/2021 08:24:50,776] query_controller.run_query()
+[18/Aug/2021 08:24:56,933] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[19/Aug/2021 08:22:43,761] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[19/Aug/2021 08:23:27,056] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[19/Aug/2021 08:23:37,126] 'oidc_id_token'
+[19/Aug/2021 08:23:37,147] 'oidc_id_token'
+[19/Aug/2021 08:23:43,246] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[19/Aug/2021 08:24:38,135] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:24:39,262] id_token expires in 3599 seconds
+[19/Aug/2021 08:24:39,262] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:24:39,262] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:24:39,279] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:24:39,344] id_token expires in 3599 seconds
+[19/Aug/2021 08:24:39,345] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:24:39,345] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:24:39,363] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:24:39,517] id_token expires in 3599 seconds
+[19/Aug/2021 08:24:39,518] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:24:39,518] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:24:39,532] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:30:21,650] id_token expires in 3257 seconds
+[19/Aug/2021 08:30:21,651] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:30:21,652] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:30:21,673] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:30:21,732] id_token expires in 3256 seconds
+[19/Aug/2021 08:30:21,732] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:30:21,733] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:30:21,755] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:30:21,832] id_token expires in 3256 seconds
+[19/Aug/2021 08:30:21,832] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:30:21,833] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:30:21,850] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:30:29,620] query_controller.create_and_run_query()
+[19/Aug/2021 08:30:29,620] query_controller.create_query()
+[19/Aug/2021 08:30:29,627] query_controller.create_and_run_query()
+[19/Aug/2021 08:30:29,631] ERROR: could not translating key collection 'collection', using it raw.
+[19/Aug/2021 08:30:29,631] query_controller.create_query()
+[19/Aug/2021 08:30:29,632] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[19/Aug/2021 08:30:29,634] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[19/Aug/2021 08:30:29,635] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[19/Aug/2021 08:30:29,642] ERROR: could not translating key collection 'collection', using it raw.
+[19/Aug/2021 08:30:29,643] ERROR: could not translating key release__release_id 'release__release_id', using it raw.
+[19/Aug/2021 08:30:29,643] ERROR: could not translating key page 'page', using it raw.
+[19/Aug/2021 08:30:29,644] construct_query: https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[19/Aug/2021 08:30:29,644] https://alta.astron.nl/altapi/dataproducts?collection=imaging_and_release__release_id=APERTIF_DR1_Imaging_and_page=1_and_dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube_and_page_size=50
+[19/Aug/2021 08:30:29,645] query_controller.run_query()
+[19/Aug/2021 08:30:29,648] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[19/Aug/2021 08:30:29,650] query_controller.run_query()
+[19/Aug/2021 08:30:29,650] run-query: https://alta.astron.nl/altapi/dataproducts?collection=imaging&release__release_id=APERTIF_DR1_Imaging&page=1&dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube&page_size=50
+[19/Aug/2021 08:30:40,037] query_controller.create_and_run_query()
+[19/Aug/2021 08:30:40,037] query_controller.create_query()
+[19/Aug/2021 08:30:40,048] query_controller.create_and_run_query()
+[19/Aug/2021 08:30:40,048] query_controller.create_query()
+[19/Aug/2021 08:30:40,051] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[19/Aug/2021 08:30:40,057] https://vo.astron.nl/__system__/tap/run/tap/sync?lang=ADQL&REQUEST=doQuery&QUERY=SELECT TOP 1000 * from ivoa.obscore WHERE obs_collection='lotss-pdr'
+[19/Aug/2021 08:30:40,060] query_controller.run_query()
+[19/Aug/2021 08:30:40,062] query_controller.run_query()
+[19/Aug/2021 08:30:52,545] query_controller.create_and_run_query()
+[19/Aug/2021 08:30:52,545] query_controller.create_query()
+[19/Aug/2021 08:30:52,548] query_controller.create_and_run_query()
+[19/Aug/2021 08:30:52,548] query_controller.create_query()
+[19/Aug/2021 08:30:52,552] ERROR: could not translating key target 'target', using it raw.
+[19/Aug/2021 08:30:52,553] ERROR: could not translating key units 'units', using it raw.
+[19/Aug/2021 08:30:52,553] ERROR: could not translating key ref_system 'ref_system', using it raw.
+[19/Aug/2021 08:30:52,553] ERROR: could not translating key fov_units 'fov_units', using it raw.
+[19/Aug/2021 08:30:52,553] ERROR: could not translating key antenna_type 'antenna_type', using it raw.
+[19/Aug/2021 08:30:52,553] ERROR: could not translating key public 'public', using it raw.
+[19/Aug/2021 08:30:52,554] ERROR: could not translating key dataproduct_type 'dataproduct_type', using it raw.
+[19/Aug/2021 08:30:52,557] ERROR: could not translating key page 'page', using it raw.
+[19/Aug/2021 08:30:52,557] construct_query: https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline_and_page=1
+[19/Aug/2021 08:30:52,558] https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline_and_page=1
+[19/Aug/2021 08:30:52,561] ERROR: could not translating key target 'target', using it raw.
+[19/Aug/2021 08:30:52,561] ERROR: could not translating key units 'units', using it raw.
+[19/Aug/2021 08:30:52,562] ERROR: could not translating key ref_system 'ref_system', using it raw.
+[19/Aug/2021 08:30:52,562] ERROR: could not translating key fov_units 'fov_units', using it raw.
+[19/Aug/2021 08:30:52,563] ERROR: could not translating key antenna_type 'antenna_type', using it raw.
+[19/Aug/2021 08:30:52,563] ERROR: could not translating key public 'public', using it raw.
+[19/Aug/2021 08:30:52,563] ERROR: could not translating key dataproduct_type 'dataproduct_type', using it raw.
+[19/Aug/2021 08:30:52,563] construct_query: https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline
+[19/Aug/2021 08:30:52,564] https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline
+[19/Aug/2021 08:30:52,564] query_controller.run_query()
+[19/Aug/2021 08:30:52,568] query_controller.run_query()
+[19/Aug/2021 08:31:29,439] query_controller.create_and_run_query()
+[19/Aug/2021 08:31:29,440] query_controller.create_query()
+[19/Aug/2021 08:31:29,447] ERROR: could not translating key target 'target', using it raw.
+[19/Aug/2021 08:31:29,447] ERROR: could not translating key units 'units', using it raw.
+[19/Aug/2021 08:31:29,447] ERROR: could not translating key ref_system 'ref_system', using it raw.
+[19/Aug/2021 08:31:29,448] ERROR: could not translating key fov_units 'fov_units', using it raw.
+[19/Aug/2021 08:31:29,448] ERROR: could not translating key antenna_type 'antenna_type', using it raw.
+[19/Aug/2021 08:31:29,448] ERROR: could not translating key public 'public', using it raw.
+[19/Aug/2021 08:31:29,448] ERROR: could not translating key dataproduct_type 'dataproduct_type', using it raw.
+[19/Aug/2021 08:31:29,449] construct_query: https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline
+[19/Aug/2021 08:31:29,449] https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline
+[19/Aug/2021 08:31:29,453] query_controller.run_query()
+[19/Aug/2021 08:31:29,453] query:https://lta.lofar.eu/?target=A2255_and_units=sexagesimal_and_ref_system=J2000_and_fov_units=deg_and_antenna_type=HBA_and_public=true_and_dataproduct_type=AveragingPipeline
+[19/Aug/2021 08:31:51,093] query_controller.create_and_run_query()
+[19/Aug/2021 08:31:51,093] query_controller.create_query()
+[19/Aug/2021 08:31:57,643] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore+WHERE+get-services%2F%3Fkeyword%3D%27apertif%27+
+[19/Aug/2021 08:31:57,650] query_controller.run_query()
+[19/Aug/2021 08:32:13,216] id_token expires in 3145 seconds
+[19/Aug/2021 08:32:13,217] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:32:13,217] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:32:13,786] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:32:13,841] id_token expires in 3144 seconds
+[19/Aug/2021 08:32:13,841] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:32:13,842] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:32:14,391] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:32:14,452] id_token expires in 3144 seconds
+[19/Aug/2021 08:32:14,452] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:32:14,453] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:32:15,003] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:32:25,988] query_controller.create_and_run_query()
+[19/Aug/2021 08:32:25,988] query_controller.create_query()
+[19/Aug/2021 08:32:25,994] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[19/Aug/2021 08:32:25,998] query_controller.run_query()
+[19/Aug/2021 08:32:25,999] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}

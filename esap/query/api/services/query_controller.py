@@ -8,7 +8,7 @@ import logging
 from inspect import currentframe, getframeinfo
 
 from . import alta
-from . import vo, helio, vo_reg, zooniverse, lofar, rucio
+from . import vo, vo_reg, zooniverse, lofar, rucio
 
 logger = logging.getLogger(__name__)
 
@@ -22,9 +22,6 @@ def instantiate_connector(dataset):
 
     elif service_module.upper() == 'ALTA':
         connector_class = getattr(alta, service_connector)
-
-    elif service_module.upper() == 'HELIO':
-        connector_class = getattr(helio, service_connector)
 
     elif service_module.upper() == 'VO_REG':
         connector_class = getattr(vo_reg, service_connector)
@@ -139,6 +136,7 @@ def create_query(datasets, query_params, override_resource=None, connector=None,
 def run_query(dataset,
               dataset_name,
               query,
+              session=None,
               override_access_url=None,
               override_service_type=None,
               connector=None,
@@ -166,7 +164,7 @@ def run_query(dataset,
         return results
 
     # run the specific instance of 'run_query' for this connector
-    results = connector.run_query(dataset, dataset_name, query, override_access_url, override_service_type)
+    results = connector.run_query(dataset, dataset_name, query, session, override_access_url, override_service_type)
     if return_connector:
         return results, connector
     return results
@@ -221,6 +219,7 @@ def create_and_run_query(datasets,
                          override_access_url,
                          override_service_type,
                          override_adql_query,
+                         session,
                          connector=None,
                          return_connector=False):
     """
@@ -288,9 +287,11 @@ def create_and_run_query(datasets,
 
         # call the 'run_query()' function to execute a query per dataset
         query_results = run_query(dataset, dataset_name, query,
+                                  session=session,
                                   override_access_url=override_access_url,
                                   override_service_type=override_service_type,
-                                  connector=connector, return_connector=False)
+                                  connector=connector,
+                                  return_connector=False)
 
         if "ERROR:" in query_results:
             return query_results, None, None

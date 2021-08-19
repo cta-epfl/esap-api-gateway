@@ -143,7 +143,7 @@ class lta_connector(query_base):
         logger.info('construct_query: '+query)
         return query, where, errors
 
-    def run_query(self, dataset, dataset_name, query, override_access_url=None, override_service_type=None):
+    def run_query(self, dataset, dataset_name, query, session=None, override_access_url=None, override_service_type=None):
         """
         :param dataset: the dataset object that must be queried
         :param query_params: the incoming esap query parameters)
