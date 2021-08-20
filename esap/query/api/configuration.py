@@ -23,7 +23,7 @@ def get_datasets_disabled():
 def get_configuration(name=None, session=None):
     result = {}
     result['version'] = settings.API_VERSION
-
+    #token = session.get("oidc_access_token", None)
 
     # default the configuration from settings.CONFIGURATION_FILE is used,
     # but it can be overridden with the 'name' parameter like this
@@ -31,6 +31,8 @@ def get_configuration(name=None, session=None):
 
     try:
         if name!=None:
+            #if name == 'zooniverse':
+            #    name = 'zooniverse_config'
             my_config = importlib.import_module(name,'configuration')
         else:
             my_config = importlib.import_module(settings.CONFIGURATION_FILE)
