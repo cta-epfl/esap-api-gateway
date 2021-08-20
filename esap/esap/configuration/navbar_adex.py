@@ -1,6 +1,6 @@
-frontend_basename = "esap-gui"
+frontend_basename = "adex-gui"
 
-logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
+logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo_clear.png"
 
 # definition of the navigation bar
 nav1 = {'title': 'Archives', 'route': '/archives'}

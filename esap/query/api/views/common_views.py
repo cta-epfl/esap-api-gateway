@@ -256,15 +256,13 @@ def ConfigurationView(request):
     CONFIGURATION_FILE variable in the settings.py
     """
 
-
-    try:
-        name = request.GET.get('name')
-    except:
-        pass
+    name = request.GET.get('name',None)
+    logger.info("ConfigurationView " + str(name))
 
     try:
         config_from_settings = configuration.get_configuration(name, request.session)
     except Exception as error:
         config_from_settings = "ERROR in configuration: "+str(error) + " session => " + str(request.session)
+        logger.error(config_from_settings)
 
     return JsonResponse({'configuration': config_from_settings})

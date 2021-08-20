@@ -12176,3 +12176,1558 @@
 [19/Aug/2021 08:32:25,994] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
 [19/Aug/2021 08:32:25,998] query_controller.run_query()
 [19/Aug/2021 08:32:25,999] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[19/Aug/2021 08:35:06,002] id_token expires in 2972 seconds
+[19/Aug/2021 08:35:06,003] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:35:06,003] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:35:06,039] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:35:06,138] id_token expires in 2972 seconds
+[19/Aug/2021 08:35:06,138] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:35:06,138] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:35:06,156] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:35:06,376] id_token expires in 2972 seconds
+[19/Aug/2021 08:35:06,376] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 08:35:06,377] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 08:35:06,398] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 08:45:58,692] ConfigurationView esap_rucio
+[19/Aug/2021 08:58:01,655] ConfigurationView None
+[19/Aug/2021 08:58:50,727] ConfigurationView zooniverse
+[19/Aug/2021 09:02:24,728] query_controller.get_services()
+[19/Aug/2021 09:04:05,206] query_controller.get_services()
+[19/Aug/2021 09:04:32,297] ConfigurationView zooniverse
+[19/Aug/2021 09:06:42,374] ConfigurationView zooniverse
+[19/Aug/2021 09:08:15,473] ConfigurationView zooniverse
+[19/Aug/2021 09:11:49,413] ConfigurationView zooniverse
+[19/Aug/2021 09:15:01,967] ConfigurationView apertif
+[19/Aug/2021 09:15:25,100] ConfigurationView zooniverse
+[19/Aug/2021 09:18:13,045] ConfigurationView zooniverse_config
+[19/Aug/2021 09:20:29,023] ConfigurationView navbar
+[19/Aug/2021 09:20:29,235] ConfigurationView esap_ivoa
+[19/Aug/2021 09:22:08,314] id_token expires in 150 seconds
+[19/Aug/2021 09:22:08,314] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 09:22:08,318] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 09:22:08,359] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 09:22:08,455] id_token expires in 150 seconds
+[19/Aug/2021 09:22:08,456] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 09:22:08,456] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 09:22:08,472] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 09:22:08,559] id_token expires in 150 seconds
+[19/Aug/2021 09:22:08,559] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 09:22:08,560] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 09:22:08,575] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 09:22:18,260] ConfigurationView zooniverse
+[19/Aug/2021 09:25:40,385] ConfigurationView navbar
+[19/Aug/2021 09:26:06,178] ConfigurationView navbar
+[19/Aug/2021 09:26:06,183] ConfigurationView esap_ivoa
+[19/Aug/2021 09:26:09,934] 'oidc_id_token'
+[19/Aug/2021 09:26:09,973] 'oidc_id_token'
+[19/Aug/2021 09:26:24,141] ConfigurationView zooniverse
+[19/Aug/2021 09:30:54,793] ConfigurationView esap_ivoa
+[19/Aug/2021 09:30:54,805] ConfigurationView navbar
+[19/Aug/2021 09:31:03,505] ConfigurationView navbar
+[19/Aug/2021 09:31:03,812] ConfigurationView esap_ivoa
+[19/Aug/2021 09:31:11,442] ConfigurationView esap_ivoa
+[19/Aug/2021 09:31:11,444] ConfigurationView navbar
+[19/Aug/2021 09:31:46,982] ConfigurationView esap_ivoa
+[19/Aug/2021 09:31:46,984] ConfigurationView navbar
+[19/Aug/2021 09:31:54,354] ConfigurationView navbar
+[19/Aug/2021 09:31:54,366] ConfigurationView esap_ivoa
+[19/Aug/2021 09:32:09,907] ConfigurationView zooniverse_config
+[19/Aug/2021 09:32:31,721] ConfigurationView navbar
+[19/Aug/2021 09:32:31,723] ConfigurationView esap_ivoa
+[19/Aug/2021 09:32:41,286] ConfigurationView navbar
+[19/Aug/2021 09:32:41,569] ConfigurationView esap_ivoa
+[19/Aug/2021 09:33:01,412] ConfigurationView esap_ivoa
+[19/Aug/2021 09:33:01,414] ConfigurationView navbar
+[19/Aug/2021 09:34:02,101] ConfigurationView esap_ivoa
+[19/Aug/2021 09:34:02,109] ConfigurationView navbar
+[19/Aug/2021 09:34:11,969] ConfigurationView zooniverse
+[19/Aug/2021 09:34:26,782] query_controller.create_and_run_query()
+[19/Aug/2021 09:34:26,789] query_controller.create_query()
+[19/Aug/2021 09:34:26,798] query_controller.create_and_run_query()
+[19/Aug/2021 09:34:26,798] query_controller.create_query()
+[19/Aug/2021 09:34:27,402] page=1__safe__amp__project_fields=experimental_tools__safe__amp__catalog=zooniverse_projects
+[19/Aug/2021 09:34:27,408] query_controller.run_query()
+[19/Aug/2021 09:34:27,464] project_fields=experimental_tools__safe__amp__catalog=zooniverse_projects
+[19/Aug/2021 09:34:27,470] query_controller.run_query()
+[19/Aug/2021 10:48:14,090] ConfigurationView esap_ivoa
+[19/Aug/2021 10:48:18,068] ConfigurationView esap_rucio
+[19/Aug/2021 10:48:32,048] ConfigurationView esap_ivoa
+[19/Aug/2021 10:48:53,077] ConfigurationView esap_rucio
+[19/Aug/2021 10:48:57,275] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[19/Aug/2021 10:50:17,554] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 10:50:18,611] ConfigurationView esap_ivoa
+[19/Aug/2021 10:50:18,712] ConfigurationView navbar
+[19/Aug/2021 10:50:18,820] id_token expires in 3599 seconds
+[19/Aug/2021 10:50:18,820] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 10:50:18,820] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 10:50:18,843] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 10:50:18,930] id_token expires in 3599 seconds
+[19/Aug/2021 10:50:18,930] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 10:50:18,930] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 10:50:18,947] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 10:50:19,077] id_token expires in 3599 seconds
+[19/Aug/2021 10:50:19,078] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 10:50:19,078] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 10:50:19,097] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 10:50:23,015] ConfigurationView esap_rucio
+[19/Aug/2021 10:50:34,001] ConfigurationView esap_ivoa
+[19/Aug/2021 10:50:35,042] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[19/Aug/2021 10:50:36,718] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 10:50:37,096] ConfigurationView navbar
+[19/Aug/2021 10:50:37,115] ConfigurationView esap_ivoa
+[19/Aug/2021 10:50:37,167] id_token expires in 3600 seconds
+[19/Aug/2021 10:50:37,167] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 10:50:37,168] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 10:50:37,184] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 10:50:37,243] id_token expires in 3600 seconds
+[19/Aug/2021 10:50:37,243] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 10:50:37,243] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 10:50:37,260] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 10:50:37,366] id_token expires in 3599 seconds
+[19/Aug/2021 10:50:37,366] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[19/Aug/2021 10:50:37,366] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[19/Aug/2021 10:50:37,383] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[19/Aug/2021 10:50:41,276] ConfigurationView esap_rucio
+[19/Aug/2021 10:50:47,896] query_controller.create_and_run_query()
+[19/Aug/2021 10:50:47,897] query_controller.create_query()
+[19/Aug/2021 10:50:47,903] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'SKA_SKAO_COLLINSON'}, 'where': {}}}
+[19/Aug/2021 10:50:47,910] query_controller.run_query()
+[19/Aug/2021 10:50:47,911] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'SKA_SKAO_COLLINSON'}, 'where': {}}}
+[19/Aug/2021 10:51:32,281] query_controller.create_and_run_query()
+[19/Aug/2021 10:51:32,282] query_controller.create_query()
+[19/Aug/2021 10:51:32,286] {'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[19/Aug/2021 10:51:32,291] query_controller.run_query()
+[19/Aug/2021 10:51:32,292] query:{'query_info': {'url_pattern': '{host}/dids/{scope}/', 'url_params': {'scope': 'LOFAR_ASTRON_GRANGE'}, 'where': {}}}
+[20/Aug/2021 09:34:23,903] ConfigurationView navbar
+[20/Aug/2021 09:35:09,725] ConfigurationView navbar
+[20/Aug/2021 09:36:57,129] ConfigurationView navbar
+[20/Aug/2021 09:37:05,489] ConfigurationView navbar
+[20/Aug/2021 09:39:24,879] ConfigurationView navbar
+[20/Aug/2021 09:39:33,874] ConfigurationView navbar
+[20/Aug/2021 09:39:58,243] ConfigurationView navbar
+[20/Aug/2021 09:40:44,939] ConfigurationView navbar
+[20/Aug/2021 09:42:45,747] ConfigurationView navbar
+[20/Aug/2021 09:42:45,754] ConfigurationView esap_ivoa
+[20/Aug/2021 09:43:02,734] ConfigurationView navbar
+[20/Aug/2021 09:43:02,755] ConfigurationView esap_ivoa
+[20/Aug/2021 09:46:03,277] ConfigurationView navbar
+[20/Aug/2021 09:46:03,279] ConfigurationView esap_ivoa
+[20/Aug/2021 09:46:59,847] ConfigurationView esap_ivoa
+[20/Aug/2021 09:46:59,864] ConfigurationView navbar
+[20/Aug/2021 09:47:38,021] ConfigurationView navbar
+[20/Aug/2021 09:47:38,033] ConfigurationView esap_ivoa
+[20/Aug/2021 09:47:49,639] ConfigurationView esap_ivoa
+[20/Aug/2021 09:47:49,652] ConfigurationView navbar
+[20/Aug/2021 09:49:18,951] ConfigurationView navbar
+[20/Aug/2021 09:49:18,955] ConfigurationView esap_ivoa
+[20/Aug/2021 11:07:06,184] ConfigurationView esap_ivoa
+[20/Aug/2021 11:07:06,199] ConfigurationView navbar
+[20/Aug/2021 11:07:35,824] ConfigurationView navbar
+[20/Aug/2021 11:07:35,827] ConfigurationView esap_ivoa
+[20/Aug/2021 11:08:27,100] ConfigurationView navbar
+[20/Aug/2021 11:08:27,103] ConfigurationView esap_ivoa
+[20/Aug/2021 11:09:17,915] ConfigurationView esap_ivoa
+[20/Aug/2021 11:09:17,916] ConfigurationView navbar
+[20/Aug/2021 11:10:36,612] ConfigurationView esap_ivoa
+[20/Aug/2021 11:10:36,617] ConfigurationView navbar
+[20/Aug/2021 11:11:45,875] ConfigurationView esap_ivoa
+[20/Aug/2021 11:11:45,889] ConfigurationView navbar
+[20/Aug/2021 11:11:57,776] ConfigurationView esap_ivoa
+[20/Aug/2021 11:11:57,780] ConfigurationView navbar
+[20/Aug/2021 11:13:16,012] ConfigurationView navbar
+[20/Aug/2021 11:13:16,014] ConfigurationView esap_ivoa
+[20/Aug/2021 11:17:26,586] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[20/Aug/2021 11:18:45,959] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:18:47,408] ConfigurationView esap_ivoa
+[20/Aug/2021 11:18:47,420] ConfigurationView navbar
+[20/Aug/2021 11:18:47,539] id_token expires in 3598 seconds
+[20/Aug/2021 11:18:47,540] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:18:47,540] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:18:47,559] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:18:47,633] id_token expires in 3598 seconds
+[20/Aug/2021 11:18:47,633] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:18:47,634] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:18:47,653] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:18:47,802] id_token expires in 3598 seconds
+[20/Aug/2021 11:18:47,803] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:18:47,803] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:18:47,827] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:20:33,958] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 11:20:33,960] query_controller.get_services()
+[20/Aug/2021 11:21:53,049] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 11:21:53,050] query_controller.get_services()
+[20/Aug/2021 11:36:37,009] ConfigurationView esap_ivoa
+[20/Aug/2021 11:36:37,018] ConfigurationView navbar
+[20/Aug/2021 11:36:37,545] id_token expires in 2528 seconds
+[20/Aug/2021 11:36:37,545] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:36:37,545] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:36:37,559] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:36:37,610] id_token expires in 2528 seconds
+[20/Aug/2021 11:36:37,611] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:36:37,611] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:36:37,625] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:36:37,712] id_token expires in 2528 seconds
+[20/Aug/2021 11:36:37,712] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:36:37,713] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:36:37,725] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:37:03,660] ConfigurationView esap_ivoa
+[20/Aug/2021 11:37:03,663] ConfigurationView navbar
+[20/Aug/2021 11:37:03,822] id_token expires in 2502 seconds
+[20/Aug/2021 11:37:03,822] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:37:03,822] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:37:03,849] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:37:03,904] id_token expires in 2502 seconds
+[20/Aug/2021 11:37:03,905] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:37:03,906] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:37:03,926] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:37:04,059] id_token expires in 2502 seconds
+[20/Aug/2021 11:37:04,059] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:37:04,060] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:37:04,076] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:38:03,129] ConfigurationView navbar
+[20/Aug/2021 11:38:03,132] ConfigurationView esap_ivoa
+[20/Aug/2021 11:38:03,307] id_token expires in 2443 seconds
+[20/Aug/2021 11:38:03,308] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:38:03,308] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:38:03,328] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:38:03,406] id_token expires in 2443 seconds
+[20/Aug/2021 11:38:03,406] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:38:03,407] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:38:03,423] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:38:03,544] id_token expires in 2442 seconds
+[20/Aug/2021 11:38:03,544] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:38:03,545] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:38:03,565] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:38:20,448] query_controller.create_and_run_query()
+[20/Aug/2021 11:38:20,448] query_controller.create_query()
+[20/Aug/2021 11:39:40,141] ConfigurationView esap_ivoa
+[20/Aug/2021 11:39:40,151] ConfigurationView navbar
+[20/Aug/2021 11:39:55,698] ConfigurationView navbar
+[20/Aug/2021 11:39:55,704] ConfigurationView esap_ivoa
+[20/Aug/2021 11:40:10,025] ConfigurationView esap_ivoa
+[20/Aug/2021 11:40:10,033] ConfigurationView navbar
+[20/Aug/2021 11:40:10,288] id_token expires in 2316 seconds
+[20/Aug/2021 11:40:10,289] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:40:10,289] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:40:10,303] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:40:10,373] id_token expires in 2316 seconds
+[20/Aug/2021 11:40:10,373] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:40:10,374] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:40:10,388] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:40:10,515] id_token expires in 2315 seconds
+[20/Aug/2021 11:40:10,515] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:40:10,516] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:40:10,535] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:40:18,983] ConfigurationView esap_ivoa
+[20/Aug/2021 11:40:18,996] ConfigurationView navbar
+[20/Aug/2021 11:40:19,100] id_token expires in 2307 seconds
+[20/Aug/2021 11:40:19,100] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:40:19,100] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:40:19,115] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:40:19,178] id_token expires in 2307 seconds
+[20/Aug/2021 11:40:19,178] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:40:19,178] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:40:19,194] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:40:19,284] id_token expires in 2307 seconds
+[20/Aug/2021 11:40:19,285] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 11:40:19,285] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 11:40:19,302] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 11:40:38,042] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 11:40:38,043] query_controller.get_services()
+[20/Aug/2021 11:40:39,583] http://registry.euro-vo.org/services/RegistrySearch/sync?LANG=ADQL&REQUEST=doQuery&QUERY=SELECT+TOP+250+%2A+from+ivoa.obscore+WHERE+get-services%2F%3Fkeyword%3D%27apertif%27+
+[20/Aug/2021 11:40:39,588] query_controller.run_query()
+[20/Aug/2021 12:07:25,079] ConfigurationView esap_ivoa
+[20/Aug/2021 12:07:25,090] ConfigurationView navbar
+[20/Aug/2021 12:07:25,527] id_token expires in 680 seconds
+[20/Aug/2021 12:07:25,527] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:07:25,527] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:07:25,545] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:07:25,630] id_token expires in 680 seconds
+[20/Aug/2021 12:07:25,630] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:07:25,631] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:07:25,650] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:07:25,714] id_token expires in 680 seconds
+[20/Aug/2021 12:07:25,715] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:07:25,715] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:07:25,731] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:36,027] ConfigurationView navbar
+[20/Aug/2021 12:09:36,031] ConfigurationView esap_ivoa
+[20/Aug/2021 12:09:36,093] ConfigurationView esap_ivoa
+[20/Aug/2021 12:09:36,099] ConfigurationView navbar
+[20/Aug/2021 12:09:36,274] id_token expires in 550 seconds
+[20/Aug/2021 12:09:36,275] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:36,276] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:36,310] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:36,387] id_token expires in 550 seconds
+[20/Aug/2021 12:09:36,387] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:36,387] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:36,403] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:36,444] id_token expires in 550 seconds
+[20/Aug/2021 12:09:36,444] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:36,445] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:36,461] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:36,539] id_token expires in 549 seconds
+[20/Aug/2021 12:09:36,539] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:36,539] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:36,556] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:36,592] id_token expires in 549 seconds
+[20/Aug/2021 12:09:36,592] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:36,592] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:36,607] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:36,642] id_token expires in 549 seconds
+[20/Aug/2021 12:09:36,643] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:36,643] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:36,659] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:42,169] ConfigurationView esap_ivoa
+[20/Aug/2021 12:09:42,172] ConfigurationView navbar
+[20/Aug/2021 12:09:42,255] id_token expires in 544 seconds
+[20/Aug/2021 12:09:42,256] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:42,256] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:42,276] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:42,308] id_token expires in 544 seconds
+[20/Aug/2021 12:09:42,308] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:42,309] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:42,330] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:42,465] id_token expires in 544 seconds
+[20/Aug/2021 12:09:42,465] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:42,465] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:42,482] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:53,168] ConfigurationView esap_ivoa
+[20/Aug/2021 12:09:53,176] ConfigurationView navbar
+[20/Aug/2021 12:09:53,358] ConfigurationView esap_ivoa
+[20/Aug/2021 12:09:53,367] ConfigurationView navbar
+[20/Aug/2021 12:09:53,390] id_token expires in 533 seconds
+[20/Aug/2021 12:09:53,391] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:53,392] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:53,419] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:53,508] id_token expires in 532 seconds
+[20/Aug/2021 12:09:53,509] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:53,509] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:53,525] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:53,601] id_token expires in 532 seconds
+[20/Aug/2021 12:09:53,602] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:53,602] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:53,620] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:53,646] id_token expires in 532 seconds
+[20/Aug/2021 12:09:53,647] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:53,647] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:53,661] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:53,700] id_token expires in 532 seconds
+[20/Aug/2021 12:09:53,700] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:53,701] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:53,719] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:09:53,798] id_token expires in 532 seconds
+[20/Aug/2021 12:09:53,799] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:09:53,799] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:09:53,813] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:08,655] ConfigurationView navbar
+[20/Aug/2021 12:11:08,658] ConfigurationView esap_ivoa
+[20/Aug/2021 12:11:08,734] ConfigurationView esap_ivoa
+[20/Aug/2021 12:11:08,806] id_token expires in 457 seconds
+[20/Aug/2021 12:11:08,806] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:08,814] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:08,839] ConfigurationView navbar
+[20/Aug/2021 12:11:08,854] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:08,901] id_token expires in 457 seconds
+[20/Aug/2021 12:11:08,902] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:08,902] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:08,923] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:09,018] id_token expires in 457 seconds
+[20/Aug/2021 12:11:09,020] id_token expires in 457 seconds
+[20/Aug/2021 12:11:09,020] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:09,021] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:09,021] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:09,022] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:09,049] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:09,060] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:09,158] id_token expires in 457 seconds
+[20/Aug/2021 12:11:09,159] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:09,159] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:09,179] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:09,259] id_token expires in 457 seconds
+[20/Aug/2021 12:11:09,259] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:09,260] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:09,273] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:19,301] ConfigurationView esap_ivoa
+[20/Aug/2021 12:11:19,307] ConfigurationView navbar
+[20/Aug/2021 12:11:19,353] ConfigurationView esap_ivoa
+[20/Aug/2021 12:11:19,363] ConfigurationView navbar
+[20/Aug/2021 12:11:19,452] id_token expires in 447 seconds
+[20/Aug/2021 12:11:19,452] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:19,452] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:19,476] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:19,543] id_token expires in 446 seconds
+[20/Aug/2021 12:11:19,544] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:19,544] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:19,559] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:19,602] id_token expires in 446 seconds
+[20/Aug/2021 12:11:19,603] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:19,604] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:19,645] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:19,649] id_token expires in 446 seconds
+[20/Aug/2021 12:11:19,655] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:19,655] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:19,679] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:19,707] id_token expires in 446 seconds
+[20/Aug/2021 12:11:19,707] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:19,707] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:19,723] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:19,803] id_token expires in 446 seconds
+[20/Aug/2021 12:11:19,803] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:19,804] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:19,820] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:41,752] ConfigurationView navbar
+[20/Aug/2021 12:11:41,772] ConfigurationView esap_ivoa
+[20/Aug/2021 12:11:41,904] id_token expires in 424 seconds
+[20/Aug/2021 12:11:41,905] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:41,905] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:41,929] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:41,986] id_token expires in 424 seconds
+[20/Aug/2021 12:11:41,987] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:41,988] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:42,005] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:11:42,092] id_token expires in 424 seconds
+[20/Aug/2021 12:11:42,093] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:11:42,093] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:11:42,112] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:13:33,854] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 12:13:33,854] query_controller.get_services()
+[20/Aug/2021 12:15:01,184] ConfigurationView esap_ivoa
+[20/Aug/2021 12:15:01,194] ConfigurationView navbar
+[20/Aug/2021 12:15:01,359] ConfigurationView navbar
+[20/Aug/2021 12:15:01,365] ConfigurationView esap_ivoa
+[20/Aug/2021 12:15:01,480] id_token expires in 225 seconds
+[20/Aug/2021 12:15:01,480] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:15:01,481] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:15:01,500] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:15:01,614] id_token expires in 224 seconds
+[20/Aug/2021 12:15:01,614] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:15:01,615] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:15:01,646] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:15:01,716] id_token expires in 224 seconds
+[20/Aug/2021 12:15:01,716] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:15:01,717] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:15:01,737] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:15:01,791] id_token expires in 224 seconds
+[20/Aug/2021 12:15:01,799] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:15:01,800] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:15:01,817] id_token expires in 224 seconds
+[20/Aug/2021 12:15:01,817] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:15:01,818] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:15:01,823] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:15:01,855] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:15:01,962] id_token expires in 224 seconds
+[20/Aug/2021 12:15:01,963] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:15:01,964] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:15:01,988] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:15:10,600] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 12:15:10,601] query_controller.get_services()
+[20/Aug/2021 12:15:21,065] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,069] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,073] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,077] query_controller.run_query()
+[20/Aug/2021 12:15:21,081] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,082] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,083] query_controller.run_query()
+[20/Aug/2021 12:15:21,094] query_controller.run_query()
+[20/Aug/2021 12:15:21,102] query_controller.run_query()
+[20/Aug/2021 12:15:21,107] query_controller.run_query()
+[20/Aug/2021 12:15:21,182] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,186] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,190] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,196] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,201] query_controller.run_query()
+[20/Aug/2021 12:15:21,204] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,208] query_controller.run_query()
+[20/Aug/2021 12:15:21,212] query_controller.run_query()
+[20/Aug/2021 12:15:21,216] query_controller.run_query()
+[20/Aug/2021 12:15:21,247] query_controller.run_query()
+[20/Aug/2021 12:15:21,253] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,258] query_controller.run_query()
+[20/Aug/2021 12:15:21,345] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,349] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,353] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,354] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,362] query_controller.run_query()
+[20/Aug/2021 12:15:21,365] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,370] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,374] query_controller.run_query()
+[20/Aug/2021 12:15:21,383] query_controller.run_query()
+[20/Aug/2021 12:15:21,386] query_controller.run_query()
+[20/Aug/2021 12:15:21,428] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,493] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,503] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,515] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,517] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,526] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,532] query_controller.run_query()
+[20/Aug/2021 12:15:21,537] query_controller.run_query()
+[20/Aug/2021 12:15:21,635] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,667] query_controller.run_query()
+[20/Aug/2021 12:15:21,668] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,679] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,702] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,714] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,770] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:21,777] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,784] query_controller.run_query()
+[20/Aug/2021 12:15:21,867] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,873] query_controller.run_query()
+[20/Aug/2021 12:15:21,878] query_controller.create_and_run_query()
+[20/Aug/2021 12:15:21,887] query_controller.run_query()
+[20/Aug/2021 12:15:24,633] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:24,869] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:24,900] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:24,910] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:24,919] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:24,920] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:24,971] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:24,972] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:25,019] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:25,063] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:15:56,670] ConfigurationView navbar
+[20/Aug/2021 12:15:56,675] ConfigurationView esap_ivoa
+[20/Aug/2021 12:15:56,791] id_token expires in 169 seconds
+[20/Aug/2021 12:15:56,791] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:15:56,791] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:15:56,815] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:15:56,885] id_token expires in 169 seconds
+[20/Aug/2021 12:15:56,885] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:15:56,885] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:15:56,903] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:15:57,030] id_token expires in 169 seconds
+[20/Aug/2021 12:15:57,030] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:15:57,030] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:15:57,046] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:16:03,897] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 12:16:03,898] query_controller.get_services()
+[20/Aug/2021 12:16:32,228] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,234] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,237] query_controller.run_query()
+[20/Aug/2021 12:16:32,240] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,244] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,248] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,252] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,256] query_controller.run_query()
+[20/Aug/2021 12:16:32,259] query_controller.run_query()
+[20/Aug/2021 12:16:32,262] query_controller.run_query()
+[20/Aug/2021 12:16:32,270] query_controller.run_query()
+[20/Aug/2021 12:16:32,278] query_controller.run_query()
+[20/Aug/2021 12:16:32,361] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,368] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,371] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,375] query_controller.run_query()
+[20/Aug/2021 12:16:32,378] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,384] query_controller.run_query()
+[20/Aug/2021 12:16:32,385] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,393] query_controller.run_query()
+[20/Aug/2021 12:16:32,397] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,404] query_controller.run_query()
+[20/Aug/2021 12:16:32,407] query_controller.run_query()
+[20/Aug/2021 12:16:32,411] query_controller.run_query()
+[20/Aug/2021 12:16:32,447] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,451] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,454] query_controller.run_query()
+[20/Aug/2021 12:16:32,457] query_controller.run_query()
+[20/Aug/2021 12:16:32,505] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,508] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,516] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,528] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,536] query_controller.run_query()
+[20/Aug/2021 12:16:32,542] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,626] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,630] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,637] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,641] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,650] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,656] query_controller.run_query()
+[20/Aug/2021 12:16:32,665] query_controller.run_query()
+[20/Aug/2021 12:16:32,772] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,777] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,782] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,788] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,797] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,804] query_controller.run_query()
+[20/Aug/2021 12:16:32,852] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,855] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,859] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,865] query_controller.run_query()
+[20/Aug/2021 12:16:32,904] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,906] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:32,918] query_controller.run_query()
+[20/Aug/2021 12:16:32,952] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,957] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,965] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:32,997] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:33,004] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:33,010] query_controller.run_query()
+[20/Aug/2021 12:16:33,034] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:33,089] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:33,294] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:40,222] ConfigurationView navbar
+[20/Aug/2021 12:16:40,228] ConfigurationView esap_ivoa
+[20/Aug/2021 12:16:40,357] id_token expires in 126 seconds
+[20/Aug/2021 12:16:40,358] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:16:40,358] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:16:40,380] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:16:40,439] id_token expires in 126 seconds
+[20/Aug/2021 12:16:40,439] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:16:40,440] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:16:40,456] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:16:40,557] id_token expires in 125 seconds
+[20/Aug/2021 12:16:40,558] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 12:16:40,558] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 12:16:40,573] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 12:16:46,786] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 12:16:46,786] query_controller.get_services()
+[20/Aug/2021 12:16:53,997] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:53,999] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,005] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,008] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,011] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,014] query_controller.run_query()
+[20/Aug/2021 12:16:54,019] query_controller.run_query()
+[20/Aug/2021 12:16:54,020] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,021] query_controller.run_query()
+[20/Aug/2021 12:16:54,030] query_controller.run_query()
+[20/Aug/2021 12:16:54,038] query_controller.run_query()
+[20/Aug/2021 12:16:54,055] query_controller.run_query()
+[20/Aug/2021 12:16:54,136] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,140] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,145] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,149] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,153] query_controller.run_query()
+[20/Aug/2021 12:16:54,157] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,161] query_controller.run_query()
+[20/Aug/2021 12:16:54,162] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,167] query_controller.run_query()
+[20/Aug/2021 12:16:54,182] query_controller.run_query()
+[20/Aug/2021 12:16:54,186] query_controller.run_query()
+[20/Aug/2021 12:16:54,197] query_controller.run_query()
+[20/Aug/2021 12:16:54,225] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,232] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,241] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,260] query_controller.run_query()
+[20/Aug/2021 12:16:54,265] query_controller.run_query()
+[20/Aug/2021 12:16:54,268] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,277] query_controller.run_query()
+[20/Aug/2021 12:16:54,293] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,305] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,360] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,399] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,400] query_controller.run_query()
+[20/Aug/2021 12:16:54,404] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,415] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,422] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,435] query_controller.run_query()
+[20/Aug/2021 12:16:54,475] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,479] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,518] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,522] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,526] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,529] query_controller.run_query()
+[20/Aug/2021 12:16:54,566] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,569] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,652] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,653] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,659] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,670] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,674] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,683] query_controller.run_query()
+[20/Aug/2021 12:16:54,703] query_controller.run_query()
+[20/Aug/2021 12:16:54,728] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,736] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,757] query_controller.create_and_run_query()
+[20/Aug/2021 12:16:54,761] query_controller.run_query()
+[20/Aug/2021 12:16:54,802] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,819] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:54,864] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:16:55,112] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:22:33,342] ConfigurationView esap_ivoa
+[20/Aug/2021 12:22:33,392] ConfigurationView navbar
+[20/Aug/2021 12:22:38,113] ConfigurationView esap_ivoa
+[20/Aug/2021 12:22:38,126] ConfigurationView navbar
+[20/Aug/2021 12:22:41,905] ConfigurationView navbar
+[20/Aug/2021 12:22:41,914] ConfigurationView esap_ivoa
+[20/Aug/2021 12:23:16,529] ConfigurationView navbar
+[20/Aug/2021 12:23:16,531] ConfigurationView esap_ivoa
+[20/Aug/2021 12:29:26,938] ConfigurationView esap_ivoa
+[20/Aug/2021 12:29:26,948] ConfigurationView navbar
+[20/Aug/2021 12:57:40,745] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 12:57:40,745] query_controller.get_services()
+[20/Aug/2021 12:58:25,901] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:25,911] query_controller.run_query()
+[20/Aug/2021 12:58:25,918] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:25,929] query_controller.run_query()
+[20/Aug/2021 12:58:25,980] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:25,990] query_controller.run_query()
+[20/Aug/2021 12:58:25,997] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,001] query_controller.run_query()
+[20/Aug/2021 12:58:26,038] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,044] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,047] query_controller.run_query()
+[20/Aug/2021 12:58:26,050] query_controller.run_query()
+[20/Aug/2021 12:58:26,082] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,093] query_controller.run_query()
+[20/Aug/2021 12:58:26,098] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,102] query_controller.run_query()
+[20/Aug/2021 12:58:26,132] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,144] query_controller.run_query()
+[20/Aug/2021 12:58:26,149] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,153] query_controller.run_query()
+[20/Aug/2021 12:58:26,180] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,206] query_controller.run_query()
+[20/Aug/2021 12:58:26,233] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,247] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,249] query_controller.run_query()
+[20/Aug/2021 12:58:26,253] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,258] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,266] query_controller.run_query()
+[20/Aug/2021 12:58:26,275] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,304] query_controller.run_query()
+[20/Aug/2021 12:58:26,309] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,315] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,321] query_controller.run_query()
+[20/Aug/2021 12:58:26,347] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,350] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,358] query_controller.run_query()
+[20/Aug/2021 12:58:26,412] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,429] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,433] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,436] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,444] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,451] query_controller.run_query()
+[20/Aug/2021 12:58:26,487] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,533] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,539] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,544] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,550] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,562] query_controller.run_query()
+[20/Aug/2021 12:58:26,589] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,627] query_controller.run_query()
+[20/Aug/2021 12:58:26,633] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,636] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,640] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,652] query_controller.run_query()
+[20/Aug/2021 12:58:26,738] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,740] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,748] query_controller.create_and_run_query()
+[20/Aug/2021 12:58:26,752] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,765] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,775] query_controller.run_query()
+[20/Aug/2021 12:58:26,801] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:26,863] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 12:58:27,289] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:34,061] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 13:00:34,061] query_controller.get_services()
+[20/Aug/2021 13:00:46,619] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,623] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,626] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,629] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,634] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,636] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,637] query_controller.run_query()
+[20/Aug/2021 13:00:46,639] query_controller.run_query()
+[20/Aug/2021 13:00:46,642] query_controller.run_query()
+[20/Aug/2021 13:00:46,643] query_controller.run_query()
+[20/Aug/2021 13:00:46,656] query_controller.run_query()
+[20/Aug/2021 13:00:46,669] query_controller.run_query()
+[20/Aug/2021 13:00:46,755] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,758] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,762] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,766] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,771] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,775] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,778] query_controller.run_query()
+[20/Aug/2021 13:00:46,782] query_controller.run_query()
+[20/Aug/2021 13:00:46,787] query_controller.run_query()
+[20/Aug/2021 13:00:46,789] query_controller.run_query()
+[20/Aug/2021 13:00:46,793] query_controller.run_query()
+[20/Aug/2021 13:00:46,796] query_controller.run_query()
+[20/Aug/2021 13:00:46,910] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,914] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,918] query_controller.run_query()
+[20/Aug/2021 13:00:46,921] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,924] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:46,928] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:46,933] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:46,943] query_controller.run_query()
+[20/Aug/2021 13:00:46,949] query_controller.run_query()
+[20/Aug/2021 13:00:46,954] query_controller.run_query()
+[20/Aug/2021 13:00:47,064] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,069] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,072] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,084] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:47,093] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,101] query_controller.run_query()
+[20/Aug/2021 13:00:47,137] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,140] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:47,146] query_controller.run_query()
+[20/Aug/2021 13:00:47,179] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,214] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,234] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,235] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,240] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,299] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:47,302] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:47,306] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,307] query_controller.run_query()
+[20/Aug/2021 13:00:47,329] query_controller.run_query()
+[20/Aug/2021 13:00:47,349] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,351] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,399] query_controller.create_and_run_query()
+[20/Aug/2021 13:00:47,404] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,405] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,412] query_controller.run_query()
+[20/Aug/2021 13:00:47,450] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,454] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,527] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:00:47,749] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:17,236] ConfigurationView esap_ivoa
+[20/Aug/2021 13:01:17,239] ConfigurationView navbar
+[20/Aug/2021 13:01:17,492] ConfigurationView navbar
+[20/Aug/2021 13:01:17,495] ConfigurationView esap_ivoa
+[20/Aug/2021 13:01:19,348] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 13:01:19,349] query_controller.get_services()
+[20/Aug/2021 13:01:30,779] ConfigurationView esap_ivoa
+[20/Aug/2021 13:01:30,782] ConfigurationView navbar
+[20/Aug/2021 13:01:36,264] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 13:01:36,264] query_controller.get_services()
+[20/Aug/2021 13:01:43,508] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,513] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,514] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,514] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,522] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,528] query_controller.run_query()
+[20/Aug/2021 13:01:43,531] query_controller.run_query()
+[20/Aug/2021 13:01:43,534] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,541] query_controller.run_query()
+[20/Aug/2021 13:01:43,546] query_controller.run_query()
+[20/Aug/2021 13:01:43,549] query_controller.run_query()
+[20/Aug/2021 13:01:43,555] query_controller.run_query()
+[20/Aug/2021 13:01:43,645] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,651] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,651] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,660] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,664] query_controller.run_query()
+[20/Aug/2021 13:01:43,668] query_controller.run_query()
+[20/Aug/2021 13:01:43,671] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,672] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,673] query_controller.run_query()
+[20/Aug/2021 13:01:43,676] query_controller.run_query()
+[20/Aug/2021 13:01:43,703] query_controller.run_query()
+[20/Aug/2021 13:01:43,707] query_controller.run_query()
+[20/Aug/2021 13:01:43,718] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,728] query_controller.run_query()
+[20/Aug/2021 13:01:43,762] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,767] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,795] query_controller.run_query()
+[20/Aug/2021 13:01:43,799] query_controller.run_query()
+[20/Aug/2021 13:01:43,804] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:43,811] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:43,815] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:43,871] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:43,880] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,911] query_controller.run_query()
+[20/Aug/2021 13:01:43,914] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:43,918] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:43,924] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:43,930] query_controller.run_query()
+[20/Aug/2021 13:01:43,958] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:43,979] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:43,983] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:44,034] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:44,035] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:44,043] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:44,045] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:01:44,063] query_controller.run_query()
+[20/Aug/2021 13:01:44,079] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:44,083] query_controller.run_query()
+[20/Aug/2021 13:01:44,116] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:44,120] query_controller.create_and_run_query()
+[20/Aug/2021 13:01:44,124] query_controller.run_query()
+[20/Aug/2021 13:01:44,127] query_controller.run_query()
+[20/Aug/2021 13:03:09,161] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:03:09,187] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:03:09,192] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:03:09,198] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:03:09,226] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:03:09,230] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:03:09,274] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:03:09,293] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:03:09,314] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:04:06,210] ConfigurationView navbar
+[20/Aug/2021 13:04:06,217] ConfigurationView esap_ivoa
+[20/Aug/2021 13:04:08,580] callback_url = http://localhost:5555/esap-api/oidc/callback/
+[20/Aug/2021 13:05:12,618] update_userprofile uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:05:13,720] ConfigurationView esap_ivoa
+[20/Aug/2021 13:05:13,722] ConfigurationView navbar
+[20/Aug/2021 13:05:13,860] id_token expires in 3599 seconds
+[20/Aug/2021 13:05:13,861] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:05:13,861] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:05:13,879] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:05:13,944] id_token expires in 3599 seconds
+[20/Aug/2021 13:05:13,944] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:05:13,945] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:05:13,962] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:05:14,083] id_token expires in 3599 seconds
+[20/Aug/2021 13:05:14,083] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:05:14,084] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:05:14,104] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:05:22,208] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 13:05:22,209] query_controller.get_services()
+[20/Aug/2021 13:05:33,209] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,212] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,217] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,221] query_controller.run_query()
+[20/Aug/2021 13:05:33,223] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,226] query_controller.run_query()
+[20/Aug/2021 13:05:33,230] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,237] query_controller.run_query()
+[20/Aug/2021 13:05:33,240] query_controller.run_query()
+[20/Aug/2021 13:05:33,246] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,250] query_controller.run_query()
+[20/Aug/2021 13:05:33,267] query_controller.run_query()
+[20/Aug/2021 13:05:33,335] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,338] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,342] query_controller.run_query()
+[20/Aug/2021 13:05:33,345] query_controller.run_query()
+[20/Aug/2021 13:05:33,370] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,388] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,391] query_controller.run_query()
+[20/Aug/2021 13:05:33,396] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,397] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,404] query_controller.run_query()
+[20/Aug/2021 13:05:33,410] query_controller.run_query()
+[20/Aug/2021 13:05:33,432] query_controller.run_query()
+[20/Aug/2021 13:05:33,448] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,453] query_controller.run_query()
+[20/Aug/2021 13:05:33,458] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,501] query_controller.run_query()
+[20/Aug/2021 13:05:33,507] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,511] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,517] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,523] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,539] query_controller.run_query()
+[20/Aug/2021 13:05:33,603] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,607] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,610] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,623] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,627] query_controller.run_query()
+[20/Aug/2021 13:05:33,632] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,643] query_controller.run_query()
+[20/Aug/2021 13:05:33,694] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,695] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,701] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,709] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,721] query_controller.run_query()
+[20/Aug/2021 13:05:33,740] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,803] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,806] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,809] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:33,816] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,825] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,832] query_controller.run_query()
+[20/Aug/2021 13:05:33,835] query_controller.run_query()
+[20/Aug/2021 13:05:33,892] query_controller.create_and_run_query()
+[20/Aug/2021 13:05:33,897] query_controller.run_query()
+[20/Aug/2021 13:05:37,902] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:39,982] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:41,778] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:46,405] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:47,412] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:48,150] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:48,158] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:05:48,175] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:07:14,989] ConfigurationView esap_ivoa
+[20/Aug/2021 13:07:14,993] ConfigurationView navbar
+[20/Aug/2021 13:07:15,106] ConfigurationView esap_ivoa
+[20/Aug/2021 13:07:15,108] ConfigurationView navbar
+[20/Aug/2021 13:07:15,151] ConfigurationView esap_ivoa
+[20/Aug/2021 13:07:15,168] ConfigurationView navbar
+[20/Aug/2021 13:07:15,307] id_token expires in 3477 seconds
+[20/Aug/2021 13:07:15,308] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:15,309] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:15,326] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:15,443] id_token expires in 3477 seconds
+[20/Aug/2021 13:07:15,444] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:15,445] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:15,465] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:15,533] id_token expires in 3477 seconds
+[20/Aug/2021 13:07:15,534] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:15,534] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:15,555] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:15,620] id_token expires in 3477 seconds
+[20/Aug/2021 13:07:15,620] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:15,621] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:15,635] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:15,722] id_token expires in 3477 seconds
+[20/Aug/2021 13:07:15,722] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:15,723] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:15,743] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:15,822] id_token expires in 3477 seconds
+[20/Aug/2021 13:07:15,822] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:15,823] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:15,836] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:21,006] ConfigurationView esap_ivoa
+[20/Aug/2021 13:07:21,016] ConfigurationView navbar
+[20/Aug/2021 13:07:21,236] id_token expires in 3471 seconds
+[20/Aug/2021 13:07:21,237] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:21,237] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:21,262] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:21,343] id_token expires in 3471 seconds
+[20/Aug/2021 13:07:21,344] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:21,344] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:21,362] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:21,467] id_token expires in 3471 seconds
+[20/Aug/2021 13:07:21,468] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:21,468] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:21,484] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:40,666] ConfigurationView esap_ivoa
+[20/Aug/2021 13:07:40,670] ConfigurationView navbar
+[20/Aug/2021 13:07:40,934] ConfigurationView esap_ivoa
+[20/Aug/2021 13:07:40,938] ConfigurationView navbar
+[20/Aug/2021 13:07:41,028] ConfigurationView esap_ivoa
+[20/Aug/2021 13:07:41,031] ConfigurationView navbar
+[20/Aug/2021 13:07:41,144] id_token expires in 3452 seconds
+[20/Aug/2021 13:07:41,144] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:41,145] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:41,175] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:41,251] id_token expires in 3451 seconds
+[20/Aug/2021 13:07:41,253] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:41,254] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:41,271] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:41,337] id_token expires in 3451 seconds
+[20/Aug/2021 13:07:41,337] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:41,338] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:41,358] id_token expires in 3451 seconds
+[20/Aug/2021 13:07:41,358] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:41,358] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:41,361] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:41,381] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:41,446] id_token expires in 3451 seconds
+[20/Aug/2021 13:07:41,447] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:41,447] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:41,462] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:41,537] id_token expires in 3451 seconds
+[20/Aug/2021 13:07:41,537] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:41,538] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:41,552] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:45,814] ConfigurationView navbar
+[20/Aug/2021 13:07:45,824] ConfigurationView esap_ivoa
+[20/Aug/2021 13:07:45,947] id_token expires in 3447 seconds
+[20/Aug/2021 13:07:45,948] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:45,948] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:45,973] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:46,042] id_token expires in 3447 seconds
+[20/Aug/2021 13:07:46,042] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:46,043] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:46,063] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:46,160] id_token expires in 3447 seconds
+[20/Aug/2021 13:07:46,160] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:07:46,160] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:07:46,175] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:07:51,213] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 13:07:51,213] query_controller.get_services()
+[20/Aug/2021 13:10:23,590] ConfigurationView navbar
+[20/Aug/2021 13:10:23,592] ConfigurationView esap_ivoa
+[20/Aug/2021 13:10:23,795] ConfigurationView navbar
+[20/Aug/2021 13:10:23,845] id_token expires in 3289 seconds
+[20/Aug/2021 13:10:23,845] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:10:23,846] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:10:23,880] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:10:23,900] ConfigurationView esap_ivoa
+[20/Aug/2021 13:10:24,001] id_token expires in 3289 seconds
+[20/Aug/2021 13:10:24,003] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:10:24,003] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:10:24,030] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:10:24,071] ConfigurationView navbar
+[20/Aug/2021 13:10:24,074] ConfigurationView esap_ivoa
+[20/Aug/2021 13:10:24,250] id_token expires in 3288 seconds
+[20/Aug/2021 13:10:24,250] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:10:24,251] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:10:24,276] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:10:24,339] id_token expires in 3288 seconds
+[20/Aug/2021 13:10:24,339] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:10:24,340] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:10:24,353] id_token expires in 3288 seconds
+[20/Aug/2021 13:10:24,353] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:10:24,354] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:10:24,368] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:10:24,391] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:10:24,499] id_token expires in 3288 seconds
+[20/Aug/2021 13:10:24,500] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:10:24,501] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:10:24,510] id_token expires in 3288 seconds
+[20/Aug/2021 13:10:24,511] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:10:24,514] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:10:24,526] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:10:24,545] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:10:24,596] id_token expires in 3288 seconds
+[20/Aug/2021 13:10:24,597] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:10:24,597] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:10:24,619] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:10:24,704] id_token expires in 3288 seconds
+[20/Aug/2021 13:10:24,704] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:10:24,705] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:10:24,720] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:10:30,474] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 13:10:30,475] query_controller.get_services()
+[20/Aug/2021 13:11:40,046] ConfigurationView navbar
+[20/Aug/2021 13:11:40,050] ConfigurationView esap_ivoa
+[20/Aug/2021 13:11:40,327] ConfigurationView navbar
+[20/Aug/2021 13:11:40,331] ConfigurationView esap_ivoa
+[20/Aug/2021 13:11:40,380] id_token expires in 3212 seconds
+[20/Aug/2021 13:11:40,381] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:11:40,381] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:11:40,408] ConfigurationView esap_ivoa
+[20/Aug/2021 13:11:40,421] ConfigurationView navbar
+[20/Aug/2021 13:11:40,476] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:11:40,636] id_token expires in 3212 seconds
+[20/Aug/2021 13:11:40,639] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:11:40,639] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:11:40,704] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:11:40,817] id_token expires in 3212 seconds
+[20/Aug/2021 13:11:40,818] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:11:40,821] id_token expires in 3212 seconds
+[20/Aug/2021 13:11:40,821] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:11:40,822] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:11:40,823] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:11:40,839] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:11:40,859] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:11:40,939] id_token expires in 3212 seconds
+[20/Aug/2021 13:11:40,939] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:11:40,940] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:11:40,962] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:11:41,022] id_token expires in 3212 seconds
+[20/Aug/2021 13:11:41,023] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:11:41,023] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:11:41,045] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:11:41,125] id_token expires in 3212 seconds
+[20/Aug/2021 13:11:41,126] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:11:41,126] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:11:41,135] id_token expires in 3212 seconds
+[20/Aug/2021 13:11:41,136] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:11:41,139] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:11:41,151] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:11:41,172] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:11:41,270] id_token expires in 3211 seconds
+[20/Aug/2021 13:11:41,270] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:11:41,271] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:11:41,285] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:11:45,469] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 13:11:45,469] query_controller.get_services()
+[20/Aug/2021 13:11:54,663] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,675] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,681] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,684] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,689] query_controller.run_query()
+[20/Aug/2021 13:11:54,692] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,695] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,698] query_controller.run_query()
+[20/Aug/2021 13:11:54,703] query_controller.run_query()
+[20/Aug/2021 13:11:54,707] query_controller.run_query()
+[20/Aug/2021 13:11:54,715] query_controller.run_query()
+[20/Aug/2021 13:11:54,719] query_controller.run_query()
+[20/Aug/2021 13:11:54,753] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,757] query_controller.run_query()
+[20/Aug/2021 13:11:54,841] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,845] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,850] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,854] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,858] query_controller.run_query()
+[20/Aug/2021 13:11:54,862] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,866] query_controller.run_query()
+[20/Aug/2021 13:11:54,872] query_controller.run_query()
+[20/Aug/2021 13:11:54,876] query_controller.run_query()
+[20/Aug/2021 13:11:54,881] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:54,897] query_controller.run_query()
+[20/Aug/2021 13:11:54,904] query_controller.run_query()
+[20/Aug/2021 13:11:54,949] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:54,991] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,000] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:55,004] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,013] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:55,020] query_controller.run_query()
+[20/Aug/2021 13:11:55,028] query_controller.run_query()
+[20/Aug/2021 13:11:55,074] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:55,078] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,084] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,092] query_controller.run_query()
+[20/Aug/2021 13:11:55,115] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,130] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:55,133] query_controller.run_query()
+[20/Aug/2021 13:11:55,148] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,179] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:55,179] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,185] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,190] query_controller.run_query()
+[20/Aug/2021 13:11:55,222] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,226] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,252] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:11:55,275] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:55,280] query_controller.run_query()
+[20/Aug/2021 13:11:55,283] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:55,289] query_controller.run_query()
+[20/Aug/2021 13:11:55,352] query_controller.create_and_run_query()
+[20/Aug/2021 13:11:55,356] query_controller.run_query()
+[20/Aug/2021 13:12:25,301] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:12:25,307] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:12:27,006] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:12:28,170] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:18,327] ConfigurationView esap_ivoa
+[20/Aug/2021 13:13:18,331] ConfigurationView navbar
+[20/Aug/2021 13:13:18,396] ConfigurationView navbar
+[20/Aug/2021 13:13:18,412] ConfigurationView esap_ivoa
+[20/Aug/2021 13:13:18,515] id_token expires in 3114 seconds
+[20/Aug/2021 13:13:18,515] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:13:18,519] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:13:18,552] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:13:18,680] id_token expires in 3114 seconds
+[20/Aug/2021 13:13:18,680] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:13:18,681] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:13:18,704] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:13:18,813] id_token expires in 3114 seconds
+[20/Aug/2021 13:13:18,814] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:13:18,814] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:13:18,821] id_token expires in 3114 seconds
+[20/Aug/2021 13:13:18,821] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:13:18,824] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:13:18,832] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:13:18,846] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:13:18,907] id_token expires in 3114 seconds
+[20/Aug/2021 13:13:18,908] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:13:18,908] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:13:18,921] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:13:18,993] id_token expires in 3114 seconds
+[20/Aug/2021 13:13:18,994] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:13:18,994] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:13:19,009] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:13:20,473] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:30,938] ConfigurationView navbar
+[20/Aug/2021 13:13:30,951] ConfigurationView esap_ivoa
+[20/Aug/2021 13:13:31,066] id_token expires in 3102 seconds
+[20/Aug/2021 13:13:31,066] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:13:31,067] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:13:31,088] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:13:31,146] id_token expires in 3102 seconds
+[20/Aug/2021 13:13:31,147] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:13:31,147] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:13:31,160] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:13:31,205] id_token expires in 3102 seconds
+[20/Aug/2021 13:13:31,205] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:13:31,205] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:13:31,220] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:13:36,303] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 13:13:36,304] query_controller.get_services()
+[20/Aug/2021 13:13:45,648] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,651] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,655] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,659] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,664] query_controller.run_query()
+[20/Aug/2021 13:13:45,667] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,671] query_controller.run_query()
+[20/Aug/2021 13:13:45,678] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,680] query_controller.run_query()
+[20/Aug/2021 13:13:45,689] query_controller.run_query()
+[20/Aug/2021 13:13:45,698] query_controller.run_query()
+[20/Aug/2021 13:13:45,718] query_controller.run_query()
+[20/Aug/2021 13:13:45,736] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,740] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,745] query_controller.run_query()
+[20/Aug/2021 13:13:45,767] query_controller.run_query()
+[20/Aug/2021 13:13:45,770] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,777] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,786] query_controller.run_query()
+[20/Aug/2021 13:13:45,796] query_controller.run_query()
+[20/Aug/2021 13:13:45,812] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,834] query_controller.run_query()
+[20/Aug/2021 13:13:45,846] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,878] query_controller.run_query()
+[20/Aug/2021 13:13:45,882] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:45,886] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,888] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,893] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,911] query_controller.run_query()
+[20/Aug/2021 13:13:45,915] query_controller.run_query()
+[20/Aug/2021 13:13:45,920] query_controller.run_query()
+[20/Aug/2021 13:13:45,929] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:45,991] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:45,995] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:45,999] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:46,000] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:46,009] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:46,015] query_controller.run_query()
+[20/Aug/2021 13:13:46,033] query_controller.run_query()
+[20/Aug/2021 13:13:46,062] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:46,089] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:46,096] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:46,112] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:46,123] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:46,132] query_controller.run_query()
+[20/Aug/2021 13:13:46,184] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:46,187] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:46,193] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:46,199] query_controller.run_query()
+[20/Aug/2021 13:13:46,203] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:46,208] query_controller.run_query()
+[20/Aug/2021 13:13:46,283] query_controller.create_and_run_query()
+[20/Aug/2021 13:13:46,287] query_controller.run_query()
+[20/Aug/2021 13:13:48,555] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:49,171] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:49,174] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:49,183] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:51,558] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:54,044] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:54,870] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:54,876] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:54,884] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:13:54,915] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:15:07,965] ConfigurationView navbar
+[20/Aug/2021 13:15:07,971] ConfigurationView esap_ivoa
+[20/Aug/2021 13:15:08,167] id_token expires in 3005 seconds
+[20/Aug/2021 13:15:08,167] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:15:08,168] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:15:08,192] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:15:08,276] id_token expires in 3004 seconds
+[20/Aug/2021 13:15:08,276] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:15:08,277] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:15:08,296] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:15:08,395] ConfigurationView esap_ivoa
+[20/Aug/2021 13:15:08,400] ConfigurationView navbar
+[20/Aug/2021 13:15:08,427] ConfigurationView esap_ivoa
+[20/Aug/2021 13:15:08,479] ConfigurationView navbar
+[20/Aug/2021 13:15:08,533] id_token expires in 3004 seconds
+[20/Aug/2021 13:15:08,534] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:15:08,534] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:15:08,562] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:15:08,603] id_token expires in 3004 seconds
+[20/Aug/2021 13:15:08,604] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:15:08,604] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:15:08,622] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:15:08,698] id_token expires in 3004 seconds
+[20/Aug/2021 13:15:08,699] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:15:08,700] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:15:08,715] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:15:08,784] id_token expires in 3004 seconds
+[20/Aug/2021 13:15:08,785] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:15:08,786] id_token expires in 3004 seconds
+[20/Aug/2021 13:15:08,787] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:15:08,787] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:15:08,789] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:15:08,802] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:15:08,812] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:15:08,881] id_token expires in 3004 seconds
+[20/Aug/2021 13:15:08,881] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:15:08,882] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:15:08,897] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:15:08,953] id_token expires in 3004 seconds
+[20/Aug/2021 13:15:08,953] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:15:08,953] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:15:08,966] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:17:40,382] ConfigurationView esap_ivoa
+[20/Aug/2021 13:17:40,403] ConfigurationView navbar
+[20/Aug/2021 13:17:40,467] ConfigurationView navbar
+[20/Aug/2021 13:17:40,531] ConfigurationView navbar
+[20/Aug/2021 13:17:40,592] ConfigurationView esap_ivoa
+[20/Aug/2021 13:17:40,631] ConfigurationView esap_ivoa
+[20/Aug/2021 13:17:40,672] id_token expires in 2852 seconds
+[20/Aug/2021 13:17:40,673] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:17:40,673] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:17:40,698] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:17:40,781] id_token expires in 2852 seconds
+[20/Aug/2021 13:17:40,782] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:17:40,782] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:17:40,799] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:17:40,885] id_token expires in 2852 seconds
+[20/Aug/2021 13:17:40,887] id_token expires in 2852 seconds
+[20/Aug/2021 13:17:40,887] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:17:40,888] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:17:40,888] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:17:40,888] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:17:40,902] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:17:40,911] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:17:40,983] id_token expires in 2852 seconds
+[20/Aug/2021 13:17:40,983] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:17:40,983] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:17:40,999] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:17:41,089] id_token expires in 2852 seconds
+[20/Aug/2021 13:17:41,090] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:17:41,090] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:17:41,096] id_token expires in 2852 seconds
+[20/Aug/2021 13:17:41,097] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:17:41,097] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:17:41,111] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:17:41,118] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:17:41,187] id_token expires in 2852 seconds
+[20/Aug/2021 13:17:41,187] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:17:41,188] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:17:41,202] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:17:41,289] id_token expires in 2851 seconds
+[20/Aug/2021 13:17:41,290] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:17:41,290] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:17:41,305] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:44:36,631] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 13:44:36,631] query_controller.get_services()
+[20/Aug/2021 13:44:45,104] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,109] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,114] query_controller.run_query()
+[20/Aug/2021 13:44:45,120] query_controller.run_query()
+[20/Aug/2021 13:44:45,162] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,167] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,170] query_controller.run_query()
+[20/Aug/2021 13:44:45,174] query_controller.run_query()
+[20/Aug/2021 13:44:45,210] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,211] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,218] query_controller.run_query()
+[20/Aug/2021 13:44:45,220] query_controller.run_query()
+[20/Aug/2021 13:44:45,255] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,265] query_controller.run_query()
+[20/Aug/2021 13:44:45,269] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,273] query_controller.run_query()
+[20/Aug/2021 13:44:45,304] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,314] query_controller.run_query()
+[20/Aug/2021 13:44:45,317] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,323] query_controller.run_query()
+[20/Aug/2021 13:44:45,362] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,366] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,370] query_controller.run_query()
+[20/Aug/2021 13:44:45,374] query_controller.run_query()
+[20/Aug/2021 13:44:45,438] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,440] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,447] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,449] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,463] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,464] query_controller.run_query()
+[20/Aug/2021 13:44:45,468] query_controller.run_query()
+[20/Aug/2021 13:44:45,474] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,482] query_controller.run_query()
+[20/Aug/2021 13:44:45,537] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,541] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,544] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,576] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,579] query_controller.run_query()
+[20/Aug/2021 13:44:45,581] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,593] query_controller.run_query()
+[20/Aug/2021 13:44:45,628] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,634] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,690] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,693] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,701] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,705] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,709] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,713] query_controller.run_query()
+[20/Aug/2021 13:44:45,773] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,797] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,805] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,825] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,831] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,838] query_controller.run_query()
+[20/Aug/2021 13:44:45,843] query_controller.run_query()
+[20/Aug/2021 13:44:45,883] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,888] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,927] query_controller.create_and_run_query()
+[20/Aug/2021 13:44:45,933] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:45,939] query_controller.run_query()
+[20/Aug/2021 13:44:46,078] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:46,091] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:44:46,490] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 13:46:14,245] ConfigurationView navbar
+[20/Aug/2021 13:46:14,253] ConfigurationView esap_ivoa
+[20/Aug/2021 13:46:14,330] ConfigurationView esap_ivoa
+[20/Aug/2021 13:46:14,337] ConfigurationView navbar
+[20/Aug/2021 13:46:14,811] id_token expires in 1138 seconds
+[20/Aug/2021 13:46:14,811] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:46:14,812] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:46:14,825] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:46:14,879] id_token expires in 1138 seconds
+[20/Aug/2021 13:46:14,879] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:46:14,880] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:46:14,898] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:46:14,983] id_token expires in 1138 seconds
+[20/Aug/2021 13:46:14,984] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:46:14,984] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:46:15,000] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:46:15,063] id_token expires in 1138 seconds
+[20/Aug/2021 13:46:15,064] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:46:15,064] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:46:15,082] id_token expires in 1138 seconds
+[20/Aug/2021 13:46:15,082] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:46:15,082] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:46:15,085] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:46:15,110] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 13:46:15,185] id_token expires in 1138 seconds
+[20/Aug/2021 13:46:15,185] OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS: 3600
+[20/Aug/2021 13:46:15,186] uid = https://iam-escape.cloud.cnaf.infn.it/userinfo:2c49b469-d7ad-4e59-a503-cadbae9bd30a
+[20/Aug/2021 13:46:15,201] user_profile = <QuerySet [<EsapUserProfile: vermaas>]>
+[20/Aug/2021 14:23:38,499] could not find 'waveband' in the query_params. Continuing...
+[20/Aug/2021 14:23:38,500] query_controller.get_services()
+[20/Aug/2021 14:24:01,677] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:01,682] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:01,686] query_controller.run_query()
+[20/Aug/2021 14:24:01,689] query_controller.run_query()
+[20/Aug/2021 14:24:01,725] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:01,728] query_controller.run_query()
+[20/Aug/2021 14:24:01,773] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:01,776] query_controller.run_query()
+[20/Aug/2021 14:24:01,828] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:01,832] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:01,835] query_controller.run_query()
+[20/Aug/2021 14:24:01,838] query_controller.run_query()
+[20/Aug/2021 14:24:01,873] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:01,885] query_controller.run_query()
+[20/Aug/2021 14:24:01,890] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:01,895] query_controller.run_query()
+[20/Aug/2021 14:24:01,932] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:01,935] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:01,938] query_controller.run_query()
+[20/Aug/2021 14:24:01,941] query_controller.run_query()
+[20/Aug/2021 14:24:02,011] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,021] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,023] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,026] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,031] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,037] query_controller.run_query()
+[20/Aug/2021 14:24:02,041] query_controller.run_query()
+[20/Aug/2021 14:24:02,049] query_controller.run_query()
+[20/Aug/2021 14:24:02,058] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,066] query_controller.run_query()
+[20/Aug/2021 14:24:02,107] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,111] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,115] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,120] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,143] query_controller.run_query()
+[20/Aug/2021 14:24:02,151] query_controller.run_query()
+[20/Aug/2021 14:24:02,168] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,169] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,189] query_controller.run_query()
+[20/Aug/2021 14:24:02,217] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,221] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,237] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,242] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,246] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,257] query_controller.run_query()
+[20/Aug/2021 14:24:02,285] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,323] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,336] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,340] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,343] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,352] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,355] query_controller.run_query()
+[20/Aug/2021 14:24:02,404] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,408] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,409] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,438] query_controller.run_query()
+[20/Aug/2021 14:24:02,460] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,464] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,501] query_controller.create_and_run_query()
+[20/Aug/2021 14:24:02,506] query_controller.run_query()
+[20/Aug/2021 14:24:02,511] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,644] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:24:02,670] query_controller.get_tables_fields('+access_url+')
+[20/Aug/2021 14:28:57,442] ConfigurationView esap_ivoa
+[20/Aug/2021 14:28:57,451] ConfigurationView navbar
+[20/Aug/2021 14:28:57,573] 'oidc_id_token'
+[20/Aug/2021 14:28:57,605] 'oidc_id_token'
+[20/Aug/2021 14:29:04,006] ConfigurationView navbar
+[20/Aug/2021 14:29:04,009] ConfigurationView esap_ivoa
