@@ -30,5 +30,15 @@ then
   docker exec -it esap_api_gateway cp esap/esap_ida_config.sqlite3 /shared/esap_ida_config.sqlite3
 fi
 
+if [ ! -f $ESAP_SHARED/esap_rucio_config.sqlite3 ]
+then
+  docker exec -it esap_api_gateway cp esap/esap_rucio_config.sqlite3 /shared/esap_rucio_config.sqlite3
+fi
+
+if [ ! -f $ESAP_SHARED/esap_config.sqlite3 ]
+then
+  docker exec -it esap_api_gateway cp esap/esap_config.sqlite3 /shared/esap_config.sqlite3
+fi
+
 echo "=== ESAP Installation PART 2 done ==="
 

@@ -2,7 +2,7 @@
 # ESAP 'production' install script
 # version 13 aug 2021
 
-echo "=== ESAP Installation PART 1 ==="
+echo "=== ESAP Installation script 1 of 2 ==="
 
 export ESAP_ROOT=~/esap_root
 export ESAP_SHARED=~/esap_shared
