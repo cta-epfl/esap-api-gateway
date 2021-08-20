@@ -275,10 +275,7 @@ class GetServices(generics.ListAPIView):
             )
 
         # find services that support his keyword
-        try:
-            keyword = self.request.query_params["keyword"]
-        except:
-            keyword = None
+        keyword = request.GET.get('keyword', None)
 
         # if given, then only return services for this service_type
         service_type = None

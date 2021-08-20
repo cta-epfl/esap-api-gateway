@@ -39,6 +39,7 @@ def get_configuration(name=None, session=None):
         try:
             my_config = my_config.Config(session)
         except AttributeError as e:
+            # Config function is not required, so continue silently
             pass
 
     except Exception as error:

@@ -83,7 +83,6 @@ class rucio_connector(query_base):
 
         access_token = session.get("oidc_access_token", None)
 
-
         query_info = query["query_info"]
         url = query_info["url_pattern"].format(
             host=f"{self.url}", **query_info["url_params"]
@@ -119,7 +118,6 @@ class rucio_connector(query_base):
         :return: results: an array of dicts with the following structure;
         """
         logger.info("query:" + str(query))
-        results = []
 
         # create a function that reads the data from lofar
         rucio_results = self._get_data_from_rucio(query, session)
