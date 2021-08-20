@@ -19,7 +19,7 @@ echo "building esap-gui frontend in $ESAP_GUI_DIR"
 npm run build
 
 cp -r $ESAP_GUI_DIR/build/*.* $ESAP_SHARED/public_html/esap-gui
-cp -r $ESAP_GUI_DIR/build/static/*.* $ESAP_SHARED/static
+cp -r $ESAP_GUI_DIR/build/static/* $ESAP_SHARED/static
 
 # start esap
 docker-compose -f $ESAP_SHARED/docker-compose.yml up --build -d
