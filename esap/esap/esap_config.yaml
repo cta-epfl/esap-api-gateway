@@ -1,0 +1,1371 @@
+- model: query.esapbaseobject
+  pk: 1
+  fields:
+    uri: apertif
+    name: WSRT-Apertif
+    short_description: Apertif Surveys
+    long_description: Data from the Apertif surveys include imaging and time-domain
+      data. The time-domain products consist of high-time resolution filterbank data
+      in the PSRFITS standard. The imaging data products include the raw observations
+      in the measurement set (MS) standard format. In addition, processed data products
+      are available, including calibration tables, calibrated visibilities, multi-frequency
+      synthesis continuum images, polarization images and cubes, and uncleaned neutral
+      hydrogen (HI) line and beam cubes. Full details of these data will be provided
+      in upcoming papers (van Leeuwen et al. 2020, Adams et al. 2020).
+    retrieval_description: Data can be retrieved via the Apertif Long Term Archive
+      (ALTA). Public data can be downloaded from the ALTA web interface or retrieved
+      via wget (necessary for MS files). Non-public data can be browsed with an ALTA
+      account but cannot be retrieved via the ALTA web interface.
+    thumbnail: https://alta.astron.nl/alta-static/images/esap/apertif.jpg
+    documentation_url: http://old.astron.nl/radio-observatory/apertif-surveys
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 2
+  fields:
+    uri: lofar
+    name: LOFAR-LTA
+    short_description: LOFAR LTA data
+    long_description: "The data from all LOFAR cycle, commissioning and DDT projects
+      since 2013 are stored in the archive. The interferometric data products that
+      can be found include raw, pre-processed data in the measurement set (MS) format,
+      and the products from the calibration, imaging and long baseline pipelines.
+      In the case of beamformed observations, raw data are available in HDF5 format
+      as well as higher-level data products including de-dispersed time series, dynamic
+      spectra and folded pulse profiles. More details on the types of data products
+      stored on the archive are provided [here].\r\n([here] is wherever you put the
+      more detailed description that was sent to you separately)."
+    retrieval_description: The LOFAR Long Term Archive (LTA) web service is the main
+      access point for searching and staging data from the LOFAR LTA. Staged data
+      can be retrieved via wget. The entire LOFAR LTA catalogue can be browsed regardless
+      of whether the data are public/proprietary (a proprietary period of one year
+      is applied for new data). Staging and subsequent downloading of either public
+      or proprietary data always requires an account with LTA user access privileges.
+      An account can be created online and after creating the account, a request for
+      LTA user privileges should be sent to Science Operations & Support (SOS) using
+      the JIRA ticketing system (https://support.astron.nl/rohelpdesk). Note that
+      only project members are allowed to download proprietary data. In the near future,
+      users will be able to query these data through the Query page of ASTRON Data
+      Explorer.
+    thumbnail: https://alta.astron.nl/alta-static/images/esap/lofar.jpg
+    documentation_url: http://old.astron.nl/radio-observatory/observing-capabilities/depth-technical-information/data-management/data-management
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 3
+  fields:
+    uri: astron_vo
+    name: ASTRON VO
+    short_description: ASTRON Virtual Observatory
+    long_description: The Virtual Observatory defines a set of standards that can
+      be used to download astronomical data. The ASTRON VO contains several image
+      surveys, which are images in the FITS format. Since the VO is currenty under
+      development, more data types will be available in the future.
+    retrieval_description: Data from the VO can be downloaded using the query functionality
+      of the web page. Also, the VO standard protocols can be used to find the data
+      that is shared through the service using external tools like TOPCAT, Aladin
+      or DS9. Note that a few services are password protected. Those are marked with
+      a "[P]" in the service listing.
+    thumbnail: https://alta.astron.nl/alta-static/images/esap/astron_vo.jpg
+    documentation_url: https://vo.astron.nl/static/help.shtml
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 4
+  fields:
+    uri: wsrt_mffe
+    name: WSRT
+    short_description: Westerbork Datasets
+    long_description: "The Westerbork datasets are the result of the scientific campaigns
+      carried out with the Westerbork Radio Telescope from 1970 until 2015. \r\nThe
+      archive includes full polarization interferometric and tied array beam observations
+      in the frequency range between 115 and 8800 MHz. \r\nThe scientific content
+      of the archive spans from continuum and HI surveys, observations of objects
+      of various scientific interest such as: AGN, galaxies, clusters of galaxies,
+      Supernovae, pulsars and transients."
+    retrieval_description: Early data (1970-2004) are stored in the original tape
+      format and they are in the process to be saved on disk. Later interferometric
+      data (2004-2015) can be retrieved contacting the Radio Observatory. These are
+      stored into measurement set format and can be converted into UVFITS using a
+      simple procedure. Pulsar timing observations are pulsar timing are made available
+      to the astronomical community through data sharing agreements as part of the
+      European Pulsar Timing Array and International Pulsar Timing Array. This archive
+      also includes the administration of data recorded during the Very Long Baseline
+      Interferometry campaigns from 2004 until 2015. For the access to these data
+      please contact JIVE.
+    thumbnail: https://alta.astron.nl/alta-static/images/esap/wsrt.jpg
+    documentation_url: http://old.astron.nl/radio-observatory/astronomers/analysis-wsrt-mffe-data/analysis-wsrt-mffe-data
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 5
+  fields:
+    uri: wsrt-1970-1999
+    name: WSRT 1970-1999
+    short_description: WSRT 1970-1999
+    long_description: A large part of the data recorded between 1970 and 1999 on the
+      DLB, DCB and older correlator systems are available on request. These are stored
+      on CD-ROM and in the process of being transferred to a more accessible solution.
+      The data is stored in the original Leiden and Dwingeloo formats it was recorded
+      in. These files can be converted to the more common UVFITS format using NEWSTAR.
+      Conversion can be performed by Observatory staff upon request, if the number
+      of files is limited. Data can also be processed in NEWSTAR itself. Documentation
+      of NEWSTAR can be found at https://lofar-astron.github.io/Newstar/ and the NEWSTAR
+      program itself can be found at https://github.com/lofar-astron/Newstar. The
+      tools CASA, MIRIAD and AIPS might also work on some of this data, but to what
+      extent is unknown and the user is likely to encounter some difficulties. For
+      the WISH and WENSS survey, the FITS images produced are also stored in the archive.
+      The processed and calibrated visibilities of the WENSS data is partially available
+      in NEWSTAR formats. None of this data is directly accessible from the internet,
+      but can be requested from the observatory. There is currently no overview of
+      the frequency ranges covered by this dataset.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/images/apertif_standard_cube2.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 9
+  fields:
+    uri: lotss-dr1
+    name: LoTSS-DR1
+    short_description: LoTSS-DR1
+    long_description: The LOFAR Two-metre Sky Survey First Data Release contains images
+      and catalogs that characterise the low-frequency radio emission in the region
+      of the HETDEX Spring Field (right ascension 10h45m00s to15h30m00s and declination
+      45◦00′00′′ to 57◦00′00′′). A total of 325,694 radio sources are detected in
+      a region covering 424 square degrees. The maps have a median sensitivity of
+      71 uJy/beam and a resolution of 6 arcsec. Optical counterparts for 71% of the
+      radio sources have been identified and where possible photometric redshifts
+      for these sources have been derived. Four services are available for this dataset,
+      namely Cross-Matched Source Catalogue, Image Archive, Image Cutout Service,
+      and Raw Radio Catalogue.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: https://vo.astron.nl/
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 12
+  fields:
+    uri: lotss-pdr
+    name: LoTSS-PDR
+    short_description: LoTSS-PDR
+    long_description: The LOFAR HBA Tier-1 preliminary data release contains images
+      and catalogs that characterise the low-frequency radio emission in the region
+      of the HETDEX Spring Field. In excess of 40,000 sources are detected in the
+      images that cover an area of over 350 square degrees, have a resolution of 25
+      arcsec, and typical noise levels of less than 0.5 mJy/beam. Three services are
+      available for this dataset, namely Source Catalogue, Image Archive, and Image
+      Cutout Service.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: https://vo.astron.nl/
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 15
+  fields:
+    uri: sauron-hi-survey
+    name: SAURON HI Survey
+    short_description: SAURON HI Survey
+    long_description: This project consists of deep Westerbork Synthesis Radio Telescope
+      observations of neutral hydrogen in 12 nearby elliptical and lenticular galaxies.
+      The selected objects come from a representative sample of nearby galaxies earlier
+      studied at optical wavelengths with the integral-field spectrograph SAURON (Spectrographic
+      Areal Unit for Research on Optical Nebulae). They are field galaxies, or (in
+      two cases) located in poor group environments. This service queries total HI
+      images. Two services are available for this dataset, namely Images and Velocity
+      Fields.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: https://vo.astron.nl/wow/sauron/img/info
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 18
+  fields:
+    uri: lofar-lta
+    name: LTA
+    short_description: LTA
+    long_description: "Welcome to the Lofar Long Term Archive (LTA) web service\r\nThis
+      service is the main access point for searching and downloading data from the
+      LOFAR LTA. Please visit the documentation for a description on how to use this
+      service."
+    retrieval_description: ''
+    thumbnail: https://lta.lofar.eu/opt/astrowise/awehome3/master/awlofar/services/archive/assets/logo.jpg
+    documentation_url: https://www.astron.nl/lofarwiki/doku.php?id=public:lta_howto
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 19
+  fields:
+    uri: astron-vo
+    name: Astron VO
+    short_description: Astron Virtual Observatory
+    long_description: The index page lists published services available through web
+      browsers. A \"[P]\" in the service listing means that the service is password
+      protected, either because it is too rough for public consumption or because
+      the data providers want exclusive access. In either case, you can contact the
+      site operators to inquire about access.
+    retrieval_description: ''
+    thumbnail: http://ivoa.net/images/ivoa_logoc2.jpg
+    documentation_url: https://vo.astron.nl/
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 20
+  fields:
+    uri: wsrt-mom
+    name: MoM (WSRT)
+    short_description: Westerbork MFFE Catalog
+    long_description: WSRT data can be calibrated and analyzed using different data
+      reduction packages. Depending on the type of experiment/data, certain packages
+      can be preferred. The most commonly used packages are listed here with a few
+      lines of comments on the pros and cons and possible problems encountered in
+      each of the packages with regard to WSRT data.
+    retrieval_description: ''
+    thumbnail: http://wow.astron.nl/images/prova_img5.jpg
+    documentation_url: http://wsrt.astron.nl/mom3
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 32
+  fields:
+    uri: alta-retrieval-service
+    name: ALTA Retrieval Service
+    short_description: ALTA Retrieval Service
+    long_description: This service can retrieve observations based on target name
+      or 'rectangle search' (RA, dec).
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 33
+  fields:
+    uri: alta
+    name: ALTA Imaging raw data
+    short_description: ALTA Imaging raw data
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/images/apertif_apercal_pipeline.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 34
+  fields:
+    uri: apertif-imaging-rawdata
+    name: Imaging Survey raw data
+    short_description: Imaging Survey raw data
+    long_description: In imaging mode, the Apertif correlator provides 24576 channels
+      over a bandwidth of 300 MHz, which can be placed in the frequency range 1130-1750
+      MHz. The data is taken in full Stokes mode, and the combination of bandwidth
+      and spectral resolution means that the Apertif imaging data are simultaneously
+      sensitive continuum, polarization,and neutral hydrogen (H i) data.
+    retrieval_description: "The raw visibility data are automatically ingested into
+      ALTA after completion of an observation. The visibilities are recorded in measurement-set
+      (MS) format. With 24576 channels, 12 dishes,\r\n40 beams, and 30 second integration,
+      the size of a typical survey field (11.5 hour observation) is 4.6TB. Calibrator
+      observations have 10 second integrations and vary from 4–5 minutes on source,
+      resulting in a datasize of 83.2–104 GB per calibrator observation. Since a calibrator
+      is placed in every beam, a total\r\ncalibration scan (40 beams) results in 3.3–4.2
+      TB of data stored on ALTA. In order to minimize data volumes, the unnecessary
+      data for each calibration observation (i.e., the 39 beams without\r\na calibrator)
+      are deleted from ALTA after the generation of in spection plots. This procedure
+      is called \"pruning\" and results in a total size of 83.2–104 GB for each full
+      calibrator scan.\r\nIn addition to the raw data itself, inspection plots are
+      generated for a quick look at the quality of the data."
+    thumbnail: https://alta.astron.nl/alta-static/images/apertif_observation_blank.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 36
+  fields:
+    uri: astron-vo-tap
+    name: astron-vo-tap
+    short_description: The VO @ ASTRON TAP service
+    long_description: 'The The VO @ ASTRON''s TAP end point. The Table Access Protocol
+      (TAP) lets you execute queries against our database tables, inspect various
+      metadata, and upload your own data. It is thus the VO''s premier way to access
+      public data holdings. Tables exposed through this endpoint include: main from
+      the lbcs schema, main, mom0 from the sauron schema, img_main from the lofartier1
+      schema, img_main, main from the tgssadr schema, main, msssvf_img_main from the
+      mvf schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema
+      schema, hetdex_images, img_main from the hetdex schema, img_main from the msss
+      schema, obscore from the ivoa schema.'
+    retrieval_description: "This service speaks TAP, a protocol designed to allow
+      the exchange of queries and data between clients (that's normally something
+      running on your computer) and servers (e.g., us).\r\n\r\nYou will want to use
+      some sort of client to query TAP services; examples for those include:\r\n\r\nTOPCAT
+      (see in the \"VO\" menu)\r\nTAPHandle (following this link should bring you
+      to a page that lets you query this server) works completely within your browser,\r\npyVO
+      (for VO support in python programs)\r\nYou can, in a pinch, use our service
+      in an XML-enabled browser, too. Under Overview, look for the bullet point on
+      tap and follow the link to \"this service\". Then, click on \"New job...\" in
+      the job list, enter your query, click \"Set query\", then \"Execute query\".
+      Reload the page you are redirected to now and then to see when your job is finished,
+      then retrieve the result."
+    thumbnail: http://ivoa.net/images/ivoa_logoc2.jpg
+    documentation_url: https://vo.astron.nl/__system__/tap/run/info
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 39
+  fields:
+    uri: ned-vo
+    name: NED VO
+    short_description: NASA/IPAC Extragalactic Database
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://ned.ipac.caltech.edu/sites/default/files/NEDVectorLogo_WebBanner_100pxTall_2NoStars.png
+    documentation_url: https://ned.ipac.caltech.edu/Documents/Guides/Interface/TAP
+    institute: NASA/IPAC
+- model: query.esapbaseobject
+  pk: 40
+  fields:
+    uri: ned-objdir
+    name: NED objdir
+    short_description: NASA/IPAC Extragalactic Database
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://ned.ipac.caltech.edu/sites/default/files/NEDVectorLogo_WebBanner_100pxTall_2NoStars.png
+    documentation_url: https://ned.ipac.caltech.edu/Documents/Guides/Interface/TAP
+    institute: NASA/IPAC
+- model: query.esapbaseobject
+  pk: 42
+  fields:
+    uri: apertif-imaging-processeddata
+    name: Imaging Survey Processed Data
+    short_description: Imaging Survey Processed Data
+    long_description: Imaging Survey data products are produced from running through
+      the imaging pipeline, Apercal. This pipeline flagged the data, derived cross-calibration
+      solutions, found self-calibration solutions from the target data, and produced
+      multi-frequency synthesis continuum images and dirty, non-continuum-subtracted
+      line cubes over the frequency range 1400-1420 MHz.
+    retrieval_description: Apercal is publicly available via github. The re-processing
+      of data first retrieves the raw data from the Apertif Long Term Archive (ALTA),
+      then applies manual flags to the data, including flagging subband edges and
+      for shadowing, and runs AOFlagger to identify and flag RFI. Calibration solutions,
+      including bandpass, residual delays, complex gains, and polarization angle and
+      leakage, are derived for each beam using CASA. These solutions are applied to
+      the target dataset. A phase-only self-calibration is performed on a frequency-averaged
+      version of the target dataset for every beam. An amplitude and phase self-calibration
+      is also undertaken; this is accepted if it significantly improves data quality.
+      The final self-calibrated data is used to produce a multi-frequency synthesis
+      image. The final image is cleaned down to a 1σ-level within masks generated
+      with a 5σ-threshold, where σ is the calculated theoretical noise of the observation.
+      In addition, continuum chunk images over 25 MHz are produced by the pipeline.
+      Continuum subtraction is done in the uv-plane using the final continuum model
+      produced above. The continuum-subtracted data is broken into spectral windows
+      The lowest redshift spectral window is retained at full spectral resolution;
+      all other spectral windows undergo a three-channel averaging. A dirty line cube
+      (no source finding or cleaning) is then produced for each spectral window. The
+      final self-calibrated data is averaged to 6.25 MHz. These averaged visibilities
+      are used to produces Stokes Q and U cubes, plus a Stokes V multi-frequency synthesis
+      image.
+    thumbnail: https://alta.astron.nl/alta-static/images/apertif_calibration_pipeline_blank.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 43
+  fields:
+    uri: vso
+    name: Virtual Solar Observatory
+    short_description: Virtual Solar Observatory
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://sdac.virtualsolar.org/vso/logo/VSO2.jpg
+    documentation_url: null
+    institute: VSO
+- model: query.esapbaseobject
+  pk: 45
+  fields:
+    uri: vso
+    name: Virtual Solar Observatory
+    short_description: Virtual Solar Observatory
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://sdac.virtualsolar.org/vso/logo/VSO2.jpg
+    documentation_url: null
+    institute: VSO
+- model: query.esapbaseobject
+  pk: 46
+  fields:
+    uri: wsrt-1997-2015
+    name: WSRT 1997-2015
+    short_description: WSRT 1997-2015
+    long_description: All data recorded with the DZB correlator in AIPS++/CASA Measurement
+      Set format is available on disk at the observatory. The entire catalogue can
+      be searched. Data can be either made available over the internet, for data after
+      ±2004, as described below, or can be requested from the observatory. It can
+      be converted to UVFITS or NEWSTAR SCN format on request, if the number of files
+      is limited. This data can either be processed with CASA, BIMA MIRIAD or ATNF
+      MIRIAD, or AIPS depending on the science and observation. This archive contains
+      no processed and calibrated data, or images. This dataset contains data between
+      115 and 8800 MHz observed with MFFE and LFFE systems.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 47
+  fields:
+    uri: wsrt-2004-2015
+    name: WSRT 2004-2015
+    short_description: WSRT 2004-2015
+    long_description: Data recorded with the DZB correlator in AIPS++/CASA Measurement
+      Set format is available in the online, internet-accessible, project management
+      system MoM. Original members of the projects that were granted the observing
+      time can directly download the data with the ASTRON account that was used for
+      the proposal, and is also used for LOFAR proposal and archive systems. All projects
+      in this system are no longer proprietary as per the ASTRON policies on public
+      data. Anyone can request the observatory for access to a project and the data
+      of that project, if they have created or already own an ASTRON account. Access
+      can be granted based on project code and/or description, or if the user has
+      found observation and project sequence numbers from the 1997-2015 catalogue
+      system. Data can be automatically retrieved in either Measurement Set, UVFITS
+      or SCN format and downloaded over the internet after conversion and J2000 calibration.
+      This archive contains no processed and calibrated data, or images. This dataset
+      contains data between 115 and 8800 MHz observed with MFFE and LFFE systems.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 48
+  fields:
+    uri: wsrt-archive
+    name: WSRT Archive
+    short_description: WSRT Archive
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: http://old.astron.nl/sites/astron.nl/files/cms/wsrt_calibrating.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 49
+  fields:
+    uri: helio
+    name: HELIO
+    short_description: Heliophysics Integrated Observatory
+    long_description: Heliophysics Integrated Observatory
+    retrieval_description: ''
+    thumbnail: http://helio-vo.eu/logos/helio_logo4_sm.jpg
+    documentation_url: http://helio-vo.eu/
+    institute: Helio
+- model: query.esapbaseobject
+  pk: 50
+  fields:
+    uri: helio
+    name: Heliophysics Integrated Observatory
+    short_description: Heliophysics Integrated Observatory
+    long_description: Heliophysics Integrated Observatory
+    retrieval_description: ''
+    thumbnail: http://helio-vo.eu/logos/helio_logo4_sm.jpg
+    documentation_url: http://www.helio-vo.eu/
+    institute: Helio
+- model: query.esapbaseobject
+  pk: 51
+  fields:
+    uri: vo_reg
+    name: VO Registry of Registries
+    short_description: VO Registry of Registries
+    long_description: VO Registry of Registries
+    retrieval_description: ''
+    thumbnail: http://ivoa.net/images/ivoa_logoc2.jpg
+    documentation_url: http://registry.euro-vo.org/evor/#home
+    institute: IVOA
+- model: query.esapbaseobject
+  pk: 52
+  fields:
+    uri: vo_reg_eurovo
+    name: Euro-VO Registry
+    short_description: Euro-VO Registry
+    long_description: Euro-VO Registry
+    retrieval_description: ''
+    thumbnail: http://registry.euro-vo.org/eurovo/images/imaget.png
+    documentation_url: null
+    institute: IVOA
+- model: query.esapbaseobject
+  pk: 53
+  fields:
+    uri: apertif-timedomain-raw
+    name: Time-domain Survey raw data
+    short_description: Time-domain Survey raw data
+    long_description: "For each pointing in the ALERT survey, all Tied Array Beams
+      are archive.\r\nThis time-domain data is in PSRFITS format, Stokes I, with 1-bit
+      sampling, using 768 channels of 0.4MHz each, every 0.8ms."
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/images/apertif_observation_blank.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 54
+  fields:
+    uri: lofar-lta
+    name: LOFAR Long Term Archive
+    short_description: LOFAR Long Term Archive
+    long_description: Different data product types can be found in the LTA, such as
+      raw data (correlated/beamformed), averaging pipeline, calibration pipeline,
+      imaging pipeline, long baseline pipeline, pulsar pipeline, dynamic spectra.
+      In order to obtain high-level data products, additional processing steps are
+      needed. For interferometric data, the first standard data processing step is
+      called the ‘Pre-processing pipeline’. The Pre-processing pipeline flags the
+      data in time and frequency and optionally averages them in time and/or frequency.
+      It can also be used to subtract the brightest sources in the sky (the so-called
+      'A-team' sources) from the visibilities through the 'demixing' algorithm, and
+      to compress the uv data with Dysco. For the vast majority of interferometric
+      observations, this step is performed by the Radio Observatory and the pre-processed
+      data are made available on the archive. The software that performs this step
+      is the Default Pre-Processing Pipeline (DPPP). The Pulsar Pipeline (PulP; Stappers
+      et al. 2011) is the standard processing tool used by the RO for LOFAR pulsar
+      observations.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: null
+    institute: astron
+- model: query.esapbaseobject
+  pk: 56
+  fields:
+    uri: tgssadr-image
+    name: TGSSADR Image Archive
+    short_description: TGSSADR Image Archive
+    long_description: This is the catalogue of images (5 def square mosaics) from
+      the images of the TIFR GMRT Sky Survey (TGSS) Alternative Data Release (up to
+      1 deg square). This data release contains previously unpublished data from the
+      TIFR GMRT Sky Survey (TGSS), which has been independently reprocessed. It includes
+      continuum stokes I images of 99.5 percent of the radio sky north of -53° DEC
+      (3.6π sr, or 90 percent of the full sky) at a resolution of 25“ x 25” north
+      of 19° DEC and 25“ x 25” / cos(DEC-19°) south of 19°, and a median noise of
+      3.5 mJy/beam. The extracted radio source catalog contains positions, flux densities,
+      sizes and more for 0.62 Million sources down to a 7-sigma peak-to-noise threshold.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: https://vo.astron.nl/
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 57
+  fields:
+    uri: zooniverse
+    name: Zooniverse
+    short_description: Zooniverse Classification Database
+    long_description: The Zooniverse is the world’s largest and most popular platform
+      for people-powered research. This research is made possible by volunteers —
+      more than a million people around the world who come together to assist professional
+      researchers. Our goal is to enable research that would not be possible, or practical,
+      otherwise. Zooniverse research results in new discoveries, datasets useful to
+      the wider research community, and many publications.
+    retrieval_description: Data retrieval is facilitated by a RESTful web API. The
+      ESAP platform makes use of a Python client library provided by the Zooniverse
+      development team.
+    thumbnail: https://alta.astron.nl/alta-static/images/esap/zooniverse.png
+    documentation_url: null
+    institute: Open University
+- model: query.esapbaseobject
+  pk: 58
+  fields:
+    uri: zooniverse_panoptes
+    name: Zooniverse Panoptes
+    short_description: Zooniverse Panoptes
+    long_description: Panoptes is the name of the backend API that drives the Zooniverse
+      citizen science platform. It provides a RESTful API with to the database of
+      Zooniverse projects and workflows, as well as the classifications provided by
+      citizen scientists.
+    retrieval_description: Data retrieval is facilitated by a RESTful web API. The
+      ESAP platform makes use of a Python client library provided by the Zooniverse
+      development team.
+    thumbnail: https://github.com/zooniverse/Brand/raw/master/style%20guide/logos/zooniverse-emblem/zooniverse-logo-teal.png
+    documentation_url: null
+    institute: Open University
+- model: query.esapbaseobject
+  pk: 59
+  fields:
+    uri: zooniverse_projects
+    name: Zooniverse Projects
+    short_description: Zooniverse Projects
+    long_description: A Zooniverse Project encapsulates one or more workflows that
+      allow citizen scientists to perform analysis tasks on data subjects. A single
+      Zooniverse Project may include several Workflows that may operate on different
+      datasets and/or involve different analysis tasks.
+    retrieval_description: Data retrieval is facilitated by a RESTful web API. The
+      ESAP platform makes use of a Python client library provided by the Zooniverse
+      development team.
+    thumbnail: https://github.com/zooniverse/Brand/raw/master/style%20guide/logos/zooniverse-emblem/zooniverse-logo-teal.png
+    documentation_url: null
+    institute: Open University
+- model: query.esapbaseobject
+  pk: 60
+  fields:
+    uri: zooniverse_workflows
+    name: Zooniverse Workflows
+    short_description: Zooniverse Workflows
+    long_description: A Zooniverse Workflow encapsulates a series of separate analysis
+      tasks that are performed on data subjects by citizen scientists. A single Zooniverse
+      Project may include several Workflows that may operate on different datasets
+      and/or involve different analysis tasks.
+    retrieval_description: Data retrieval is facilitated by a RESTful web API. The
+      ESAP platform makes use of a Python client library provided by the Zooniverse
+      development team.
+    thumbnail: https://github.com/zooniverse/Brand/raw/master/style%20guide/logos/zooniverse-emblem/zooniverse-logo-teal.png
+    documentation_url: null
+    institute: Open University
+- model: query.esapbaseobject
+  pk: 61
+  fields:
+    uri: msss-verification
+    name: MSSS Verification
+    short_description: MSSS Verification
+    long_description: This survey is the first major observing program to be carried
+      out with LOFAR during its ongoing commissioning phase. The Verification Field
+      is a region of 100 square degrees centered at (15h,69◦).
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 62
+  fields:
+    uri: hetdex
+    name: hetdex
+    short_description: hetdex
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: null
+    institute: Astron
+- model: query.esapbaseobject
+  pk: 63
+  fields:
+    uri: ivoa
+    name: Virtual Observatory (VO)
+    short_description: Virtual Observatory (VO)
+    long_description: The Virtual Observatory defines a set of standards that can
+      be used to download astronomical data.
+    retrieval_description: Data from the VO can be downloaded using the query functionality
+      of the web page. Also, the VO standard protocols can be used to find the data
+      that is shared through the service using external tools like TOPCAT, Aladin
+      or DS9.
+    thumbnail: https://alta.astron.nl/alta-static/images/esap/ivoa.png
+    documentation_url: https://vo.astron.nl/static/help.shtml
+    institute: IVOA
+- model: query.esapbaseobject
+  pk: 64
+  fields:
+    uri: ivoa_tap
+    name: Table Access Protocol (TAP)
+    short_description: TAP -  Table Access Protocol
+    long_description: The table access protocol (TAP) defines a service protocol for
+      accessing general table data, including astronomical catalogs as well as general
+      database tables. Access is provided for both database and table metadata as
+      well as for actual table data. This version of the protocol includes support
+      for multiple query languages, including queries specified using the Astronomical
+      Data Query Language ADQL within an integrated interface. It also includes support
+      for both synchronous and asynchronous queries. Special support is provided for
+      spatially indexed queries using the spatial extensions in ADQL. A multi-position
+      query capability permits queries against an arbitrarily large list of astronomical
+      targets, providing a simple spatial cross-matching capability. More sophisticated
+      distributed cross-matching capabilities are possible by orchestrating a distributed
+      query across multiple TAP services.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
+    documentation_url: null
+    institute: IVOA
+- model: query.esapbaseobject
+  pk: 65
+  fields:
+    uri: ivoa_sia
+    name: Simple Image Access  (SIA)
+    short_description: Simple Image Access  (SIA)
+    long_description: The Simple Image Access protocol (SIA) provides capabilities
+      for the discovery, description, access, and retrieval of multi-dimensional image
+      datasets, including 2-D images as well as datacubes of three or more dimensions.
+      SIA data discovery is based on the ObsCore Data Model (ObsCoreDM), which primarily
+      describes data products by the physical axes (spatial, spectral, time, and polarization).
+      Image datasets with dimension greater than 2 are often referred to as datacubes,
+      cube or image cube datasets and may be considered examples of hypercube or n-cube
+      data. In this document the term “image” refers to general multi-dimensional
+      datasets and is synonymous with these other terms unless the image dimensionality
+      is otherwise specified. SIA provides capabilities for image discovery and access.
+      Data discovery and metadata access (using ObsCoreDM) are defined here. The capabilities
+      for drilling down to data files (and related resources) and services for remote
+      access are defined elsewhere, but SIA also allows for direct access to retrieval.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/images/esap/ivoa.png
+    documentation_url: null
+    institute: IVOA
+- model: query.esapbaseobject
+  pk: 66
+  fields:
+    uri: ivoa_ssa
+    name: Table Access Protocol (SSA)
+    short_description: Table Access Protocol (SSA)
+    long_description: 'The Simple Spectral Access (SSA) Protocol (SSAP) defines a
+      uniform interface to remotely discover and access one dimensional spectra. SSA
+      is a member of an integrated family of data access interfaces altogether comprising
+      the Data Access Layer (DAL) of the IVOA. SSA is based on a more general data
+      model capable of describing most tabular spectrophotometric data, including
+      time series and spectral energy distributions (SEDs) as well as 1-D spectra;
+      however the scope of the SSA interface as specified in this document is limited
+      to simple 1-D spectra, including simple aggregations of 1-D spectra. The form
+      of the SSA interface is simple: clients first query the global resource registry
+      to find services of interest and then issue a data discovery query to selected
+      services to determine what relevant data is available from each service; the
+      candidate datasets available are described uniformly in a VOTable format document
+      which is returned in response to the query. Finally, the client may retrieve
+      selected datasets for analysis. Spectrum datasets returned by an SSA spectrum
+      service may be either precomputed, archival datasets, or they may be virtual
+      data which is computed on the fly to respond to a client request. Spectrum datasets
+      may conform to a standard data model defined by SSA, or may be native spectra
+      with custom project-defined content. Spectra may be returned in any of a number
+      of standard data formats. Spectral data is generally stored externally to the
+      VO in a format specific to each spectral data collection; currently there is
+      no standard way to represent astronomical spectra, and virtually every project
+      does it differently. Hence spectra may be actively mediated to the standard
+      SSA-defined data model at access time by the service, so that client analysis
+      programs do not have to be familiar with the idiosyncratic details of each data
+      collection to be accessed.'
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/images/esap/ivoa.png
+    documentation_url: null
+    institute: IVOA
+- model: query.esapbaseobject
+  pk: 67
+  fields:
+    uri: ivoa_scs
+    name: Simple Cone Search  (SCS)
+    short_description: Simple Cone Search  (SCS)
+    long_description: This specification defines a simple query protocol for retrieving
+      records from a catalog of astronomical sources. The query describes sky position
+      and an angular distance, defining a cone on the sky. The response returns a
+      list of astronomical sources from the catalog whose positions lie within the
+      cone, formatted as a VOTable. This version of the specification is essentially
+      a transcription of the original Cone Search specification in order to move it
+      into the IVOA standardization process.
+    retrieval_description: ''
+    thumbnail: https://alta.astron.nl/alta-static/images/esap/ivoa.png
+    documentation_url: null
+    institute: IVOA
+- model: query.esapbaseobject
+  pk: 68
+  fields:
+    uri: esap_rucio
+    name: RUCIO
+    short_description: Rucio
+    long_description: "Built on more than a decade of experience, Rucio serves the
+      data needs of modern scientific experiments.\r\nLarge amounts of data, countless
+      numbers of files, heterogeneous storage systems, globally distributed data centres,
+      monitoring and analytics. All coming together in modular solution to fit your
+      needs."
+    retrieval_description: ''
+    thumbnail: https://sdc-dev.astron.nl/esap-gui/assets/images/rucio.png
+    documentation_url: null
+    institute: Many
+- model: query.esapbaseobject
+  pk: 69
+  fields:
+    uri: esap_rucio_entities
+    name: rucio entities
+    short_description: Rucio files and DIDs
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://sdc-dev.astron.nl/esap-gui/assets/images/rucio.png
+    documentation_url: null
+    institute: Many
+- model: query.esapbaseobject
+  pk: 70
+  fields:
+    uri: esap_rucio_rucio
+    name: rucio
+    short_description: Rucio
+    long_description: "Built on more than a decade of experience, Rucio serves the
+      data needs of modern scientific experiments.\r\nLarge amounts of data, countless
+      numbers of files, heterogeneous storage systems, globally distributed data centres,
+      monitoring and analytics. All coming together in modular solution to fit your
+      needs."
+    retrieval_description: ''
+    thumbnail: https://sdc-dev.astron.nl/esap-gui/assets/images/rucio.png
+    documentation_url: null
+    institute: Many
+- model: query.esapbaseobject
+  pk: 73
+  fields:
+    uri: astron_vo-apertif-dr1
+    name: Apertif DR1
+    short_description: Apertif DR1
+    long_description: Imaging Survey data products are produced from running through
+      the imaging pipeline, Apercal. This pipeline flagged the data, derived cross-calibration
+      solutions, found self-calibration solutions from the target data, and produced
+      multi-frequency synthesis continuum images and dirty, non-continuum-subtracted
+      line cubes over the frequency range 1400-1420 MHz.
+    retrieval_description: Apercal is publicly available via github. The re-processing
+      of data first retrieves the raw data from the Apertif Long Term Archive (ALTA),
+      then applies manual flags to the data, including flagging subband edges and
+      for shadowing, and runs AOFlagger to identify and flag RFI. Calibration solutions,
+      including bandpass, residual delays, complex gains, and polarization angle and
+      leakage, are derived for each beam using CASA. These solutions are applied to
+      the target dataset. A phase-only self-calibration is performed on a frequency-averaged
+      version of the target dataset for every beam. An amplitude and phase self-calibration
+      is also undertaken; this is accepted if it significantly improves data quality.
+      The final self-calibrated data is used to produce a multi-frequency synthesis
+      image. The final image is cleaned down to a 1σ-level within masks generated
+      with a 5σ-threshold, where σ is the calculated theoretical noise of the observation.
+      In addition, continuum chunk images over 25 MHz are produced by the pipeline.
+      Continuum subtraction is done in the uv-plane using the final continuum model
+      produced above. The continuum-subtracted data is broken into spectral windows
+      The lowest redshift spectral window is retained at full spectral resolution;
+      all other spectral windows undergo a three-channel averaging. A dirty line cube
+      (no source finding or cleaning) is then produced for each spectral window. The
+      final self-calibrated data is averaged to 6.25 MHz. These averaged visibilities
+      are used to produces Stokes Q and U cubes, plus a Stokes V multi-frequency synthesis
+      image.
+    thumbnail: https://alta.astron.nl/alta-static/images/apertif_calibration_pipeline_blank.jpg
+    documentation_url: https://vo.astron.nl/
+    institute: Astron
+- model: query.parametermapping
+  pk: 6
+  fields:
+    uri: vo
+    parameters: "{\r\n\"title\" : \"obs_title\",\r\n\"target\" : \"target_name\",\r\n\"ra\"
+      : \"s_ra\",\r\n\"dec\" : \"s_dec\",\r\n\"fov\" : \"s_fov\",\r\n\"access_url\"
+      : \"access_url\",\r\n\"collection\":\"obs_collection\"\r\n}"
+- model: query.parametermapping
+  pk: 7
+  fields:
+    uri: alta
+    parameters: "{\r\n\"target\" : \"target__icontains\",\r\n\"title\" : \"target__icontains\",\r\n\"ra\"
+      : \"view_ra\",\r\n\"dec\" : \"view_dec\",\r\n\"fov\" : \"view_fov\",\r\n\"dataproduct_level\"
+      : \"calibrationLevel\",\r\n\"dataproduct_type\" : \"dataProductType\",\r\n\"dataproduct_subtype\"
+      : \"dataProductSubType\"\r\n}"
+- model: query.parametermapping
+  pk: 8
+  fields:
+    uri: ned-objdir
+    parameters: "{\r\n\"title\" : \"obs_title\",\r\n\"target\" : \"target_name\",\r\n\"ra\"
+      : \"ra\",\r\n\"dec\" : \"dec\",\r\n\"fov\" : \"fov\"\r\n}"
+- model: query.parametermapping
+  pk: 9
+  fields:
+    uri: vso
+    parameters: '{"startdate":"start","enddate":"end","instrument":"instrument"}'
+- model: query.parametermapping
+  pk: 10
+  fields:
+    uri: helio
+    parameters: '{"startdate":"STARTTIME","enddate":"ENDTIME","instrument":"INSTRUMENT"}'
+- model: query.parametermapping
+  pk: 11
+  fields:
+    uri: vo_sauron
+    parameters: '{ "title" : "imagetitle", "target" : "imagetitle", "ra" : "centeralpha",
+      "dec" : "centerdelta", "fov" : "s_fov", "access_url" : "accref" }'
+- model: query.parametermapping
+  pk: 12
+  fields:
+    uri: zooniverse
+    parameters: '{}'
+- model: query.parametermapping
+  pk: 13
+  fields:
+    uri: lofar_lta
+    parameters: "{\r\n\"name\" : \"name\",\r\n\"sasid\" : \"sasid\",\r\n\"ra\" : \"ra\",\r\n\"dec\"
+      : \"dec\",\r\n\"url\" : \"url\"\r\n}"
+- model: query.parametermapping
+  pk: 14
+  fields:
+    uri: rucio
+    parameters: '{}'
+- model: query.catalog
+  pk: 18
+  fields:
+    equinox: ICRS
+    protocol: http
+    user_url: https://lta.lofar.eu/
+    url: https://lta.lofar.eu/
+    parameters: 13
+- model: query.catalog
+  pk: 19
+  fields:
+    equinox: ICRS
+    protocol: adql
+    user_url: http://localhost:3000/esap-gui-dev/query
+    url: https://vo.astron.nl/
+    parameters: 6
+- model: query.catalog
+  pk: 20
+  fields:
+    equinox: ICRS
+    protocol: http
+    user_url: http://wsrt.astron.nl/mom3
+    url: http://wsrt.astron.nl/mom3
+    parameters: null
+- model: query.catalog
+  pk: 33
+  fields:
+    equinox: J2000
+    protocol: http
+    user_url: http://localhost:3000/esap-gui-dev/query
+    url: https://alta.astron.nl/altapi
+    parameters: 7
+- model: query.catalog
+  pk: 36
+  fields:
+    equinox: ICRS
+    protocol: adql
+    user_url: https://vo.astron.nl/__system__/tap/run/info
+    url: https://vo.astron.nl/__system__/tap/run/tap
+    parameters: 6
+- model: query.catalog
+  pk: 39
+  fields:
+    equinox: J2000
+    protocol: adql
+    user_url: https://ned.ipac.caltech.edu/conesearch
+    url: https://ned.ipac.caltech.edu/tap
+    parameters: 8
+- model: query.catalog
+  pk: 43
+  fields:
+    equinox: ICRS
+    protocol: http
+    user_url: https://sdac.virtualsolar.org/cgi/search
+    url: https://sdac.virtualsolar.org/cgi/vsoui
+    parameters: 9
+- model: query.catalog
+  pk: 48
+  fields:
+    equinox: ICRS
+    protocol: http
+    user_url: https://old.astron.nl/wsrt-archive/php/QueryForm.php
+    url: https://old.astron.nl/wsrt-archive/php/QueryForm.php
+    parameters: null
+- model: query.catalog
+  pk: 49
+  fields:
+    equinox: J2000
+    protocol: http
+    user_url: http://hfe.helio-vo.eu/Helio/
+    url: http://msslkz.mssl.ucl.ac.uk/helio-dpas/HelioQueryServlet
+    parameters: 10
+- model: query.catalog
+  pk: 52
+  fields:
+    equinox: ICRS
+    protocol: adql
+    user_url: http://registry.euro-vo.org/evor/
+    url: http://registry.euro-vo.org/services/RegistrySearch
+    parameters: 6
+- model: query.catalog
+  pk: 59
+  fields:
+    equinox: N/A
+    protocol: http
+    user_url: https://zooniverse.org
+    url: https://zooniverse.org/api
+    parameters: 12
+- model: query.catalog
+  pk: 60
+  fields:
+    equinox: N/A
+    protocol: http
+    user_url: https://zooniverse.org
+    url: https://zooniverse.org/api
+    parameters: null
+- model: query.catalog
+  pk: 69
+  fields:
+    equinox: N/A
+    protocol: http
+    user_url: https://escape-rucio.cern.ch
+    url: https://escape-rucio.cern.ch
+    parameters: 14
+- model: query.archive
+  pk: 1
+  fields:
+    instrument: WSRT
+    order: 1
+    visible: true
+- model: query.archive
+  pk: 2
+  fields:
+    instrument: LOFAR
+    order: 3
+    visible: true
+- model: query.archive
+  pk: 3
+  fields:
+    instrument: Virtual Observatory
+    order: 2
+    visible: true
+- model: query.archive
+  pk: 4
+  fields:
+    instrument: WSRT
+    order: 6
+    visible: false
+- model: query.archive
+  pk: 57
+  fields:
+    instrument: Multiple
+    order: 4
+    visible: true
+- model: query.archive
+  pk: 63
+  fields:
+    instrument: Virtual Observatory
+    order: 5
+    visible: true
+- model: query.archive
+  pk: 68
+  fields:
+    instrument: Many
+    order: 7
+    visible: true
+- model: query.dataset
+  pk: 5
+  fields:
+    category: visibility
+    level: raw, processed
+    collection: null
+    dataset_catalog: null
+    dataset_archive: 4
+    resource_name: null
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: null
+- model: query.dataset
+  pk: 9
+  fields:
+    category: imaging
+    level: processed
+    collection: lotss-dr1
+    dataset_catalog: 36
+    dataset_archive: 3
+    resource_name: ivoa.obscore
+    select_fields: access_url
+    title_field: null
+    thumbnail_field: null
+    url_field: access_url
+    output_format: list
+    service_connector: vo.tap_service_connector
+- model: query.dataset
+  pk: 12
+  fields:
+    category: imaging
+    level: processed
+    collection: lotss-pdr
+    dataset_catalog: 36
+    dataset_archive: 3
+    resource_name: ivoa.obscore
+    select_fields: access_url
+    title_field: obs_title
+    thumbnail_field: null
+    url_field: access_url
+    output_format: list
+    service_connector: vo.tap_service_connector
+- model: query.dataset
+  pk: 15
+  fields:
+    category: imaging
+    level: processed
+    collection: sauron
+    dataset_catalog: 36
+    dataset_archive: 3
+    resource_name: ivoa.obscore
+    select_fields: access_url
+    title_field: obs_title
+    thumbnail_field: null
+    url_field: access_url
+    output_format: list
+    service_connector: vo.tap_service_connector
+- model: query.dataset
+  pk: 34
+  fields:
+    category: imaging
+    level: raw
+    collection: imaging
+    dataset_catalog: 33
+    dataset_archive: 1
+    resource_name: null
+    select_fields: null
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: alta.alta_connector
+- model: query.dataset
+  pk: 40
+  fields:
+    category: catalog
+    level: processed
+    collection: null
+    dataset_catalog: 39
+    dataset_archive: null
+    resource_name: objdir
+    select_fields: prefname
+    title_field: prefname
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: vo.tap_service_connector
+- model: query.dataset
+  pk: 42
+  fields:
+    category: imaging
+    level: processed
+    collection: imaging
+    dataset_catalog: 33
+    dataset_archive: 1
+    resource_name: null
+    select_fields: null
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: tiles
+    service_connector: alta.alta_connector
+- model: query.dataset
+  pk: 45
+  fields:
+    category: image
+    level: processed
+    collection: null
+    dataset_catalog: 43
+    dataset_archive: null
+    resource_name: vsoui
+    select_fields: provider,source
+    title_field: fileid
+    thumbnail_field: (hardcoded)
+    url_field: fileid
+    output_format: list
+    service_connector: vso.vso_connector
+- model: query.dataset
+  pk: 46
+  fields:
+    category: visibility
+    level: raw, processed
+    collection: null
+    dataset_catalog: 48
+    dataset_archive: 4
+    resource_name: null
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: null
+- model: query.dataset
+  pk: 47
+  fields:
+    category: visibility
+    level: raw
+    collection: null
+    dataset_catalog: 20
+    dataset_archive: 4
+    resource_name: null
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: null
+- model: query.dataset
+  pk: 50
+  fields:
+    category: image
+    level: processed
+    collection: null
+    dataset_catalog: 49
+    dataset_archive: null
+    resource_name: HelioQueryServlet
+    select_fields: time_start,time_end
+    title_field: (hardcoded)
+    thumbnail_field: (hardcoded)
+    url_field: url
+    output_format: list
+    service_connector: helio.helio_connector
+- model: query.dataset
+  pk: 51
+  fields:
+    category: image
+    level: registry
+    collection: null
+    dataset_catalog: 52
+    dataset_archive: 63
+    resource_name: ivoa.obscore
+    select_fields: '*'
+    title_field: obs_title
+    thumbnail_field: preview
+    url_field: access_url
+    output_format: list
+    service_connector: vo_reg.vo_registry_connector
+- model: query.dataset
+  pk: 53
+  fields:
+    category: timedomain
+    level: raw
+    collection: timedomain
+    dataset_catalog: 33
+    dataset_archive: 1
+    resource_name: null
+    select_fields: null
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: alta.alta_connector
+- model: query.dataset
+  pk: 54
+  fields:
+    category: visibility
+    level: raw
+    collection: null
+    dataset_catalog: 18
+    dataset_archive: 2
+    resource_name: null
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: access_url
+    output_format: list
+    service_connector: lofar.lta_connector
+- model: query.dataset
+  pk: 56
+  fields:
+    category: image
+    level: processed
+    collection: tgssadr
+    dataset_catalog: 36
+    dataset_archive: 3
+    resource_name: ivoa.obscore
+    select_fields: access_url
+    title_field: null
+    thumbnail_field: null
+    url_field: access_url
+    output_format: list
+    service_connector: vo.tap_service_connector
+- model: query.dataset
+  pk: 58
+  fields:
+    category: Citizen Science
+    level: Processed
+    collection: Projects
+    dataset_catalog: 59
+    dataset_archive: 57
+    resource_name: null
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: zooniverse.panoptes_connector
+- model: query.dataset
+  pk: 61
+  fields:
+    category: imaging
+    level: processed
+    collection: MSSSVerification
+    dataset_catalog: 36
+    dataset_archive: 3
+    resource_name: ivoa.obscore
+    select_fields: access_url
+    title_field: obs_title
+    thumbnail_field: thumbnail
+    url_field: access_url
+    output_format: list
+    service_connector: vo.tap_service_connector
+- model: query.dataset
+  pk: 62
+  fields:
+    category: imaging
+    level: processed
+    collection: hetdex
+    dataset_catalog: 36
+    dataset_archive: 3
+    resource_name: ivoa.obscore
+    select_fields: '*'
+    title_field: obs_title
+    thumbnail_field: thumbnail
+    url_field: access_url
+    output_format: list
+    service_connector: vo.tap_service_connector
+- model: query.dataset
+  pk: 64
+  fields:
+    category: tap
+    level: tap
+    collection: tap
+    dataset_catalog: 52
+    dataset_archive: 63
+    resource_name: null
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: vo_reg.vo_registry_connector
+- model: query.dataset
+  pk: 65
+  fields:
+    category: sia
+    level: sia
+    collection: sia
+    dataset_catalog: 52
+    dataset_archive: 63
+    resource_name: null
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: vo_reg.vo_registry_connector
+- model: query.dataset
+  pk: 66
+  fields:
+    category: ssa
+    level: ssa
+    collection: ssa
+    dataset_catalog: 52
+    dataset_archive: 63
+    resource_name: null
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: vo_reg.vo_registry_connector
+- model: query.dataset
+  pk: 67
+  fields:
+    category: scs
+    level: scs
+    collection: scs
+    dataset_catalog: 52
+    dataset_archive: 63
+    resource_name: null
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: vo_reg.vo_registry_connector
+- model: query.dataset
+  pk: 70
+  fields:
+    category: null
+    level: null
+    collection: null
+    dataset_catalog: 69
+    dataset_archive: 68
+    resource_name: rucio
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: rucio.rucio_connector
+- model: query.dataset
+  pk: 73
+  fields:
+    category: imaging
+    level: processed
+    collection: apertif-dr1
+    dataset_catalog: 36
+    dataset_archive: 3
+    resource_name: ivoa.obscore
+    select_fields: access_url
+    title_field: obs_title
+    thumbnail_field: preview
+    url_field: access_url
+    output_format: list
+    service_connector: vo.tap_service_connector
