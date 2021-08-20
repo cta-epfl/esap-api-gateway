@@ -3,9 +3,6 @@ import urllib.parse
 import json
 from django.conf import settings
 
-ID_TOKEN_KEY = "oidc_id_token"
-ACCESS_TOKEN_KEY = "oidc_access_token"
-
 def validate(token):
     url = urllib.parse.urljoin(f"{settings.RUCIO_HOST}", "rses/")
     response = requests.get(
@@ -19,7 +16,7 @@ def validate(token):
 
 
 def get_scope_names(session):
-    token = session.get(ACCESS_TOKEN_KEY, None)
+    token = session.get("oidc_access_token", None)
     # id_token = session.get(ID_TOKEN_KEY, None)
 
     if token is None:

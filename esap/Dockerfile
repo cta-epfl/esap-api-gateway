@@ -10,8 +10,10 @@ RUN pip install cryptography
 RUN pip install -r requirements/prod.txt
 RUN python manage.py collectstatic --settings=esap.settings.statics --no-input
 
+# create databases and import default configuration fixtures
+RUN python manage.py migrate --settings=esap.settings.dev
+RUN python manage.py loaddata --database=default --settings=esap.settings.dev esap/esap_config.yaml
 RUN python manage.py migrate rucio --database=rucio --settings=esap.settings.dev --no-input
-
 RUN python manage.py migrate ida --database=ida --settings=esap.settings.dev --no-input
 RUN python manage.py loaddata --database=ida --settings=esap.settings.dev esap/esap_ida_config.yaml
 
