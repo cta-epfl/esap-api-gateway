@@ -31,7 +31,7 @@ docker-build-branch-query:
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
   # except:
   only:
-    - esap-gateway-query
+    - esap-gateway-query-xxx
 
 docker-deploy-branch-query:
   image: docker:latest
