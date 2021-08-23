@@ -1,6 +1,6 @@
 #!/bin/bash
 # ESAP 'production' run script
-# version 19 aug 2021
+# version 23 aug 2021
 
 echo "=== ESAP Installation script 2 of 2 ==="
 
@@ -28,6 +28,21 @@ docker-compose -f $ESAP_SHARED/docker-compose.yml up --build -d
 if [ ! -f $ESAP_SHARED/esap_ida_config.sqlite3 ]
 then
   docker exec -it esap_api_gateway cp esap/esap_ida_config.sqlite3 /shared/esap_ida_config.sqlite3
+fi
+
+if [ ! -f $ESAP_SHARED/esap_rucio_config.sqlite3 ]
+then
+  docker exec -it esap_api_gateway cp esap/esap_rucio_config.sqlite3 /shared/esap_rucio_config.sqlite3
+fi
+
+if [ ! -f $ESAP_SHARED/esap_accounts_config.sqlite3 ]
+then
+  docker exec -it esap_api_gateway cp esap/esap_accounts_config.sqlite3 /shared/esap_accounts_config.sqlite3
+fi
+
+if [ ! -f $ESAP_SHARED/esap_config.sqlite3 ]
+then
+  docker exec -it esap_api_gateway cp esap/esap_config.sqlite3 /shared/esap_config.sqlite3
 fi
 
 echo "=== ESAP Installation PART 2 done ==="
