@@ -810,6 +810,40 @@
     thumbnail: https://alta.astron.nl/alta-static/images/apertif_calibration_pipeline_blank.jpg
     documentation_url: https://vo.astron.nl/
     institute: Astron
+- model: query.esapbaseobject
+  pk: 74
+  fields:
+    uri: esap_zenodo
+    name: ZENODO
+    short_description: Zenodo
+    long_description: Built and developed by researchers, to ensure that everyone
+      can join in Open Science.
+    retrieval_description: ''
+    thumbnail: https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png
+    documentation_url: null
+    institute: Many
+- model: query.esapbaseobject
+  pk: 75
+  fields:
+    uri: esap_zenodo_entities
+    name: zenodo entities
+    short_description: zenodo
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png
+    documentation_url: null
+    institute: Many
+- model: query.esapbaseobject
+  pk: 76
+  fields:
+    uri: esap_zenodo_zenodo
+    name: zenodo
+    short_description: zenodo
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png
+    documentation_url: null
+    institute: Many
 - model: query.parametermapping
   pk: 6
   fields:
@@ -862,6 +896,11 @@
   pk: 14
   fields:
     uri: rucio
+    parameters: '{}'
+- model: query.parametermapping
+  pk: 16
+  fields:
+    uri: zenodo
     parameters: '{}'
 - model: query.catalog
   pk: 18
@@ -967,6 +1006,14 @@
     user_url: https://escape-rucio.cern.ch
     url: https://escape-rucio.cern.ch
     parameters: 14
+- model: query.catalog
+  pk: 75
+  fields:
+    equinox: N/A
+    protocol: http
+    user_url: https://zenodo.org/api/
+    url: https://zenodo.org/api/
+    parameters: 16
 - model: query.archive
   pk: 1
   fields:
@@ -978,7 +1025,7 @@
   fields:
     instrument: LOFAR
     order: 3
-    visible: true
+    visible: false
 - model: query.archive
   pk: 3
   fields:
@@ -1002,12 +1049,18 @@
   fields:
     instrument: Virtual Observatory
     order: 5
-    visible: true
+    visible: false
 - model: query.archive
   pk: 68
   fields:
     instrument: Many
     order: 7
+    visible: true
+- model: query.archive
+  pk: 74
+  fields:
+    instrument: Many
+    order: 8
     visible: true
 - model: query.dataset
   pk: 5
@@ -1369,3 +1422,18 @@
     url_field: access_url
     output_format: list
     service_connector: vo.tap_service_connector
+- model: query.dataset
+  pk: 76
+  fields:
+    category: null
+    level: null
+    collection: null
+    dataset_catalog: 75
+    dataset_archive: 74
+    resource_name: zenodo
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    service_connector: zenodo.zenodo_connector
