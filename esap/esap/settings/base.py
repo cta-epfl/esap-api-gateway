@@ -7,13 +7,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cie-((m#n$br$6l53yash45*2^mwuux*2u)bad5(0flx@krnj9'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 IS_DEV = False
@@ -252,6 +245,12 @@ try:
 except:
    OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 36000
 
+# SECURITY WARNING: keep the secret key used in production secret!
+# preferably read the SECRET_KEY from the environment
+try:
+    SECRET_KEY = os.environ['SECRET_KEY']
+except:
+    SECRET_KEY = 'cie-((m#n$br$6l53yash45*2^mwuux*2u)bad5(0flx@krnj9'
 
 # Rucio environment variables
 try:
