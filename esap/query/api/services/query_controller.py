@@ -8,7 +8,7 @@ import logging
 from inspect import currentframe, getframeinfo
 
 from . import alta
-from . import vo, vo_reg, zooniverse, lofar, rucio
+from . import vo, vo_reg, zooniverse, lofar, rucio, zenodo
 
 logger = logging.getLogger(__name__)
 
@@ -34,6 +34,9 @@ def instantiate_connector(dataset):
 
     elif service_module.upper() == 'RUCIO':
         connector_class = getattr(rucio, service_connector)
+
+    elif service_module.upper() == 'ZENODO':
+        connector_class = getattr(zenodo, service_connector)
 
     url = str(dataset.dataset_catalog.url)
     connector = connector_class(url)
