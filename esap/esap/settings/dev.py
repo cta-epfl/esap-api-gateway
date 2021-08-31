@@ -55,9 +55,6 @@ AUTH_PASSWORD_VALIDATORS = []
 
 # configuration settings that can be requested through the REST API
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
-
-# CONFIGURATION_FILE = 'esap_solar'
-# CONFIGURATION_FILE = 'esap_config'
 CONFIGURATION_FILE = 'adex'
 
 LOGIN_REDIRECT_URL = "http://localhost:3000/esap-gui/login"
