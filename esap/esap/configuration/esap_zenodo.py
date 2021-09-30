@@ -1,9 +1,6 @@
-import requests
-import urllib.parse
-import json
-
-zenodo_url="https://zenodo.org/api"
-ZENODO_AUTH_TOKEN="REMOVED"
+#import requests
+#import urllib.parse
+#import json
 
 title = "Zenodo"
 logo = "https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png"
@@ -14,14 +11,24 @@ query_schema = {
     "title": "Zenodo Query",
     "type": "object",
     "properties": {
+        #"community": {
+            #"type": "string",
+            #"title": "community",
+        #},
+        "keyword": {
+            "type": "string",
+            "title": "keyword",
+        },
         "catalog": {
             "type": "string",
-            "title": "Communities",
             "title": "Catalog",
             "enum": ["zenodo"],
             "enumNames": ["Zenodo"]
         }
-    }
+    },
+    #"required": ["community"]
 }
+ui_schema = {"keyword": {"ui:help": "e.g. CTA", "ui:placeholder": "optional"}, "catalog": {"ui:widget": "hidden"}}
+#ui_schema = {"keyword": {"ui:help": "e.g. CTA"}, 
+#      "community": {"ui:help": "*required", "ui:placeholder": "escape2020"},"catalog": {"ui:widget": "hidden"}}
 
-ui_schema = {"catalog": {"ui:widget": "hidden"}}
