@@ -47,8 +47,6 @@ class zenodo_connector(query_base):
         where = {}
         error = {}
 
-        logger.info("AAAAAAA" + str(esap_query_params))
-
         if 'keyword' in esap_query_params.keys():
              query['keywords'] =  str(esap_query_params.pop('keyword')[0])
 
@@ -58,8 +56,6 @@ class zenodo_connector(query_base):
             del query[key]
             break
 
-        logger.info("CCCCCCCCCC" + str(query))
-
         return query, where, error
 
     def _get_data_from_zenodo(self, query, session):
@@ -67,8 +63,6 @@ class zenodo_connector(query_base):
 
         results = []
         response = []
-
-        logger.info("OOOOOOOOOOOO" + str(query))
 
         if query != "empty":
             try:
