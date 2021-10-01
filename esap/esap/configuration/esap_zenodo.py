@@ -11,10 +11,10 @@ query_schema = {
     "title": "Zenodo Query",
     "type": "object",
     "properties": {
-        #"community": {
-            #"type": "string",
-            #"title": "community",
-        #},
+        "community": {
+            "type": "string",
+            "title": "community",
+        },
         "keyword": {
             "type": "string",
             "title": "keyword",
@@ -26,9 +26,9 @@ query_schema = {
             "enumNames": ["Zenodo"]
         }
     },
-    #"required": ["community"]
+    "required": ["community"]
 }
-ui_schema = {"keyword": {"ui:help": "e.g. CTA", "ui:placeholder": "optional"}, "catalog": {"ui:widget": "hidden"}}
-#ui_schema = {"keyword": {"ui:help": "e.g. CTA"}, 
-#      "community": {"ui:help": "*required", "ui:placeholder": "escape2020"},"catalog": {"ui:widget": "hidden"}}
+#ui_schema = {"keyword": {"ui:help": "e.g. CTA", "ui:placeholder": "optional"}, "catalog": {"ui:widget": "hidden"}}
+ui_schema = {"keyword": {"ui:help": "e.g. CTA"}, 
+      "community": {"ui:help": "*required", "ui:placeholder": "escape2020"},"catalog": {"ui:widget": "hidden"}}
 
