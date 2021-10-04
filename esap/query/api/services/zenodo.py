@@ -16,17 +16,6 @@ logger = logging.getLogger(__name__)
 
 AMP_REPLACEMENT = "_and_"
 
-# The request header
-#ZENODO_HOST = "https://zenodo.org/api/communities"
-#ZENODO_AUTH_TOKEN = "REMOVED"
-
-#URLPATTERNS = dict(
-    #scope="{host}/scopes/",
-    #dids="{host}/dids/{scope}/",
-    #files="{host}/dids/{scope}/files/",
-    #replicas="{host}/replicas/{scope}/"
-#)
-
 # --------------------------------------------------------------------------------------------------------------------
 
 
@@ -44,18 +33,12 @@ class zenodo_connector(query_base):
         self, dataset, esap_query_params, translation_parameters, equinox
     ):
 
-        logger.info("AAAA" + str(esap_query_params))
-
         query = {'size': '1000'}
         where = {}
         error = {}
 
 
-        logger.info("BBBB" + str(query))
-
         query['communities'] =  str.lower(esap_query_params.pop('community')[0])
-
-        logger.info("CCCC" + str(query))
 
         if 'keyword' in esap_query_params.keys():
              query['keywords'] =  str(esap_query_params.pop('keyword')[0])
@@ -66,8 +49,6 @@ class zenodo_connector(query_base):
             del query[key]
             break
 
-        logger.info("DDDDD" + str(query))
-
         return query, where, error
 
     def _get_data_from_zenodo(self, query, session):
@@ -76,15 +57,13 @@ class zenodo_connector(query_base):
         results = []
         response = []
 
-        logger.info("OOOOOOO" + str(query))
-
         if query != "empty":
             try:
                  response = get_zenodo_records(**query)
             except:
-                 logger.info("No Results Found 1")
+                 logger.info("No Results Found in Zenodo Archive Search")
         else:
-             logger.info("empty!!")
+             logger.info("Empty search in Zenodo Archive Search")
 
         if len(response) > 0:
             results = [
