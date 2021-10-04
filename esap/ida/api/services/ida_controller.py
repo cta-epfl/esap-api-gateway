@@ -9,6 +9,7 @@ from ida.models import *
 from django.db.models import Q
 import django_filters
 import collections
+from . import Harvester
 
 logger = logging.getLogger(__name__)
 
@@ -25,13 +26,27 @@ def search_facilities(keyword="", objectclass=""):
 def search_workflows(keyword="", objectclass=""):
     """
     Search known workflows for a given keyword
+    Harvests from the ESCAPE WP3 Zenodo repository and from local database
     :param keyword: comma separated keywords
     :return:
     """
-    
-    return search(Workflow, keyword, objectclass)
+    response = {}
+    response["description"] = "ESAP API Gateway"
+    response["requested_page"] = "1"
+    response["requested_page_size"] = None
+    response["max_page_size"] = 500
+    response["default_page_size"] = "ESAP API Gateway"
+    response["count"] = 0
+    response["pages"] = 1
+    response["results"] = []
 
-
+    from django.core import serializers
+    db_workflows = serializers.serialize("python", Workflow.objects.all())
+    zenodo_workflows = Harvester.get_data_from_zenodo(query=keyword, keyword="jupyter-notebook")
+    for db_entry in db_workflows:
+        response["results"].append(db_entry["fields"])
+    response["results"].extend(zenodo_workflows)
+    return response
 
 
 

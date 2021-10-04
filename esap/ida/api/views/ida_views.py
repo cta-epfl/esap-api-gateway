@@ -10,7 +10,8 @@ from ida.models import *
 from rest_framework import generics
 from ..serializers import *
 from django.shortcuts import redirect
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 logger = logging.getLogger(__name__)
 
@@ -73,7 +74,7 @@ class SearchFacilities(generics.ListAPIView):
 
 
 # example: /esap-api/workflows/search
-class SearchWorkflows(generics.ListAPIView):
+class SearchWorkflows(APIView):
     """
     Get a list of facilities that match a keyword search
     If no keyword provided, return all facilities
@@ -84,9 +85,11 @@ class SearchWorkflows(generics.ListAPIView):
     model = Workflow
     queryset = model.objects.all()
 
-    # override list and generate a custom response
-    def list(self, request, *args, **kwargs):
+    permission_classes = (permissions.AllowAny,)
+    http_method_names = ['get', 'head']
 
+
+    def get(self, request, keyword=None):
         keyword = None
 
         # is there a keyword parameter?
@@ -97,12 +100,23 @@ class SearchWorkflows(generics.ListAPIView):
             pass
 
         data = ida_controller.search_workflows(keyword=keyword, objectclass="workflow")
+        return Response(data)
 
-        # paginate the results
-        page = self.paginate_queryset(data)
-        serializer = WorkflowSerializer(instance=page, many=True)
+    def post(self, request, keyword=None):
+        keyword = None
 
-        return self.get_paginated_response(serializer.data)
+        # is there a keyword parameter?
+        try:
+            keyword = self.request.query_params['keyword']
+
+        except:
+            pass
+
+        data = ida_controller.search_workflows(keyword=keyword, objectclass="workflow")
+        return Response(data)
+
+
+
 
 # example: /esap-api/deploy
 class Deploy():
@@ -121,9 +135,13 @@ class Deploy():
         Note also that workflow and facility paramters to this function appear
         to be entirely ignored in favour of looking at the request.
         """
-
         facility = Facility.objects.get(url=request.GET['facility'])
-        workflow = Workflow.objects.get(url=request.GET['workflow'])
+        workflow_url = request.GET['workflow']
+        try:
+            workflow = Workflow.objects.get(url=workflow_url)
+        except Exception as e:
+            # Workflow not found in database, must be an OSSR entry
+            workflow = Workflow(name=workflow_url, description='', url=workflow_url, ref='HEAD', filepath='', workflowtype='notebook')
 
         if facility.name == "MyBinder":
 
@@ -141,7 +159,21 @@ class Deploy():
         else:
             # Note that we're not actually using the workflow at all here --
             # it's just ignored as we redirect to the facility only.
-            target = facility.url
+            BINDER_API_ROOT = facility.url + "v2"
+            BINDER_REPO_TYPE = "git"
+            BINDER_REPO_URL = quote_url(workflow.url)
+            BINDER_REPO_REF = workflow.ref
+            BINDER_REPO_FILE = quote_url(workflow.filepath)
+
+            # By default, launch into the JupyterLab environment
+            BINDER_INTERFACE = f"urlpath=lab{'/tree/' + BINDER_REPO_FILE if BINDER_REPO_FILE else ''}"
+
+            target = f"{BINDER_API_ROOT}/{BINDER_REPO_TYPE}/{BINDER_REPO_URL}/{BINDER_REPO_REF}?{BINDER_INTERFACE}"
+
+        #else:
+            ## Note that we're not actually using the workflow at all here --
+            ## it's just ignored as we redirect to the facility only.
+            #target = facility.url
 
         return redirect(target)
 
