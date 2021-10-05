@@ -3,7 +3,8 @@
     Date created: 2021-05-16
     Description:  Zenodo Service Connector for ESAP.
 """
-
+#from eossr.api import get_ossr_records
+from eossr.api import get_zenodo_records
 from rest_framework import serializers
 from .query_base import query_base
 import requests
@@ -14,17 +15,6 @@ import string
 logger = logging.getLogger(__name__)
 
 AMP_REPLACEMENT = "_and_"
-
-# The request header
-ZENODO_HOST = "https://zenodo.org/api/communities"
-ZENODO_AUTH_TOKEN = "REMOVED"
-
-URLPATTERNS = dict(
-    scope="{host}/scopes/",
-    dids="{host}/dids/{scope}/",
-    files="{host}/dids/{scope}/files/",
-    replicas="{host}/replicas/{scope}/"
-)
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -43,66 +33,43 @@ class zenodo_connector(query_base):
         self, dataset, esap_query_params, translation_parameters, equinox
     ):
 
-        query = {}
+        query = {'size': '1000'}
         where = {}
-        errors = []
+        error = {}
 
-        query = dict(
-            resource_category=esap_query_params.pop("resource_category", ["dids"])[0]
-        )
 
-        url_pattern = URLPATTERNS.get(
-            query["resource_category"], URLPATTERNS.get("escape2020")
-        )
+        query['communities'] =  str.lower(esap_query_params.pop('community')[0])
 
-        url_pattern_fields = [
-            field[1] for field in string.Formatter().parse(url_pattern)
-        ]
+        if 'keyword' in esap_query_params.keys():
+             query['keywords'] =  str(esap_query_params.pop('keyword')[0])
 
-        try:
-            url_params = {
-                field: esap_query_params.pop(field, "Missing")[0]
-                for field in url_pattern_fields
-                if field is not None and field != "host"
-            }
+        desired_value = 'undefined'
+        for key, value in query.items():
+          if value == desired_value:
+            del query[key]
+            break
 
-            # translate the remianing esap_parameters to specific catalog parameters
-            where = {
-                translation_parameters.get(key, key): value[0]
-                for key, value in esap_query_params.items()
-                if key not in ["catalog"]
-            }
-            query = dict(
-                query_info=dict(
-                    url_pattern=url_pattern, url_params=url_params, where=where
-                )
-            )
-        except Exception as e:
-            errors.append(f"Zenodo Connector {type(e)} {e}")
-
-        return query, where, errors
+        return query, where, error
 
     def _get_data_from_zenodo(self, query, session):
         """ use Zenodo REST API to query the data lake """
-        #query_info = query["query_info"]
-        #url = query_info["url_pattern"].format(
-            #host=f"{self.url}", **query_info["url_params"]
-        #)
+
         results = []
-        response = requests.get(
-             'https://zenodo.org/api/records',
-                        params={'communities': 'escape2020',
-                                'access_token': ZENODO_AUTH_TOKEN,
-				'size': 100 }
-       ) 
-        if len(response.content.strip()):
+        response = []
+
+        if query != "empty":
+            try:
+                 response = get_zenodo_records(**query)
+            except:
+                 logger.info("No Results Found in Zenodo Archive Search")
+        else:
+             logger.info("Empty search in Zenodo Archive Search")
+
+        if len(response) > 0:
             results = [
-                json.loads(element)
-               for element in response.content.decode("utf-8").strip().split("\n")
-            ]
-
-
-        ##logger.info("WHAT" + str(results))
+                element.data
+                for element in response
+             ]
 
         return results
 
@@ -120,7 +87,6 @@ class zenodo_connector(query_base):
         :param query_params: the incoming esap query parameters)
         :return: results: an array of dicts with the following structure;
         """
-        logger.info("query:" + str(query))
 
         # create a function that reads the data from lofar
         zenodo_results = self._get_data_from_zenodo(query, session)
