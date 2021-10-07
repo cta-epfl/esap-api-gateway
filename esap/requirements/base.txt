@@ -13,3 +13,4 @@ requests==2.22.0
 django-rest-knox==4.1.0
 mozilla-django-oidc==1.2.4
 panoptes-client==1.2.0
+eossr==0.2
