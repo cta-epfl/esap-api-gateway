@@ -39,6 +39,9 @@ class Harvester(object):
                     item["name"] = record.data["metadata"]["title"]
                     item["workflow"] = "notebook"
                     item["url"] = codemeta["codeRepository"]
+                    item["runtimePlatform"] = codemeta["runtimePlatform"]
+                    item["keywords"] = ", ".join(codemeta["keywords"])
+                    item["author"] = codemeta["author"][0]["givenName"] + " " + codemeta["author"][0]["familyName"]
                     item["ref"] = "HEAD"
                     item["filepath"] = ""
 
