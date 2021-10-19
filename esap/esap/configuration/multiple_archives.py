@@ -4,7 +4,7 @@ logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 # definition of the query
 query_schema = {
     "name": "multiple_archives",
-    "title": "Multiple Archives Query (cone search)",
+    "title": "Multiple Astronomy Archives Query (cone search)",
     "type": "object",
     "properties": {
 
