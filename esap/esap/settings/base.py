@@ -254,13 +254,13 @@ except:
 
 # Rucio environment variables
 try:
-    RUCIO_AUTH_TOKEN = os.environ['RUCIO_AUTH_TOKEN']
-    RUCIO_AUTH_HOST = os.environ['RUCIO_AUTH_HOST']
+    #RUCIO_AUTH_TOKEN = os.environ['RUCIO_AUTH_TOKEN']
+    #RUCIO_AUTH_HOST = os.environ['RUCIO_AUTH_HOST']
     RUCIO_HOST = os.environ['RUCIO_HOST']
 
 except:
-    RUCIO_AUTH_TOKEN = None
-    RUCIO_AUTH_HOST = None
+    #RUCIO_AUTH_TOKEN = None
+    #RUCIO_AUTH_HOST = None
     RUCIO_HOST = None
 
 
