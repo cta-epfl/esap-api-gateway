@@ -66,5 +66,5 @@ LOGIN_REDIRECT_URL_FAILURE = "http://localhost:3000/esap-gui/error"
 try:
    OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = float(os.environ['OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS'])
 except:
-   OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 3600
+   OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 36000
 #OIDC_EXEMPT_URLS = ['/esap-api/accounts/user-profiles']

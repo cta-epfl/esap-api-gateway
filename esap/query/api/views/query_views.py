@@ -124,7 +124,7 @@ class RunQueryView(generics.ListAPIView):
             override_service_type=service_type,
         )
 
-        return Response({"query_results": query_results})
+        return Response({"results": query_results})
 
 
 class CreateAndRunQueryView(generics.ListAPIView):
@@ -252,6 +252,7 @@ class CreateAndRunQueryView(generics.ListAPIView):
                    serializer = CreateAndRunQuerySerializer(instance=page, many=True)
 
                 return self.get_paginated_response(serializer.data)
+
 
 class GetServices(generics.ListAPIView):
     """

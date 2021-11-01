@@ -83,6 +83,12 @@ def create_query(datasets, query_params, override_resource=None, connector=None,
                     result['res_description'] = dataset.short_description
                     result['reference_url'] = dataset.documentation_url
 
+                    # Add some extra generic 'esap standard' fields that are also used
+                    # in the 'query' endpoint. Used for some extra selection granularity
+                    result['category'] = dataset.category
+                    result['level'] = dataset.level
+                    result['collection'] = dataset.collection
+
                     # get the translation parameters for the service for this dataset
                     parameter_mapping = json.loads(dataset.dataset_catalog.parameters.parameters)
 
@@ -268,7 +274,7 @@ def create_and_run_query(datasets,
         # the 'query' parameter from the 'create_query' function can be a bit richer than
         # what 'run_query' expects. This is the case for VO queries where a ADQL query is created.
         # When 'run_query' and 'create_query' are handled separately by a frontend then the
-        # frontend ensures that the 'query' parameter is.
+        # frontend ensures that the 'query' parameter is set.
         # In this combined 'query' function it must be done here
         try:
             query = query.split('&QUERY=')[1]
