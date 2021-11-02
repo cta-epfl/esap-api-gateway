@@ -177,7 +177,9 @@ class alta_connector(query_base):
                 raise Exception(json_response)
 
             for dataproduct in dataproducts:
+
                 record = {}
+                record['collection'] = "unknown"
                 record['name'] = dataproduct['name']
                 record['PID'] = dataproduct['PID']
                 record['dataProductType'] = dataproduct['dataProductType']
@@ -186,7 +188,7 @@ class alta_connector(query_base):
                 record['generatedByActivity'] = dataproduct['generatedByActivity'][0]
                 record['datasetID'] = dataproduct['datasetID']
                 # record['target'] = "???"
-                record['RA'] = dataproduct['RA']
+                record['ra'] = dataproduct['RA']
                 record['dec'] = dataproduct['dec']
                 record['fov'] = dataproduct['fov']
                 record['release'] = dataproduct['derived_release_id']
@@ -224,17 +226,22 @@ class alta_connector(query_base):
 
     # custom serializer for the 'query' endpoint
     class CreateAndRunQuerySerializer(serializers.Serializer):
+        # required esap fields
         name = serializers.CharField()
+        collection = serializers.CharField()
+        fov = serializers.FloatField()
+        ra = serializers.FloatField()
+        dec = serializers.FloatField()
+        url = serializers.CharField()
+
+        # extra fields
         PID = serializers.CharField()
         dataProductType = serializers.CharField()
         dataProductSubType = serializers.CharField()
         generatedByActivity = serializers.CharField()
         datasetID = serializers.CharField()
-        RA = serializers.FloatField()
-        dec = serializers.FloatField()
-        fov = serializers.FloatField()
         storageRef = serializers.CharField()
-        url = serializers.CharField()
+
 
         class Meta:
             fields = '__all__'

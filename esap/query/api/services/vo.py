@@ -205,6 +205,11 @@ class tap_service_connector(query_base):
                 pass
 
             try:
+                record['name'] = row['target_name'].decode('utf-8')
+            except:
+                record['name'] = 'unknown'
+
+            try:
                 record['ra'] = row['s_ra']
             except:
                 pass
@@ -226,8 +231,9 @@ class tap_service_connector(query_base):
 
             try:
                 record['obs_collection'] = row['obs_collection'].decode('utf-8')
+                record['collection'] = row['obs_collection'].decode('utf-8')
             except:
-                pass
+                record['collection']  = 'unknown'
 
             try:
                 record['size'] = row['access_estsize']
@@ -251,17 +257,23 @@ class tap_service_connector(query_base):
 
     # custom serializer for the 'query' endpoint
     class CreateAndRunQuerySerializer(serializers.Serializer):
+
+        # required esap_fields
+        name = serializers.CharField()
+        collection = serializers.CharField()
+        ra = serializers.FloatField()
+        dec = serializers.FloatField()
+        fov = serializers.FloatField()
+
+        # extra fields
         dataset = serializers.CharField()
-        # dataset_name = serializers.CharField()
         result = serializers.CharField()
+
         dataproduct_type = serializers.CharField()
         calibration_level = serializers.IntegerField()
         target = serializers.CharField()
         obs_collection = serializers.CharField()
         size = serializers.IntegerField()
-        ra = serializers.FloatField()
-        dec = serializers.FloatField()
-        fov = serializers.FloatField()
         facility = serializers.CharField()
         instrument = serializers.CharField()
         url = serializers.CharField()
