@@ -158,6 +158,27 @@ class alta_connector(query_base):
             vo_url = vo_url.replace('APERTIF_DR1_Imaging', 'APERTIF_DR1')
             return vo_url
 
+
+        def get_collection(dataProductSubType):
+
+            collection = 'unknown'
+            level = 'unknown'
+
+            if dataProductSubType == 'uncalibratedVisibility':
+                collection = 'imaging'
+                level = 'raw'
+
+            if dataProductSubType in 'calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube':
+                collection = 'imaging'
+                level = 'processed'
+
+            if dataProductSubType == 'pulsarTimingTimeSeries':
+                collection = 'TIMEDOMAIN'
+                level = 'raw'
+
+            return collection, level
+
+
         results = []
         pagination_record = {}
         # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
@@ -177,7 +198,10 @@ class alta_connector(query_base):
                 raise Exception(json_response)
 
             for dataproduct in dataproducts:
+                collection, level = get_collection(dataproduct['dataProductSubType'])
                 record = {}
+                record['collection'] = collection
+                record['level'] = level
                 record['name'] = dataproduct['name']
                 record['PID'] = dataproduct['PID']
                 record['dataProductType'] = dataproduct['dataProductType']
@@ -186,7 +210,7 @@ class alta_connector(query_base):
                 record['generatedByActivity'] = dataproduct['generatedByActivity'][0]
                 record['datasetID'] = dataproduct['datasetID']
                 # record['target'] = "???"
-                record['RA'] = dataproduct['RA']
+                record['ra'] = dataproduct['RA']
                 record['dec'] = dataproduct['dec']
                 record['fov'] = dataproduct['fov']
                 record['release'] = dataproduct['derived_release_id']
@@ -224,17 +248,22 @@ class alta_connector(query_base):
 
     # custom serializer for the 'query' endpoint
     class CreateAndRunQuerySerializer(serializers.Serializer):
+        # required esap fields
         name = serializers.CharField()
+        collection = serializers.CharField()
+        fov = serializers.FloatField()
+        ra = serializers.FloatField()
+        dec = serializers.FloatField()
+        url = serializers.CharField()
+
+        # extra fields
         PID = serializers.CharField()
         dataProductType = serializers.CharField()
         dataProductSubType = serializers.CharField()
         generatedByActivity = serializers.CharField()
         datasetID = serializers.CharField()
-        RA = serializers.FloatField()
-        dec = serializers.FloatField()
-        fov = serializers.FloatField()
         storageRef = serializers.CharField()
-        url = serializers.CharField()
+
 
         class Meta:
             fields = '__all__'
