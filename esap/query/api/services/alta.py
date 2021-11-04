@@ -158,6 +158,27 @@ class alta_connector(query_base):
             vo_url = vo_url.replace('APERTIF_DR1_Imaging', 'APERTIF_DR1')
             return vo_url
 
+
+        def get_collection(dataProductSubType):
+
+            collection = 'unknown'
+            level = 'unknown'
+
+            if dataProductSubType == 'uncalibratedVisibility':
+                collection = 'imaging'
+                level = 'raw'
+
+            if dataProductSubType in 'calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube':
+                collection = 'imaging'
+                level = 'processed'
+
+            if dataProductSubType == 'pulsarTimingTimeSeries':
+                collection = 'TIMEDOMAIN'
+                level = 'raw'
+
+            return collection, level
+
+
         results = []
         pagination_record = {}
         # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
@@ -177,9 +198,10 @@ class alta_connector(query_base):
                 raise Exception(json_response)
 
             for dataproduct in dataproducts:
-
+                collection, level = get_collection(dataproduct['dataProductSubType'])
                 record = {}
-                record['collection'] = "unknown"
+                record['collection'] = collection
+                record['level'] = level
                 record['name'] = dataproduct['name']
                 record['PID'] = dataproduct['PID']
                 record['dataProductType'] = dataproduct['dataProductType']

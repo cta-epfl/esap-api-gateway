@@ -191,6 +191,7 @@ class tap_service_connector(query_base):
 
             try:
                 record['calibration_level'] = row['calib_level']
+                record['level'] = row['calib_level']
             except:
                 pass
 
@@ -261,6 +262,7 @@ class tap_service_connector(query_base):
         # required esap_fields
         name = serializers.CharField()
         collection = serializers.CharField()
+        level = serializers.CharField()
         ra = serializers.FloatField()
         dec = serializers.FloatField()
         fov = serializers.FloatField()
