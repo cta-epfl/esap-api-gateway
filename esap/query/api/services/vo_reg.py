@@ -259,6 +259,21 @@ class vo_registry_connector(query_base):
             record['result'] = result
             record['query'] = query
 
+            try:
+                fieldnames = []
+                for column in resultset.fieldnames:
+                    new_column = {}
+                    new_column['name'] = column
+                    new_column_meta = resultset.getdesc(column)
+                    new_column['description'] = new_column_meta.description
+                    new_column['ucd'] = new_column_meta.ucd
+                    new_column['utype'] = new_column_meta.utype
+                    new_column['datatype'] = new_column_meta.datatype
+                    fieldnames.append(new_column)
+                record['fields'] = fieldnames
+            except Exception as e:
+                record['fields'] = ''
+
             # add some fields to return some rendering information for the frontend.
             # for ivoa.obscore field names see: http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
             try:
@@ -274,6 +289,7 @@ class vo_registry_connector(query_base):
             try:
                 record['url'] = row[dataset.url_field].decode('utf-8')
             except:
+                record['url'] = ''
                 pass
 
             # record['fieldnames'] = str(resultset.fieldnames)
