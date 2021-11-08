@@ -6,6 +6,7 @@
 """
 
 from .query_base import query_base
+from rest_framework import serializers
 import pyvo
 import urllib.parse
 
@@ -384,3 +385,19 @@ class vo_registry_connector(query_base):
             return "ERROR: " + str(error)
 
         return tables
+
+
+    # custom serializer for the 'query' endpoint
+    class CreateAndRunQuerySerializer(serializers.Serializer):
+
+        dataset = serializers.CharField()
+        result = serializers.CharField()
+        query = serializers.CharField()
+        url = serializers.CharField()
+        thumbnail = serializers.CharField()
+
+        # extra fields
+        fields = serializers.ListField()
+
+        class Meta:
+            fields = '__all__'
