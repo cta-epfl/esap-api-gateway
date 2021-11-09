@@ -271,6 +271,11 @@ def create_and_run_query(datasets,
         dataset_name = q['dataset_name']
         query = q['query']
 
+        try:
+            connector = instantiate_connector(dataset)
+        except:
+            pass
+
         # the 'query' parameter from the 'create_query' function can be a bit richer than
         # what 'run_query' expects. This is the case for VO queries where a ADQL query is created.
         # When 'run_query' and 'create_query' are handled separately by a frontend then the
