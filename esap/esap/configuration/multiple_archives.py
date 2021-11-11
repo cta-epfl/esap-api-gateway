@@ -1,5 +1,6 @@
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 
+archives = ["apertif","astron_vo"]
 
 # definition of the query
 query_schema = {
