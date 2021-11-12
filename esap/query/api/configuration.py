@@ -87,4 +87,9 @@ def get_configuration(name=None, session=None):
     except:
         pass
 
+    try:
+        result['archives'] = my_config.archives
+    except:
+        pass
+
     return result
