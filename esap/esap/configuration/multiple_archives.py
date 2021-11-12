@@ -1,6 +1,13 @@
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 
-archives = ["apertif","astron_vo"]
+# which datasets are used for the multi archives query?
+datasets_enabled = [
+    {"archive" : "apertif", "dataset": "apertif-imaging-processeddata"},
+    {"archive" : "apertif", "dataset": "apertif-timedomain-raw"},
+    {"archive" : "astron_vo", "dataset": "astron_vo-apertif-dr1"},
+    {"archive" : "astron_vo", "dataset": "lotss-dr1"},
+    {"archive" : "astron_vo", "dataset": "sauron-hi-survey"}
+]
 
 # definition of the query
 query_schema = {
@@ -9,10 +16,6 @@ query_schema = {
     "type": "object",
     "properties": {
 
-        "target": {
-            "type": "string",
-            "title": "Target"
-        },
         "ra": {
             "type": "number",
             "title": "RA (degrees)",
