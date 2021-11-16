@@ -166,15 +166,19 @@ class alta_connector(query_base):
 
             if dataProductSubType == 'uncalibratedVisibility':
                 collection = 'imaging'
-                level = 'raw'
+                level = '0'
 
-            if dataProductSubType in 'calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube':
+            if dataProductSubType in 'calibratedVisibility':
                 collection = 'imaging'
-                level = 'processed'
+                level = '1'
+
+            if dataProductSubType in 'continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube':
+                collection = 'imaging'
+                level = '2'
 
             if dataProductSubType == 'pulsarTimingTimeSeries':
                 collection = 'TIMEDOMAIN'
-                level = 'raw'
+                level = '0'
 
             return collection, level
 
@@ -200,8 +204,10 @@ class alta_connector(query_base):
             for dataproduct in dataproducts:
                 collection, level = get_collection(dataproduct['dataProductSubType'])
                 record = {}
+                record['dataset'] = dataset_name
                 record['collection'] = collection
                 record['level'] = level
+                record['level'] = dataproduct['calibrationLevel']
                 record['name'] = dataproduct['name']
                 record['PID'] = dataproduct['PID']
                 record['dataProductType'] = dataproduct['dataProductType']

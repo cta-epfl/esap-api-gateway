@@ -1,11 +1,17 @@
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 
 # which datasets are used for the multi archives query?
+archives = ["apertif","astron_vo"]
+#datasets_enabled = ["apertif-imaging-processeddata","apertif-timedomain-raw","astron_vo-apertif-dr1","lotss-dr1","sauron-hi-survey"]
 datasets_enabled = [
+    {"archive" : "apertif", "dataset": "apertif-imaging-rawdata"},
     {"archive" : "apertif", "dataset": "apertif-imaging-processeddata"},
     {"archive" : "apertif", "dataset": "apertif-timedomain-raw"},
     {"archive" : "astron_vo", "dataset": "astron_vo-apertif-dr1"},
+    {"archive" : "astron_vo", "dataset": "tgssadr-image"},
     {"archive" : "astron_vo", "dataset": "lotss-dr1"},
+    {"archive" : "astron_vo", "dataset": "lotss-pdr"},
+    {"archive" : "astron_vo", "dataset": "hetdex"},
     {"archive" : "astron_vo", "dataset": "sauron-hi-survey"}
 ]
 
