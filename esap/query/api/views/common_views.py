@@ -175,7 +175,7 @@ class DataSetDetailsViewAPI(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = DataSetSerializer
 
 
-# example: /esap-api/query/datasets/
+# example: /esap-api/query/datasets-uri/
 class DataSetListUriViewAPI(generics.ListCreateAPIView):
     """
     A list of DataSets
