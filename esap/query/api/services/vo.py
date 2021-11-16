@@ -61,6 +61,7 @@ class tap_service_connector(query_base):
         esap_query_params = dict(query_params)
         where = ''
         errors = []
+        limit = "1000"
 
         # cone search is a specific type of query that uses ra, dec and a search radius.
         # it is also done with a specific ADQL syntax.
@@ -81,6 +82,9 @@ class tap_service_connector(query_base):
                     dataset_key = translation_parameters[esap_key]
                     where = where + dataset_key + "='" + value + "'" + SEPARATOR
 
+                if esap_key == 'page_size':
+                    limit = value
+
             except Exception as error:
                 # if the parameter could not be translated, use it raw and continue
                 where = where + esap_key + "='" + value + "' " + SEPARATOR
@@ -93,7 +97,7 @@ class tap_service_connector(query_base):
         query = query + "?lang=ADQL&REQUEST=doQuery"
 
         # add query ADQL parameters (limit to 1000 results)
-        query = query + "&QUERY=SELECT TOP 1000 * from "
+        query = query + "&QUERY=SELECT TOP " + limit + " * from "
 
         # if the parameter '&resource=...' is given to the url, then use that resource..
         if override_resource:

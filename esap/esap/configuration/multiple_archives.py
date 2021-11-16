@@ -18,7 +18,7 @@ datasets_enabled = [
 # definition of the query
 query_schema = {
     "name": "multiple_archives",
-    "title": "Multiple Astronomy Archives Query (cone search)",
+    "title": "Multiple Archives Query",
     "type": "object",
     "properties": {
 
@@ -36,6 +36,11 @@ query_schema = {
             "type": "number",
             "title": "search radius (degrees)",
             "default": 2.0,
+        },
+        "page_size": {
+            "type": "number",
+            "title": "results per dataset",
+            "default": 10,
         },
     },
 }

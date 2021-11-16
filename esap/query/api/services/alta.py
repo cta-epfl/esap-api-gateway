@@ -188,7 +188,6 @@ class alta_connector(query_base):
         # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
         # something harmless during serialization. Replace it again with the &
         query = query.replace(AMP_REPLACEMENT,'&')
-
         try:
 
             # execute the http request to ALTA and retrieve the dataproducts
