@@ -15,7 +15,7 @@ class query_base:
         self.url = url
 
     # implement this in the derived service classes
-    def construct_query(self, dataset, esap_query_params, translation_parameters, equinox, override_resource=None):
+    def construct_query(self, dataset, esap_query_params, translation_parameters, override_resource=None):
         pass
 
     # implement this in the derived service classes
