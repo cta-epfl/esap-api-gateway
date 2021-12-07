@@ -104,7 +104,7 @@ class lta_connector(query_base):
 
     # construct a query for this type of service
 
-    def construct_query(self, dataset, esap_query_params, translation_parameters, equinox):
+    def construct_query(self, dataset, esap_query_params, translation_parameters):
 
         where = ''
         errors = []

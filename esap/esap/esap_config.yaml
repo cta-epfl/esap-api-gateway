@@ -68,58 +68,6 @@
     documentation_url: https://vo.astron.nl/static/help.shtml
     institute: Astron
 - model: query.esapbaseobject
-  pk: 4
-  fields:
-    uri: wsrt_mffe
-    name: WSRT
-    short_description: Westerbork Datasets
-    long_description: "The Westerbork datasets are the result of the scientific campaigns
-      carried out with the Westerbork Radio Telescope from 1970 until 2015. \r\nThe
-      archive includes full polarization interferometric and tied array beam observations
-      in the frequency range between 115 and 8800 MHz. \r\nThe scientific content
-      of the archive spans from continuum and HI surveys, observations of objects
-      of various scientific interest such as: AGN, galaxies, clusters of galaxies,
-      Supernovae, pulsars and transients."
-    retrieval_description: Early data (1970-2004) are stored in the original tape
-      format and they are in the process to be saved on disk. Later interferometric
-      data (2004-2015) can be retrieved contacting the Radio Observatory. These are
-      stored into measurement set format and can be converted into UVFITS using a
-      simple procedure. Pulsar timing observations are pulsar timing are made available
-      to the astronomical community through data sharing agreements as part of the
-      European Pulsar Timing Array and International Pulsar Timing Array. This archive
-      also includes the administration of data recorded during the Very Long Baseline
-      Interferometry campaigns from 2004 until 2015. For the access to these data
-      please contact JIVE.
-    thumbnail: https://alta.astron.nl/alta-static/images/esap/wsrt.jpg
-    documentation_url: http://old.astron.nl/radio-observatory/astronomers/analysis-wsrt-mffe-data/analysis-wsrt-mffe-data
-    institute: Astron
-- model: query.esapbaseobject
-  pk: 5
-  fields:
-    uri: wsrt-1970-1999
-    name: WSRT 1970-1999
-    short_description: WSRT 1970-1999
-    long_description: A large part of the data recorded between 1970 and 1999 on the
-      DLB, DCB and older correlator systems are available on request. These are stored
-      on CD-ROM and in the process of being transferred to a more accessible solution.
-      The data is stored in the original Leiden and Dwingeloo formats it was recorded
-      in. These files can be converted to the more common UVFITS format using NEWSTAR.
-      Conversion can be performed by Observatory staff upon request, if the number
-      of files is limited. Data can also be processed in NEWSTAR itself. Documentation
-      of NEWSTAR can be found at https://lofar-astron.github.io/Newstar/ and the NEWSTAR
-      program itself can be found at https://github.com/lofar-astron/Newstar. The
-      tools CASA, MIRIAD and AIPS might also work on some of this data, but to what
-      extent is unknown and the user is likely to encounter some difficulties. For
-      the WISH and WENSS survey, the FITS images produced are also stored in the archive.
-      The processed and calibrated visibilities of the WENSS data is partially available
-      in NEWSTAR formats. None of this data is directly accessible from the internet,
-      but can be requested from the observatory. There is currently no overview of
-      the frequency ranges covered by this dataset.
-    retrieval_description: ''
-    thumbnail: https://alta.astron.nl/alta-static/images/apertif_standard_cube2.jpg
-    documentation_url: null
-    institute: Astron
-- model: query.esapbaseobject
   pk: 9
   fields:
     uri: lotss-dr1
@@ -378,49 +326,6 @@
     documentation_url: null
     institute: VSO
 - model: query.esapbaseobject
-  pk: 46
-  fields:
-    uri: wsrt-1997-2015
-    name: WSRT 1997-2015
-    short_description: WSRT 1997-2015
-    long_description: All data recorded with the DZB correlator in AIPS++/CASA Measurement
-      Set format is available on disk at the observatory. The entire catalogue can
-      be searched. Data can be either made available over the internet, for data after
-      ±2004, as described below, or can be requested from the observatory. It can
-      be converted to UVFITS or NEWSTAR SCN format on request, if the number of files
-      is limited. This data can either be processed with CASA, BIMA MIRIAD or ATNF
-      MIRIAD, or AIPS depending on the science and observation. This archive contains
-      no processed and calibrated data, or images. This dataset contains data between
-      115 and 8800 MHz observed with MFFE and LFFE systems.
-    retrieval_description: ''
-    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
-    documentation_url: null
-    institute: Astron
-- model: query.esapbaseobject
-  pk: 47
-  fields:
-    uri: wsrt-2004-2015
-    name: WSRT 2004-2015
-    short_description: WSRT 2004-2015
-    long_description: Data recorded with the DZB correlator in AIPS++/CASA Measurement
-      Set format is available in the online, internet-accessible, project management
-      system MoM. Original members of the projects that were granted the observing
-      time can directly download the data with the ASTRON account that was used for
-      the proposal, and is also used for LOFAR proposal and archive systems. All projects
-      in this system are no longer proprietary as per the ASTRON policies on public
-      data. Anyone can request the observatory for access to a project and the data
-      of that project, if they have created or already own an ASTRON account. Access
-      can be granted based on project code and/or description, or if the user has
-      found observation and project sequence numbers from the 1997-2015 catalogue
-      system. Data can be automatically retrieved in either Measurement Set, UVFITS
-      or SCN format and downloaded over the internet after conversion and J2000 calibration.
-      This archive contains no processed and calibrated data, or images. This dataset
-      contains data between 115 and 8800 MHz observed with MFFE and LFFE systems.
-    retrieval_description: ''
-    thumbnail: https://alta.astron.nl/alta-static/unknown.jpg
-    documentation_url: null
-    institute: Astron
-- model: query.esapbaseobject
   pk: 48
   fields:
     uri: wsrt-archive
@@ -457,9 +362,20 @@
   pk: 51
   fields:
     uri: vo_reg
-    name: VO Registry of Registries
-    short_description: VO Registry of Registries
-    long_description: VO Registry of Registries
+    name: VO Registry
+    short_description: VO Registry
+    long_description: The table access protocol (TAP) defines a service protocol for
+      accessing general table data, including astronomical catalogs as well as general
+      database tables. Access is provided for both database and table metadata as
+      well as for actual table data. This version of the protocol includes support
+      for multiple query languages, including queries specified using the Astronomical
+      Data Query Language ADQL within an integrated interface. It also includes support
+      for both synchronous and asynchronous queries. Special support is provided for
+      spatially indexed queries using the spatial extensions in ADQL. A multi-position
+      query capability permits queries against an arbitrarily large list of astronomical
+      targets, providing a simple spatial cross-matching capability. More sophisticated
+      distributed cross-matching capabilities are possible by orchestrating a distributed
+      query across multiple TAP services.
     retrieval_description: ''
     thumbnail: http://ivoa.net/images/ivoa_logoc2.jpg
     documentation_url: http://registry.euro-vo.org/evor/#home
@@ -905,112 +821,84 @@
 - model: query.catalog
   pk: 18
   fields:
-    equinox: ICRS
-    protocol: http
     user_url: https://lta.lofar.eu/
     url: https://lta.lofar.eu/
     parameters: 13
 - model: query.catalog
   pk: 19
   fields:
-    equinox: ICRS
-    protocol: adql
     user_url: http://localhost:3000/esap-gui-dev/query
     url: https://vo.astron.nl/
     parameters: 6
 - model: query.catalog
   pk: 20
   fields:
-    equinox: ICRS
-    protocol: http
     user_url: http://wsrt.astron.nl/mom3
     url: http://wsrt.astron.nl/mom3
     parameters: null
 - model: query.catalog
   pk: 33
   fields:
-    equinox: J2000
-    protocol: http
     user_url: http://localhost:3000/esap-gui-dev/query
     url: https://alta.astron.nl/altapi
     parameters: 7
 - model: query.catalog
   pk: 36
   fields:
-    equinox: ICRS
-    protocol: adql
     user_url: https://vo.astron.nl/__system__/tap/run/info
     url: https://vo.astron.nl/__system__/tap/run/tap
     parameters: 6
 - model: query.catalog
   pk: 39
   fields:
-    equinox: J2000
-    protocol: adql
     user_url: https://ned.ipac.caltech.edu/conesearch
     url: https://ned.ipac.caltech.edu/tap
     parameters: 8
 - model: query.catalog
   pk: 43
   fields:
-    equinox: ICRS
-    protocol: http
     user_url: https://sdac.virtualsolar.org/cgi/search
     url: https://sdac.virtualsolar.org/cgi/vsoui
     parameters: 9
 - model: query.catalog
   pk: 48
   fields:
-    equinox: ICRS
-    protocol: http
     user_url: https://old.astron.nl/wsrt-archive/php/QueryForm.php
     url: https://old.astron.nl/wsrt-archive/php/QueryForm.php
     parameters: null
 - model: query.catalog
   pk: 49
   fields:
-    equinox: J2000
-    protocol: http
     user_url: http://hfe.helio-vo.eu/Helio/
     url: http://msslkz.mssl.ucl.ac.uk/helio-dpas/HelioQueryServlet
     parameters: 10
 - model: query.catalog
   pk: 52
   fields:
-    equinox: ICRS
-    protocol: adql
     user_url: http://registry.euro-vo.org/evor/
     url: http://registry.euro-vo.org/services/RegistrySearch
     parameters: 6
 - model: query.catalog
   pk: 59
   fields:
-    equinox: N/A
-    protocol: http
     user_url: https://zooniverse.org
     url: https://zooniverse.org/api
     parameters: 12
 - model: query.catalog
   pk: 60
   fields:
-    equinox: N/A
-    protocol: http
     user_url: https://zooniverse.org
     url: https://zooniverse.org/api
     parameters: null
 - model: query.catalog
   pk: 69
   fields:
-    equinox: N/A
-    protocol: http
     user_url: https://escape-rucio.cern.ch
     url: https://escape-rucio.cern.ch
     parameters: 14
 - model: query.catalog
   pk: 75
   fields:
-    equinox: N/A
-    protocol: http
     user_url: https://zenodo.org/api/
     url: https://zenodo.org/api/
     parameters: 16
@@ -1033,12 +921,6 @@
     order: 2
     visible: true
 - model: query.archive
-  pk: 4
-  fields:
-    instrument: WSRT
-    order: 6
-    visible: false
-- model: query.archive
   pk: 57
   fields:
     instrument: Multiple
@@ -1049,7 +931,7 @@
   fields:
     instrument: Virtual Observatory
     order: 5
-    visible: false
+    visible: true
 - model: query.archive
   pk: 68
   fields:
@@ -1062,21 +944,6 @@
     instrument: Many
     order: 8
     visible: true
-- model: query.dataset
-  pk: 5
-  fields:
-    category: visibility
-    level: raw, processed
-    collection: null
-    dataset_catalog: null
-    dataset_archive: 4
-    resource_name: null
-    select_fields: '*'
-    title_field: null
-    thumbnail_field: null
-    url_field: null
-    output_format: list
-    service_connector: null
 - model: query.dataset
   pk: 9
   fields:
@@ -1091,7 +958,8 @@
     thumbnail_field: null
     url_field: access_url
     output_format: list
-    service_connector: vo.tap_service_connector
+    visibility: archive
+    service_connector: astron_vo.tap_service_connector
 - model: query.dataset
   pk: 12
   fields:
@@ -1106,7 +974,8 @@
     thumbnail_field: null
     url_field: access_url
     output_format: list
-    service_connector: vo.tap_service_connector
+    visibility: archive
+    service_connector: astron_vo.tap_service_connector
 - model: query.dataset
   pk: 15
   fields:
@@ -1121,7 +990,8 @@
     thumbnail_field: null
     url_field: access_url
     output_format: list
-    service_connector: vo.tap_service_connector
+    visibility: archive
+    service_connector: astron_vo.tap_service_connector
 - model: query.dataset
   pk: 34
   fields:
@@ -1136,7 +1006,8 @@
     thumbnail_field: null
     url_field: null
     output_format: list
-    service_connector: alta.alta_connector
+    visibility: archive
+    service_connector: apertif.alta_connector
 - model: query.dataset
   pk: 40
   fields:
@@ -1151,7 +1022,8 @@
     thumbnail_field: null
     url_field: null
     output_format: list
-    service_connector: vo.tap_service_connector
+    visibility: archive
+    service_connector: astron_vo.tap_service_connector
 - model: query.dataset
   pk: 42
   fields:
@@ -1166,67 +1038,8 @@
     thumbnail_field: null
     url_field: null
     output_format: tiles
-    service_connector: alta.alta_connector
-- model: query.dataset
-  pk: 45
-  fields:
-    category: image
-    level: processed
-    collection: null
-    dataset_catalog: 43
-    dataset_archive: null
-    resource_name: vsoui
-    select_fields: provider,source
-    title_field: fileid
-    thumbnail_field: (hardcoded)
-    url_field: fileid
-    output_format: list
-    service_connector: vso.vso_connector
-- model: query.dataset
-  pk: 46
-  fields:
-    category: visibility
-    level: raw, processed
-    collection: null
-    dataset_catalog: 48
-    dataset_archive: 4
-    resource_name: null
-    select_fields: '*'
-    title_field: null
-    thumbnail_field: null
-    url_field: null
-    output_format: list
-    service_connector: null
-- model: query.dataset
-  pk: 47
-  fields:
-    category: visibility
-    level: raw
-    collection: null
-    dataset_catalog: 20
-    dataset_archive: 4
-    resource_name: null
-    select_fields: '*'
-    title_field: null
-    thumbnail_field: null
-    url_field: null
-    output_format: list
-    service_connector: null
-- model: query.dataset
-  pk: 50
-  fields:
-    category: image
-    level: processed
-    collection: null
-    dataset_catalog: 49
-    dataset_archive: null
-    resource_name: HelioQueryServlet
-    select_fields: time_start,time_end
-    title_field: (hardcoded)
-    thumbnail_field: (hardcoded)
-    url_field: url
-    output_format: list
-    service_connector: helio.helio_connector
+    visibility: archive
+    service_connector: apertif.alta_connector
 - model: query.dataset
   pk: 51
   fields:
@@ -1241,7 +1054,8 @@
     thumbnail_field: preview
     url_field: access_url
     output_format: list
-    service_connector: vo_reg.vo_registry_connector
+    visibility: archive
+    service_connector: ivoa.vo_registry_connector
 - model: query.dataset
   pk: 53
   fields:
@@ -1256,7 +1070,8 @@
     thumbnail_field: null
     url_field: null
     output_format: list
-    service_connector: alta.alta_connector
+    visibility: archive
+    service_connector: apertif.alta_connector
 - model: query.dataset
   pk: 54
   fields:
@@ -1271,6 +1086,7 @@
     thumbnail_field: null
     url_field: access_url
     output_format: list
+    visibility: archive
     service_connector: lofar.lta_connector
 - model: query.dataset
   pk: 56
@@ -1286,7 +1102,8 @@
     thumbnail_field: null
     url_field: access_url
     output_format: list
-    service_connector: vo.tap_service_connector
+    visibility: archive
+    service_connector: astron_vo.tap_service_connector
 - model: query.dataset
   pk: 58
   fields:
@@ -1301,6 +1118,7 @@
     thumbnail_field: null
     url_field: null
     output_format: list
+    visibility: archive
     service_connector: zooniverse.panoptes_connector
 - model: query.dataset
   pk: 61
@@ -1316,7 +1134,8 @@
     thumbnail_field: thumbnail
     url_field: access_url
     output_format: list
-    service_connector: vo.tap_service_connector
+    visibility: archive
+    service_connector: astron_vo.tap_service_connector
 - model: query.dataset
   pk: 62
   fields:
@@ -1331,7 +1150,8 @@
     thumbnail_field: thumbnail
     url_field: access_url
     output_format: list
-    service_connector: vo.tap_service_connector
+    visibility: archive
+    service_connector: astron_vo.tap_service_connector
 - model: query.dataset
   pk: 64
   fields:
@@ -1346,7 +1166,8 @@
     thumbnail_field: null
     url_field: null
     output_format: list
-    service_connector: vo_reg.vo_registry_connector
+    visibility: archive
+    service_connector: ivoa.vo_registry_connector
 - model: query.dataset
   pk: 65
   fields:
@@ -1361,7 +1182,8 @@
     thumbnail_field: null
     url_field: null
     output_format: list
-    service_connector: vo_reg.vo_registry_connector
+    visibility: archive
+    service_connector: ivoa.vo_registry_connector
 - model: query.dataset
   pk: 66
   fields:
@@ -1376,7 +1198,8 @@
     thumbnail_field: null
     url_field: null
     output_format: list
-    service_connector: vo_reg.vo_registry_connector
+    visibility: archive
+    service_connector: ivoa.vo_registry_connector
 - model: query.dataset
   pk: 67
   fields:
@@ -1391,7 +1214,8 @@
     thumbnail_field: null
     url_field: null
     output_format: list
-    service_connector: vo_reg.vo_registry_connector
+    visibility: archive
+    service_connector: ivoa.vo_registry_connector
 - model: query.dataset
   pk: 70
   fields:
@@ -1406,6 +1230,7 @@
     thumbnail_field: null
     url_field: null
     output_format: list
+    visibility: archive
     service_connector: rucio.rucio_connector
 - model: query.dataset
   pk: 73
@@ -1421,7 +1246,8 @@
     thumbnail_field: preview
     url_field: access_url
     output_format: list
-    service_connector: vo.tap_service_connector
+    visibility: archive
+    service_connector: astron_vo.tap_service_connector
 - model: query.dataset
   pk: 76
   fields:
@@ -1436,4 +1262,5 @@
     thumbnail_field: null
     url_field: null
     output_format: list
+    visibility: archive
     service_connector: zenodo.zenodo_connector

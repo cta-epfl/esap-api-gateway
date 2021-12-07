@@ -30,7 +30,7 @@ class zenodo_connector(query_base):
 
     # construct a query for the ZENODO REST API
     def construct_query(
-        self, dataset, esap_query_params, translation_parameters, equinox
+        self, dataset, esap_query_params, translation_parameters
     ):
 
         query = {'size': '1000'}

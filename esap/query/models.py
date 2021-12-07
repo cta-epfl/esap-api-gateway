@@ -56,27 +56,12 @@ class ParameterMapping(models.Model):
 Catalog
 """
 class Catalog(EsapBaseObject):
-    ADQL = 'adql'
-    HTTP = 'http'
-    PROTOCOL = [
-        (ADQL, ADQL),
-        (HTTP, HTTP),
-    ]
 
-    J2000 = 'J2000'
-    ICRS = 'ICRS'
     NA = 'N/A'
-    EQUINOX = [
-        (J2000, J2000),
-        (ICRS, ICRS),
-        (NA, NA),
-    ]
+
 
     # query_base determines which algorithm is used to create and run queries.
     # esap_service = models.CharField(default='vo',max_length=15) # vo, alta, vso
-
-    equinox = models.CharField(default=ICRS, max_length=10, choices=EQUINOX, null=True, blank=True) # J2000, ICRS, N/A
-    protocol = models.CharField(max_length=15, choices=PROTOCOL)  # adql, http
 
     # the url for the user (this brings the user to an external web page)
     user_url = models.URLField(null=True)
@@ -84,9 +69,6 @@ class Catalog(EsapBaseObject):
     # the url that the query has to access
     url = models.URLField(null=True)
     parameters = models.ForeignKey(ParameterMapping, related_name='catalogs', on_delete=models.CASCADE, null=True, blank=True)
-
-    # relationships
-    # datasets = models.ForeignKey(DataSet, related_name = 'catalogs', on_delete=models.CASCADE, null=True, blank=True)
 
      # the representation of the value in the REST API
     def __str__(self):
@@ -142,9 +124,15 @@ class DataSet(EsapBaseObject):
     # Extra info for a frontend about how to render the output
     output_format = models.CharField(default=LIST, max_length=10, choices=OUTPUT_FORMAT) # list,tiles
 
+    # where should the dataset be visible? possible values: "archives,multi_query,skyview,invisible"
+    # example:
+    # 'ivoa_tap' can be visible on the IVOA archive page
+    # but 'ivoa_tap_multi' is a separate dataset that follows the 'multi query' pattern that demands a certain
+    # format for input parameters and returned json. We don't want to show this dataset on the archive page
+    visibility = models.CharField(default="archive", max_length=100)
+
     # The connector refers to the business logic in the services directory that handles the query to the specific catalog
     service_connector = models.CharField(max_length=80, null=True, blank=True) # vo.tap_service_connector, alta.observations_connector, ...
-
 
     @property
     def catalog_name_derived(self):

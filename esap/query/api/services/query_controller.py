@@ -7,8 +7,7 @@ import json
 import logging
 from inspect import currentframe, getframeinfo
 
-from . import alta
-from . import vo, vo_reg, zooniverse, lofar, rucio, zenodo
+from . import apertif, astron_vo, ivoa, zooniverse, lofar, rucio, zenodo
 
 logger = logging.getLogger(__name__)
 
@@ -17,14 +16,14 @@ def instantiate_connector(dataset):
     service_module, service_connector = dataset.service_connector.split('.')
 
     # distinguish between types of services to use
-    if service_module.upper() == 'VO':
-        connector_class = getattr(vo, service_connector)
+    if service_module.upper() == 'ASTRON_VO':
+        connector_class = getattr(astron_vo, service_connector)
 
-    elif service_module.upper() == 'ALTA':
-        connector_class = getattr(alta, service_connector)
+    elif service_module.upper() == 'APERTIF':
+        connector_class = getattr(apertif, service_connector)
 
-    elif service_module.upper() == 'VO_REG':
-        connector_class = getattr(vo_reg, service_connector)
+    elif service_module.upper() == 'IVOA':
+        connector_class = getattr(ivoa, service_connector)
 
     elif service_module.upper() == 'ZOONIVERSE':
         connector_class = getattr(zooniverse, service_connector)
@@ -76,7 +75,6 @@ def create_query(datasets, query_params, override_resource=None, connector=None,
                 try:
                     # get the url to the service for this dataset
                     result['service_url'] = str(dataset.dataset_catalog.url)
-                    result['protocol'] = str(dataset.dataset_catalog.protocol)
                     result['resource_name'] = str(dataset.resource_name)
                     result['output_format'] = str(dataset.output_format)
                     result['service_connector'] = str(dataset.service_connector)
@@ -101,13 +99,11 @@ def create_query(datasets, query_params, override_resource=None, connector=None,
                                 query, where, errors = connector.construct_query(dataset,
                                                                                  query_params,
                                                                                  parameter_mapping,
-                                                                                 dataset.dataset_catalog.equinox,
                                                                                  override_resource)
                             else:
                                 query, where, errors = connector.construct_query(dataset,
                                                                                  query_params,
-                                                                                 parameter_mapping,
-                                                                                 dataset.dataset_catalog.equinox)
+                                                                                 parameter_mapping)
                             logger.info(query)
                             result['query'] = query
                             result['where'] = where
