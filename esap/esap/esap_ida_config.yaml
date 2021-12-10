@@ -64,3 +64,12 @@
     ref: HEAD
     filepath: ProcessMuonHunterData.ipynb
     workflowtype: notebook
+- model: ida.workflow
+  pk: 6
+  fields:
+    name: CTA gammapy Example
+    description: CTA gammapy Example
+    url: https://git.astron.nl/astron-sdc/escape-wp5/workflows/cta-example
+    ref: master
+    filepath: gammapy-tutorials/notebooks-0.18.2/cta.ipynb
+    workflowtype: notebook
