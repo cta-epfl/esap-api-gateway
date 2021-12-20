@@ -35,13 +35,13 @@ class Harvester(object):
                     item = {}
                     codemeta =  record.get_codemeta()
                     item["id"] = record.data["id"]
-                    item["description"] = record.data["metadata"]["description"]
-                    item["name"] = record.data["metadata"]["title"]
+                    item["description"] = record.data["metadata"].get("description","")
+                    item["name"] = record.data["metadata"].get("title","")
                     item["workflow"] = "notebook"
-                    item["url"] = codemeta["codeRepository"]
-                    item["runtimePlatform"] = codemeta["runtimePlatform"]
-                    item["keywords"] = ", ".join(codemeta["keywords"])
-                    item["author"] = codemeta["author"][0]["givenName"] + " " + codemeta["author"][0]["familyName"]
+                    item["url"] = codemeta.get("codeRepository","")
+                    item["runtimePlatform"] = codemeta.get("runtimePlatform","")
+                    item["keywords"] = ", ".join(codemeta.get("keywords",[]))
+                    item["author"] = codemeta["author"][0].get("givenName","") + " " + codemeta["author"][0].get("familyName", "")
                     item["ref"] = "HEAD"
                     item["filepath"] = ""
 
