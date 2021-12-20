@@ -18,7 +18,7 @@ docker-build-master:
     - acceptance
     - release
 
-docker-build-branch-query:
+docker-build-branch-adex:
   # Official docker image.
   image: docker:latest
   stage: build
@@ -27,11 +27,11 @@ docker-build-branch-query:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" esap
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" adex
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
   # except:
   only:
-    - esap-gateway-query-xxx
+    - adex-main-xxx
 
 docker-deploy-adex:
   image: docker:latest
