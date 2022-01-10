@@ -7,7 +7,7 @@ import json
 import logging
 from inspect import currentframe, getframeinfo
 
-from . import apertif, astron_vo, ivoa, zooniverse, lofar, rucio, zenodo
+from . import apertif, astron_vo, ivoa, zooniverse, lofar, rucio, zenodo, concordia
 
 logger = logging.getLogger(__name__)
 
@@ -36,6 +36,9 @@ def instantiate_connector(dataset):
 
     elif service_module.upper() == 'ZENODO':
         connector_class = getattr(zenodo, service_connector)
+
+    elif service_module.upper() == 'CONCORDIA':
+        connector_class = getattr(concordia, service_connector)
 
     url = str(dataset.dataset_catalog.url)
     connector = connector_class(url)
