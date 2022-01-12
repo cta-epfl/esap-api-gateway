@@ -63,8 +63,11 @@ class concordia_connector(query_base):
         #j.setName('API')
 
 # Let us not bother a computer everytime I hit refresh for now
-        ##jobID = concordia.submitJob(j)
-        logger.info("QUERY " + str(query))
+        ##if query['jobid'] == 'empty':
+          ##jobID = concordia.submitJob(j)
+        ##else:
+          ##jobID = dirac.status(jobid)
+
 
 # Here is some output I made earlier
         if query['jobid'] == 'empty':
