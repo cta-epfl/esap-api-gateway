@@ -29,24 +29,30 @@ class concordia_connector(query_base):
     def __init__(self, url):
         self.url = url
 
-    # construct a query for the ZENODO REST API
+    # construct a query 
     def construct_query(
-        self, dataset, esap_query_params, translation_parameters, equinox
+        self, dataset, esap_query_params, translation_parameters
     ):
 
-        query = {}
+        query = {'jobid': 'empty'}
         where = {}
         error = {}
 
 
+        if 'jobid' in esap_query_params.keys():
+              query['jobid'] =  str(esap_query_params.pop('jobid')[0])
+
+        logger.info("__________________________________PARAMS " + str(query))
+
         return query, where, error
 
     def _get_data_from_concordia(self, query, session):
-        """ use DIRAC REST API to query the data lake """
 
         results = {}
 
-# HERE PLAYS THE MUSIC
+# HERE IS WHERE THE CONCORDIA CODE GOES
+# EXAMPLE:
+
         #concordia = Dirac()
         #j = Job()
 
@@ -58,11 +64,15 @@ class concordia_connector(query_base):
 
 # Let us not bother a computer everytime I hit refresh for now
         ##jobID = concordia.submitJob(j)
+        logger.info("QUERY " + str(query))
 
 # Here is some output I made earlier
-        jobID = {'JobID': 18359684, 'OK': True, 'Value': 18359684, 'requireProxyUpload': False, 'rpcStub': [['WorkloadManagement/JobManager', {'delegatedDN': None, 'delegatedGroup': None, 'timeout': 600, 'skipCACheck': True, 'keepAliveLapse': 150}], 'submitJob', ['[ \n    Arguments = "jobDescription.xml -o LogLevel=INFO";\n    CPUTime = 500;\n    Executable = "dirac-jobexec";\n    InputSandbox = \n        {\n            "/bin/hostname",\n            "SB:ProductionSandboxSE|/SandBox/g/ghughes.cta_user/e9b/b34/e9bb34d0d7945deca7066e945b75fbdc.tar.bz2"\n        };\n    JobGroup = vo.cta.in2p3.fr;\n    JobName = API;\n    JobType = User;\n    LogLevel = INFO;\n    OutputSandbox = \n        {\n            Script1_CodeOutput.log,\n            Script2_hostname.log,\n            Script3_CodeOutput.log,\n            std.err,\n            std.out\n        };\n    Priority = 1;\n    StdError = std.err;\n    StdOutput = std.out;\n]']]}
+        if query['jobid'] == 'empty':
+          jobID = {'JobID': 18359684, 'OK': True, 'Value': 18359684, 'requireProxyUpload': False, 'rpcStub': [['WorkloadManagement/JobManager', {'delegatedDN': None, 'delegatedGroup': None, 'timeout': 600, 'skipCACheck': True, 'keepAliveLapse': 150}], 'submitJob', ['[ \n    Arguments = "jobDescription.xml -o LogLevel=INFO";\n    CPUTime = 500;\n    Executable = "dirac-jobexec";\n    InputSandbox = \n        {\n            "/bin/hostname",\n            "SB:ProductionSandboxSE|/SandBox/g/ghughes.cta_user/e9b/b34/e9bb34d0d7945deca7066e945b75fbdc.tar.bz2"\n        };\n    JobGroup = vo.cta.in2p3.fr;\n    JobName = API;\n    JobType = User;\n    LogLevel = INFO;\n    OutputSandbox = \n        {\n            Script1_CodeOutput.log,\n            Script2_hostname.log,\n            Script3_CodeOutput.log,\n            std.err,\n            std.out\n        };\n    Priority = 1;\n    StdError = std.err;\n    StdOutput = std.out;\n]']]}
+        else:
+          jobID = {'JobID': 'Running', 'OK': True, 'Value': 'Running'}
 
-        logger.info("Submission: " + str(jobID))
+        #logger.info("Submission: " + str(jobID))
 
         results['JobID'] = jobID['JobID']
         results['OK'] = jobID['OK']
@@ -84,8 +94,8 @@ class concordia_connector(query_base):
 
         results = [ results ]
 
-        logger.info("-----------------TYPE!!!!: " + str(type(results)))
-        logger.info("Result: " + str(results))
+        #logger.info("-----------------TYPE!!!!: " + str(type(results)))
+        #logger.info("Result: " + str(results))
 
         return results
 

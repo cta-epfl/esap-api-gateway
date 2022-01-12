@@ -37,7 +37,6 @@ class zenodo_connector(query_base):
         where = {}
         error = {}
 
-
         query['communities'] =  str.lower(esap_query_params.pop('community')[0])
 
         if 'keyword' in esap_query_params.keys():
