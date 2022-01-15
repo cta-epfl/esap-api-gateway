@@ -11,8 +11,8 @@ query_schema = {
         "workflow": {
             "type": "string",
             "title": "Workflow",
-            "enum": ["CTA", "KM3NeT"],
-            "enumNames": ["CTA", "KM3NeT"]
+            "enum": ["Hello World"],
+            "enumNames": ["Hello World"]
         },
         "inputs": {
             "type": "string",
@@ -27,10 +27,6 @@ query_schema = {
         "jobid": {
             "type": "string",
             "title": "Job ID",
-        },
-        "username": {
-            "type": "string",
-            "title": "Username",
         }
     },
     "required": ["workflow"]
