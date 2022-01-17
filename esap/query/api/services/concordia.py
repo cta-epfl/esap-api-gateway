@@ -3,10 +3,10 @@
     Date created: 2022-01-10
     Description:  DIRAC Service Connector for ESAP.
 """
-import time
-from DIRAC.Core.Utilities.DIRACScript import DIRACScript as Script
-from DIRAC.Interfaces.API.Job import Job
-from DIRAC.Interfaces.API.Dirac import Dirac
+#import time
+#from DIRAC.Core.Utilities.DIRACScript import DIRACScript as Script
+#from DIRAC.Interfaces.API.Job import Job
+#from DIRAC.Interfaces.API.Dirac import Dirac
 from rest_framework import serializers
 from .query_base import query_base
 import requests
@@ -54,31 +54,30 @@ class concordia_connector(query_base):
 # HERE IS WHERE THE CONCORDIA CODE GOES
 # EXAMPLE:
 
-        concordia = Dirac()
-        j = Job()
+        #concordia = Dirac()
+        #j = Job()
 
-        j.setCPUTime(500)
-        j.setExecutable('/bin/echo hello')
-        j.setExecutable('/bin/hostname')
-        j.setExecutable('/bin/echo hello again')
-        j.setName('API')
+        #j.setCPUTime(500)
+        #j.setExecutable('/bin/echo hello')
+        #j.setExecutable('/bin/hostname')
+        #j.setExecutable('/bin/echo hello again')
+        #j.setName('API')
 
 # Let us not bother a computer everytime I hit refresh for now
-        if query['jobid'] == 'empty'  or query['jobid'] == 'undefined':
-          jobID = concordia.submitJob(j)
-          time.sleep(2)
-          tempID = jobID['Value']
-          statusID = concordia.getJobStatus(tempID)
-        else:
-          tempID = query['jobid']
-          statusID = concordia.getJobStatus(tempID)
+        #if query['jobid'] == 'empty'  or query['jobid'] == 'undefined':
+          #jobID = concordia.submitJob(j)
+          #time.sleep(2)
+          #tempID = jobID['Value']
+          #statusID = concordia.getJobStatus(tempID)
+        #else:
+          #tempID = query['jobid']
+          #statusID = concordia.getJobStatus(tempID)
 
 
 # Here is some output I made earlier
         if query['jobid'] == 'empty' or query['jobid'] == 'undefined':
-          #jobID = {'JobID': 18544353, 'OK': True, 'Value': 18544353, 'requireProxyUpload': False, 'rpcStub': [['WorkloadManagement/JobManager', {'delegatedDN': None, 'delegatedGroup': None, 'timeout': 600, 'skipCACheck': True, 'keepAliveLapse': 150}], 'submitJob', ['[ \n    Arguments = "jobDescription.xml -o LogLevel=INFO";\n    CPUTime = 500;\n    Executable = "dirac-jobexec";\n    InputSandbox = \n        {\n            "SB:ProductionSandboxSE|/SandBox/g/ghughes.cta_user/84a/846/84a846e906bf49ed981c7821d720a260.tar.bz2"\n        };\n    JobGroup = vo.cta.in2p3.fr;\n    JobName = Hello World;\n    JobType = User;\n    LogLevel = INFO;\n    OutputSandbox = \n        {\n            Script1_CodeOutput.log,\n            std.err,\n            std.out\n        };\n    Priority = 1;\n    StdError = std.err;\n    StdOutput = std.out;\n]']]}
-          #time.sleep(2)
-          #statusID = {'OK': True, 'Value': {18544353: {'ApplicationStatus': 'Unknown', 'MinorStatus': 'Job Initialization', 'Status': 'Running', 'Site': 'LCG.IN2P3-CC.fr'}}}
+          jobID = {'JobID': 18544353, 'OK': True, 'Value': 18544353, 'requireProxyUpload': False, 'rpcStub': [['WorkloadManagement/JobManager', {'delegatedDN': None, 'delegatedGroup': None, 'timeout': 600, 'skipCACheck': True, 'keepAliveLapse': 150}], 'submitJob', ['[ \n    Arguments = "jobDescription.xml -o LogLevel=INFO";\n    CPUTime = 500;\n    Executable = "dirac-jobexec";\n    InputSandbox = \n        {\n            "SB:ProductionSandboxSE|/SandBox/g/ghughes.cta_user/84a/846/84a846e906bf49ed981c7821d720a260.tar.bz2"\n        };\n    JobGroup = vo.cta.in2p3.fr;\n    JobName = Hello World;\n    JobType = User;\n    LogLevel = INFO;\n    OutputSandbox = \n        {\n            Script1_CodeOutput.log,\n            std.err,\n            std.out\n        };\n    Priority = 1;\n    StdError = std.err;\n    StdOutput = std.out;\n]']]}
+          statusID = {'OK': True, 'Value': {18544353: {'ApplicationStatus': 'Unknown', 'MinorStatus': 'Job Initialization', 'Status': 'Running', 'Site': 'LCG.IN2P3-CC.fr'}}}
           results['JobID'] = jobID['JobID']
           temp = jobID['JobID']
           results['OK'] = statusID['OK']
@@ -86,7 +85,7 @@ class concordia_connector(query_base):
           results['Status'] = statusID['Value'][temp]['Status']
           results['Site'] = statusID['Value'][temp]['Site']
         else:
-          #statusID = {'OK': True, 'Value': {18544353: {'ApplicationStatus': 'echo successful', 'MinorStatus': 'Execution Complete', 'Status': 'Done', 'Site': 'LCG.IN2P3-CC.fr'}}}
+          statusID = {'OK': True, 'Value': {18544353: {'ApplicationStatus': 'echo successful', 'MinorStatus': 'Execution Complete', 'Status': 'Done', 'Site': 'LCG.IN2P3-CC.fr'}}}
           results['JobID'] = query['jobid']
           temp = int(query['jobid'])
           results['OK'] = statusID['OK']
