@@ -93,31 +93,10 @@ class concordia_connector(query_base):
           results['Status'] = statusID['Value'][temp]['Status']
           results['Site'] = statusID['Value'][temp]['Site']
 
-
-        #logger.info("Submission: " + str(jobID))
-
-        #if query != "empty":
-            #try:
-                 #response = get_zenodo_records(**query)
-            #except:
-                 #logger.info("No Results Found in Zenodo Archive Search")
-        #else:
-             #logger.info("Empty search in Zenodo Archive Search")
-
-        #if len(response) > 0:
-            #results = [
-                #element.data
-                #for element in response
-             #]
-
         results = [ results ]
-
-        #logger.info("-----------------TYPE!!!!: " + str(type(results)))
-        #logger.info("Result: " + str(results))
 
         return results
 
-        #return jobID
 
     def run_query(
         self,
