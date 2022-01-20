@@ -760,6 +760,39 @@
     thumbnail: https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png
     documentation_url: null
     institute: Many
+- model: query.esapbaseobject
+  pk: 77
+  fields:
+    uri: esap_concordia
+    name: CONCORDIA
+    short_description: CONCORDIA
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://doublehi5.com/CONCORDIA-logo.png
+    documentation_url: null
+    institute: Many
+- model: query.esapbaseobject
+  pk: 78
+  fields:
+    uri: esap_concordia_entities
+    name: concordia entities
+    short_description: concordia
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://doublehi5.com/CONCORDIA-logo.png
+    documentation_url: null
+    institute: Many
+- model: query.esapbaseobject
+  pk: 79
+  fields:
+    uri: esap_concordia_concordia
+    name: concordia
+    short_description: concordia
+    long_description: ''
+    retrieval_description: ''
+    thumbnail: https://doublehi5.com/CONCORDIA-logo.png
+    documentation_url: null
+    institute: Many
 - model: query.parametermapping
   pk: 6
   fields:
@@ -817,6 +850,11 @@
   pk: 16
   fields:
     uri: zenodo
+    parameters: '{}'
+- model: query.parametermapping
+  pk: 17
+  fields:
+    uri: concordia
     parameters: '{}'
 - model: query.catalog
   pk: 18
@@ -902,6 +940,12 @@
     user_url: https://zenodo.org/api/
     url: https://zenodo.org/api/
     parameters: 16
+- model: query.catalog
+  pk: 78
+  fields:
+    user_url: https://doublehi5.com/CONCORDIA-logo.png
+    url: https://doublehi5.com/CONCORDIA-logo.png
+    parameters: 17
 - model: query.archive
   pk: 1
   fields:
@@ -944,6 +988,12 @@
     instrument: Many
     order: 8
     visible: true
+- model: query.archive
+  pk: 77
+  fields:
+    instrument: Many
+    order: 0
+    visible: false
 - model: query.dataset
   pk: 9
   fields:
@@ -1264,3 +1314,19 @@
     output_format: list
     visibility: archive
     service_connector: zenodo.zenodo_connector
+- model: query.dataset
+  pk: 79
+  fields:
+    category: null
+    level: null
+    collection: null
+    dataset_catalog: 78
+    dataset_archive: 77
+    resource_name: null
+    select_fields: '*'
+    title_field: null
+    thumbnail_field: null
+    url_field: null
+    output_format: list
+    visibility: archive
+    service_connector: concordia.concordia_connector
