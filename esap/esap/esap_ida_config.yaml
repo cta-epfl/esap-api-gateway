@@ -26,7 +26,6 @@
     description: Analysis of Hickson Compact Group 16
     url: https://github.com/AMIGA-IAA/hcg-16
     ref: HEAD
-    filepath: None
     workflowtype: notebook
 - model: ida.workflow
   pk: 2
@@ -35,7 +34,6 @@
     description: Experiment with Multi-Order Coverage maps
     url: https://github.com/cds-astro/mocpy
     ref: HEAD
-    filepath: None
     workflowtype: notebook
 - model: ida.workflow
   pk: 3
