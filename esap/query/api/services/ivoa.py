@@ -4,7 +4,7 @@
     Date created: 2020-04-09
     Description:  ESAP services for VO registry
 """
-
+from collections import namedtuple
 from .query_base import query_base
 from rest_framework import serializers
 import pyvo
@@ -115,7 +115,7 @@ class vo_registry_connector(query_base):
         if not service:
             return servicetype
 
-        return standards[service["standard_id"].decode('utf-8').lower()] if service["standard_id"] else None
+        return standards[service["standard_id"].lower()] if service["standard_id"] else None
 
 
     # === interface functions, called from the API ===
@@ -229,33 +229,20 @@ class vo_registry_connector(query_base):
         except Exception as error:
             return "ERROR: " + str(error)
 
+        # if * then iterate on the full row, otherwise just on the selection
+        if dataset.select_fields == "*":
+            select_list = resultset.fieldnames
+        else:
+            select_list = dataset.select_fields.split(',')
+
         for row in resultset:
             # for the definition of standard fields to return see:
             # http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
 
             record = {}
-            result = ''
 
-            # if * then iterate on the full row, otherwise just on the selection
-            if dataset.select_fields=='*':
-                values = row.values()
+            result = ",".join(str(row[key]) for key in select_list)
 
-                for value in values:
-                    try:
-                        result = result + value.decode('utf-8') + ','
-                    except:
-                        try:
-                            result = result + str(value) + ','
-                        except:
-                            pass
-            else:
-                select_list = dataset.select_fields.split(',')
-
-                for select in select_list:
-                    result = result + row[select].decode('utf-8') + ','
-
-            # cut off the last ','
-            result = result[:-1]
             record['dataset'] = dataset.uri
             record['result'] = result
             record['query'] = query
@@ -277,24 +264,22 @@ class vo_registry_connector(query_base):
 
             # add some fields to return some rendering information for the frontend.
             # for ivoa.obscore field names see: http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
-            try:
-                record['title'] = row[dataset.title_field].decode('utf-8')
-            except:
-                pass
 
-            try:
-                record['thumbnail'] = row[dataset.thumbnail_field].decode('utf-8')
-            except:
-                record['thumbnail'] = ''
+            # We'll map field "src" in the result to field "dst" in the output
+            # record. If "src" doesn't exist, we'll use "default" if specified,
+            # otherwise we won't set the field.
+            KeywordMapping = namedtuple('KeywordMapping', ['src', 'dst', 'default'])
+            keyword_mappings = [
+                KeywordMapping(dataset.title_field, 'title', None),
+                KeywordMapping(dataset.thumbnail_field, 'thumbnail', None),
+                KeywordMapping(dataset.url_field, 'url', '')
+            ]
+            for mapping in keyword_mappings:
+                if mapping.src in row:
+                    record[mapping.dst] = row[mapping.src]
+                elif mapping.default is not None:
+                    record[mapping.dst] = mapping.default
 
-            try:
-                record['url'] = row[dataset.url_field].decode('utf-8')
-            except:
-                record['url'] = ''
-                pass
-
-            # record['fieldnames'] = str(resultset.fieldnames)
-            # record['row'] = str(row)
             results.append(record)
 
         return results
