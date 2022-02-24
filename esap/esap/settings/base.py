@@ -132,6 +132,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/topics/logging/#configuring-logging
 # The default configuration: https://github.com/django/django/blob/stable/1.11.x/django/utils/log.py
 
+# Ensure that the output directory for the log file exists;
+# it won't be created automatically.
+LOG_FILE_NAME = os.path.join(BASE_DIR, "../logs/esap.log")
+os.makedirs(os.path.dirname(LOG_FILE_NAME), exist_ok=True)
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -174,7 +179,7 @@ LOGGING = {
             'level': 'INFO',
             'class': 'logging.FileHandler',
             'formatter': 'my_formatter',
-            'filename': 'logs/esap.log'
+            'filename': LOG_FILE_NAME
 
         },
     },
