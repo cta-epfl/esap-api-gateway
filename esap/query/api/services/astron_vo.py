@@ -4,6 +4,7 @@
     Date created: 2020-02-07
     Description:  ESAP services for VO.
 """
+from collections import namedtuple
 from rest_framework import serializers
 from .query_base import query_base
 import pyvo as vo
@@ -154,30 +155,14 @@ class tap_service_connector(query_base):
             # http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
 
             record = {}
-            result = ''
 
             # if * then iterate on the full row, otherwise just on the selection
             if dataset.select_fields=='*':
-                values = row.values()
-
-                for value in values:
-                    try:
-                        result = result + value.decode('utf-8') + ','
-                    except:
-                        try:
-                            result = result + str(value) + ','
-                        except:
-                            pass
+                result = ",".join(str(value) for value in row.values())
             else:
                 select_list = dataset.select_fields.split(',')
+                result = ",".join(str(row[key]) for key in select_list)
 
-                for select in select_list:
-                    try:
-                        result = result + row[select].decode('utf-8') + ','
-                    except:
-                        pass
-            # cut off the last ','
-            result = result[:-1]
             record['dataset'] = dataset.uri
             record['dataset_name'] = dataset_name
             record['result'] = result
@@ -185,77 +170,35 @@ class tap_service_connector(query_base):
 
             # add some fields to return some rendering information for the frontend.
             # for ivoa.obscore field names see: http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
-            try:
-                record['title'] = row[dataset.title_field].decode('utf-8')
-            except:
-                pass
 
-            try:
-                record['dataproduct_type'] = row['dataproduct_type'].decode('utf-8')
-            except:
-                pass
-
-            try:
-                record['calibration_level'] = row['calib_level']
-                record['level'] = row['calib_level']
-            except:
-                pass
-
-            try:
-                record['thumbnail'] = row[dataset.thumbnail_field].decode('utf-8')
-            except:
-                record['thumbnail'] = ''
-
-            try:
-                record['url'] = row[dataset.url_field].decode('utf-8')
-            except:
-                pass
-
-            try:
-                record['name'] = row['target_name'].decode('utf-8')
-            except:
-                record['name'] = 'unknown'
-
-            try:
-                record['ra'] = row['s_ra']
-            except:
-                pass
-
-            try:
-                record['dec'] = row['s_dec']
-            except:
-                pass
-
-            try:
-                record['fov'] = row['s_fov']
-            except:
-                pass
-
-            try:
-                record['target'] = row['target_name'].decode('utf-8')
-            except:
-                pass
-
-            try:
-                record['obs_collection'] = row['obs_collection'].decode('utf-8')
-                record['collection'] = row['obs_collection'].decode('utf-8')
-            except:
-                record['collection']  = 'unknown'
-
-            try:
-                record['size'] = row['access_estsize']
-            except:
-                pass
-
-            try:
-                record['facility'] = row['facility_name'].decode('utf-8')
-            except:
-                pass
-
-            try:
-                record['instrument'] = row['instrument_name'].decode('utf-8')
-            except:
-                pass
+            # We'll map field "src" in the result to field "dst" in the output
+            # record. If "src" doesn't exist, we'll use "default" if specified,
+            # otherwise we won't set the field.
+            KeywordMapping = namedtuple('KeywordMapping', ['src', 'dst', 'default'])
+            keyword_mappings = [
+                KeywordMapping(dataset.title_field, 'title', None),
+                KeywordMapping('dataproduct_type', 'dataproduct_type', None),
+                KeywordMapping('calib_level', 'calibration_level', None),
+                KeywordMapping('calib_level', 'level', None),
+                KeywordMapping(dataset.thumbnail_field, 'thumbnail', ''),
+                KeywordMapping(dataset.url_field, 'url', None),
+                KeywordMapping('target_name', 'name', 'unknown'),
+                KeywordMapping('target_name', 'target', None),
+                KeywordMapping('s_ra', 'ra', None),
+                KeywordMapping('s_dec', 'dec', None),
+                KeywordMapping('s_fov', 'fov', None),
+                KeywordMapping('s_fov', 'fov', None),
+                KeywordMapping('obs_collection', 'obs_collection', None),
+                KeywordMapping('obs_collection', 'collection', 'unknown'),
+                KeywordMapping('access_estsize', 'size', None),
+                KeywordMapping('facility_name', 'facility', None),
+                KeywordMapping('instrument_name', 'instrument', None)
+            ]
+            for mapping in keyword_mappings:
+                if mapping.src in row:
+                    record[mapping.dst] = row[mapping.src]
+                elif mapping.default is not None:
+                    record[mapping.dst] = mapping.default
 
             results.append(record)
 
