@@ -172,8 +172,10 @@ class tap_service_connector(query_base):
                 select_list = dataset.select_fields.split(',')
 
                 for select in select_list:
-                    result = result + row[select].decode('utf-8') + ','
-
+                    try:
+                        result = result + row[select].decode('utf-8') + ','
+                    except:
+                        pass
             # cut off the last ','
             result = result[:-1]
             record['dataset'] = dataset.uri
