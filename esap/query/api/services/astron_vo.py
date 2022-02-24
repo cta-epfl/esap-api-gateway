@@ -150,18 +150,19 @@ class tap_service_connector(query_base):
         except Exception as error:
             return "ERROR: " + str(error)
 
+        # if * then iterate on the full row, otherwise just on the selection
+        if dataset.select_fields == "*":
+            select_list = resultset.fieldnames
+        else:
+            select_list = dataset.select_fields.split(',')
+
         for row in resultset:
             # for the definition of standard fields to return see:
             # http://www.ivoa.net/documents/ObsCore/20170509/REC-ObsCore-v1.1-20170509.pdf
 
             record = {}
 
-            # if * then iterate on the full row, otherwise just on the selection
-            if dataset.select_fields=='*':
-                result = ",".join(str(value) for value in row.values())
-            else:
-                select_list = dataset.select_fields.split(',')
-                result = ",".join(str(row[key]) for key in select_list)
+            result = ",".join(str(row[key]) for key in select_list)
 
             record['dataset'] = dataset.uri
             record['dataset_name'] = dataset_name
