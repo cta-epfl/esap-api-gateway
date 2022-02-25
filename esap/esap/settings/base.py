@@ -283,3 +283,7 @@ CONFIGURATION_FILE = 'esap_default'
 # location of the YAML configuration files.
 # currently next to the (default) 'sqlite3' files, but can be moved later.
 CONFIGURATION_DATA_DIR = os.path.join(BASE_DIR)
+
+# Customizing type of auto-created primary keys
+# New in Django 3.2: https://docs.djangoproject.com/en/3.2/releases/3.2/#customizing-type-of-auto-created-primary-keys
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
