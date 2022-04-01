@@ -44,6 +44,10 @@ def search_workflows(keyword="", objectclass=""):
     db_workflows = serializers.serialize("python", Workflow.objects.all())
     zenodo_workflows = Harvester.get_data_from_zenodo(query=keyword, keyword="jupyter-notebook")
     for db_entry in db_workflows:
+        if db_entry["fields"]["workflowtype"].lower() == "notebook":
+            db_entry["fields"]["keywords"] = "jupyter-notebook"
+            db_entry["fields"]["runtimePlatform"] = ""
+            db_entry["fields"]["author"] = ""
         response["results"].append(db_entry["fields"])
     response["results"].extend(zenodo_workflows)
     return response
@@ -56,8 +60,8 @@ def search(model, keyword="", objectclass=""):
     :param keyword: comma separated keywords
     :return:
     """
-    
-    def apply_search(keyword, model, objectclass):   
+
+    def apply_search(keyword, model, objectclass):
         if objectclass.lower()=="workflow":
             results = model.objects.filter(
                 Q(name__icontains=keyword) | Q(description__icontains=keyword) | Q(url__icontains=keyword) 
