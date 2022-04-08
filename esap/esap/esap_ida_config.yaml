@@ -19,6 +19,13 @@
     description: SKAO BinderHub
     url:  https://srcdev.skatelescope.org/binderhub/
     facilitytype: jupyterhub
+- model: ida.facility
+  pk: 4
+  fields:
+    name: Rosetta @ INAF OATS
+    description: The Rosetta platform deployed at INAF OATS computing centre
+    url:  https://esap-rosetta.oats.inaf.it/
+    facilitytype: jupyterhub
 - model: ida.workflow
   pk: 1
   fields:
