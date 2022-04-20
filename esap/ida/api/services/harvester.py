@@ -33,7 +33,7 @@ class Harvester(object):
 
                 try:
                     item = {}
-                    codemeta =  record.get_codemeta()
+                    codemeta =  {} #record.get_codemeta()
                     item["id"] = record.data["id"]
                     item["description"] = record.data["metadata"].get("description","")
                     item["name"] = record.data["metadata"].get("title","")
@@ -41,7 +41,7 @@ class Harvester(object):
                     item["url"] = codemeta.get("codeRepository","")
                     item["runtimePlatform"] = codemeta.get("runtimePlatform","")
                     item["keywords"] = ", ".join(codemeta.get("keywords",[]))
-                    item["author"] = codemeta["author"][0].get("givenName","") + " " + codemeta["author"][0].get("familyName", "")
+                    item["author"] = codemeta.get("author","")[0].get("givenName","") + " " + codemeta.get("author","")[0].get("familyName", "") if codemeta else ""
                     item["ref"] = "HEAD"
                     item["filepath"] = ""
 
