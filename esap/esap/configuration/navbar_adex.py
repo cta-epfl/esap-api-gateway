@@ -7,5 +7,6 @@ nav1 = {'title': 'Archives', 'route': '/archives'}
 nav2 = {'title': 'Query', 'route': '/adex-query'}
 nav3 = {'title': 'Rucio', 'route': '/rucio'}
 nav4 = {'title': 'Interactive Analysis', 'route': '/interactive'}
+nav4 = {'title': 'Batch Analysis', 'route': '/batch'}
 nav5 = {'title': 'SAMP', 'route': '/samp'}
 navbar = [nav1, nav2]

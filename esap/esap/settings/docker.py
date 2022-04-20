@@ -26,6 +26,7 @@ DATABASE_ROUTERS = [
     'query.database_router.QueryRouter',
     'accounts.database_router.AccountsRouter',
     'ida.database_router.IdaRouter',
+    'batch.database_router.BatchRouter',
     'rucio.database_router.RucioRouter',
 ]
 
@@ -41,6 +42,10 @@ DATABASES = {
     'ida': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': '/shared/esap_ida_config.sqlite3',
+    },
+    'batch': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/shared/esap_batch_config.sqlite3',
     },
     'rucio': {
         'ENGINE': 'django.db.backends.sqlite3',

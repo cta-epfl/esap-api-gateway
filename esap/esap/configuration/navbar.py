@@ -7,13 +7,14 @@ nav1 = {'title': 'Archives', 'route': '/archives'}
 nav2 = {'title': 'Multi Query', 'route': '/query'}
 nav3 = {'title': 'Rucio', 'route': '/rucio'}
 nav4 = {'title': 'Interactive Analysis', 'route': '/interactive'}
-nav5 = {'title': 'IVOA-SAMP', 'route': '/samp'}
-nav6 = {'title': 'Asteroids', 'route': '/aladin_simple'}
-nav7 = {'title': 'Exoplanets', 'route': '/aladin_advanced'}
+nav5 = {'title': 'Batch Analysis', 'route': '/batch'}
+nav6 = {'title': 'IVOA-SAMP', 'route': '/samp'}
+nav7 = {'title': 'Asteroids', 'route': '/aladin_simple'}
+nav8 = {'title': 'Exoplanets', 'route': '/aladin_advanced'}
 
 #navbar = [nav1, nav4, nav5]
 # enable multi query
-navbar = [nav1, nav2, nav4, nav5]
+navbar = [nav1, nav2, nav4, nav5, nav6]
 
 # enable aladin demo
 # navbar = [nav1, nav4, nav5, nav6, nav7]
