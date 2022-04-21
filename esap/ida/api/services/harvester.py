@@ -1,12 +1,11 @@
-from rest_framework import serializers
-
-import requests
+import concurrent.futures
 import json
 import logging
+import requests
 import string
 import urllib
-import concurrent.futures
 
+from rest_framework import serializers
 from eossr.api import get_ossr_records
 
 logger = logging.getLogger(__name__)
@@ -15,14 +14,13 @@ ZENODO_HOST = "https://zenodo.org/api/communities"
 ZENODO_AUTH_TOKEN = "AUTH_TOKEN"
 
 
-
 class Harvester(object):
     """
     The Harvester class used to collect entries for existing Worfklows / Notebooks from the OSSR
     """
 
     # Initializer
-    def __init__(self, url = ZENODO_HOST):
+    def __init__(self, url=ZENODO_HOST):
         # We may end up using this when we switch to the sandbox version
         self.url = url
 
@@ -55,13 +53,21 @@ class Harvester(object):
                 try:
                     codemeta = record.get_codemeta(timeout=timeout)
                     item["id"] = record.data["id"]
-                    item["description"] = record.data["metadata"].get("description","")
-                    item["name"] = record.data["metadata"].get("title","")
+                    item["description"] = record.data["metadata"].get("description", "")
+                    item["name"] = record.data["metadata"].get("title", "")
                     item["workflow"] = "notebook"
-                    item["url"] = codemeta.get("codeRepository","")
-                    item["runtimePlatform"] = codemeta.get("runtimePlatform","")
-                    item["keywords"] = ", ".join(codemeta.get("keywords",[]))
-                    item["author"] = codemeta.get("author","")[0].get("givenName","") + " " + codemeta.get("author","")[0].get("familyName", "") if codemeta else ""
+                    item["url"] = codemeta.get("codeRepository", "")
+                    item["runtimePlatform"] = codemeta.get("runtimePlatform", "")
+                    item["keywords"] = ", ".join(codemeta.get("keywords", []))
+                    item["author"] = ", ".join(
+                        [
+                            " ".join(
+                                author.get(fieldName, "")
+                                for fieldName in ("givenName", "familyName")
+                            ).strip()
+                            for author in codemeta.get("author", [])
+                        ]
+                    )
                     item["ref"] = "HEAD"
                     item["filepath"] = ""
                 except Exception as e:
@@ -69,7 +75,10 @@ class Harvester(object):
                 return item
 
             with concurrent.futures.ThreadPoolExecutor() as executor:
-                futures = [executor.submit(item_from_record, record, timeout) for record in records]
+                futures = [
+                    executor.submit(item_from_record, record, timeout)
+                    for record in records
+                ]
                 for future in concurrent.futures.as_completed(futures):
                     item = future.result()
                     if "url" in item and item["url"]:
@@ -77,7 +86,12 @@ class Harvester(object):
 
             return results
 
-        keywords='jupyter-notebook'
-        # Keep for later when we implement a keyword search: escape_records = get_ossr_records(search=query, keywords=keywords) if query else get_ossr_records(keywords=keywords)
+        keywords = "jupyter-notebook"
+        # Keep for later when we implement a keyword search:
+        # escape_records = (
+        #     get_ossr_records(search=query, keywords=keywords)
+        #     if query
+        #     else get_ossr_records(keywords=keywords)
+        # )
         escape_records = get_ossr_records(keywords=keywords)
         return _format_results(escape_records)
