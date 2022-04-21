@@ -49,7 +49,10 @@ class Harvester(object):
                     item = {}
                     logging.exception(e)
                 finally:
-                    results.append(item)
+                    # We're only interested in Workflows and Notebooks which
+                    # have associated URLs so that we can run them.
+                    if "url" in item and item["url"]:
+                        results.append(item)
             return results
 
         keywords='jupyter-notebook'
