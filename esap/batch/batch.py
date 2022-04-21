@@ -1,5 +1,5 @@
 
-# definition of the IDA interface
+# definition of the Batch Interface
 batch_schema = {
     "name": "batch",
     "title": "Batch Analysis",
