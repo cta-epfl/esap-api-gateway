@@ -1,11 +1,6 @@
 import concurrent.futures
-import json
 import logging
-import requests
-import string
-import urllib
 
-from rest_framework import serializers
 from eossr.api import get_ossr_records
 
 logger = logging.getLogger(__name__)
