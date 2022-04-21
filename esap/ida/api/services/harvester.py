@@ -1,9 +1,12 @@
 from rest_framework import serializers
+
 import requests
 import json
 import logging
 import string
 import urllib
+import concurrent.futures
+
 from eossr.api import get_ossr_records
 
 logger = logging.getLogger(__name__)
@@ -24,16 +27,33 @@ class Harvester(object):
         self.url = url
 
     @staticmethod
-    def get_data_from_zenodo(query=None, keyword=None):
-        """ use Zenodo REST API to query the OSSR"""
+    def get_data_from_zenodo(query=None, keyword=None, timeout=5.0):
+        """Use the Zenodo REST API to query the OSSR
+
+        Parameters
+        ----------
+        query : `str`
+            Unused.
+        keyword : `str`
+            Unused.
+        timeout : `float`
+            Give up if Zenodo doesn't return within timeout seconds.
+
+        Notes
+        -----
+        This method uses a thread pool to submit multiple queries to Zenodo at
+        once, and has a timeout on each one. This prevents it from blocking
+        indefinitely (or even for num_records * timeout seconds) if Zenodo is
+        unresponsive.
+        """
 
         def _format_results(records):
             results = []
-            for record in records:
 
+            def item_from_record(record, timeout):
+                item = {}
                 try:
-                    item = {}
-                    codemeta =  {} #record.get_codemeta()
+                    codemeta = record.get_codemeta(timeout=timeout)
                     item["id"] = record.data["id"]
                     item["description"] = record.data["metadata"].get("description","")
                     item["name"] = record.data["metadata"].get("title","")
@@ -44,15 +64,17 @@ class Harvester(object):
                     item["author"] = codemeta.get("author","")[0].get("givenName","") + " " + codemeta.get("author","")[0].get("familyName", "") if codemeta else ""
                     item["ref"] = "HEAD"
                     item["filepath"] = ""
-
                 except Exception as e:
-                    item = {}
                     logging.exception(e)
-                finally:
-                    # We're only interested in Workflows and Notebooks which
-                    # have associated URLs so that we can run them.
+                return item
+
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                futures = [executor.submit(item_from_record, record, timeout) for record in records]
+                for future in concurrent.futures.as_completed(futures):
+                    item = future.result()
                     if "url" in item and item["url"]:
                         results.append(item)
+
             return results
 
         keywords='jupyter-notebook'
