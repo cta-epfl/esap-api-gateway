@@ -1,74 +1,52 @@
-"""
-    File name: zenodo.py
-    Date created: 2021-05-16
-    Description:  Zenodo Service Connector for ESAP.
-"""
-#from eossr.api import get_ossr_records
+"""Zenodo Service Connector for ESAP."""
+
 from eossr.api import get_zenodo_records
 from rest_framework import serializers
 from .query_base import query_base
-import requests
-import json
 import logging
-import string
 
 logger = logging.getLogger(__name__)
 
-AMP_REPLACEMENT = "_and_"
-
-# --------------------------------------------------------------------------------------------------------------------
-
 
 class zenodo_connector(query_base):
-    """
-    The connector to access the data lake through ZENODO
-    """
-
-    # Initializer
-    def __init__(self, url):
-        self.url = url
+    """A connector to query Zenodo archives"""
 
     # construct a query for the ZENODO REST API
-    def construct_query(
-        self, dataset, esap_query_params, translation_parameters
-    ):
+    def construct_query(self, dataset, esap_query_params, translation_parameters):
 
-        query = {'size': '1000'}
+        query = {"size": "1000"}
         where = {}
         error = {}
 
-        query['communities'] =  str.lower(esap_query_params.pop('community')[0])
+        query["communities"] = str.lower(esap_query_params.pop("community")[0])
 
-        if 'keyword' in esap_query_params.keys():
-             query['keywords'] =  str(esap_query_params.pop('keyword')[0])
+        if "keyword" in esap_query_params.keys():
+            query["keywords"] = str(esap_query_params.pop("keyword")[0])
 
-        desired_value = 'undefined'
+        desired_value = "undefined"
         for key, value in query.items():
-          if value == desired_value:
-            del query[key]
-            break
+            if value == desired_value:
+                del query[key]
+                break
 
         return query, where, error
 
     def _get_data_from_zenodo(self, query, session):
-        """ use Zenodo REST API to query the data lake """
+        """use Zenodo REST API to query the data lake"""
 
         results = []
         response = []
 
         if query != "empty":
             try:
-                 response = get_zenodo_records(**query)
+                response = get_zenodo_records(**query)
             except:
-                 logger.info("No Results Found in Zenodo Archive Search")
+                logger.info("No Results Found in Zenodo Archive Search")
         else:
-             logger.info("Empty search in Zenodo Archive Search")
+            logger.info("Empty search in Zenodo Archive Search")
 
         if len(response) > 0:
-            results = [
-                element.data
-                for element in response
-             ]
+            results = [element.data for element in response]
 
         return results
 
@@ -77,7 +55,7 @@ class zenodo_connector(query_base):
         dataset,
         dataset_name,
         query,
-	session,
+        session,
         override_access_url=None,
         override_service_type=None,
     ):
@@ -87,10 +65,8 @@ class zenodo_connector(query_base):
         :return: results: an array of dicts with the following structure;
         """
 
-        # create a function that reads the data from lofar
         zenodo_results = self._get_data_from_zenodo(query, session)
-
-        ##logger.info("RESULTS: " + str(zenodo_results))
+        logger.debug("RESULTS: " + str(zenodo_results))
         return zenodo_results
 
     # custom serializer for the 'query' endpoint
