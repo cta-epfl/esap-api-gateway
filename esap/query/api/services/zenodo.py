@@ -69,37 +69,7 @@ class zenodo_connector(query_base):
         logger.debug("RESULTS: " + str(zenodo_results))
         return zenodo_results
 
-    # custom serializer for the 'query' endpoint
-
-    class TypeToSerializerMap:
-
-        map = {
-            type(float): serializers.FloatField(),
-            type(int): serializers.IntegerField(),
-            type(str): serializers.CharField(),
-            type(dict): serializers.DictField(),
-            type(list): serializers.ListField(),
-        }
-
-        @classmethod
-        def getFieldForType(cls, value):
-            return cls.map.get(type(value), serializers.JSONField())
-
     class CreateAndRunQuerySerializer(serializers.Serializer):
-        """
-        Custom serializer classes implement dynamic field definition based on
-        the contents of the query passed to it.
-        """
-
-        def __init__(self, *args, **kwargs):
-
-            self.example_result = kwargs.get("instance", [])[0]
-
-            super().__init__(*args, **kwargs)
-
-            self.fields.update(
-                {
-                    key: zenodo_connector.TypeToSerializerMap.getFieldForType(value)
-                    for key, value in self.example_result.items()
-                }
-            )
+        links = serializers.DictField()
+        metadata = serializers.DictField()
+        doi = serializers.CharField()
