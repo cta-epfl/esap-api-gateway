@@ -8,7 +8,7 @@ from django_filters import rest_framework as filters
 from rest_framework import viewsets, permissions
 from batch.models import *
 from rest_framework import generics
-from ..serializers import *
+#from ..serializers import *
 from django.shortcuts import redirect
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -23,8 +23,8 @@ class BatchViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return self.request.user.staging.all()
 
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    #def perform_create(self, serializer):
+        #serializer.save(owner=self.request.user)
 
 
 # example: /esap/batch/

@@ -4,10 +4,9 @@ from rest_framework import routers
 
 from . import views
 
-router = routers.DefaultRouter()
-router.register('batch', views.BatchViewSet, 'batch')
-
-urlpatterns = router.urls
+#router = routers.DefaultRouter()
+#router.register('batch', views.BatchViewSet, 'batch')
+#urlpatterns = router.urls
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index-view'),
