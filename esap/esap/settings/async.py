@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     "rucio",
     "ida",
     "knox",
+    "batch",
     "uws",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -42,6 +43,7 @@ DATABASE_ROUTERS = [
     "query.database_router.QueryRouter",
     "accounts.database_router.AccountsRouter",
     "ida.database_router.IdaRouter",
+    'batch.database_router.BatchRouter',
     "rucio.database_router.RucioRouter",
 ]
 
@@ -61,6 +63,10 @@ DATABASES = {
     "rucio": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, "esap_rucio_config.sqlite3"),
+    },
+    'batch': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'esap_batch_config.sqlite3'),
     },
     "uws": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
