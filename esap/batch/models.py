@@ -13,6 +13,7 @@ class Facility(models.Model):
     description = models.CharField(max_length=240)
     url = models.CharField(max_length=240)
     facilitytype = models.CharField(max_length=240)
+    runtimeengine = models.CharField(max_length=240, default='none')
 
     def __str__(self):
         return str(self.name)
