@@ -14,7 +14,7 @@ nav8 = {'title': 'Exoplanets', 'route': '/aladin_advanced'}
 
 #navbar = [nav1, nav4, nav5]
 # enable multi query
-navbar = [nav1, nav2, nav4, nav6]
+navbar = [nav1, nav2, nav4, nav5, nav6]
 
 # enable aladin demo
 # navbar = [nav1, nav4, nav5, nav6, nav7]

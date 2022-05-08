@@ -1,0 +1,80 @@
+- model: batch.facility
+  pk: 1
+  fields:
+    name: MyBinder
+    description: MyBinder
+    url: https://mybinder.org/
+    facilitytype: jupyterhub
+- model: batch.facility
+  pk: 2
+  fields:
+    name: JIVE BinderHub
+    description: JIVE BinderHub
+    url:  http://jupyter.jive.nl/binderhub/
+    facilitytype: jupyterhub
+- model: batch.facility
+  pk: 3
+  fields:
+    name: SKAO BinderHub
+    description: SKAO BinderHub
+    url:  https://srcdev.skatelescope.org/binderhub/
+    facilitytype: jupyterhub
+- model: batch.facility
+  pk: 4
+  fields:
+    name: Rosetta @ INAF OATS
+    description: The Rosetta platform deployed at INAF OATS computing centre
+    url:  https://esap-rosetta.oats.inaf.it/
+    facilitytype: jupyterhub
+- model: batch.workflow
+  pk: 1
+  fields:
+    name: CSIC-IAA HCG-16 workflow
+    description: Analysis of Hickson Compact Group 16
+    url: https://github.com/AMIGA-IAA/hcg-16
+    ref: HEAD
+    workflowtype: notebook
+- model: batch.workflow
+  pk: 2
+  fields:
+    name: CDS MOCPy
+    description: Experiment with Multi-Order Coverage maps
+    url: https://github.com/cds-astro/mocpy
+    ref: HEAD
+    workflowtype: notebook
+- model: batch.workflow
+  pk: 3
+  fields:
+    name: ASTRON VO Apertif
+    description: ASTRON VO Apertif
+    url: https://git.astron.nl/astron-sdc/escape-wp5/workflows/apertif-vo-example
+    ref: HEAD
+    filepath: PyVO.ipynb
+    workflowtype: notebook
+- model: batch.workflow
+  pk: 4
+  fields:
+    name: Apertif Visualization
+    description: Shopping Basket and Apertif Visualization Example
+    url: https://git.astron.nl/astron-sdc/escape-wp5/workflows/apertif-vis-example
+    ref: HEAD
+    filepath: ApertifVisualization.ipynb
+    workflowtype: notebook
+- model: batch.workflow
+  pk: 5
+  fields:
+    name: Zooniverse Muon Hunters
+    description: Shopping Cart and Zooniverse Example
+    url: https://git.astron.nl/astron-sdc/escape-wp5/workflows/muon-hunters-example
+    ref: HEAD
+    filepath: ProcessMuonHunterData.ipynb
+    workflowtype: notebook
+- model: batch.workflow
+  pk: 6
+  fields:
+    name: CTA gammapy Example
+    description: CTA gammapy Example
+    url: https://git.astron.nl/astron-sdc/escape-wp5/workflows/cta-example
+    ref: master
+    filepath: gammapy-tutorials/notebooks-0.18.2/cta.ipynb
+    workflowtype: notebook
