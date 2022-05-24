@@ -49,6 +49,22 @@
     thumbnail: https://alta.astron.nl/alta-static/images/esap/lofar.jpg
     documentation_url: http://old.astron.nl/radio-observatory/observing-capabilities/depth-technical-information/data-management/data-management
     institute: Astron
+
+
+- model: query.esapbaseobject
+  pk: 1
+  fields:
+    uri: mmoda
+    name: MMODA
+    short_description: MMODA
+    long_description: "The service allows users to leverage cloud-based scientific data analysis workflows of astrophysical observatories/experiments: INTEGRAL and POLAR missions (with further resources under development), providing verified publication-ready results. At this time, there is no other public service that provides this functionality."
+    retrieval_description: "The service allows users to leverage cloud-based scientific data analysis workflows of astrophysical observatories/experiments: INTEGRAL and POLAR missions (with further resources under development), providing verified publication-ready results. At this time, there is no other public service that provides this functionality."
+    thumbnail: https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png
+    documentation_url: https://www.astro.unige.ch/mmoda/help/mmoda
+    institute: UNIGE, APC, EPFL
+
+
+
 - model: query.esapbaseobject
   pk: 3
   fields:
@@ -67,6 +83,9 @@
     thumbnail: https://alta.astron.nl/alta-static/images/esap/astron_vo.jpg
     documentation_url: https://vo.astron.nl/static/help.shtml
     institute: Astron
+
+
+
 - model: query.esapbaseobject
   pk: 9
   fields:
@@ -946,48 +965,52 @@
     user_url: https://doublehi5.com/CONCORDIA-logo.png
     url: https://doublehi5.com/CONCORDIA-logo.png
     parameters: 17
-- model: query.archive
-  pk: 1
-  fields:
-    instrument: WSRT
-    order: 1
-    visible: true
+
 - model: query.archive
   pk: 2
   fields:
     instrument: LOFAR
     order: 3
     visible: false
+
 - model: query.archive
   pk: 3
   fields:
     instrument: Virtual Observatory
     order: 2
     visible: true
+
+- model: query.archive
+  pk: 1
+  fields:
+    instrument: MMODA
+    order: 1
+    visible: true
+
 - model: query.archive
   pk: 57
   fields:
     instrument: Multiple
     order: 4
-    visible: true
+    visible: false
 - model: query.archive
   pk: 63
   fields:
     instrument: Virtual Observatory
     order: 5
-    visible: true
+    visible: false
 - model: query.archive
   pk: 68
   fields:
     instrument: Many
     order: 7
-    visible: true
+    visible: false
 - model: query.archive
   pk: 74
   fields:
     instrument: Many
     order: 8
-    visible: true
+    visible: false
 - model: query.archive
   pk: 77
   fields:
