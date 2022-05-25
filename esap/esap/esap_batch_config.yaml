@@ -1,10 +1,10 @@
 - model: batch.facility
   pk: 1
   fields:
-    name: MyBinder
-    description: MyBinder
-    url: https://mybinder.org/
-    facilitytype: jupyterhub
+    name: CTADIRAC
+    description: CTA-DIRAC instance
+    url: https://pypi.org/project/CTADIRAC/
+    facilitytype: DIRAC
     runtimeengine: Docker
 - model: batch.facility
   pk: 2
@@ -12,21 +12,21 @@
     name: Rosetta @ INAF OATS
     description: The Rosetta platform deployed at INAF OATS computing centre
     url:  https://esap-rosetta.oats.inaf.it/
-    facilitytype: jupyterhub
+    facilitytype: rosetta
     runtimeengine: Singularity
 - model: batch.workflow
   pk: 1
   fields:
-    name: CSIC-IAA HCG-16 workflow
-    description: Analysis of Hickson Compact Group 16
-    url: https://github.com/AMIGA-IAA/hcg-16
+    name: CTA Monte Carlo Generation
+    description: Production of raw CTA simulations
+    url: None
     ref: HEAD
-    workflowtype: notebook
+    workflowtype: container
 - model: batch.workflow
   pk: 2
   fields:
-    name: CDS MOCPy
-    description: Experiment with Multi-Order Coverage maps
-    url: https://github.com/cds-astro/mocpy
+    name: CONCORDIA
+    description: Containerized Corsika on DIRAC
+    url: None
     ref: HEAD
-    workflowtype: notebook
+    workflowtype: container
