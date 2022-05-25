@@ -25,9 +25,12 @@ class Workflow(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=240)
     url = models.CharField(max_length=240)
-    ref = models.CharField(max_length=240, default="HEAD")
-    filepath = models.CharField(max_length=240, blank=True)
+    ref = models.CharField(max_length=240, default="HEAD", null=True)
+    filepath = models.CharField(max_length=240, blank=True, null=True)
     workflowtype = models.CharField(max_length=240)
+    keywords = models.CharField(max_length=240, null=True)
+    author = models.CharField(max_length=240, null=True)
+    runtimePlatform = models.CharField(max_length=240, null=True)
 
     def __str__(self):
         return str(self.name)

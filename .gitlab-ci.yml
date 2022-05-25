@@ -2,6 +2,23 @@ stages:
   - build
   - deploy
 
+docker-build-branches:
+  # Official docker image.
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" esap
+  except:
+    - master
+    - acceptance
+    - release
+    - adex-main-xxx
+    - adex-main
+
 docker-build-master:
   # Official docker image.
   image: docker:latest
@@ -94,4 +111,3 @@ docker-deploy-acceptance:
   when: manual
   only:
     - acceptance
-

@@ -34,6 +34,9 @@
     url: https://github.com/AMIGA-IAA/hcg-16
     ref: HEAD
     workflowtype: notebook
+    keywords: jupyter-notebook
+    author: 
+    runtimePlatform: Python
 - model: ida.workflow
   pk: 2
   fields:
@@ -42,6 +45,9 @@
     url: https://github.com/cds-astro/mocpy
     ref: HEAD
     workflowtype: notebook
+    keywords: jupyter-notebook
+    author: 
+    runtimePlatform: Python
 - model: ida.workflow
   pk: 3
   fields:
@@ -51,6 +57,9 @@
     ref: HEAD
     filepath: PyVO.ipynb
     workflowtype: notebook
+    keywords: jupyter-notebook
+    author: 
+    runtimePlatform: Python
 - model: ida.workflow
   pk: 4
   fields:
@@ -60,6 +69,9 @@
     ref: HEAD
     filepath: ApertifVisualization.ipynb
     workflowtype: notebook
+    keywords: jupyter-notebook
+    author: 
+    runtimePlatform: Python
 - model: ida.workflow
   pk: 5
   fields:
@@ -69,6 +81,9 @@
     ref: HEAD
     filepath: ProcessMuonHunterData.ipynb
     workflowtype: notebook
+    keywords: jupyter-notebook
+    author: 
+    runtimePlatform: Python
 - model: ida.workflow
   pk: 6
   fields:
@@ -78,3 +93,19 @@
     ref: master
     filepath: gammapy-tutorials/notebooks-0.18.2/cta.ipynb
     workflowtype: notebook
+    keywords: jupyter-notebook
+    author: 
+    runtimePlatform: Python
+- model: ida.workflow
+  pk: 7
+  fields:
+    name: TOPCAT
+    description: TOPCAT is an interactive graphical viewer and editor for tabular data
+    url: http://www.star.bris.ac.uk/~mbt/topcat/
+    ref: master
+    filepath:
+    workflowtype: desktop
+    keywords: desktop
+    author: Mark Taylor
+    runtimePlatform: Java
+
