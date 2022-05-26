@@ -42,13 +42,9 @@ def search_workflows(keyword="", objectclass=""):
 
     from django.core import serializers
     db_workflows = serializers.serialize("python", Workflow.objects.all())
-    zenodo_workflows = Harvester.get_data_from_zenodo(query=keyword, keyword="jupyter-notebook")
     for db_entry in db_workflows:
-        if db_entry["fields"]["workflowtype"].lower() == "notebook":
-            db_entry["fields"]["keywords"] = "jupyter-notebook"
-            db_entry["fields"]["runtimePlatform"] = ""
-            db_entry["fields"]["author"] = ""
         response["results"].append(db_entry["fields"])
+    zenodo_workflows = Harvester.get_data_from_zenodo(query=keyword)
     response["results"].extend(zenodo_workflows)
     return response
 
