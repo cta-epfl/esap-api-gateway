@@ -23,6 +23,16 @@ data:
 
       root /shared/public_html;
 
+      location /health {        
+        default_type application/json;
+        return 200 '{"status":"success","result":"nginx test json"}';
+      }
+
+      location / {
+        auth_basic "Restricted to CTA";
+        auth_basic_user_file /etc/nginx/htpasswd;
+      }
+
       # ===== esap-gui (frontend) configuration =====
       location /esap-gui/ {
             try_files $uri $uri/ /esap-gui/index.html;
