@@ -235,6 +235,7 @@ try:
     LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
     LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
     LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
+    raise
 except:
     # OIDC settings are not configured. ESAP will work in anonymous mode
     pass

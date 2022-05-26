@@ -57,7 +57,7 @@
     uri: mmoda
     name: MMODA
     short_description: MMODA
-    long_description: "The service allows users to leverage cloud-based scientific data analysis workflows of astrophysical observatories/experiments: INTEGRAL and POLAR missions (with further resources under development), providing verified publication-ready results. At this time, there is no other public service that provides this functionality."
+    long_description: "This service allows users to leverage cloud-based scientific data analysis workflows of astrophysical observatories/experiments: INTEGRAL and POLAR missions (with further resources under development), providing verified publication-ready results. At this time, there is no other public service that provides this functionality."
     retrieval_description: "The service allows users to leverage cloud-based scientific data analysis workflows of astrophysical observatories/experiments: INTEGRAL and POLAR missions (with further resources under development), providing verified publication-ready results. At this time, there is no other public service that provides this functionality."
     thumbnail: https://www.astro.unige.ch/mmoda/sites/all/themes/bootstrap_mmoda/logo.png
     documentation_url: https://www.astro.unige.ch/mmoda/help/mmoda
@@ -985,6 +985,13 @@
   fields:
     instrument: MMODA
     order: 1
+    visible: true
+
+- model: query.archive
+  pk: 68
+  fields:
+    instrument: RUCIO
+    order: 9
     visible: true
 
 - model: query.archive
