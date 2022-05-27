@@ -21,6 +21,7 @@ services:
       LOGIN_REDIRECT_URL_FAILURE: ""
       RUCIO_HOST: https://escape-rucio.cern.ch
       RUCIO_AUTH_HOST: https://escape-rucio-auth.cern.ch/
+      API_HOST: "localhost:8000"
     restart: always
     command: "python manage.py runserver 0.0.0.0:8000 --settings=esap.settings.dev"
     volumes:
@@ -38,6 +39,7 @@ services:
       LOGOUT_REDIRECT_URL: ""
       LOGIN_REDIRECT_URL_FAILURE: ""
       NODE_ENV: "development"
+      API_HOST: "localhost:8000"
     build:
       context: ${ESAP_ROOT}/esap-gui
       dockerfile: ${ESAP_ROOT}/esap-api-gateway/esap/docker/ska/Dockerfile

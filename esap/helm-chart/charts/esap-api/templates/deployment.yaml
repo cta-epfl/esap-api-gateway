@@ -20,6 +20,10 @@ spec:
       labels:
         {{- include "esap-api.selectorLabels" . | nindent 8 }}
     spec:
+      volumes:
+      - name: esap-api-settings
+        configMap:
+          name: esap-api-settings
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -36,22 +40,24 @@ spec:
           command:
           - bash 
           - -c
-          - "python manage.py runserver 0.0.0.0:8000 --settings=esap.settings.dev -v3"
+          - "python manage.py runserver 0.0.0.0:8000 --settings=esap.settings.{{ .Values.esap_api_settings_kind }} -v3"
           ports:
             - name: http
               containerPort: 8000
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /esap-api/ida/
+              path: /esap-api/ida
               port: http
           readinessProbe:
             httpGet:
-              path: /esap-api/ida/
+              path: /esap-api/ida
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
+          - name: SECRET_KEY
+            value: "{{ .Values.django_secret_key }}"
           - name: NODE_ENV
             value: "development"
           - name: RUCIO_HOST
@@ -62,6 +68,12 @@ spec:
           - name: {{ $key }}
             value: {{ $value }}
           {{- end }}
+          volumeMounts:
+          - name: esap-api-settings
+            mountPath: /src/esap/settings/prod.py
+            subPath: prod.py
+            readOnly: true
+
 
       {{- with .Values.nodeSelector }}
       nodeSelector:

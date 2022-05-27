@@ -61,6 +61,8 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
+*.sqlite3
+
 # Flask stuff:
 instance/
 .webassets-cache
@@ -149,3 +151,5 @@ esap/docker/docker-compose-query-hjd.yml
 esap/esap/settings/docker_hjd.py
 esap/Dockerfile_hjd
 esap/esap/wsgi_docker_hjd.py
+
+*.swp

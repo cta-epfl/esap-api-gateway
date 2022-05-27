@@ -1005,7 +1005,7 @@
   fields:
     instrument: Virtual Observatory
     order: 5
-    visible: false
+    visible: true
 - model: query.archive
   pk: 68
   fields:
