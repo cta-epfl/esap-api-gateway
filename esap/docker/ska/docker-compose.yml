@@ -49,3 +49,4 @@ services:
     volumes:
       - ${ESAP_ROOT}/esap-api-gateway/esap/docker/ska/nginx.conf:/etc/nginx/conf.d/nginx.conf
       - ${ESAP_ROOT}/esap-gui/build:/usr/share/nginx/html
+      - ${ESAP_ROOT}/esap-gui/build:/shared/public_html
