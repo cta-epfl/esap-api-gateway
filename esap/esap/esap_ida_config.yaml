@@ -45,7 +45,7 @@
   fields:
     name: HESS DR3 analysis with gammapy 
     description: HESS DR3 analysis with gammapy 
-    url: https://nowhere
+    url: https://renkulab.io/gitlab/andrii.neronov/hess/-/blob/master/Spectrum.ipynb
     ref: master
     filepath: gammapy-tutorials/notebooks-0.18.2/cta.ipynb
     workflowtype: notebook
