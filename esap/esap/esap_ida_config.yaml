@@ -43,27 +43,18 @@
 - model: ida.workflow
   pk: 2
   fields:
-    name: HESS DR3 analysis with gammapy 
-    description: HESS DR3 analysis with gammapy 
-    url: https://renkulab.io/gitlab/andrii.neronov/hess/-/blob/master/Spectrum.ipynb
+    name: HESS DR3 analysis with gammapy
+    description: HESS DR3 analysis with gammapy
+    url: https://renkulab.io/gitlab/vladimir.savchenko/hess
+    #url: https://renkulab.io/gitlab/andrii.neronov/hess/-/tree/b301e20116a5d922ed2d5cc0a23d90b05892e4e4
     ref: master
-    filepath: gammapy-tutorials/notebooks-0.18.2/cta.ipynb
+    filepath: Untitled.ipynb
     workflowtype: notebook
     keywords: jupyter-notebook
     author: 
     runtimePlatform: Python
 
-- model: ida.workflow
-  pk: 3
-  fields:
-    name: CDS MOCPy
-    description: Experiment with Multi-Order Coverage maps
-    url: https://github.com/cds-astro/mocpy
-    ref: HEAD
-    workflowtype: notebook
-    keywords: jupyter-notebook
-    author: 
-    runtimePlatform: Python
+
 - model: ida.workflow
   pk: 6
   fields:
