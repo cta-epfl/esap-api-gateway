@@ -87,8 +87,6 @@ affinity: {}
 #esap_api_settings_kind: dev
 esap_api_settings_kind: prod
 
-django_secret_key: 4eEn3mDSstXs+r1wtaTOaJRUGErf5dDAQYOr6787NKs=
-
 oidc:
   OIDC_RP_CLIENT_ID: "APP-FOEDKYRI1WX567DN"
   OIDC_RP_CLIENT_SECRET: ""
