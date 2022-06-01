@@ -1,31 +1,41 @@
 - model: ida.facility
   pk: 1
   fields:
+    name: CSCS CTA BinderHub
+    description: CSCS CTA BinderHub
+    url: https://binder.test-cta-cscs.odahub.io/
+    facilitytype: jupyterhub
+- model: ida.facility
+  pk: 2
+  fields:
     name: MyBinder
     description: MyBinder
     url: https://mybinder.org/
     facilitytype: jupyterhub
 - model: ida.facility
-  pk: 2
+  pk: 3
   fields:
     name: RenkuLab
     description: RenkuLab
     url:  https://renkulab.io/
     facilitytype: jupyterhub
 - model: ida.facility
-  pk: 3
+  pk: 4
   fields:
     name: JIVE BinderHub
     description: JIVE BinderHub
     url:  http://jupyter.jive.nl/binderhub/
     facilitytype: jupyterhub
 - model: ida.facility
-  pk: 4
+  pk: 5
   fields:
     name: SKAO BinderHub
     description: SKAO BinderHub
     url:  https://srcdev.skatelescope.org/binderhub/
     facilitytype: jupyterhub
+
+
+
 
 - model: ida.workflow
   pk: 1
