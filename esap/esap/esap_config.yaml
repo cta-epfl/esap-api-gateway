@@ -985,7 +985,7 @@
   fields:
     instrument: MMODA
     order: 1
-    visible: true
+    visible: false
 
 - model: query.archive
   pk: 68
