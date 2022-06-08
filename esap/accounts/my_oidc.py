@@ -40,12 +40,14 @@ class MyOIDCAB(OIDCAuthenticationBackend):
 
     # this is an example of overriding a part of the Authentication backend
     def verify_claims(self, claims):
-        print('MyOIDCAB.verify_claims('+str(claims)+')')
+        logger.warning('MyOIDCAB.verify_claims(%s)', claims)
 
         update_userprofile(claims)
+        
 
         verified = super(MyOIDCAB, self).verify_claims(claims)
         is_admin = 'admin' in claims.get('group', [])
+        logger.warning('verified: %s', verified)
         return verified
         # return verified and is_admin
 
