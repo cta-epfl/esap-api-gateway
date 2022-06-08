@@ -152,7 +152,7 @@ LOGGING = {
     'formatters': {
         'my_formatter': {
             '()': 'django.utils.log.ServerFormatter',
-            'format': '[%(asctime)s] %(message)s',
+            'format': '[%(asctime)s] [%(levelname)s] %(message)s',
         }
     },
     'handlers': {
@@ -177,7 +177,7 @@ LOGGING = {
             'formatter': 'my_formatter',
         },
         'my_file_handler': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'my_formatter',
             'filename': LOG_FILE_NAME
@@ -207,7 +207,7 @@ LOGGING = {
             'level': 'ERROR',
         },
         'mozilla_django_oidc': {
-            'handlers': ['console'],
+            'handlers': ['console', 'my_file_handler'],
             'level': 'DEBUG',
         },
     }

@@ -62,14 +62,19 @@ AUTH_PASSWORD_VALIDATORS = []
 CONFIGURATION_DIR = os.path.join(BASE_DIR, 'configuration')
 CONFIGURATION_FILE = 'adex'
 
-LOGIN_REDIRECT_URL = "http://localhost:3000/esap-gui/login"
-LOGOUT_REDIRECT_URL = "http://localhost:3000/esap-gui/logout"
-LOGIN_REDIRECT_URL_FAILURE = "http://localhost:3000/esap-gui/error"
+LOGIN_REDIRECT_URL = "http://localhost:8080/esap-gui/login"
+LOGOUT_REDIRECT_URL = "http://localhost:8080/esap-gui/logout"
+LOGIN_REDIRECT_URL_FAILURE = "http://localhost:8080/esap-gui/error"
+
+OIDC_RP_CLIENT_ID = ""
+OIDC_RP_CLIENT_SECRET = ""
+OIDC_OP_AUTHORIZATION_ENDPOINT = "https://github.com/login/oauth/authorize"
+
+OIDC_TOKEN_USE_BASIC_AUTH = "false"
+OIDC_OP_TOKEN_ENDPOINT = "https://github.com/login/oauth/access_token"
+OIDC_OP_USER_ENDPOINT = "https://api.github.com/user"
 
 # to test refresh
-#OIDC_AUTHENTICATION_CALLBACK_URL = "https://sdc-dev.astron.nl/esap-api/oidc/callback/"
-try:
-   OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = float(os.environ['OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS'])
-except:
-   OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 36000
-#OIDC_EXEMPT_URLS = ['/esap-api/accounts/user-profiles']
+# OIDC_AUTHENTICATION_CALLBACK_URL = "https://localhost:8081/esap-api/oidc/callback/"
+
+OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 36000
