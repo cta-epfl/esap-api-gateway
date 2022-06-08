@@ -287,10 +287,10 @@ data:
         LOGIN_REDIRECT_URL = os.environ['LOGIN_REDIRECT_URL']
         LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
         LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
-        raise
+        # raise
     except:
-        # OIDC settings are not configured. ESAP will work in anonymous mode
-        pass
+        print("OIDC settings are not configured. ESAP will work in anonymous mode")
+        
 
 
     OIDC_AUTH_REQUEST_EXTRA_PARAMS = {'audience':'rucio'}
@@ -298,7 +298,6 @@ data:
     OIDC_RP_SIGN_ALGO = "RS256"
     OIDC_STORE_ACCESS_TOKEN = True
     OIDC_STORE_ID_TOKEN = True
-
 
     OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = float(os.getenv('OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS', 36000))
       

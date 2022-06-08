@@ -88,12 +88,7 @@ affinity: {}
 esap_api_settings_kind: prod
 
 oidc:
-  OIDC_RP_CLIENT_ID: "APP-FOEDKYRI1WX567DN"
-  OIDC_RP_CLIENT_SECRET: ""
   OIDC_OP_JWKS_ENDPOINT: "OIDC_OP_JWKS_ENDPOINT"
-  OIDC_OP_AUTHORIZATION_ENDPOINT: "https://orcid.org/oauth/authorize"
-  OIDC_OP_TOKEN_ENDPOINT: "OIDC_OP_TOKEN_ENDPOINT"
-  OIDC_OP_USER_ENDPOINT: "OIDC_OP_USER_ENDPOINT"
   LOGIN_REDIRECT_URL: "https://esap-gui.test-cta-cscs.odahub.io/esap-gui/login"
   LOGOUT_REDIRECT_URL: "https://esap-gui.test-cta-cscs.odahub.io/esap-gui/logout"
   LOGIN_REDIRECT_URL_FAILURE: ""
