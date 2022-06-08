@@ -1,4 +1,5 @@
 import logging
+from urllib.parse import urlparse
 from rest_framework import viewsets
 from rest_framework import permissions
 from .serializers import *
@@ -101,7 +102,7 @@ class EsapUserProfileViewSet(viewsets.ModelViewSet):
                 decoded_payload = base64.urlsafe_b64decode(token[1] + "===")
                 decoded_token = json.loads(decoded_payload.decode("UTF-8"))
 
-                uid = decoded_token["iss"] + 'userinfo:' + decoded_token["sub"]
+                uid = uid = urlparse(decoded_token["iss"]).netloc + ':userinfo:' + decoded_token["sub"]
                 logger.info('uid = ' + uid)
 
                 aud = decoded_token["aud"]

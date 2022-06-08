@@ -1,7 +1,9 @@
+import imp
 import logging
 from mozilla_django_oidc.auth import OIDCAuthenticationBackend
 
 from django.conf import settings
+from urllib.parse import urlparse
 
 from .models import EsapUserProfile
 logger = logging.getLogger(__name__)
@@ -16,7 +18,7 @@ def update_userprofile(claims):
         # to get more claims than just email, the 'profile' scope must be enabled in settings
         # OIDC_RP_SCOPES = "openid email profile"
 
-        uid = settings.OIDC_OP_USER_ENDPOINT + ":" + claims['sub']
+        uid = urlparse(settings.OIDC_OP_USER_ENDPOINT).netloc + ":userinfo:" + claims['sub']
         user_email = claims['email']
 
         user_name = claims.get('preferred_username', None)
