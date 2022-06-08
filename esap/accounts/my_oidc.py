@@ -18,7 +18,15 @@ def update_userprofile(claims):
 
         uid = settings.OIDC_OP_USER_ENDPOINT + ":" + claims['sub']
         user_email = claims['email']
-        user_name = claims['preferred_username']
+
+        user_name = claims.get('preferred_username', None)
+
+        if user_name is None:
+            user_name = claims.get('nickname', None)
+
+        if user_name is None:
+            user_name = user_email
+
         logger.info('user_name (from claims[preferred_username]) = ' + user_name)
         full_name= claims['name']
 
