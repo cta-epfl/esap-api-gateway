@@ -17,9 +17,9 @@ import mozilla_django_oidc.utils
 # overriding 'absolutify' to be able to log the callback_url.
 # TODO: remove this when we get rid of the IAM cors errors
 def my_absolutify(request, path):
-    # callback_url = request.build_absolute_uri(path)
+    callback_url = request.build_absolute_uri(path)
     # callback_url = "https://localhost:8081" + path
-    #callback_url = request.build_absolute_uri(reverse('oidc_authentication_callback')).replace('http:','https:')
+    # callback_url = request.build_absolute_uri(reverse('oidc_authentication_callback')).replace('http:','https:')
     logger.info('callback_url built from request %s and path %s = %s', request, path, callback_url)
     return callback_url
 

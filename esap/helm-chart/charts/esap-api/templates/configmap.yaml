@@ -227,7 +227,7 @@ data:
                 'formatter': 'my_formatter',
             },
             'my_file_handler': {
-                'level': 'INFO',
+                'level': 'DEBUG',
                 'class': 'logging.FileHandler',
                 'formatter': 'my_formatter',
                 'filename': LOG_FILE_NAME
@@ -237,27 +237,27 @@ data:
         'loggers': {
             'query': {
                 'handlers': ['my_handler', 'my_file_handler', 'mail_admins'],
-                'level': 'INFO',
+                'level': 'DEBUG',
             },
             'accounts': {
                 'handlers': ['my_handler', 'my_file_handler', 'mail_admins'],
-                'level': 'INFO',
+                'level': 'DEBUG',
             },
             'django': {
-                'handlers': ['console', 'mail_admins'],
-                'level': 'INFO',
+                'handlers': ['console', 'mail_admins', 'my_file_handler'],
+                'level': 'DEBUG',
             },
             'django.server': {
-                'handlers': ['django.server'],
+                'handlers': ['django.server', 'my_file_handler'],
                 'level': 'INFO',
                 'propagate': False,
             },
             'django.db.backends': {
-                'handlers': ['console'],
-                'level': 'ERROR',
+                'handlers': ['console', 'my_file_handler'],
+                'level': 'DEBUG',
             },
             'mozilla_django_oidc': {
-                'handlers': ['console'],
+                'handlers': ['console', 'my_file_handler'],
                 'level': 'DEBUG',
             },
         }
