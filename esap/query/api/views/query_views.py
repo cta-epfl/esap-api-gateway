@@ -1,5 +1,6 @@
 import logging
 
+from django.core.exceptions import FieldError
 from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, renderer_classes
@@ -32,6 +33,53 @@ def extract_and_remove(query_params, parameter):
         return query_params, None
 
 
+def no_datasets_found_error():
+    error = "ERROR: No datasets found for this query. Check your 'dataset' configurations in the esap_config database"
+    return Response({error})
+
+
+def extract_and_filter(datasets, query_params, subject, filter_name, should_remove_query_param=True):
+    if should_remove_query_param:
+        query_params, subject_value = extract_and_remove(query_params, subject)
+    else:
+        try:
+            subject_value = query_params[subject][0]
+        except KeyError:
+            subject_value = None
+
+    if subject_value:
+        try:
+            # PEP 448 needed to use the filter field variable 'filter_name'
+            datasets = datasets.filter(**{'{}__icontains'.format(filter_name): subject_value})
+        except FieldError as error:
+            raise FieldError(filter_name + " is not a known field for the Dataset object.\nError: " + str(error))
+
+    return datasets, query_params
+
+
+def filter_datasets(datasets, query_params):
+    # the query will be run on all datasets that belong to the given archive_uri...
+    # ...unless a dataset_uri is given, then it will only use that dataset
+    datasets, query_params = extract_and_filter(datasets, query_params, "archive_uri", "dataset_archive__uri")
+    if len(datasets) == 0:
+        return datasets, query_params
+    datasets, query_params = extract_and_filter(datasets, query_params, "dataset_uri", "uri")
+    if len(datasets) == 0:
+        return datasets, query_params
+
+    # do not remove 'collection' from the query parameters since 'collection' is also a query parameter.
+    # ... 'level' and 'category' are not
+    datasets, query_params = extract_and_filter(datasets, query_params, "level", "level")
+    if len(datasets) == 0:
+        return datasets, query_params
+    datasets, query_params = extract_and_filter(datasets, query_params, "category", "category")
+    if len(datasets) == 0:
+        return datasets, query_params
+    datasets, query_params = extract_and_filter(datasets, query_params, "collection", "collection", False)
+
+    return datasets, query_params
+
+
 class CreateQueryView(generics.ListAPIView):
     """
     Receive a query and return the results
@@ -49,20 +97,7 @@ class CreateQueryView(generics.ListAPIView):
         datasets = common_views.get_datasets()
         query_params = dict(self.request.query_params)
 
-        # is there a query on archives?
-        query_params, archive_uri = extract_and_remove(query_params, "archive_uri")
-        if archive_uri:
-            datasets = datasets.filter(dataset_archive__uri=archive_uri)
-
-        # is there a query on level?
-        query_params, level = extract_and_remove(query_params, "level")
-        if level:
-            datasets = datasets.filter(level=level)
-
-        # is there a query on category?
-        query_params, category = extract_and_remove(query_params, "category")
-        if category:
-            datasets = datasets.filter(category=category)
+        datasets, query_params = filter_datasets(datasets, query_params)
 
         input_results = query_controller.create_query(
             datasets=datasets, query_params=query_params
@@ -143,7 +178,6 @@ class CreateAndRunQueryView(generics.ListAPIView):
     model = DataSet
     queryset = DataSet.objects.all()
 
-
     # override list and generate a custom response
     def list(self, request, *args, **kwargs):
 
@@ -153,51 +187,22 @@ class CreateAndRunQueryView(generics.ListAPIView):
         datasets = common_views.get_datasets()
         query_params = dict(self.request.query_params)
 
-        # the query will be run on all datasets that belong to the given archive_uri...
-        query_params, archive_uri = extract_and_remove(query_params, "archive_uri")
-        if archive_uri:
-            datasets = datasets.filter(dataset_archive__uri=archive_uri)
-            if len(datasets)==0:
-                error = "ERROR: No datasets found for this archive_uri: "+archive_uri+\
-                        ". Check your 'dataset' configurations in the esap_config database"
-                return Response({error})
+        # if no query parameters given, the query should result in an error
+        if len(query_params) == 0:
+            error = "ERROR: No query parameters given. Needs at least an uri. " \
+                    "Update your query to search for specific data"
+            return Response({error})
 
-        # ...unless a dataset_uri is given, then it will only use that dataset
-        query_params, dataset_uri = extract_and_remove(query_params, "dataset_uri")
-        if dataset_uri:
-            datasets = datasets.filter(uri=dataset_uri)
+        datasets, query_params = filter_datasets(datasets, query_params)
 
-        # is there a query on level?
-        query_params, level = extract_and_remove(query_params, "level")
-        if level:
-            datasets = datasets.filter(level=level)
-
-        # is there a query on category?
-        query_params, category = extract_and_remove(query_params, "category")
-        if category:
-            datasets = datasets.filter(category=category)
-
-        # is there a query on collection?
-        try:
-            collection = query_params["collection"][0]
-            if collection:
-                # do not remove 'collection' from the query parameters,
-                # because (unlike 'level' and 'category') 'collection' is also a query parameter
-                datasets = datasets.filter(collection=collection)
-        except:
-            pass
+        if len(datasets) == 0:
+            return no_datasets_found_error()
 
         query_params, access_url = extract_and_remove(query_params, "access_url")
         query_params, service_type = extract_and_remove(query_params, "service_type")
         query_params, adql_query = extract_and_remove(query_params, "adql_query")
         query_params, auto_pagination = extract_and_remove(query_params, "pagination")
         query_params, resource = extract_and_remove(query_params, "resource")
-
-        # there should be some datasets in the 'datasets' parameter by now
-        if len(datasets)==0:
-            error = "ERROR: No datasets for this query. Check if your 'dataset' configurations for "\
-                    +archive_uri+" fits the query parameters: "+str(query_params)
-            return Response({error})
 
         query_results, connector, custom_serializer = query_controller.create_and_run_query(
             datasets=datasets,
@@ -210,7 +215,7 @@ class CreateAndRunQueryView(generics.ListAPIView):
             return_connector=True
         )
 
-        if "ERROR:" in query_results:
+        if "ERROR:" in query_results or "Error" in query_results:
             return Response({query_results})
 
         # Allow pagination to be overriden by connector class
@@ -218,7 +223,7 @@ class CreateAndRunQueryView(generics.ListAPIView):
 
         # if the parameter 'pagination==false' is given, then do not automatically paginate the response
         # (currently this is only used by the zooniverse service)
-        if auto_pagination != None and auto_pagination.upper() == "FALSE":
+        if auto_pagination is not None and auto_pagination.upper() == "FALSE":
             # pagination is implemented in the service connector
 
             # try to read the custom serializer from the controller...
@@ -246,10 +251,10 @@ class CreateAndRunQueryView(generics.ListAPIView):
                 page = self.paginate_queryset(query_results)
                 # try to read the custom serializer from the controller...
                 try:
-                   serializer = custom_serializer(instance=page, many=True)
+                    serializer = custom_serializer(instance=page, many=True)
                 except:
                     # ... if no serializer was implemented, then use the default serializer for this endpoint
-                   serializer = CreateAndRunQuerySerializer(instance=page, many=True)
+                    serializer = CreateAndRunQuerySerializer(instance=page, many=True)
 
                 return self.get_paginated_response(serializer.data)
 
@@ -385,8 +390,8 @@ class GetSkyCoordinates(generics.ListAPIView):
         ra = target_coords.ra.deg
         dec = target_coords.dec.deg
         content = {
-            'description' : 'ICRS (ra, dec) in deg',
-            'target_name' : target_name,
+            'description': 'ICRS (ra, dec) in deg',
+            'target_name': target_name,
             'ra': str(ra),
             'dec': str(dec)
         }

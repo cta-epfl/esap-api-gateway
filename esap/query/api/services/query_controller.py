@@ -11,9 +11,11 @@ from . import apertif, astron_vo, ivoa, zooniverse, lofar, rucio, zenodo, concor
 
 logger = logging.getLogger(__name__)
 
+
 def instantiate_connector(dataset):
     # read the connector method to use from the dataset
     service_module, service_connector = dataset.service_connector.split('.')
+    connector_class = None
 
     # distinguish between types of services to use
     if service_module.upper() == 'ASTRON_VO':
@@ -39,6 +41,13 @@ def instantiate_connector(dataset):
 
     elif service_module.upper() == 'CONCORDIA':
         connector_class = getattr(concordia, service_connector)
+
+    if connector_class is None:
+        raise TypeError("No connector class found for service module: ", str(service_module))
+
+    if dataset.dataset_catalog.url is None:
+        raise AttributeError(
+            "No catalog url found for catalog: " + str(dataset.dataset_catalog) + " of dataset: " + str(dataset))
 
     url = str(dataset.dataset_catalog.url)
     connector = connector_class(url)
@@ -91,7 +100,17 @@ def create_query(datasets, query_params, override_resource=None, connector=None,
                     result['collection'] = dataset.collection
 
                     # get the translation parameters for the service for this dataset
-                    parameter_mapping = json.loads(dataset.dataset_catalog.parameters.parameters)
+                    if dataset.dataset_catalog.parameters is None or dataset.dataset_catalog.parameters.parameters is None:
+                        raise AttributeError(
+                            "No translation parameters found for catalog: " + str(dataset.dataset_catalog))
+
+                    try:
+                        parameter_mapping = json.loads(dataset.dataset_catalog.parameters.parameters)
+                    except Exception as error:
+                        raise TypeError(
+                            "Could not load the parameter mapping of " + str(dataset) +
+                            " because it is incorrect. Mapping: " + dataset.dataset_catalog.parameters.parameters +
+                            ". Error: " + str(error))
 
                     if parameter_mapping is not None:
                         try:
@@ -117,7 +136,8 @@ def create_query(datasets, query_params, override_resource=None, connector=None,
                         except Exception as error:
                             # connector not found.
                             # store the error in the result and continue
-                            result["error"].append(f"{getframeinfo(currentframe()).filename}, {getframeinfo(currentframe()).lineno}, {type(error)}, {error}")
+                            result["error"].append(
+                                f"{getframeinfo(currentframe()).filename}, {getframeinfo(currentframe()).lineno}, {type(error)}, {error}")
 
                         # usually, the returned result in 'query' is a single query.
                         # occasionally, it is a structure of queries that was created by iterating over a registery
@@ -164,21 +184,25 @@ def run_query(dataset,
     try:
         if connector is None:
             connector = instantiate_connector(dataset)
-    except:
+    except TypeError as error:
         # connector not found
-        result = json.dumps({ "dataset" : dataset.uri, "result" : "ERROR: "+connector.__class__+" not found" })
+        result = json.dumps(
+            {"dataset": dataset.uri, "result": "ERROR: " + connector.__class__ + " not found: " + error})
         results = []
         results.append(result)
         return results
 
     # run the specific instance of 'run_query' for this connector
-    results = connector.run_query(dataset, dataset_name, query, session, override_access_url, override_service_type)
+    if not query == 'empty':
+        results = connector.run_query(dataset, dataset_name, query, session, override_access_url, override_service_type)
+
     if return_connector:
         return results, connector
     return results
 
+
 # when multiple queries are executed then the results must be combined.
-def combine_results(data,data_to_add):
+def combine_results(data, data_to_add):
     logger.info('query_controller.combine_results()')
     if not data:
         data = data_to_add
@@ -193,28 +217,29 @@ def combine_results(data,data_to_add):
         count = int(data['count']) + int(data_to_add['count'])
         pages = int(data['pages']) + int(data_to_add['pages'])
         results = data['results'] + data_to_add['results']
-        data['count']=count
+        data['count'] = count
         data['pages'] = pages
         data['results'] = results
     return data
+
 
 # if the requested page_size spans multiple queries then adjust the page_size per query
 def resize_page_size(query, new_page_size):
     # find 'page_size=' in the query
 
-    logger.info('query_controller.resize_page_size('+str(new_page_size)+')')
+    logger.info('query_controller.resize_page_size(' + str(new_page_size) + ')')
     start = query.find("page_size=")
 
     if start >= 0:
         # find the next & or eol
-        end = query.find("&",start)
+        end = query.find("&", start)
         if end < 0:
             end = len(query)
 
         # replace the old page_size with the adjusted page_size
         old_page_size = query[start:end]
-        new_page_size = "page_size="+str(new_page_size)
-        query = query.replace(old_page_size,new_page_size)
+        new_page_size = "page_size=" + str(new_page_size)
+        query = query.replace(old_page_size, new_page_size)
     else:
         query = query + "page_size=" + str(new_page_size)
 
@@ -248,18 +273,21 @@ def create_and_run_query(datasets,
         created_queries.append(q)
     else:
         # call the 'create_query' function to construct a list of queries per dataset
-        created_queries, connector = create_query(datasets, query_params, override_resource=override_resource, connector=connector, return_connector=True)
+        created_queries, connector = create_query(datasets, query_params, override_resource=override_resource,
+                                                  connector=connector, return_connector=True)
 
-        # check if a "ERROR:" string was returned
-        if "ERROR:" in created_queries:
-            return created_queries, None
+        # check if an error string was returned
+        if "ERROR:" in created_queries or "Error" in created_queries:
+            return created_queries, None, None
 
         # check if the returned dict contains an error
         try:
             if created_queries[0]['error']:
                 error = created_queries[0]['error']
-                if len(error)>2:
+                if len(error) > 2:
                     return error, None
+                if len(error) > 0:
+                    return error[0], None, None
         except:
             return "ERROR: could not create a query from these parameters"
 
@@ -290,13 +318,6 @@ def create_and_run_query(datasets,
         # so that the response still gives back the expected number of results
 
         nr_of_queries = len(created_queries)
-        if nr_of_queries > 1:
-            try:
-                page_size = int(query_params['page_size'][0])
-            except:
-                page_size = 50
-            new_page_size = int(page_size / nr_of_queries)
-            query = resize_page_size(query, new_page_size)
 
         # call the 'run_query()' function to execute a query per dataset
         query_results = run_query(dataset, dataset_name, query,
@@ -347,7 +368,7 @@ def get_services(dataset, keyword, service_type=None, waveband=None):
         connector = instantiate_connector(dataset)
     except:
         # connector not found
-        result = json.dumps({ "dataset" : dataset.uri, "result" : "ERROR: "+connector.__class__+" not found" })
+        result = json.dumps({"dataset": dataset.uri, "result": "ERROR: " + connector.__class__ + " not found"})
         results = []
         results.append(result)
         return results
@@ -374,7 +395,7 @@ def get_tables_fields(dataset, access_url):
         connector = instantiate_connector(dataset)
     except:
         # connector not found
-        result = json.dumps({ "dataset" : dataset.uri, "result" : "ERROR: "+connector.__class__+" not found" })
+        result = json.dumps({"dataset": dataset.uri, "result": "ERROR: " + connector.__class__ + " not found"})
         results = []
         results.append(result)
         return results

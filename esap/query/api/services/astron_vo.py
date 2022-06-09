@@ -11,6 +11,7 @@ import pyvo as vo
 
 SEPARATOR = ' AND '
 
+
 def create_cone_search(esap_query_params, translation_parameters):
     """
     Return a cone search subquery when ra, dec and fov are found in the query parameters.
@@ -36,7 +37,8 @@ def create_cone_search(esap_query_params, translation_parameters):
         cone_search = "CONTAINS(POINT('ICRS'," + \
                       translation_parameters['ra'] + "," + \
                       translation_parameters['dec'] + "), " \
-                      "CIRCLE('ICRS'," + str(ra) + "," + str(dec) + "," + str(radius) + "))=1"
+                                                      "CIRCLE('ICRS'," + str(ra) + "," + str(dec) + "," + str(
+            radius) + "))=1"
 
         # remove ra,dec,fov from the parameters so that they are not used in the where clause
         del esap_query_params['ra']
@@ -58,6 +60,10 @@ class tap_service_connector(query_base):
 
     # construct a query for this type of service
     def construct_query(self, dataset, query_params, translation_parameters, override_resource=None):
+        # initialize the query params with the dataset as the collection if there are no query params
+        # how it is setup now is that the dataset name equals the collection in the Astron VO
+        if len(query_params) == 0:
+            query_params = {'collection': [str(dataset)]}
 
         esap_query_params = dict(query_params)
         where = ''
@@ -68,7 +74,7 @@ class tap_service_connector(query_base):
         # it is also done with a specific ADQL syntax.
         # First check if the incoming query describes a cone search.
 
-        cone_search = create_cone_search(esap_query_params,translation_parameters)
+        cone_search = create_cone_search(esap_query_params, translation_parameters)
 
         for esap_param in esap_query_params:
 
@@ -104,15 +110,19 @@ class tap_service_connector(query_base):
         if override_resource:
             query = query + override_resource
         else:
-            # ... otherwise use the resource as defined in the datasets
-            query = query + dataset.resource_name
+            # ... otherwise use the resource as defined in the datasets if it is present
+            if dataset.resource_name:
+                query = query + dataset.resource_name
+            else:
+                raise AttributeError('No resource_name defined for dataset '
+                                     + str(dataset) + ' which is mandatory for the ASTRON VO')
 
         # add ADQL where clause
-        if len(where)>0:
+        if len(where) > 0:
             query = query + " WHERE "
             query = query + where
 
-        if len(cone_search)>0:
+        if len(cone_search) > 0:
             if len(where) == 0:
                 # if now previous where clause was added, then add the 'WHERE' keyword here
                 query = query + " WHERE "
@@ -126,8 +136,14 @@ class tap_service_connector(query_base):
         # the same for the 'where' clause
         if where.endswith(SEPARATOR):
             where = where[:-len(SEPARATOR)]
-        return query, where, errors
 
+        # if only the standard base query remains that is built here, there is no actual query given as input
+        # therefore no actual query should be run thus setting the query value here to 'empty'
+        base_query = "SELECT TOP " + str(limit) + " * from " + str(dataset.resource_name)
+        if base_query in query and len(where) == 0 and len(cone_search) == 0:
+            query = 'empty'
+
+        return query, where, errors
 
     # run a query
     def run_query(self,
@@ -205,31 +221,31 @@ class tap_service_connector(query_base):
 
         return results
 
-
     # custom serializer for the 'query' endpoint
     class CreateAndRunQuerySerializer(serializers.Serializer):
 
         # required esap_fields
-        name = serializers.CharField()
-        collection = serializers.CharField()
-        level = serializers.CharField()
-        ra = serializers.FloatField()
-        dec = serializers.FloatField()
-        fov = serializers.FloatField()
+        name = serializers.CharField(required=True)
+        collection = serializers.CharField(required=True)
+        level = serializers.CharField(required=True)
+        ra = serializers.FloatField(required=True)
+        dec = serializers.FloatField(required=True)
+        fov = serializers.FloatField(required=True)
 
         # extra fields
-        dataset = serializers.CharField()
-        result = serializers.CharField()
+        dataset = serializers.CharField(required=True)
+        result = serializers.CharField(required=True)
 
-        dataproduct_type = serializers.CharField()
-        calibration_level = serializers.IntegerField()
-        target = serializers.CharField()
-        obs_collection = serializers.CharField()
-        size = serializers.IntegerField()
-        facility = serializers.CharField()
-        instrument = serializers.CharField()
-        url = serializers.CharField()
-        thumbnail = serializers.CharField()
+        # optional fields
+        dataproduct_type = serializers.CharField(required=False)
+        calibration_level = serializers.IntegerField(required=False)
+        target = serializers.CharField(required=False)
+        obs_collection = serializers.CharField(required=False)
+        size = serializers.IntegerField(required=False)
+        facility = serializers.CharField(required=False)
+        instrument = serializers.CharField(required=False)
+        thumbnail = serializers.CharField(required=False)
+        url = serializers.CharField(required=False)
 
         class Meta:
             fields = '__all__'
