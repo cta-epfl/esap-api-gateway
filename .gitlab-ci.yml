@@ -1,6 +1,7 @@
 stages:
   - build
   - deploy
+  - test
 
 docker-build-branches:
   # Official docker image.
@@ -111,3 +112,19 @@ docker-deploy-acceptance:
   when: manual
   only:
     - acceptance
+
+run-unit-test:
+  image: python:latest
+  stage: test
+  before_script:
+    - python3 -V
+    - python3 -m venv env
+    - source env/bin/activate
+    - cd esap
+    - pip install -r requirements/base.txt
+  script:
+    - echo 'Running unit tests'
+    - python manage.py test --settings=esap.settings.test -t .
+    - echo 'Test succeeded'
+  only:
+    - merge_requests

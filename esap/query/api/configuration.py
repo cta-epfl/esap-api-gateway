@@ -91,5 +91,4 @@ def get_configuration(name=None, session=None):
         result['archives'] = my_config.archives
     except:
         pass
-
     return result

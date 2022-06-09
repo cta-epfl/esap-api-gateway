@@ -13,7 +13,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-
 AMP_REPLACEMENT = '_and_'
 
 # The request header
@@ -22,6 +21,7 @@ ALTA_WEBDAV_HOST = "https://alta.astron.nl/webdav/"
 ALTA_HEADER = {
     'content-type': "application/json",
 }
+
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -40,7 +40,7 @@ class alta_connector(query_base):
 
     # create a paginated response.
     def get_paginated_response(self, results, query, json_response):
-        record={}
+        record = {}
 
         # retrieve the requested page from the query
         try:
@@ -61,7 +61,6 @@ class alta_connector(query_base):
         where = ''
         errors = []
 
-
         # translate the esap_parameters to specific catalog parameters
         for esap_param in esap_query_params:
             esap_key = esap_param
@@ -79,10 +78,8 @@ class alta_connector(query_base):
                 where = where + dataset_key + '=' + value + AMP_REPLACEMENT
 
             except Exception as error:
-                # if the parameter could not be translated, use it raw and continue
-                where = where + esap_key + "=" + value + AMP_REPLACEMENT
-                logger.info("ERROR: could not translating key " + esap_key + ' ' + str(error)+', using it raw.')
-                # errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
+                # if the parameter could not be translated, set the where to an Error state
+                where = "Error: could not translate key " + esap_key + ' ' + str(error)
 
         # cut off the last separation character
         where = where[:-len(AMP_REPLACEMENT)]
@@ -102,7 +99,7 @@ class alta_connector(query_base):
                 where = where + "dataProductSubType__in=calibratedVisibility,continuumMF,continuumChunk,imageCube,beamCube,polarisationImage,polarisationCube,continuumCube"
 
         if 'TIMEDOMAIN' in dataset.collection.upper():
-              where = where + "dataProductSubType=pulsarTimingTimeSeries"
+            where = where + "dataProductSubType=pulsarTimingTimeSeries"
 
         # if no page_size is given, then set it here for ALTA, because ALTA default uses 500
         if not "page_size" in where:
@@ -114,9 +111,13 @@ class alta_connector(query_base):
 
         # construct the query url
         query = self.url + '?' + where
-        logger.info('construct_query: '+query)
-        return query, where, errors
+        if "Error" in where:
+            query = 'empty'
+            errors = [where]
+            where = ''
 
+        logger.info('construct_query: ' + query)
+        return query, where, errors
 
     def run_query(self, dataset, dataset_name, query, session=None,
                   override_access_url=None, override_service_type=None):
@@ -139,17 +140,17 @@ class alta_connector(query_base):
             name = dataproduct['name']
             storageRef = dataproduct['storageRef']
             pos = storageRef.find(name)
-            path = storageRef[0:pos-1]
+            path = storageRef[0:pos - 1]
 
             # if there is a , or : still in a prefix, then remove all that
-            pos = path.find(':')+1
+            pos = path.find(':') + 1
             if pos > 0:
-               path = path[pos:]
+                path = path[pos:]
 
             # if there is a , or : still in a prefix, then remove all that
-            pos = path.find(',')+1
+            pos = path.find(',') + 1
             if pos > 0:
-               path = path[pos:]
+                path = path[pos:]
 
             postfix = "?preview=True&width=null"
             vo_url = vo_host + dataproduct['derived_release_id'] + '/' + path + '/' + name + postfix
@@ -157,7 +158,6 @@ class alta_connector(query_base):
             # stupid hack to overcome the difference between release_id and the path used in VO
             vo_url = vo_url.replace('APERTIF_DR1_Imaging', 'APERTIF_DR1')
             return vo_url
-
 
         def get_collection(dataProductSubType):
 
@@ -182,23 +182,32 @@ class alta_connector(query_base):
 
             return collection, level
 
-
         results = []
         pagination_record = {}
         # because '&' has a special meaning in urls (specifying a parameter) it had been replaced with
         # something harmless during serialization. Replace it again with the &
-        query = query.replace(AMP_REPLACEMENT,'&')
+        query = query.replace(AMP_REPLACEMENT, '&')
         try:
 
             # execute the http request to ALTA and retrieve the dataproducts
-            logger.info('run-query: '+query)
+            logger.info('run-query: ' + query)
             response = requests.request("GET", query, headers=ALTA_HEADER)
 
             json_response = json.loads(response.text)
+
             try:
                 dataproducts = json_response["results"]
             except:
                 raise Exception(json_response)
+
+            # if a dataset is specified but the response is the same as for all results,
+            # it means the dataset is not present in the db therefore the results should be none
+            # example:
+            #   https://alta.astron.nl/altapi/dataproducts?a=b
+            #   gives back all records instead of none
+            # Note: it is compared by the 'count' which is not very beautiful
+            if dataset and json_response['count'] >= 300012:
+                dataproducts = []
 
             for dataproduct in dataproducts:
                 collection, level = get_collection(dataproduct['dataProductSubType'])
@@ -220,17 +229,16 @@ class alta_connector(query_base):
                 record['fov'] = dataproduct['fov']
                 record['release'] = dataproduct['derived_release_id']
 
+                #                if record['dataProductSubType']=='continuumMF':
+                #                    record['thumbnail'] = dataproduct['thumbnail']
 
-#                if record['dataProductSubType']=='continuumMF':
-#                    record['thumbnail'] = dataproduct['thumbnail']
-
-#                # add thumbnails for Apertif DR1
-#                if record['release']=='APERTIF_DR1_Imaging':
-#                    if (record['dataProductSubType']=='imageCube') or \
-#                            (record['dataProductSubType'] == 'continuumMF') or \
-#                            (record['dataProductSubType']=='polarisationImage') or \
-#                            (record['dataProductSubType']=='polarisationCube') :
-#                        record['thumbnail'] = construct_vo_thumbnail(dataproduct)
+                #                # add thumbnails for Apertif DR1
+                #                if record['release']=='APERTIF_DR1_Imaging':
+                #                    if (record['dataProductSubType']=='imageCube') or \
+                #                            (record['dataProductSubType'] == 'continuumMF') or \
+                #                            (record['dataProductSubType']=='polarisationImage') or \
+                #                            (record['dataProductSubType']=='polarisationCube') :
+                #                        record['thumbnail'] = construct_vo_thumbnail(dataproduct)
 
                 # only send back thumbnails that are not static placeholders.
                 if not 'static' in dataproduct['thumbnail']:
@@ -268,7 +276,6 @@ class alta_connector(query_base):
         generatedByActivity = serializers.CharField()
         datasetID = serializers.CharField()
         storageRef = serializers.CharField()
-
 
         class Meta:
             fields = '__all__'
