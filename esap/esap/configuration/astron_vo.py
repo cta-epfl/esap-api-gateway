@@ -10,8 +10,8 @@ query_schema = {
             "type": "string",
             "title": "Catalog",
             "default": "astron_vo",
-            "enum": ["adex", "astron_vo"],
-            "enumNames": ["ADEX", "ASTRON_VO"],
+            "enum": ["astron_vo"],
+            "enumNames": ["ASTRON_VO"],
         },
         "target": {
             "type": "string",
@@ -40,8 +40,8 @@ query_schema = {
             "type": "string",
             "title": "Astron-VO Collections",
             "default": "apertif-dr1",
-            "enum": ["apertif-dr1", "hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
-            "enumNames": ["apertif-dr1", "hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
+            "enum": ["all", "apertif-dr1", "hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
+            "enumNames": ["All", "apertif-dr1", "hetdex", "lotss-dr1", "lotss-pdr", "MSSSVerification", "sauron", "tgssadr"],
         },
     },
 }
