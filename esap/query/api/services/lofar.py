@@ -146,7 +146,7 @@ class lta_connector(query_base):
             errors = [where]
             where = ''
 
-        logger.info('construct_query: '+query)
+        logger.info('construct_query: ' + query + "\nErrors: " + str(errors))
         return query, where, errors
 
     def run_query(self, dataset, dataset_name, query, session=None, override_access_url=None, override_service_type=None):

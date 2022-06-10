@@ -63,15 +63,10 @@ class alta_connector(query_base):
 
         # translate the esap_parameters to specific catalog parameters
         for esap_param in esap_query_params:
-            esap_key = esap_param
-            value = esap_query_params[esap_key][0]
+            value = esap_query_params[esap_param][0]
 
             try:
-                # skip pagination parameters
-                # they are handled in the query_controller
-                # if not esap_key in ['page', 'page_size']:
-
-                dataset_key = translation_parameters[esap_key]
+                dataset_key = translation_parameters[esap_param]
 
                 # because '&' has a special meaning in urls (specifying a parameter) replace it with
                 # something harmless during serialization.
@@ -79,7 +74,11 @@ class alta_connector(query_base):
 
             except Exception as error:
                 # if the parameter could not be translated, set the where to an Error state
-                where = "Error: could not translate key " + esap_key + ' ' + str(error)
+                if esap_param == "page_size" or esap_param == "page":
+                    logger.info('pagination parameters added to the query; handled by the query_controller')
+                    where = where + esap_param + '=' + value + AMP_REPLACEMENT
+                else:
+                    where = "Error: could not translate key " + esap_param + ' ' + str(error)
 
         # cut off the last separation character
         where = where[:-len(AMP_REPLACEMENT)]
@@ -116,7 +115,7 @@ class alta_connector(query_base):
             errors = [where]
             where = ''
 
-        logger.info('construct_query: ' + query)
+        logger.info('construct_query: ' + query + "\nErrors: " + str(errors))
         return query, where, errors
 
     def run_query(self, dataset, dataset_name, query, session=None,
