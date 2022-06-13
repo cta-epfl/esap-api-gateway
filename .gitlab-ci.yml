@@ -63,7 +63,7 @@ docker-deploy-adex:
     - ssh -o StrictHostKeyChecking=no sdc@dop814.astron.nl "docker-compose -p adex -f /docker_compose/adex/docker-compose.yml up -d"
   when: manual
   only:
-    - adex-main
+    - master
 
 docker-deploy-master:
   image: docker:latest
