@@ -1,10 +1,24 @@
 stages:
+  - test
   - build
   - deploy
-  - test
 
+run-unit-test:
+  image: python:latest
+  stage: test
+  before_script:
+    - python3 --version
+    - python3 -m venv env
+    - source env/bin/activate
+    - cd esap
+    - pip install -r requirements/base.txt
+  script:
+    - echo 'Running unit tests'
+    - python manage.py test --settings=esap.settings.test -t .
+    - echo 'Test succeeded'
+
+# A successful pipeline is needed for merge requests
 docker-build-branches:
-  # Official docker image.
   image: docker:latest
   stage: build
   services:
@@ -13,14 +27,10 @@ docker-build-branches:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE" esap
-  except:
-    - master
-    - acceptance
-    - release
-    - adex-main-xxx
-    - adex-main
+  only:
+    - merge_requests
 
-docker-build-master:
+docker-build:
   # Official docker image.
   image: docker:latest
   stage: build
@@ -29,30 +39,15 @@ docker-build-master:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
+  # tagged with latest
     - docker build --pull -t "$CI_REGISTRY_IMAGE" esap
     - docker push "$CI_REGISTRY_IMAGE"
   only:
     - master
-    - acceptance
-    - release
-
-docker-build-branch-adex:
-  # Official docker image.
-  image: docker:latest
-  stage: build
-  services:
-    - docker:dind
-  before_script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" adex
-    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-  # except:
-  only:
-    - adex-main-xxx
 
 docker-deploy-adex:
   image: docker:latest
+  environment: "adex"
   stage: deploy
   before_script:
     - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
@@ -64,17 +59,15 @@ docker-deploy-adex:
     - chmod 644 ~/.ssh/known_hosts
   script:
     - ssh -o StrictHostKeyChecking=no sdc@dop814.astron.nl "echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY"
-    - ssh -o StrictHostKeyChecking=no sdc@dop814.astron.nl "docker pull "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG""
+    - ssh -o StrictHostKeyChecking=no sdc@dop814.astron.nl "docker pull "$CI_REGISTRY_IMAGE""
     - ssh -o StrictHostKeyChecking=no sdc@dop814.astron.nl "docker-compose -p adex -f /docker_compose/adex/docker-compose.yml up -d"
   when: manual
   only:
     - adex-main
 
-
-# this deploys the 'esap-gateway-query' branch (a dev/test branch) as 'vermaas'
-# by running /docker_compose/esap-api-gateway/docker-compose-query-cd.yml
 docker-deploy-master:
   image: docker:latest
+  environment: "esap"
   stage: deploy
   before_script:
     - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
@@ -96,6 +89,7 @@ docker-deploy-master:
 # deploy acceptance version on 'dop457.astron.nl'
 docker-deploy-acceptance:
   image: docker:latest
+  environment: "acceptance"
   stage: deploy
   before_script:
     - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
@@ -106,25 +100,9 @@ docker-deploy-acceptance:
     - ssh-keyscan dop457.astron.nl >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
   script:
-    - ssh -o StrictHostKeyChecking=no sdc@dop814.astron.nl "echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY"
+    - ssh -o StrictHostKeyChecking=no vermaas@dop457.astron.nl "echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY"
     - ssh -o StrictHostKeyChecking=no vermaas@dop457.astron.nl "docker pull "$CI_REGISTRY_IMAGE""
     - ssh -o StrictHostKeyChecking=no vermaas@dop457.astron.nl "docker-compose -p esap -f /data/docker_compose/docker-compose-esap-acc-cd.yml up -d"
   when: manual
   only:
     - acceptance
-
-run-unit-test:
-  image: python:latest
-  stage: test
-  before_script:
-    - python3 -V
-    - python3 -m venv env
-    - source env/bin/activate
-    - cd esap
-    - pip install -r requirements/base.txt
-  script:
-    - echo 'Running unit tests'
-    - python manage.py test --settings=esap.settings.test -t .
-    - echo 'Test succeeded'
-  only:
-    - merge_requests
