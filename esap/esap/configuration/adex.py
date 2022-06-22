@@ -46,7 +46,7 @@ settings = {
             "archive": "lofar",
             "collection": "lofar",
             "level": "raw",
-            "dataproduct_type": "visibility",
+            "dataproduct_type": ["visibility"],
             "freq_min": 10,
             "freq_max": 240
         }},
