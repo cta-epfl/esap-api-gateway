@@ -73,7 +73,7 @@ DATABASES = {
         "NAME": "uws_jobs",
         "USER": "postgres",
         "PASSWORD": "secret",
-        "HOST": "localhost",
+        "HOST": "raspiastro",
         "PORT": "5432",
     },
 }

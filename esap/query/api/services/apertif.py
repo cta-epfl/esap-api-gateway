@@ -81,7 +81,7 @@ class alta_connector(query_base):
                     where = "Error:  '" + str(error) + \
                             "'. Could not translate key: '" + esap_param + \
                             "' for value: '" + value + \
-                            "'. Available translation parameters: " + translation_parameters \
+                            "'. Available translation parameters: " + str(translation_parameters) \
 
         # cut off the last separation character
         where = where[:-len(AMP_REPLACEMENT)]
