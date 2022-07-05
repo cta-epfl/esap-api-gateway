@@ -15,6 +15,7 @@ class AltaConnectorTest(TestCase):
         parameter_mapping = ParameterMapping(uri="apertif",
                                              parameters="{\r\n\"dataproduct_level\" : \"calibrationLevel\","
                                                         "\r\n\"dataproduct_type\" : \"dataProductType\","
+                                                        "\r\n\"collection\" : \"collection\","
                                                         "\r\n\"dataproduct_subtype\" : \"dataProductSubType\"\r\n}")
         parameter_mapping.save()
         catalog = Catalog.objects.create(uri="alta", name="ALTA Imaging raw data", parameters=parameter_mapping,
@@ -40,6 +41,12 @@ class AltaConnectorTest(TestCase):
 
     def test_dataset_exist(self):
         url = "/esap-api/query/query?dataset_uri=apertif-imaging-rawdata"
+        response = self.client.get(url, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertEquals(response.data['count'], self.alta_count)
+
+    def test_dataset_with_collection(self):
+        url = "/esap-api/query/query?dataset_uri=apertif-imaging-rawdata&collection=imaging"
         response = self.client.get(url, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertEquals(response.data['count'], self.alta_count)

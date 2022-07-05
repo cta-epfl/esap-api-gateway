@@ -78,7 +78,10 @@ class alta_connector(query_base):
                     logger.info('pagination parameters added to the query; handled by the query_controller')
                     where = where + esap_param + '=' + value + AMP_REPLACEMENT
                 else:
-                    where = "Error: could not translate key " + esap_param + ' ' + str(error)
+                    where = "Error:  '" + str(error) + \
+                            "'. Could not translate key: '" + esap_param + \
+                            "' for value: '" + value + \
+                            "'. Available translation parameters: " + translation_parameters \
 
         # cut off the last separation character
         where = where[:-len(AMP_REPLACEMENT)]
