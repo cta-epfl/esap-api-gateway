@@ -67,7 +67,7 @@ class AltaConnectorTest(TestCase):
     def test_unknown_query_param_gives_error(self):
         url = "/esap-api/query/query?unknown_param_name=some-value&dataset_uri=apertif-imaging-rawdata"
         response = self.client.get(url, follow=True)
-        assert_ok_error(self, response, "could not translate key")
+        assert_ok_error(self, response, "Could not translate key")
 
 
 class TapServiceConnectorTest(TestCase):

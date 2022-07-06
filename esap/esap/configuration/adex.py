@@ -1,6 +1,7 @@
 settings = {
     "defaults": {
         "survey": "apertif_dr1",
+        "color_map": "native",
         "ra": 340.0,
         "dec": 34.0,
         "fov": 15,
@@ -19,28 +20,60 @@ settings = {
         {
             "hips_name": "apertif_dr1",
             "hips_url": "https://hips.astron.nl/ASTRON/P/apertif_dr1",
+            "format": "png"
         },
         {
             "hips_name": "lotss_dr1_low",
             "hips_url": "https://hips.astron.nl/ASTRON/P/lotss_dr1_low",
+            "format": "png"
         },
         {
             "hips_name": "lotss_dr1_high",
             "hips_url": "https://hips.astron.nl/ASTRON/P/lotss_dr1_high",
+            "format": "png"
         },
         {
             "hips_name": "tgssadr",
             "hips_url": "https://hips.astron.nl/ASTRON/P/tgssadr",
+            "format": "png"
         },
         {
             "hips_name": "lotss_dr2_low",
             "hips_url": "https://hips.astron.nl/ASTRON/P/lotss_dr2_low",
+            "format": "png"
         },
         {
             "hips_name": "lotss_dr2_high",
             "hips_url": "https://hips.astron.nl/ASTRON/P/lotss_dr2_high",
+            "format": "png"
+        },
+        {
+            "hips_name": "NON_ASTRON_AllWISE",
+            "hips_url": "http://alasky.cds.unistra.fr/AllWISE/RGB-W4-W2-W1",
+            "format": "jpeg"
+        },
+        {
+            "hips_name": "NON_ASTRON_akari-fis",
+            "hips_url": "http://alasky.cds.unistra.fr/AKARI-FIS/ColorLSN60",
+            "format": "jpeg"
+        },
+        {
+            "hips_name": "NON_ASTRON_DSS",
+            "hips_url": "http://alasky.cds.unistra.fr/DSS/DSSColor",
+            "format": "jpeg"
+        },
+        {
+            "hips_name": "NON_ASTRON_Fermi",
+            "hips_url": "http://alasky.cds.unistra.fr/Fermi/Color",
+            "format": "jpeg"
+        },
+        {
+            "hips_name": "NON_ASTRON_Iris",
+            "hips_url": "http://alasky.cds.unistra.fr/IRISColor",
+            "format": "jpeg"
         },
     ],
+    "color_maps": ["native", "grayscale", "cubehelix", "eosb", "rainbow"],
     "datasets": [
         {"lofar-lta": {
             "uri": "lofar-lta",
