@@ -1,0 +1,32 @@
+- model: batch.facility
+  pk: 1
+  fields:
+    name: CTADIRAC
+    description: CTA-DIRAC instance
+    url: https://pypi.org/project/CTADIRAC/
+    facilitytype: DIRAC
+    runtimeengine: Docker
+- model: batch.facility
+  pk: 2
+  fields:
+    name: Rosetta @ INAF OATS
+    description: The Rosetta platform deployed at INAF OATS computing centre
+    url:  https://esap-rosetta.oats.inaf.it/
+    facilitytype: rosetta
+    runtimeengine: Singularity
+- model: batch.workflow
+  pk: 1
+  fields:
+    name: CTA Monte Carlo Generation
+    description: Production of raw CTA simulations
+    url: None
+    ref: HEAD
+    workflowtype: container
+- model: batch.workflow
+  pk: 2
+  fields:
+    name: CONCORDIA
+    description: Containerized Corsika on DIRAC
+    url: None
+    ref: HEAD
+    workflowtype: container

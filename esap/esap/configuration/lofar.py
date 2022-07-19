@@ -1,14 +1,9 @@
-
-# title = "ADEX"
-logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo_clear.png"
-
 # title = "ESFRI Science Analysis Platform"
 # logo = "http://uilennest.net/static/media/tree9.da598501.png"
 
 # the url location of the frontend application,
 # this makes it possible to install multiple instances in different directories on the webserver
 # that all have their own urls like 'http://esap.astron.nl/esap-gui-dev/queries'
-frontend_basename = "adex-gui"
 
 # definition of the navigation bar
 nav1 = {'title': 'Archives', 'route': '/archives'}
@@ -67,8 +62,8 @@ query_schema = {
             "type": "string",
             "title": "Antenna Type",
             "default": "HBA",
-            "enum": ["HBA", "LBA", "all"],
-            "enumNames": ["HBA", "LBA", "All"],
+            "enum": ["all", "HBA", "LBA"],
+            "enumNames": ["All", "HBA", "LBA"],
         },
         "public": {
             "type": "boolean",
@@ -85,8 +80,8 @@ query_schema = {
             "type": "string",
             "title": "Data Product Type",
             "default": "AveragingPipeline",
-            "enum": ["CorrelatedDataProduct", "AveragingPipeline", "CalibrationPipeline", "ImagingPipeline", "LongBaselinePipeline", "PulsarPipeline"],
-            "enumNames": ["Observation", "Averaging Pipeline", "Calibration Pipeline", "Imaging Pipeline", "Long Baseline Pipeline", "Pulsar Pipeline"],
+            "enum": ["all", "CorrelatedDataProduct", "AveragingPipeline", "CalibrationPipeline", "ImagingPipeline", "LongBaselinePipeline", "PulsarPipeline"],
+            "enumNames": ["All", "Observation", "Averaging Pipeline", "Calibration Pipeline", "Imaging Pipeline", "Long Baseline Pipeline", "Pulsar Pipeline"],
         },
     },
 

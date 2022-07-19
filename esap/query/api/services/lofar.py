@@ -122,11 +122,8 @@ class lta_connector(query_base):
                 where = where + dataset_key + '=' + value + AMP_REPLACEMENT
 
             except Exception as error:
-                # if the parameter could not be translated, use it raw and continue
-                where = where + esap_key + "=" + value + AMP_REPLACEMENT
-                logger.info("ERROR: could not translating key " +
-                            esap_key + ' ' + str(error)+', using it raw.')
-                # errors.append("ERROR: translating key " + esap_key + ' ' + str(error))
+                # if the parameter could not be translated, set the where to an Error state
+                where = "Error: could not translate key " + esap_key + ' ' + str(error)
 
         # if query ends with a separation character then cut it off
         if where.endswith(AMP_REPLACEMENT):
@@ -140,7 +137,16 @@ class lta_connector(query_base):
         # construct the query url
         # for now simply like: 'https://lta.lofar.eu/?ra=342.16_and_dec=33.94_and_fov=10'
         query = self.url + '?' + where
-        logger.info('construct_query: '+query)
+
+        # since we cannot query lofar yet, only when adding query params it should return the 'fake' data
+        if where == '':
+            query = "empty"
+        if "Error" in where:
+            query = 'empty'
+            errors = [where]
+            where = ''
+
+        logger.info(f"{'Errors: ' + str(errors) if len(errors) > 0 else 'construct_query: ' + query}")
         return query, where, errors
 
     def run_query(self, dataset, dataset_name, query, session=None, override_access_url=None, override_service_type=None):
@@ -200,6 +206,7 @@ class lta_connector(query_base):
             for lofar_result in lofar_results:
                 record = {}
 
+                record['note'] = 'this is not real data'
                 record['project'] = lofar_result['project']
                 record['sas_id'] = lofar_result['sas_id']
                 record['antennaSet'] = lofar_result['antennaSet']

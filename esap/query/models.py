@@ -67,7 +67,7 @@ class Catalog(EsapBaseObject):
     user_url = models.URLField(null=True)
 
     # the url that the query has to access
-    url = models.URLField(null=True)
+    url = models.URLField(null=False) #TODO: migration
     parameters = models.ForeignKey(ParameterMapping, related_name='catalogs', on_delete=models.CASCADE, null=True, blank=True)
 
      # the representation of the value in the REST API

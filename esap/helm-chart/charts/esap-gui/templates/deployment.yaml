@@ -72,10 +72,10 @@ spec:
             mountPath: /etc/nginx/conf.d/nginx.conf
             subPath: nginx.conf
             readOnly: true
-          - name: esap-nginx-htpasswd
-            mountPath: /etc/nginx/htpasswd
-            subPath: htpasswd
-            readOnly: true
+            #- name: esap-nginx-htpasswd
+            #mountPath: /etc/nginx/htpasswd
+            #subPath: htpasswd
+            #readOnly: true
 
       {{- with .Values.nodeSelector }}
       nodeSelector:

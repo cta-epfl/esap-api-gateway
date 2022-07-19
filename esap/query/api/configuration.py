@@ -92,4 +92,9 @@ def get_configuration(name=None, session=None):
     except:
         pass
 
+    try:
+        result['settings'] = my_config.settings
+    except:
+        pass
+
     return result

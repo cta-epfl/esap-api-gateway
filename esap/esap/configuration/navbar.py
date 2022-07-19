@@ -1,20 +1,21 @@
+from django.utils.translation import gettext as _
+
 frontend_basename = "esap-gui"
 
 logo = "https://alta.astron.nl/alta-static/images/esap/esap_logo.png"
 
-# definition of the navigation bar
-nav1 = {'title': 'Archives', 'route': '/archives'}
-nav2 = {'title': 'Multi Query', 'route': '/query'}
-nav3 = {'title': 'Rucio', 'route': '/rucio'}
-nav4 = {'title': 'Interactive Analysis', 'route': '/interactive'}
-nav5 = {'title': 'Batch Analysis', 'route': '/batch'}
-nav6 = {'title': 'IVOA-SAMP', 'route': '/samp'}
-nav7 = {'title': 'Asteroids', 'route': '/aladin_simple'}
-nav8 = {'title': 'Exoplanets', 'route': '/aladin_advanced'}
+# definition of the navigation bar items
+archives = {"title": _("Archives"), "route": "/archives"}
+multi_query = {"title": _("Multi Query"), "route": "/query"}
+ida = {"title": _("Interactive Analysis"), "route": "/interactive"}
+jobs = {"title": _("Asynchronous Jobs"), "route": "/jobs"}
+samp = {"title": _("IVOA-SAMP"), "route": "/samp"}
 
-#navbar = [nav1, nav4, nav5]
-# enable multi query
-navbar = [nav1, nav2, nav4, nav6]
+# Older navbar items
+# rucio = {"title": _("Rucio"), "route": "/rucio"}
+# batch_analysis = {"title": _("Batch Analysis"), "route": "/batch"}
+# asteroids = {"title": _("Asteroids"), "route": "/aladin_simple"}
+# exoplanets = {"title": _("Exoplanets"), "route": "/aladin_advanced"}
 
-# enable aladin demo
-# navbar = [nav1, nav4, nav5, nav6, nav7]
+# Order of the navbar items
+navbar = [archives, multi_query, ida, jobs, samp]

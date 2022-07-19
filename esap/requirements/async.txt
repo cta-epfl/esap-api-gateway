@@ -1,3 +1,4 @@
+psycopg2-binary
 # Extends dev.txt with the django-uws module (installed as editable)
 -r dev.txt
 -e ./modules/django-uws

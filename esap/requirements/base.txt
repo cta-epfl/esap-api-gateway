@@ -12,7 +12,7 @@ django-cors-headers==3.11.0
 django-filter==21.1
 django-rest-knox==4.2.0
 djangorestframework==3.13.1
-git+https://gitlab.in2p3.fr/escape2020/wp3/eossr.git@f9d9d16ad267ec9a63e1a344286642fe663b1c16#egg=eossr
+eossr==0.6.1
 future==0.18.2
 idna==2.10
 josepy==1.12.0

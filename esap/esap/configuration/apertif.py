@@ -1,4 +1,3 @@
-
 logo = "https://alta.astron.nl/alta-static/images/esap/adex_logo_clear.png"
 
 # definition of the query
@@ -11,8 +10,8 @@ query_schema = {
             "type": "string",
             "title": "Catalog",
             "default": "apertif",
-            "enum": ["adex", "apertif"],
-            "enumNames": ["ADEX", "Apertif"],
+            "enum": ["apertif"],
+            "enumNames": ["Apertif"],
         },
         "target": {
             "type": "string",
@@ -34,15 +33,15 @@ query_schema = {
             "type": "string",
             "title": "Apertif Collections",
             "default": "imaging",
-            "enum": ["imaging", "timedomain"],
-            "enumNames": ["Imaging", "Timedomain"],
+            "enum": ["all", "imaging", "timedomain"],
+            "enumNames": ["All", "Imaging", "Timedomain"],
         },
         "level": {
             "type": "string",
             "title": "Processing Level",
             "default": "processed",
-            "enum": ["raw", "processed"],
-            "enumNames": ["Raw", "Processed"]
+            "enum": ["all", "raw", "processed"],
+            "enumNames": ["All", "Raw", "Processed"]
         },
         "dataproduct_type": {
             "type": "string",
@@ -51,12 +50,13 @@ query_schema = {
             "enum": ["all", "visibility", "image", "cube"],
             "enumNames": ["All", "Visibility", "Image", "Cube"]
         },
-        "release__release_id": {
+        "release": {
             "type": "string",
             "title": "Data Release",
             "default": "APERTIF_DR1_Imaging",
             "enum": ["all", "APERTIF_DR1_Imaging", "SVC_2019_Imaging", "SVC_2019_TimeDomain", "Commissioning2018"],
-            "enumNames": ["All", "APERTIF Imaging Data Release 1", "Science Verification Campaign 2019 (Imaging)", "Science Verification Campaign 2019 (Time Domain)", "Commissioning 2018"]
+            "enumNames": ["All", "APERTIF Imaging Data Release 1", "Science Verification Campaign 2019 (Imaging)",
+                          "Science Verification Campaign 2019 (Time Domain)", "Commissioning 2018"]
         },
     }
 }
