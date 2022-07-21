@@ -7,7 +7,8 @@ import json
 import logging
 from inspect import currentframe, getframeinfo
 
-from . import apertif, astron_vo, ivoa, zooniverse, lofar, rucio, zenodo, concordia
+from . import apertif, astron_vo, ivoa, lofar, rucio, zenodo, concordia
+#from . import apertif, astron_vo, ivoa, zooniverse, lofar, rucio, zenodo, concordia
 
 logger = logging.getLogger(__name__)
 

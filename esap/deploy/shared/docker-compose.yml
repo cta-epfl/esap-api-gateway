@@ -28,7 +28,7 @@ services:
 
   esap_gui:
     build:
-      context: $ESAP_SHARED
+      context: $ESAP_ROOT/esap-gui
       dockerfile: Dockerfile
     container_name: esap_gui
     image: esap_gui:latest
@@ -37,7 +37,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - $ESAP_SHARED:/shared
-      - $ESAP_SHARED:/etc/nginx/conf.d
-      - $ESAP_SHARED/static:/static
+      - $ESAP_ROOT/esap-gui:/shared
+      - $ESAP_ROOT/esap-gui:/etc/nginx/conf.d
+      - $ESAP_ROOT/esap-gui/static:/static
     restart: always
