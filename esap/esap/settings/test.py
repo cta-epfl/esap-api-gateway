@@ -29,3 +29,24 @@ OIDC_RP_CLIENT_ID = os.getenv('OIDC_RP_CLIENT_ID')
 OIDC_OP_JWKS_ENDPOINT = os.getenv('OIDC_OP_JWKS_ENDPOINT')
 OIDC_RP_CLIENT_SECRET = os.getenv('OIDC_RP_CLIENT_SECRET')
 OIDC_OP_AUTHORIZATION_ENDPOINT = os.getenv('OIDC_OP_AUTHORIZATION_ENDPOINT')
+
+if OIDC_OP_TOKEN_ENDPOINT is None: # or any other one of them
+    REST_FRAMEWORK = {
+        # Use Django's standard `django.contrib.auth` permissions,
+        # or allow read-only access for unauthenticated users.
+        'DEFAULT_AUTHENTICATION_CLASSES': [
+            'knox.auth.TokenAuthentication',
+    #        'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
+            'rest_framework.authentication.BasicAuthentication',
+        ],
+        'DEFAULT_PERMISSION_CLASSES': [
+            'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        ],
+        'DEFAULT_FILTER_BACKENDS': (
+            'django_filters.rest_framework.DjangoFilterBackend',
+        ),
+        # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+        'DEFAULT_PAGINATION_CLASS': 'query.my_pagination.CustomPagination',
+        # 'PAGE_SIZE': 50
+    }
+

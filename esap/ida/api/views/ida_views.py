@@ -76,7 +76,7 @@ class SearchFacilities(generics.ListAPIView):
 # example: /esap-api/workflows/search
 class SearchWorkflows(APIView):
     """
-    Get a list of facilities that match a keyword search
+    Get a list of workflows that match a keyword search
     If no keyword provided, return all facilities
     examples:
     /esap-api/ida/workflows/search?keyword=SKA

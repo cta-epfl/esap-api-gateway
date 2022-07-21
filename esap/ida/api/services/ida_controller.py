@@ -44,7 +44,17 @@ def search_workflows(keyword="", objectclass=""):
     db_workflows = serializers.serialize("python", Workflow.objects.all())
     for db_entry in db_workflows:
         response["results"].append(db_entry["fields"])
+    
     zenodo_workflows = Harvester.get_data_from_zenodo(query=keyword)
+
+    logger.info("zenodo found %s workflows", len(zenodo_workflows))
+
+    #TODO: * add annotations from KG. this allows to infer the keyword connections, 
+    #TODO:   e.g. Mrk421 keyword will return references to blazar
+    #TODO: * we can add ranking 
+    #TODO: * parameter substitutions: some workflows may be manufactured on request
+    #TODO: * keywords may be derived from context. note the difference between contextualization and personalization
+
     response["results"].extend(zenodo_workflows)
     return response
 
