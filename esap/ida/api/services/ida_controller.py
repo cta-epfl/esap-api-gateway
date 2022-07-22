@@ -3,8 +3,10 @@
     These functions are called from the 'views'.
 """
 
+from email.policy import default
 import json
 import logging
+import re
 import typing
 
 import requests
@@ -15,6 +17,9 @@ import collections
 from . import Harvester
 
 logger = logging.getLogger(__name__)
+
+# TODO: this should be set on boot
+logging.basicConfig(level=logging.INFO)
 
 
 def search_facilities(keyword="", objectclass=""):
@@ -29,19 +34,23 @@ def search_facilities(keyword="", objectclass=""):
 WorkflowDict = typing.Dict
 WorkflowList = typing.List[WorkflowDict]
 
-
-def kg_select(s, p):
+def kg_select(t):
     #TODO: take statically update location instead
     r = requests.get("https://www.astro.unige.ch/mmoda/dispatch-data/gw/odakb/query", 
                 params={"query": f"""
                     SELECT * WHERE {{
-                        <{s}> <{p}> ?o .
-                    }} LIMIT 100
+                        {t}
+                    }} LIMIT 1000
                 """}).json()
-    
-    logger.warning(r)
 
-    return [result['o']['value'] for result in r['results']['bindings']]
+    return r['results']['bindings']
+
+
+def kg_select_o(s, p):
+    #TODO: take statically update location instead
+    r = kg_select(f'<{s}> <{p}> ?o')
+
+    return [result['o']['value'] for result in r]
 
 
 # move elsewhere
@@ -60,16 +69,72 @@ class EnrichWorkflows:
     def add_keywords(self, workflow: WorkflowDict) -> None:
         workflow_uri = workflow['url'] # TODO: add file?
         
-        for k in kg_select(workflow_uri, "https://schema.org/keywords"):
+        for k in kg_select_o(workflow_uri, "https://schema.org/keywords"):
             workflow['keywords'] += "," + k
 
-    def annotate_keyword(self, keyword: str):
-        logger.warning("annotate_keyword: %s", keyword)
+    def annotate_keyword(self, keyword: str) -> str:
+        logger.info("annotate_keyword: %s", keyword)
+
+        if keyword not in self.keyword_annotations:
+            def kg_select_sibling_by_label(label):
+                def short_name(u):
+                    return re.split("[#/]", u)[-1]
+
+                S = [
+                    [r['parent']['value'], r['sibling']['value']]
+                    for r in kg_select(f'?a ?b "{label}"; a ?parent . ?sibling a ?parent') ]                    
+
+                for s in S:
+                    logger.info("found sibling result: %s", s)
+
+                #/
+                parent_fertility = collections.defaultdict(int)
+                for p, s in S:
+                    parent_fertility[p] += 1
+                #/
+
+                ordered_siblings = []      
+                for sibling in set([sibling for parent, sibling in S]):
+                    if short_name(sibling) == keyword: continue
+
+                    total_weight = 10000
+                    linking_parents = []
+                    for p in [p for p, s in S if s == sibling]:
+                        total_weight = 1/(1/total_weight + parent_fertility[p])
+                        linking_parents.append(short_name(p))
+
+                    ordered_siblings.append([linking_parents, short_name(sibling), total_weight])
+
+                return ordered_siblings
+            
+                # return [ [short_name(parent), short_name(sibling), parent_fertility[parent]]
+                #          for parent, sibling in S]
+
+            self.keyword_annotations[keyword] = kg_select_sibling_by_label(keyword)
+
+            for s in self.keyword_annotations[keyword]:
+                logger.info("found sibling: %s", s)
+            
+        return self.keyword_annotations[keyword]
 
     def annotate_keywords(self, workflow: WorkflowDict):
+        new_keywords = []
+        workflow['keyword_annotations'] = {}
         for keyword in workflow['keywords'].split(","):
-            self.annotate_keyword(keyword)
+            keyword_annotations = self.annotate_keyword(keyword) 
+            workflow['keyword_annotations'][keyword] = keyword_annotations
 
+            keyword_annotations_string = "; ".join([f"{k[1]} {k[2]:.2f}" for k in sorted(keyword_annotations, key=lambda x:x[2])])
+
+            # new_keywords.append(keyword + f" ({keyword_annotations_string})")
+            # TODO: need to also use length of links, not just number
+            new_keywords.append(keyword)
+            for k in sorted(keyword_annotations, key=lambda x:x[2]):
+                new_keywords.append(f"{k[1]} ({k[2]:.2f})")
+            
+        
+        workflow['keywords'] = ",".join(new_keywords)
+            
         
 
 def search_workflows(keyword="", objectclass=""):
