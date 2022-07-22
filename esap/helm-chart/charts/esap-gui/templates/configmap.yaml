@@ -26,7 +26,8 @@ data:
       #   return 200 '{"status":"success","result":"nginx test json"}';
       # }
 
-      root /shared/public_html;
+      # root /shared/public_html;
+      root /usr/share/nginx/html;
 
       # location / {
       #   auth_basic "Restricted to CTA";
@@ -41,7 +42,7 @@ data:
       # proxy the /static/ url to the frontend container
       location /static/ {
              # this proxies all calls to /static/ to the shared static directory (in case of multiple frontends)
-             alias /static/;
+             alias /usr/share/nginx/html/static/;
       }
 
       # ===== esap-api (backend) configuration =====
