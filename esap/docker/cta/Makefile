@@ -1,9 +1,9 @@
 .FORCE:
-cta-up: .FORCE
-	docker-compose -f cta/docker-compose.yml up -d
+up: .FORCE
+	docker-compose -f cta/docker-compose.yml up --build -d
 
-cta-down:
+down:
 	docker-compose -f cta/docker-compose.yml down
 
-cta-push: .FORCE
+push: .FORCE
 	docker-compose -f cta/docker-compose.yml push
