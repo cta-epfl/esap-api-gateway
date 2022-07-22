@@ -79,10 +79,14 @@ class EnrichWorkflows:
             def kg_select_sibling_by_label(label):
                 def short_name(u):
                     return re.split("[#/]", u)[-1]
-
+                
                 S = [
                     [r['parent']['value'], r['sibling']['value']]
-                    for r in kg_select(f'?a ?b "{label}"; a ?parent . ?sibling a ?parent') ]                    
+                    for r in kg_select(f'?a ?b "{label}"; a ?parent . ?sibling a ?parent') ]
+
+                uris = set([r['a']['value'] for r in kg_select(f'?a ?b "{label}"') ])
+
+                logger.info("found URIs: %s", uris)
 
                 for s in S:
                     logger.info("found sibling result: %s", s)
@@ -97,11 +101,20 @@ class EnrichWorkflows:
                 for sibling in set([sibling for parent, sibling in S]):
                     if short_name(sibling) == keyword: continue
 
+                    logger.info("proximity %s %s", label, short_name(sibling))
+
                     total_weight = 10000
                     linking_parents = []
                     for p in [p for p, s in S if s == sibling]:
+                        logger.info("for %s common parent %s", short_name(sibling), short_name(p))
                         total_weight = 1/(1/total_weight + parent_fertility[p])
                         linking_parents.append(short_name(p))
+
+                    for uri in uris:
+                        if [sibling, uri] in S:
+                            logger.info("this sibling is also a parent!")
+                            total_weight = 1/(1/total_weight + parent_fertility[sibling])
+
 
                     ordered_siblings.append([linking_parents, short_name(sibling), total_weight])
 
