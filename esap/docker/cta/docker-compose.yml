@@ -1,0 +1,61 @@
+version: '3.4'
+
+services:
+  esap_api:
+    image: esap_api:latest
+    #user: "1000"
+    build:
+      context: ${ESAP_ROOT}/esap-api-gateway/esap
+      dockerfile: Dockerfile
+    container_name: esap_api
+    ports:
+      - 8000:8000
+    environment:
+      OIDC_RP_CLIENT_ID: ""
+      OIDC_RP_CLIENT_SECRET: ""
+      OIDC_OP_JWKS_ENDPOINT: "OIDC_OP_JWKS_ENDPOINT"
+      OIDC_OP_AUTHORIZATION_ENDPOINT: ""
+      OIDC_OP_TOKEN_ENDPOINT: ""
+      OIDC_OP_USER_ENDPOINT: ""
+      LOGIN_REDIRECT_URL: ""
+      LOGOUT_REDIRECT_URL: ""
+      LOGIN_REDIRECT_URL_FAILURE: ""
+      # OIDC_AUTHENTICATION_CALLBACK_URL: "localhost:8080/esap-api/oidc/callback/"
+      API_HOST: "localhost:8000"
+      
+
+    restart: always
+    command: "python manage.py runserver 0.0.0.0:8000 --settings=esap.settings.dev"
+    volumes:
+        - ${ESAP_ROOT}/esap-api-gateway/esap:/src #:ro
+          #- ${ESAP_ROOT}/esap-api-gateway/mozilla_django_oidc:/usr/local/lib/python3.10/site-packages/mozilla_django_oidc:ro
+          #- ${ESAP_ROOT}/mozilla-django-oidc/mozilla_django_oidc:/usr/local/lib/python3.10/site-packages/mozilla_django_oidc:ro
+
+  esap_gui:
+    environment:
+      OIDC_RP_CLIENT_ID: ""
+      OIDC_RP_CLIENT_SECRET: ""
+      OIDC_OP_JWKS_ENDPOINT: ""
+      OIDC_OP_AUTHORIZATION_ENDPOINT: ""
+      OIDC_OP_TOKEN_ENDPOINT: ""
+      OIDC_OP_USER_ENDPOINT: ""
+      LOGIN_REDIRECT_URL: ""
+      LOGOUT_REDIRECT_URL: ""
+      LOGIN_REDIRECT_URL_FAILURE: ""
+      NODE_ENV: "development"
+      API_HOST: "localhost:8000"
+    build:
+      context: ${ESAP_ROOT}/esap-gui
+      dockerfile: ${ESAP_ROOT}/esap-api-gateway/esap/docker/cta/Dockerfile
+    container_name: esap_gui
+    image: esap_gui:latest
+    ports:
+      - 8080:80
+    restart: always
+    volumes:
+        #- ${ESAP_ROOT}/esap-api-gateway/esap/docker/cta/nginx.conf:/etc/nginx/nginx.conf
+        #- ${ESAP_ROOT}/esap-api-gateway/esap/docker/cta/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ${ESAP_ROOT}/esap-api-gateway/esap/docker/cta/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ${ESAP_ROOT}/esap-gui/build:/usr/share/nginx/html
+      - ${ESAP_ROOT}/esap-gui/build:/shared/public_html
+      - ${ESAP_ROOT}/esap-gui/build/static:/static

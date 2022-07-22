@@ -5,6 +5,9 @@
 
 import json
 import logging
+import typing
+
+import requests
 from ida.models import *
 from django.db.models import Q
 import django_filters
@@ -22,6 +25,52 @@ def search_facilities(keyword="", objectclass=""):
     """
     return search(Facility, keyword, objectclass)
 
+
+WorkflowDict = typing.Dict
+WorkflowList = typing.List[WorkflowDict]
+
+
+def kg_select(s, p):
+    #TODO: take statically update location instead
+    r = requests.get("https://www.astro.unige.ch/mmoda/dispatch-data/gw/odakb/query", 
+                params={"query": f"""
+                    SELECT * WHERE {{
+                        <{s}> <{p}> ?o .
+                    }} LIMIT 100
+                """}).json()
+    
+    logger.warning(r)
+
+    return [result['o']['value'] for result in r['results']['bindings']]
+
+
+# move elsewhere
+class EnrichWorkflows:
+    def __init__(self, workflows) -> None:
+        self.workflows = workflows
+        self.keyword_annotations = {}
+
+    def do(self) -> WorkflowList:
+        for workflow in self.workflows:
+            self.add_keywords(workflow)
+            self.annotate_keywords(workflow)
+            
+        return self.workflows
+    
+    def add_keywords(self, workflow: WorkflowDict) -> None:
+        workflow_uri = workflow['url'] # TODO: add file?
+        
+        for k in kg_select(workflow_uri, "https://schema.org/keywords"):
+            workflow['keywords'] += "," + k
+
+    def annotate_keyword(self, keyword: str):
+        logger.warning("annotate_keyword: %s", keyword)
+
+    def annotate_keywords(self, workflow: WorkflowDict):
+        for keyword in workflow['keywords'].split(","):
+            self.annotate_keyword(keyword)
+
+        
 
 def search_workflows(keyword="", objectclass=""):
     """
@@ -45,17 +94,28 @@ def search_workflows(keyword="", objectclass=""):
     for db_entry in db_workflows:
         response["results"].append(db_entry["fields"])
     
-    zenodo_workflows = Harvester.get_data_from_zenodo(query=keyword)
+    #TODO: potentially can instead change th eossr
+    zenodo_workflows = [] #Harvester.get_data_from_zenodo(query=keyword)
 
-    logger.info("zenodo found %s workflows", len(zenodo_workflows))
-
+    logger.warning("zenodo found %s workflows", len(zenodo_workflows))
+    
     #TODO: * add annotations from KG. this allows to infer the keyword connections, 
-    #TODO:   e.g. Mrk421 keyword will return references to blazar
-    #TODO: * we can add ranking 
+    #TODO: * we can add ranking  when selecting by keyword
     #TODO: * parameter substitutions: some workflows may be manufactured on request
     #TODO: * keywords may be derived from context. note the difference between contextualization and personalization
+    #TODO: * auto-generate notebooks to fetch MMODA
+    #TODO: * KG represents, in additon to "native" zenodo tags
+    #TODO:   * connections between keywords/entities (e.g. Mrk421 => blazar, blazar => agn, cta => cherenkov telescope). these links can be shown
+    #TODO:   * own representation of inferred keywords with weights,
+    #TODO:     trying our own idea of contextualized view without changing the "trhurh"
+    #TODO:   * paper references? can be derived from zenodo too
+    #TODO:   * executions which are not published in zenodo, should they really be?
+
 
     response["results"].extend(zenodo_workflows)
+    
+    EnrichWorkflows(response["results"]).do()
+
     return response
 
 

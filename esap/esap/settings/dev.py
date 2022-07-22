@@ -29,26 +29,28 @@ DATABASE_ROUTERS = [
     'rucio.database_router.RucioRouter',
 ]
 
+DATABASE_DIR = BASE_DIR
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'esap_config.sqlite3'),
+        'NAME': os.path.join(DATABASE_DIR, 'esap_config.sqlite3'),
     },
     'accounts': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'esap_accounts_config.sqlite3'),
+        'NAME': os.path.join(DATABASE_DIR, 'esap_accounts_config.sqlite3'),
     },
     'ida': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'esap_ida_config.sqlite3'),
+        'NAME': os.path.join(DATABASE_DIR, 'esap_ida_config.sqlite3'),
     },
     'batch': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'esap_batch_config.sqlite3'),
+        'NAME': os.path.join(DATABASE_DIR, 'esap_batch_config.sqlite3'),
     },
     'rucio': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'esap_rucio_config.sqlite3'),
+        'NAME': os.path.join(DATABASE_DIR, 'esap_rucio_config.sqlite3'),
     },
 
 }
@@ -78,3 +80,6 @@ OIDC_OP_USER_ENDPOINT = "https://api.github.com/user"
 # OIDC_AUTHENTICATION_CALLBACK_URL = "https://localhost:8081/esap-api/oidc/callback/"
 
 OIDC_RENEW_ID_TOKEN_EXPIRY_SECONDS = 36000
+
+LOG_FILE_NAME = os.path.join("/var/log/esap/esap.log")
+#LOG_FILE_NAME = os.path.join(BASE_DIR, "../logs/esap.log")

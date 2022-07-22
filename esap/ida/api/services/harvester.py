@@ -53,7 +53,7 @@ class Harvester(object):
                     item["workflow"] = "notebook"
                     item["url"] = codemeta.get("codeRepository", "")
                     item["runtimePlatform"] = codemeta.get("runtimePlatform", "")
-                    item["keywords"] = ", ".join(codemeta.get("keywords", []))
+                    item["keywords"] = ", ".join(codemeta.get("keywords", []) + ['ossr'])
                     item["author"] = ", ".join(
                         [
                             " ".join(
@@ -82,6 +82,7 @@ class Harvester(object):
             return results
 
         keywords = "jupyter-notebook"
+        # keywords = "GRB"
         # Keep for later when we implement a keyword search:
         # escape_records = (
         #     get_ossr_records(search=query, keywords=keywords)
