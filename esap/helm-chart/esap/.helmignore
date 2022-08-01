@@ -22,4 +22,6 @@
 *.tmproj
 .vscode/
 
-*/values-*.yaml
+values-*.yaml
+.pytest_cache
+Makefile

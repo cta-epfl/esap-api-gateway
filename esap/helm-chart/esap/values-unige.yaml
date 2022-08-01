@@ -8,11 +8,11 @@ ingress:
     traefik.ingress.kubernetes.io/router.tls: "true"
     ingress.kubernetes.io/proxy-body-size: 50m
   hosts:
-  - host: esap-gui.obsuks1.unige.ch
+  - host: esap.obsuks1.unige.ch
     paths:
     - path: /
       pathType: ImplementationSpecific
   tls:
-  - secretName: esap-gui.tls-secret
+  - secretName: esap.tls-secret
     hosts:
-    - esap-gui.obsuks1.unige.ch
+    - esap.obsuks1.unige.ch

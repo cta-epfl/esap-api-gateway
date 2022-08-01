@@ -1,5 +1,6 @@
 package:
 	(\
+	    	set -x; \
 		td=$$(mktemp  -d -u --tmpdir esap-ctaepfl-helm-git-XXXX); \
 		git clone git@github.com:cta-epfl/cta-epfl.github.io.git $$td; \
 		helm package esap -d $$td ; \
@@ -7,7 +8,7 @@ package:
 		git add *.tgz; \
 		git commit -a -m "new esap version"; \
 		tar tvf $$(ls -t *gz | head -1); \
-		echo git push; \
+		if echo $${DRY:-yes}  | grep yes; then echo git push; else git push origin main; fi \
 	)
 
 increment:
