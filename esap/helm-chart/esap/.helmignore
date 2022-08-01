@@ -22,6 +22,4 @@
 *.tmproj
 .vscode/
 
-values-*.yaml
-
-.pytest_cache
+*/values-*.yaml
