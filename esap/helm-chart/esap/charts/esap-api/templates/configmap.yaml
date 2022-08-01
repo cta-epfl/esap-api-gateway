@@ -287,8 +287,11 @@ data:
         LOGOUT_REDIRECT_URL = os.environ['LOGOUT_REDIRECT_URL']
         LOGIN_REDIRECT_URL_FAILURE = os.environ['LOGIN_REDIRECT_URL_FAILURE']
         # raise
-    except:
-        print("OIDC settings are not configured. ESAP will work in anonymous mode")
+    except Exception as e: 
+        if os.environ.get("ESAP_ENABLE_ANONYMOUS_MODE", "no") == "yes":
+            print("OIDC settings are not configured. ESAP will work in anonymous mode")
+        else:
+            raise
         
 
 

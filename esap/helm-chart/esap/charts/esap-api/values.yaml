@@ -9,7 +9,7 @@ image:
   repository: volodymyrsavchenko/esap-api
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "53f82a41"
 
 imagePullSecrets: []
 nameOverride: ""
