@@ -22,4 +22,4 @@
 *.tmproj
 .vscode/
 
-values-*.yaml
+*/values-*.yaml
