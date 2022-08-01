@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "esap-gui.fullname" . }}
+  labels:
+    {{- include "esap-gui.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "esap-gui.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "esap-gui.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "esap-gui.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+      - name: esap-nginx-volume
+        configMap:
+          name: esap-nginx
+      - name: esap-nginx-htpasswd
+        secret:
+          secretName: esap-nginx-htpasswd
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: / #health
+              port: http
+          readinessProbe:
+            httpGet:
+              path: / #health
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+          - name: API_HOST
+            value: "https://{{ (index .Values.ingress.hosts 0).host }}/esap-api"
+          - name: NODE_ENV
+            value: "development"
+          - name: RUCIO_HOST
+            value: https://rucio.test-cta-cscs.odahub.io/
+          - name: RUCIO_AUTH_HOST
+            value: https://rucio-auth.test-cta-cscs.odahub.io/
+          {{- range $key, $value := .Values.oidc }}
+          - name: {{ $key }}
+            value: {{ $value }}
+          {{- end }}
+          volumeMounts:
+          - name: esap-nginx-volume
+            mountPath: /etc/nginx/conf.d/default.conf
+            # mountPath: /etc/nginx/conf.d/nginx.conf
+            subPath: nginx.conf
+            readOnly: true
+            #- name: esap-nginx-htpasswd
+            #mountPath: /etc/nginx/htpasswd
+            #subPath: htpasswd
+            #readOnly: true
+
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+

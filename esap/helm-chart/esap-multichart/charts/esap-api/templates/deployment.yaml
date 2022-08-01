@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "esap-api.fullname" . }}
+  labels:
+    {{- include "esap-api.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "esap-api.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "esap-api.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+      - name: esap-api-settings
+        configMap:
+          name: esap-api-settings
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "esap-api.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+          - bash 
+          - -c
+          - "python manage.py runserver 0.0.0.0:8000 --settings=esap.settings.{{ .Values.esap_api_settings_kind }} -v3"
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /esap-api/ida
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /esap-api/ida
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+          - name: SECRET_KEY
+            value: "{{ .Values.django_secret_key }}"
+          - name: NODE_ENV
+            value: "development"
+          - name: RUCIO_HOST
+            value: https://rucio.test-cta-cscs.odahub.io/
+          - name: RUCIO_AUTH_HOST
+            value: https://rucio-auth.test-cta-cscs.odahub.io/
+          {{- range $key, $value := .Values.oidc }}
+          - name: {{ $key }}
+            value: {{ $value }}
+          {{- end }}
+          volumeMounts:
+          - name: esap-api-settings
+            mountPath: /src/esap/settings/prod.py
+            subPath: prod.py
+            readOnly: true
+
+
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
