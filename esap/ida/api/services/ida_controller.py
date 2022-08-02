@@ -192,7 +192,10 @@ def search_workflows(keyword="", objectclass=""):
 
     response["results"].extend(zenodo_workflows)
     
-    EnrichWorkflows(response["results"]).do()
+    try:
+        EnrichWorkflows(response["results"]).do()
+    except Exception as e:
+        logger.exception('failed to EnrichWorkflows %s', e)
 
     return response
 
