@@ -51,6 +51,7 @@ oidc:
     #  these secret values
     OIDC_RP_CLIENT_ID: "YOUR_OWN_SECRET_CLIENT_ID"
     OIDC_RP_CLIENT_SECRET: "YOUR_OWN_SECRET_CLIENT_SECRET"
+```
 
 ## Install the app
 
