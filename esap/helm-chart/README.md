@@ -29,6 +29,8 @@ ingress:
   tls:
   - secretName: esap.tls-secret
     # just the hosts for which TLS is needed
+    # this will require some standard certmanager on the kubernetes cluster, see e.g. https://getbetterdevops.io/k8s-ingress-with-letsencrypt/    
+    # for a service with public IP, letsencrypt certmanager is very straightforward
     hosts: 
     - esap.obsuks1.unige.ch
 ```
@@ -47,8 +49,8 @@ oidc:
     OIDC_OP_JWKS_ENDPOINT: "https://gitlab.com/oauth/discovery/keys"    
     OIDC_AUTHENTICATION_CALLBACK_URL: "oidc_authentication_callback"
     #  these secret values
-    OIDC_RP_CLIENT_ID: ""
-    OIDC_RP_CLIENT_SECRET: ""
+    OIDC_RP_CLIENT_ID: "YOUR_OWN_SECRET_CLIENT_ID"
+    OIDC_RP_CLIENT_SECRET: "YOUR_OWN_SECRET_CLIENT_SECRET"
 
 ## Install the app
 
@@ -62,6 +64,6 @@ Image versions
 
 App version
 
-TODO: helpers to ingest docker keys
+TODO: helpers to ingest docker image versions
 
-Helm version
+Helm chart version
