@@ -25,7 +25,7 @@ If release name contains chart name it will be used as a full name.
 
 
 {{- define "esap-api.fullname" -}}
-{{- $name := esap-api }}
+{{- $name := "esap-api" }}
 {{- if contains $name .Release.Name }}
 {{- .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- else }}

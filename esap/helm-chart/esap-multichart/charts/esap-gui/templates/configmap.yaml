@@ -11,8 +11,8 @@ data:
 
     upstream backend {
       # note that this is the container name from the docker-compose.yml, and it uses the internal port because we are on a docker network
-      server {{ include "esap-api.fullname" . }}:8000;
-      #server esap-api:8000;
+      #server :8000;
+      server esap-api:8000;
       # server esap-api.test-cta-cscs.odahub.io:443;
     }
 
