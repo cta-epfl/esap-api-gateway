@@ -295,7 +295,7 @@ def search_workflows(keyword="", objectclass=""):
             try:
                 source_name, source_name_paper_loc, source_paper_title = latest_sky_event()
                 comment = f', reported in "{source_paper_title}" ({source_name_paper_loc})'
-                new_result['keywords'] += ", gamma-ray burst"
+                new_result['keywords'] += ", gamma-ray-burst"
             except:
                 source_name = "Mrk 421"
                 comment = ", a nice source for Cherenkov analysis"
@@ -311,7 +311,7 @@ def search_workflows(keyword="", objectclass=""):
             new_result = copy.deepcopy(result)
             new_result['class'] = 'autogen'
             new_result['url'] = compose_workflow(new_result, {'code_cell': (
-                '# connect to cluster'
+                '# connect to cluster\n'
                 "ray.init('ray://ray-cluster-ray-head.ray:10001')"
                 ''
                 )})
