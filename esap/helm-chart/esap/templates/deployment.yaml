@@ -30,6 +30,9 @@ spec:
       - name: esap-api-settings
         configMap:
           name: esap-api-settings
+      - name: esap-autogen-repositories
+        persistentVolumeClaim:
+          claimName: pvc-esap-autogen-repositories
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -80,6 +83,10 @@ spec:
             #mountPath: /etc/nginx/htpasswd
             #subPath: htpasswd
             #readOnly: true
+          - mountPath: "/usr/share/nginx/html/git"
+            name: esap-autogen-repositories
+            readOnly: true
+
 
         - name: api
           securityContext:
@@ -123,6 +130,10 @@ spec:
             subPath: prod.py
             readOnly: true
 
+          volumeMounts:
+          - mountPath: "/share/git"
+            name: esap-autogen-repositories
+            readOnly: false
 
 
 

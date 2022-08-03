@@ -17,7 +17,12 @@ package:
 	)
 
 increment:
-	bump2version --verbose --dry-run patch --allow-dirty
+	if echo $${DRY:-yes}  | grep yes; then \
+	    	echo '\033[31mdry only!\033[0m' \
+		bump2version --verbose --dry-run patch --allow-dirty; \
+	else \
+		bump2version --verbose patch --allow-dirty; \
+	fi 
 
 
 chart-tags:

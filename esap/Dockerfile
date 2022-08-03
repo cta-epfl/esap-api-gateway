@@ -1,5 +1,5 @@
 FROM python:3.10-slim
-RUN apt-get update && apt-get install --no-install-recommends -y bash nano mc libmagic1 git
+RUN apt-get update && apt-get install --no-install-recommends -y bash nano mc libmagic1 git git-lfs
 
 RUN mkdir /src
 WORKDIR /src
@@ -26,3 +26,4 @@ RUN python manage.py migrate --settings=esap.settings.dev
 RUN python manage.py loaddata --database=default --settings=esap.settings.dev esap/esap_config.yaml
 
 CMD exec gunicorn esap.wsgi_docker:application --bind 0.0.0.0:8000 --workers 3
+

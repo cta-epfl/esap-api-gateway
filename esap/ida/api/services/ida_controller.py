@@ -5,10 +5,14 @@
 
 import copy
 from email.policy import default
+import hashlib
 import json
 import logging
+import os
 import re
+import tempfile
 import typing
+import subprocess
 
 import requests
 from ida.models import *
@@ -150,6 +154,23 @@ class EnrichWorkflows:
         workflow['keywords'] = ",".join(new_keywords)
             
         
+def compose_workflow(result: typing.Dict) -> str:
+    target_key = hashlib.md5(json.dumps(result, sort_keys=True).encode()).hexdigest()[:8]
+    target_dir = os.path.join("/share/git", target_key)
+
+    if not os.path.exists(target_dir):
+        subprocess.check_call(['git', 'init', '--bare', target_dir])
+        subprocess.check_call(['git', 'lfs', 'install'])    
+        
+        with tempfile.TemporaryDirectory() as tempdir:
+            subprocess.check_call(['git', 'clone', result['url'], tempdir])
+            subprocess.check_call(['git', 'remote', 'add', 'share', target_dir], cwd=tempdir)
+            subprocess.check_call(['git', 'push', 'share', 'master', '--force'], cwd=tempdir)
+
+        subprocess.check_call(['git', '--bare', 'update-server-info'], cwd=target_dir)
+    
+    # return os.environ.get('')
+    return f"https://esap-gui.test-cta-cscs.odahub.io/git/{target_key}"
 
 def search_workflows(keyword="", objectclass=""):
     """
@@ -208,20 +229,27 @@ def search_workflows(keyword="", objectclass=""):
 
     for result in copy.deepcopy(response["results"]):
         result['class'] = 'autogen'
-        autogen_workflows.append(result)
+        if 'HESS' in result['description'] and 'savchenk' in result['url']:
+            result['url'] = compose_workflow(result)
+            # result['url']
+            autogen_workflows.append(result)
 
     # add autosaved workflows
     autosave_workflows = []
 
+    # TODO: fetch from some store where they are saved by culler
     for result in copy.deepcopy(response["results"]):
-        result['class'] = 'autosave'
-        autosave_workflows.append(result)
+        logger.info("result['description']: %s", result['description'])
+        if 'HESS' in result['description'] and 'savchenk' in result['url']:
+            result['class'] = 'autosave'
+            result['description'] += "from session of by Volodymyr Savchenko at 2022-08-02T12:22:11"
+            autosave_workflows.append(result)
 
     response['results'].extend(autogen_workflows)
     response['results'].extend(autosave_workflows)
 
     return response
-    
+
 
 
 def search(model, keyword="", objectclass=""):

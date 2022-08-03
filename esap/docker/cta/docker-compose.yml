@@ -27,7 +27,8 @@ services:
     restart: always
     command: "python manage.py runserver 0.0.0.0:8000 --settings=esap.settings.dev"
     volumes:
-        - ${ESAP_ROOT}/esap-api-gateway/esap:/src #:ro
+      - ${ESAP_ROOT}/esap-api-gateway/esap:/src #:ro
+      - ${ESAP_ROOT}/share/git:/share/git
           #- ${ESAP_ROOT}/esap-api-gateway/mozilla_django_oidc:/usr/local/lib/python3.10/site-packages/mozilla_django_oidc:ro
           #- ${ESAP_ROOT}/mozilla-django-oidc/mozilla_django_oidc:/usr/local/lib/python3.10/site-packages/mozilla_django_oidc:ro
 
@@ -59,3 +60,4 @@ services:
       - ${ESAP_ROOT}/esap-gui/build:/usr/share/nginx/html
       - ${ESAP_ROOT}/esap-gui/build:/shared/public_html
       - ${ESAP_ROOT}/esap-gui/build/static:/static
+      - ${ESAP_ROOT}/share/git:/usr/share/nginx/html/git
