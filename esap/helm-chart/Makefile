@@ -1,3 +1,6 @@
+latest_api_tag:=$(shell docker inspect esap_api:latest | jq  '.[0].RootFS.Layers' | md5sum  - | cut -c 1-8)
+latest_gui_tag:=$(shell docker inspect esap_gui:latest | jq  '.[0].RootFS.Layers' | md5sum  - | cut -c 1-8)
+
 package:
 	(\
 	    	set -x; \
@@ -15,3 +18,7 @@ package:
 
 increment:
 	bump2version --verbose --dry-run patch --allow-dirty
+
+
+chart-tags:
+	sed '/imageAPI/ {n;n;n;n; /tag:/ {s/".*"/"'$(latest_api_tag)'"/}}' -i esap/values.yaml
