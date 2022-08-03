@@ -9,14 +9,14 @@ imageAPI:
   repository: volodymyrsavchenko/esap-api
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "53f82a41"
+  tag: "7fd23712"
 
 
 imageGUI:
   repository: volodymyrsavchenko/esap-gui
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0f561cbd"
+  tag: "cd172e97"
 
 
 imagePullSecrets: []

@@ -21,4 +21,7 @@ increment:
 
 
 chart-tags:
+	cp -v esap/values.yaml esap/values.yaml.backup
 	sed '/imageAPI/ {n;n;n;n; /tag:/ {s/".*"/"'$(latest_api_tag)'"/}}' -i esap/values.yaml
+	sed '/imageGUI/ {n;n;n;n; /tag:/ {s/".*"/"'$(latest_gui_tag)'"/}}' -i esap/values.yaml
+	diff -U 3  esap/values.yaml*
