@@ -353,7 +353,7 @@ data:
     }
 
     server {
-      server_name localhost;
+        #server_name localhost;
 
       # inside the container, listen to port 80
       listen 80;

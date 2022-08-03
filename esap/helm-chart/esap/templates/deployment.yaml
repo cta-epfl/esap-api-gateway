@@ -129,7 +129,6 @@ spec:
             mountPath: /src/esap/settings/prod.py
             subPath: prod.py
             readOnly: true
-
           - mountPath: "/share/git"
             name: esap-autogen-repositories
             readOnly: false

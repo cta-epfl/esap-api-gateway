@@ -47,7 +47,8 @@ services:
       API_HOST: "localhost:8000"
     build:
       context: ${ESAP_ROOT}/esap-gui
-      dockerfile: ${ESAP_ROOT}/esap-api-gateway/esap/docker/cta/Dockerfile
+      dockerfile: ${ESAP_ROOT}/esap-gui/Dockerfile
+      #dockerfile: ${ESAP_ROOT}/esap-api-gateway/esap/docker/cta/Dockerfile
     container_name: esap_gui
     image: esap_gui:latest
     ports:

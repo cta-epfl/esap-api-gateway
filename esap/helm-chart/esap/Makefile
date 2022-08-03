@@ -1,7 +1,7 @@
 repository:=volodymyrsavchenko/esap-api
 latest_tag:=$(shell docker inspect esap_api:latest | jq  '.[0].RootFS.Layers' | md5sum  - | cut -c 1-8)
 repositoryGUI:=volodymyrsavchenko/esap-gui
-latest_tagGUI:=$(shell docker inspect esap_gui:latest | jq -r '.[0].RepoDigests[0]' | md5sum  - | cut -c 1-8)
+latest_tagGUI:=$(shell docker inspect esap_gui:latest | jq -r '.[0].RootFS.Layers' | md5sum  - | cut -c 1-8)
 
 deploy:
 	helm upgrade --install esap -f values-cscs.yaml -f values-cscs-secret.yaml . \
