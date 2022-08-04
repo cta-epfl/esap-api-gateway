@@ -2,10 +2,18 @@
 
 ## Add helm repository
 
-```bash
+```
 $ helm repo add ctaepfl https://cta-epfl.github.io
-$ helm repo update
-$ helm search repo esap 
+"ctaepfl" has been added to your repositories
+
+$ helm repo update ctaepfl
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "ctaepfl" chart repository
+Update Complete. ⎈Happy Helming!⎈
+
+$ helm search repo esap
+NAME        	CHART VERSION	APP VERSION	DESCRIPTION    
+ctaepfl/esap	0.1.14       	0.2.0      	ESAP Helm Chart
 ```
 
 ## Add values
