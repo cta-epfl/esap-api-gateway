@@ -64,7 +64,16 @@ oidc:
 ## Install the app
 
 ```bash
-helm install esap ctaepfl/esap -f values.yaml -f values-secret.yaml
+$ helm upgrade --install esap ctaepfl/esap -f values.yaml -f values-secret.yaml
+Release "esap" has been upgraded. Happy Helming!
+NAME: esap
+LAST DEPLOYED: Thu Aug  4 16:33:56 2022
+NAMESPACE: esap
+STATUS: deployed
+REVISION: 10
+NOTES:
+1. Get the application URL by running these commands:
+  https://esap.obsuks1.unige.ch/
 ```
 
 # Development: TODO
