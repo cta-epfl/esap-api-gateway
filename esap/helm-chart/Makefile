@@ -1,5 +1,11 @@
-latest_api_tag:=$(shell docker inspect esap_api:latest | jq  '.[0].RootFS.Layers' | md5sum  - | cut -c 1-8)
-latest_gui_tag:=$(shell docker inspect esap_gui:latest | jq  '.[0].RootFS.Layers' | md5sum  - | cut -c 1-8)
+image_base:=volodymyrsavchenko/esap-
+
+# this should rather be derived from code version
+latest_tag_api:=$(shell docker inspect esap_api:latest | jq  '.[0].RootFS.Layers' | md5sum  - | cut -c 1-8)
+latest_tag_gui:=$(shell docker inspect esap_gui:latest | jq  '.[0].RootFS.Layers' | md5sum  - | cut -c 1-8)
+
+image_api:=$(image_base)api:$(latest_tag_api)
+image_gui:=$(image_base)gui:$(latest_tag_gui)
 
 package:
 	(\
@@ -27,6 +33,22 @@ increment:
 
 chart-tags:
 	cp -v esap/values.yaml esap/values.yaml.backup
-	sed '/imageAPI/ {n;n;n;n; /tag:/ {s/".*"/"'$(latest_api_tag)'"/}}' -i esap/values.yaml
-	sed '/imageGUI/ {n;n;n;n; /tag:/ {s/".*"/"'$(latest_gui_tag)'"/}}' -i esap/values.yaml
-	diff -U 3  esap/values.yaml*
+	sed '/imageAPI/ {n;n;n;n; /tag:/ {s/".*"/"'$(latest_tag_api)'"/}}' -i esap/values.yaml
+	sed '/imageGUI/ {n;n;n;n; /tag:/ {s/".*"/"'$(latest_tag_gui)'"/}}' -i esap/values.yaml
+	diff -U 3  esap/values.yaml* || echo "there is an update!"
+
+
+deploy:
+	helm upgrade --install esap -f values-cscs.yaml -f values-cscs-secret.yaml esap \
+	    --set imageAPI.tag=${latest_tag_api} \
+	    --set imageGUI.tag=${latest_tag_gui} \
+	    ${extra}
+	
+
+push:
+	docker tag esap_api $(image_api)
+	docker push $(image_api)
+	docker tag esap_gui  $(image_gui)
+	docker push $(image_gui)
+
+

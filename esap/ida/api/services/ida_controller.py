@@ -18,6 +18,7 @@ import subprocess
 from numpy import insert
 
 import requests
+import yaml
 from ida.models import *
 from django.db.models import Q
 import django_filters
@@ -197,12 +198,25 @@ def latest_sky_event():
     e = r['results']['bindings'][0]
     return e['name']['value'], e['location']['value'], e['title']['value']
 
-        
-def compose_workflow(result: typing.Dict, additions: typing.Dict) -> str:
 
+def compose_workflow(result: typing.Dict, additions: typing.Dict) -> str:
     target_key = hashlib.md5(json.dumps(result, sort_keys=True).encode()).hexdigest()[:8]
     target_key += "-" + hashlib.md5(json.dumps(additions, sort_keys=True).encode()).hexdigest()[:8]
 
+    with open(f"/share/git/{target_key}.yaml", "w") as f:
+        yaml.dump({
+                "workflow": result,
+                "additions": additions,
+            }, f)
+
+    return f"https://esap-gui.test-cta-cscs.odahub.io/esap-api/ida/compose/{target_key}" 
+
+def build_workflow_composition(target_key) -> str:
+    with open(f"/share/git/{target_key}.yaml") as f:
+        R = yaml.safe_load(f)
+        result = R['workflow']
+        additions = R['additions']
+    
     target_dir = os.path.join("/share/git", target_key)
 
     if not os.path.exists(target_dir):
@@ -298,7 +312,7 @@ def search_workflows(keyword="", objectclass=""):
                 new_result['keywords'] += ", gamma-ray-burst"
             except:
                 source_name = "Mrk 421"
-                comment = ", a nice source for Cherenkov analysis"
+                comment = ", a nice source for Cherenkov Telescope analysis"
                 new_result['keywords'] += ", blazar, agn" # infer this
 
             new_result['name'] += f" for {source_name}"

@@ -1,9 +1,9 @@
 import logging
-from urllib.parse import quote_plus as quote_url
+from urllib.parse import quote_plus as quote_url, urlencode
 from rest_framework import generics, pagination
 from rest_framework.response import Response
 from ida.api.services import ida_controller
-from django.views.generic import ListView
+from django.views.generic import ListView, View
 from django_filters import rest_framework as filters
 from rest_framework import viewsets, permissions
 from ida.models import *
@@ -177,3 +177,13 @@ class Deploy():
 
         return redirect(target)
 
+class Compose:
+    # serializer_class = IdaSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+    def get(request, target_key, url_remainder=""):
+        return redirect(
+            ida_controller.build_workflow_composition(target_key) + url_remainder + "?" + urlencode(request.GET), 
+            permanent=False)
+
+    

@@ -30,9 +30,11 @@ spec:
       - name: esap-api-settings
         configMap:
           name: esap-api-settings
+      {{- if .Values.composer.enabled }}
       - name: esap-autogen-repositories
         persistentVolumeClaim:
           claimName: pvc-esap-autogen-repositories
+      {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -83,10 +85,11 @@ spec:
             #mountPath: /etc/nginx/htpasswd
             #subPath: htpasswd
             #readOnly: true
+          {{- if .Values.composer.enabled }}
           - mountPath: "/usr/share/nginx/html/git"
             name: esap-autogen-repositories
             readOnly: true
-
+          {{- end }}
 
         - name: api
           securityContext:
