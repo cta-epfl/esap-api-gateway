@@ -1,6 +1,7 @@
 # ESAP API Gateway
 
 **this version is slightly modified for kuberenetes deployment, gitlab OIDC, CSCS deployment, and some experimentation**
+**the original version developed by ESCAPE can be found here https://git.astron.nl/astron-sdc/esap-api-gateway/**
 
 ESAP API Gateway is a 'backend' web application written in Django.
 It provides a range of services that can be accessed through a REST API.
