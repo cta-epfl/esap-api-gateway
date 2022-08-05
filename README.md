@@ -1,4 +1,7 @@
-# ESAP GUI Gateway
+# ESAP API Gateway
+
+**this version is slightly modified for kuberenetes deployment, gitlab OIDC, CSCS deployment, and some experimentation**
+
 ESAP API Gateway is a 'backend' web application written in Django.
 It provides a range of services that can be accessed through a REST API.
 
